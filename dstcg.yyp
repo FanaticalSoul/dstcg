@@ -8,7 +8,7 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
+  "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation Curves.yy","name":"Animation Curves","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -35,14 +35,16 @@
   },
   "name":"dstcg",
   "resources":[
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"id":{"name":"spr_player_area","path":"sprites/spr_player_area/spr_player_area.yy",},},
+    {"id":{"name":"obj_hero_deck","path":"objects/obj_hero_deck/obj_hero_deck.yy",},},
+    {"id":{"name":"loc_room","path":"rooms/loc_room/loc_room.yy",},},
+    {"id":{"name":"spr_card_back","path":"sprites/spr_card_back/spr_card_back.yy",},},
+    {"id":{"name":"spr_player_field","path":"sprites/spr_player_field/spr_player_field.yy",},},
     {"id":{"name":"spr_test","path":"sprites/spr_test/spr_test.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"loc_room","path":"rooms/loc_room/loc_room.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
