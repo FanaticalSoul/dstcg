@@ -1,2 +1,2 @@
 /// @description Reveal state on
-deck_reveal = true;
+deck_reveal = !deck_reveal;

@@ -52,6 +52,7 @@
     {"id":{"name":"spr_card_8","path":"sprites/spr_card_8/spr_card_8.yy",},},
     {"id":{"name":"spr_card_9","path":"sprites/spr_card_9/spr_card_9.yy",},},
     {"id":{"name":"spr_card_back","path":"sprites/spr_card_back/spr_card_back.yy",},},
+    {"id":{"name":"spr_player_deck_reveal","path":"sprites/spr_player_deck_reveal/spr_player_deck_reveal.yy",},},
     {"id":{"name":"spr_player_field","path":"sprites/spr_player_field/spr_player_field.yy",},},
   ],
   "resourceType":"GMProject",
