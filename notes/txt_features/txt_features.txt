@@ -8,3 +8,11 @@ I would like to add animations ( abyss watcher phase transition, cards flipping 
 On hero select:
  - have option for movement
  - have option to use ability
+ 
+ 
+Have holding right click enhance card resolution ( MTGO )
+
+
+
+ctrl + click cards in hand:
+ - select cards to discard and then draw

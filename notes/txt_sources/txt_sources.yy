@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"txt_sources",
+  "name":"txt_sources",
+  "parent":{
+    "name":"dstcg",
+    "path":"dstcg.yyp",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

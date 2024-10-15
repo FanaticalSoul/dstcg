@@ -10,6 +10,7 @@
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":51,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":61,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":60,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_hero_deck",
@@ -38,7 +39,7 @@
   ],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"deck_size","filters":[],"listItems":[],"multiselect":false,"name":"deck_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"deck_size","filters":[],"listItems":[],"multiselect":false,"name":"deck_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"deck_spacing","filters":[],"listItems":[],"multiselect":false,"name":"deck_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.2","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"deck_reveal","filters":[],"listItems":[],"multiselect":false,"name":"deck_reveal","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"deck_reveal_spacing","filters":[],"listItems":[],"multiselect":false,"name":"deck_reveal_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":0,},
@@ -47,8 +48,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_card_back",
-    "path":"sprites/spr_card_back/spr_card_back.yy",
+    "name":"spr_card_zone_deck",
+    "path":"sprites/spr_card_zone_deck/spr_card_zone_deck.yy",
   },
   "spriteMaskId":null,
   "visible":true,
