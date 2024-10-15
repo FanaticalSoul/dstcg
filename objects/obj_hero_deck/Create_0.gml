@@ -9,7 +9,7 @@ deck_size = 0; // cards in deck
 deck_point = 0; // position in deck (pointer)
 deck_min = 28; // starting deck size
 deck_max = 40; // ending deck size
-
+deck_reveal = false;
 // custom adjustments
 deck_spacing = 4 / deck_max;
 

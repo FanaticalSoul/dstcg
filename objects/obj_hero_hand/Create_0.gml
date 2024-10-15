@@ -3,10 +3,6 @@ x = 0;
 y = 168;
 ///
 
-card_width = sprite_get_width(spr_card_back);
-card_height = sprite_get_height(spr_card_back);
-
-
 hand_max = hand_start; // this is for the ring that draws cards
 
 for (i = 0; i < hand_start; i++) {

@@ -32,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_card_back",
+    "path":"sprites/spr_card_back/spr_card_back.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

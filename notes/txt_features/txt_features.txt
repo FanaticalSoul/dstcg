@@ -1,0 +1,10 @@
+I would like to add sound effects ( death noises, attack noises, boss music, area music )
+
+I would like to add deck importing and exporting
+
+I would like to add animations ( abyss watcher phase transition, cards flipping over )
+
+
+On hero select:
+ - have option for movement
+ - have option to use ability
