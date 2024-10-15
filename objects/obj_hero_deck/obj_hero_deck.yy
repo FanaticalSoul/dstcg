@@ -42,6 +42,7 @@
     {"$GMObjectProperty":"v1","%Name":"deck_spacing","filters":[],"listItems":[],"multiselect":false,"name":"deck_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.2","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"deck_reveal","filters":[],"listItems":[],"multiselect":false,"name":"deck_reveal","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"deck_reveal_spacing","filters":[],"listItems":[],"multiselect":false,"name":"deck_reveal_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"field_offset","filters":[],"listItems":[],"multiselect":false,"name":"field_offset","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"16","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

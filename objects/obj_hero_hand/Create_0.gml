@@ -6,7 +6,7 @@ y = 168;
 #macro HANDEND 6 // set as global // WoL
 
 hand_max = HANDEND; // this is for the "ring equipment" that draws cards
-
+hand_reveal_offset = 0;
 for (i = 0; i < hand_start; i++) {
 	hand[i][0] = 0; // sprite index
 	hand[i][1] = false; // revealed

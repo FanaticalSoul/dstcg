@@ -15,8 +15,8 @@ for (i = 0; i < deck_size; i++) {
 		// existing card
 		if (deck_reveal) {
 			// draw background
-			draw_sprite(spr_player_deck_reveal,-1,0,obj_hero_hand.y-sprite_height);
-			var _above_hand_x = obj_hero_hand.x+deck_reveal_spacing;
+			draw_sprite(spr_player_deck_reveal,-1,field_offset,obj_hero_hand.y-sprite_height);
+			var _above_hand_x = obj_hero_hand.x+deck_reveal_spacing+field_offset;
 			var _above_hand_y = obj_hero_hand.y-sprite_height-deck_reveal_spacing;
 			_above_hand_x += deck_reveal_offset*(sprite_width+deck_reveal_spacing); // offset cards
 			// tmp cordinate values
