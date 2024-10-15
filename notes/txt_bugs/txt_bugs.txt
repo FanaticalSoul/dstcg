@@ -1,0 +1,5 @@
+shuffle + drawing ( BUG001 ):
+ - shuffling after drawing a card breaks the game, so don't shuffle after the game starts
+ ( specifically after drawing your opening hand )
+
+

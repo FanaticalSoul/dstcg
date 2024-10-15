@@ -37,6 +37,7 @@
   },
   "name":"dstcg",
   "resources":[
+    {"id":{"name":"txt_bugs","path":"notes/txt_bugs/txt_bugs.yy",},},
     {"id":{"name":"txt_features","path":"notes/txt_features/txt_features.yy",},},
     {"id":{"name":"txt_sources","path":"notes/txt_sources/txt_sources.yy",},},
     {"id":{"name":"obj_hero_deck","path":"objects/obj_hero_deck/obj_hero_deck.yy",},},

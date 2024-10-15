@@ -15,9 +15,10 @@ function scr_draw_hero_card (_num){
 	}
 	else {
 		for	(i = 0; i < _num; i++) {
-			obj_hero_hand.hand[obj_hero_hand.hand_size++] = obj_hero_deck.deck[--obj_hero_deck.deck_size][0]; // remember states
-			//obj_hero_hand.hand_size = obj_hero_hand.hand_size + 1;
-			//variable_instance_set(obj_hero_hand,"hand_size",obj_hero_hand.hand_size + 1);
+			// BUG001 // WoL //
+			obj_hero_hand.hand[obj_hero_hand.hand_size++] = obj_hero_deck.deck[--obj_hero_deck.deck_size];
+			// remember states
+			obj_hero_hand.hand[obj_hero_hand.hand_size][1] = true; // reveal card
 		}
 	}
 	return;
