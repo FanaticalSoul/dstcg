@@ -29,6 +29,7 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"hand_start","filters":[],"listItems":[],"multiselect":false,"name":"hand_start","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"hand_size","filters":[],"listItems":[],"multiselect":false,"name":"hand_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"hand_spacing","filters":[],"listItems":[],"multiselect":false,"name":"hand_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
