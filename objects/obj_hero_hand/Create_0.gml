@@ -2,9 +2,10 @@
 x = 0;
 y = 168;
 ///
-#macro HANDMAX 6 // set as global // WoL
+#macro HANDMAX 9 // set as global // WoL
+#macro HANDEND 6 // set as global // WoL
 
-hand_max = HANDMAX; // this is for the "ring equipment" that draws cards
+hand_max = HANDEND; // this is for the "ring equipment" that draws cards
 
 for (i = 0; i < hand_start; i++) {
 	hand[i][0] = 0; // sprite index
