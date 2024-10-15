@@ -39,7 +39,9 @@
   "resources":[
     {"id":{"name":"txt_bugs","path":"notes/txt_bugs/txt_bugs.yy",},},
     {"id":{"name":"txt_features","path":"notes/txt_features/txt_features.yy",},},
+    {"id":{"name":"txt_notes","path":"notes/txt_notes/txt_notes.yy",},},
     {"id":{"name":"txt_sources","path":"notes/txt_sources/txt_sources.yy",},},
+    {"id":{"name":"obj_hero_card","path":"objects/obj_hero_card/obj_hero_card.yy",},},
     {"id":{"name":"obj_hero_deck","path":"objects/obj_hero_deck/obj_hero_deck.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"loc_room","path":"rooms/loc_room/loc_room.yy",},},

@@ -18,11 +18,14 @@ for (i = 0; i < hand_start; i++) {
 	hand[i][0] = 0; // sprite index
 	hand[i][1] = false; // revealed
 	hand[i][2] = false; // selected
+	
+	// initalize cards in hand
+	hand_card[i] = noone;
 }
 hand_size = 0;
 
 // set sprites
-scr_set_hero_sprites();
+sprites = scr_set_hero_sprites();
 
 i = 0;
 
