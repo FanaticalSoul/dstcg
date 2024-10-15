@@ -17,16 +17,19 @@ deck_spacing = 4 / deck_max;
 
 // prevent errors for decks smaller than the max size of deck
 for (i = 0; i < deck_max; i++) {
-	deck[i] = 0;
+	deck[i] = [0,false]; // sprite_index, revealed
 }
 // set cards in deck
 i = 0;
-deck[i++] = 1;
-deck[i++] = 2;
-deck[i++] = 3;
-deck[i++] = 1;
-deck[i++] = 2;
+deck[i++][0] = 1;
+deck[i++][0] = 2;
+deck[i++][0] = 3;
+deck[i++][0] = 1;
+deck[i++][0] = 2;
 deck_size = i;
+
+
+
 // set sprites
 i = 0;
 sprites[i++] = spr_card_back;
