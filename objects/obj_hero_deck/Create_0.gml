@@ -31,18 +31,8 @@ deck_size = i;
 
 
 // set sprites
-i = 0;
-sprites[i++] = spr_card_back;
-sprites[i++] = spr_card_1;
-sprites[i++] = spr_card_2;
-sprites[i++] = spr_card_3;
-sprites[i++] = spr_card_4;
-sprites[i++] = spr_card_5;
-sprites[i++] = spr_card_6;
-sprites[i++] = spr_card_7;
-sprites[i++] = spr_card_8;
-sprites[i++] = spr_card_9;
+scr_set_hero_sprites();
 // set macro ( read-only global varible ) to avoid reading nonexistant cards
-#macro HEROCARDCOUNT i
+#macro HEROCARDCOUNT array_length(sprites)
 // 
 i = 0; // reset increments
