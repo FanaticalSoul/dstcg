@@ -25,7 +25,7 @@ for (i = 0; i < deck_size; i++) {
 			// check bounds
 			if (_tmp_x >= 0 && _tmp_x <= room_width-sprite_width) {
 				// only draw inside the room
-				if (deck[i][1]) {
+				if (deck[i][1] || deck_reveal_full) {
 					draw_sprite(sprites[deck[i][0]],-1,_tmp_x,_tmp_y);
 				}
 				else {
@@ -34,7 +34,7 @@ for (i = 0; i < deck_size; i++) {
 			}
 		}
 		else {
-			if (deck[i][1]) {
+			if (deck[i][1] || deck_reveal_full) {
 				// show card in deck if revealed
 				draw_sprite(sprites[deck[i][0]],-1,x+i*deck_spacing,y-i*deck_spacing);
 			}

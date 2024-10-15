@@ -11,25 +11,21 @@ function scr_shuffle_deck(_deck, _cards, _states = false, _shuffles = 100){
 				var _tmp_pos_a = irandom_range(0,_cards);
 				var _tmp_card_a = 0;
 				// get card and temp card (a)
+				_card = _deck[j];
+				_tmp_card_a = _deck[_tmp_pos_a];
+				// check if card exists (based on state)
+				var _flag = false;
 				if (_states) {
-					_card = _deck[j][0];
-					_tmp_card_a = _deck[_tmp_pos_a][0];
+					_flag = (_card[0] > 0 && _tmp_card_a[0] > 0);
 				}
 				else {
-					_card = _deck[j];
-					_tmp_card_a = _deck[_tmp_pos_a];
+					_flag = (_card > 0 && _tmp_card_a > 0);
 				}
-				// if cards exist
-				if (_card > 0 && _tmp_card_a > 0) {
+				// if card exists
+				if (_flag) {
 					var _tmp_card_b = _card;
-					if (_states) {
-						_deck[j][0] = _tmp_card_a;
-						_deck[_tmp_pos_a][0] = _tmp_card_b;
-					}
-					else {
-						_deck[j] = _tmp_card_a;
-						_deck[_tmp_pos_a] = _tmp_card_b;
-					}
+					_deck[j] = _tmp_card_a;
+					_deck[_tmp_pos_a] = _tmp_card_b;
 				}
 			}
 		}

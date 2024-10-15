@@ -5,6 +5,7 @@
 
 
 // deck information
+deck_reveal_full = false; // reveal all cards in deck
 deck_size = 0; // cards in deck
 deck_point = 0; // position in deck (pointer)
 deck_min = 28; // starting deck size
@@ -36,7 +37,8 @@ deck[i++][0] = 5;
 deck[i++][0] = 6;
 deck[i++][0] = 7;
 deck[i++][0] = 8;
-deck[i++][0] = 9;
+deck[i++] = [9,true];
+//deck[8][1] = true; // reveal 9th card
 deck_size = i;
 
 

@@ -3,8 +3,8 @@
   "%Name":"txt_sources",
   "name":"txt_sources",
   "parent":{
-    "name":"dstcg",
-    "path":"dstcg.yyp",
+    "name":"Notes",
+    "path":"folders/Notes.yy",
   },
   "resourceType":"GMNotes",
   "resourceVersion":"2.0",
