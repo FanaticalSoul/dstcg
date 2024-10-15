@@ -5,17 +5,19 @@ draw_set_color(c_black);
 
 draw_text(16,16,string(mouse_x)+" "+string(mouse_y));
 
-*/
+
 draw_set_color(c_black);
 
 draw_text(16,16,string(deck_reveal_offset));
-
+*/
 for (i = 0; i < deck_size; i++) {
 	if (deck[i][0]>0) {
 		// existing card
 		if (deck_reveal) {
+
 			// draw background
 			draw_sprite(spr_player_deck_reveal,-1,field_offset,obj_hero_hand.y-sprite_height);
+			
 			var _above_hand_x = obj_hero_hand.x+deck_reveal_spacing+field_offset;
 			var _above_hand_y = obj_hero_hand.y-sprite_height-deck_reveal_spacing;
 			_above_hand_x += deck_reveal_offset*(sprite_width+deck_reveal_spacing); // offset cards
@@ -32,6 +34,7 @@ for (i = 0; i < deck_size; i++) {
 					draw_sprite(spr_card_back,-1,_tmp_x,_tmp_y);
 				}
 			}
+
 		}
 		else {
 			if (deck[i][1] || deck_reveal_full) {

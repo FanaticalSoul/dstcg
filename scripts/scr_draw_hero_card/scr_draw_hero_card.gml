@@ -15,6 +15,8 @@ function scr_draw_hero_card (_num){
 	}
 	else {
 		for	(i = 0; i < _num; i++) {
+			// reset offset
+			obj_hero_hand.hand_offset = 0;
 			// BUG001 // resolved //
 			obj_hero_deck.deck_size --;
 			obj_hero_hand.hand[obj_hero_hand.hand_size][0] = obj_hero_deck.deck[obj_hero_deck.deck_size][0];
