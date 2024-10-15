@@ -28,7 +28,7 @@ function scr_draw_hero_card (_num){
 			hand[hand_size-1][1] = true; // reveal card
 			
 			
-			
+			/*
 			// create card object
 			// the position will be a bit off // this is because the offset isn't being used
 			hand_card[hand_size-1] = instance_create_depth(obj_hero_deck.x,obj_hero_deck.y,-hand_size - 2, obj_hero_card, {
@@ -36,7 +36,7 @@ function scr_draw_hero_card (_num){
 				card_number : hand[hand_size-1][0],
 				hand_position : hand_size-1
 			});
-			
+			*/
 			
 			
 		}
