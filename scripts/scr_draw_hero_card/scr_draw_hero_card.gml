@@ -35,7 +35,7 @@ function scr_draw_hero_card (_num){
 			
 
 			
-			hand_card[hand_size-1] = instance_create_depth(obj_hero_deck.x,obj_hero_deck.y,-hand_size - 2, obj_hero_card, {
+			hand_card[hand_size-1] = instance_create_depth(obj_hero_deck.x,obj_hero_deck.y,-hand_size-1, obj_hero_card, {
 				card_to_hand : true,
 				card_number : hand[hand_size-1][0],
 				hand_position : hand_size-1,
