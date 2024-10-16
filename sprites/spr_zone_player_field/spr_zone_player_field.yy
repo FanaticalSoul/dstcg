@@ -23,7 +23,7 @@
   ],
   "name":"spr_zone_player_field",
   "nineSlice":null,
-  "origin":6,
+  "origin":0,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",
@@ -50,7 +50,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":true,
+    "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":0,
-    "yorigin":120,
+    "yorigin":0,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

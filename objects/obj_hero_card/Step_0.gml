@@ -1,5 +1,9 @@
-/// @description Insert description here
+/// @description handle keybinds, animation state, and movement within hand
+
+// alarm on card draw
 if (card_to_hand && alarm[0] == -1) alarm[0] = 1;
+
+// position card within hand
 if (card_in_hand) {
 	// flip card over when hidden off screen
 	if (!card_visable && path_position) card_visable = true;
@@ -15,5 +19,26 @@ if (card_in_hand) {
 		speed = 0;
 		x = pos_x_1;
 		y = pos_y_1;
+	}
+}
+
+// mouse over card
+if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
+mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
+	// hold [ mouse left ] // drag card
+	if (mouse_check_button(mb_left) && dragable) {
+		depth = -player.hand_size-2;
+		speed = 0;
+		x = mouse_x;
+		y = mouse_y;
+	}
+	// press [ mouse left ] // make card dragable
+	if (mouse_check_button_pressed(mb_left)) {
+		if (card_visable && x == pos_x_1 && y == pos_y_1) dragable = true;
+	}
+	// release [ mouse left ] // stop draging card
+	if (mouse_check_button_released(mb_left)) {
+		dragable = false;
+		depth = temp_depth;
 	}
 }

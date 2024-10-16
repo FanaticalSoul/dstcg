@@ -4,12 +4,12 @@ function scr_draw_hero_card (_num){
 		// end the encounter as a loss // WoL
 		return; // do nothing
 	}
-	else if (hand_size == HANDMAX) {
+	else if (hand_size == hand_start) {
 		// if max hand size was reached
 		// add functionality to handle additional cards later // WoL
 		return; // do nothing
 	}
-	else if (hand_size > HANDMAX) {
+	else if (hand_size > hand_start) {
 		// WoL
 		return; // do nothing
 	}
