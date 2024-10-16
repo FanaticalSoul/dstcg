@@ -30,7 +30,7 @@
   "origin":4,
   "parent":{
     "name":"Stamina Cards",
-    "path":"folders/Sprites/Stamina Cards.yy",
+    "path":"folders/Sprites/Arced/Stamina Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
