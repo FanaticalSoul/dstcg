@@ -13,9 +13,10 @@ player = obj_player;
 // position tracking ( from tutorial ) ( might remove )
 
 
-pos_x_1 = 0;
-pos_y_1 = 0;
-card_visable = false;
+//pos_x_1 = 0;
+//pos_y_1 = 0;
+//card_visable = false;
+//selected = false;
 //pos_x_2 = 0;
 //pos_y_2 = 0;
 path_speed = 8;
