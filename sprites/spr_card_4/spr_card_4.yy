@@ -23,7 +23,7 @@
   ],
   "name":"spr_card_4",
   "nineSlice":null,
-  "origin":7,
+  "origin":4,
   "parent":{
     "name":"Test Cards",
     "path":"folders/Sprites/Test Cards.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":16,
-    "yorigin":48,
+    "yorigin":24,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

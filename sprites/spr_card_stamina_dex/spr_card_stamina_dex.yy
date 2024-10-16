@@ -43,7 +43,7 @@
     ],
     "top":0,
   },
-  "origin":6,
+  "origin":4,
   "parent":{
     "name":"Stamina Cards",
     "path":"folders/Sprites/Stamina Cards.yy",
@@ -70,7 +70,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":true,
+    "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -95,8 +95,8 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":48,
+    "xorigin":16,
+    "yorigin":24,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

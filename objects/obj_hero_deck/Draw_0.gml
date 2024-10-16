@@ -10,7 +10,7 @@ var _sprites = player.sprites;
 for (i = 0; i < _deck_size; i++) {
 	if (_deck[i][0]>0) { // existing cards
 		if (deck_reveal) {
-			draw_sprite(spr_player_deck_reveal,-1,field_offset,player.y-sprite_height); // draw background
+			draw_sprite(spr_player_deck_reveal,-1,field_offset,player.y-sprite_height/2); // draw background
 			var _above_hand_x = player.x+deck_reveal_spacing+field_offset;
 			var _above_hand_y = player.y-sprite_height-deck_reveal_spacing;
 			_above_hand_x += deck_reveal_offset*(sprite_width+deck_reveal_spacing); // offset cards
