@@ -1,7 +1,4 @@
-/// @description Insert description here
-
-// initalize external varibles
+/// @description initalize external varibles and path speed
 sprites = scr_set_hero_sprites();
 player = obj_player;
-// set path speed
-path_speed = 8;
+path_speed = 4;

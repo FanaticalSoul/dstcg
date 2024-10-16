@@ -11,7 +11,7 @@
   ],
   "isDnd":false,
   "layers":[
-    {"$GMRPathLayer":"","%Name":"Paths","colour":4278190335,"depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Paths","pathId":{"name":"pth_hero_deck_draw","path":"paths/pth_hero_deck_draw/pth_hero_deck_draw.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRPathLayer":"","%Name":"Paths","colour":4278190335,"depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Paths","pathId":{"name":"pth_hero_deck_draw","path":"paths/pth_hero_deck_draw/pth_hero_deck_draw.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":false,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"","%Name":"inst_5CCFBD86","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5CCFBD86","objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":16.0,"y":144.0,},
         {"$GMRInstance":"","%Name":"inst_1BC4C051","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1BC4C051","objectId":{"name":"obj_hero_deck","path":"objects/obj_hero_deck/obj_hero_deck.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":32.0,},
@@ -43,8 +43,8 @@
   },
   "sequenceId":null,
   "views":[
-    {"hborder":32,"hport":504,"hspeed":-1,"hview":168,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":504,"wview":168,"xport":0,"xview":0,"yport":0,"yview":0,},
-    {"hborder":32,"hport":500,"hspeed":-1,"hview":200,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":1000,"wview":400,"xport":0,"xview":-100,"yport":0,"yview":0,},
+    {"hborder":32,"hport":504,"hspeed":-1,"hview":168,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":504,"wview":168,"xport":0,"xview":0,"yport":0,"yview":0,},
+    {"hborder":32,"hport":500,"hspeed":-1,"hview":200,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1000,"wview":400,"xport":0,"xview":-100,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},

@@ -1,5 +1,2 @@
-/// @description unselect card
-
-// BUG002
-
+/// @description stop draging card
 dragable = false;
