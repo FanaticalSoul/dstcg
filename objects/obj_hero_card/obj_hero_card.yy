@@ -33,6 +33,7 @@
     {"$GMObjectProperty":"v1","%Name":"hand_position","filters":[],"listItems":[],"multiselect":false,"name":"hand_position","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"card_to_hand","filters":[],"listItems":[],"multiselect":false,"name":"card_to_hand","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"True","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"card_in_hand","filters":[],"listItems":[],"multiselect":false,"name":"card_in_hand","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"card_visable","filters":[],"listItems":[],"multiselect":false,"name":"card_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
