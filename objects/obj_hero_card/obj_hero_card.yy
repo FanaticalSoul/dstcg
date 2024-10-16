@@ -48,5 +48,8 @@
     "path":"sprites/spr_card_back/spr_card_back.yy",
   },
   "spriteMaskId":null,
+  "tags":[
+    "hero",
+  ],
   "visible":true,
 }

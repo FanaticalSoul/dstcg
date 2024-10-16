@@ -4,3 +4,6 @@ function sout_last_key (){
 	    keyboard_lastkey = vk_nokey;
 	}
 }
+
+// set macro ( read-only global varible ) to avoid reading nonexistant cards
+// #macro HEROCARDCOUNT array_length(sprites)

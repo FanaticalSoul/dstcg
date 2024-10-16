@@ -47,5 +47,9 @@
     "path":"sprites/spr_card_zone_deck/spr_card_zone_deck.yy",
   },
   "spriteMaskId":null,
+  "tags":[
+    "hero",
+    "deck",
+  ],
   "visible":true,
 }

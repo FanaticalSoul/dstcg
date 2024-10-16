@@ -39,5 +39,10 @@
     "path":"sprites/spr_card_zone_hand/spr_card_zone_hand.yy",
   },
   "spriteMaskId":null,
+  "tags":[
+    "hero",
+    "deck",
+    "hand",
+  ],
   "visible":false,
 }
