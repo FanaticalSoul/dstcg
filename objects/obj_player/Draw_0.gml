@@ -3,6 +3,7 @@
 //draw_set_color(c_black);
 //draw_text(16,16,string(hand_offset));
 
+/*
 for (i = 0; i < hand_size; i++) {
 	if (hand[i][0]>0) {
 		// tmp cordinate values
@@ -17,3 +18,4 @@ for (i = 0; i < hand_size; i++) {
 		}
 	}
 }
+*/

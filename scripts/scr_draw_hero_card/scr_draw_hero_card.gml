@@ -26,18 +26,21 @@ function scr_draw_hero_card (_num){
 			// remember states
 			deck[deck_size][0] = 0;
 			hand[hand_size-1][1] = true; // reveal card
-			
-			
-			/*
+
+
 			// create card object
 			// the position will be a bit off // this is because the offset isn't being used
+			
+			
+			
+
+			
 			hand_card[hand_size-1] = instance_create_depth(obj_hero_deck.x,obj_hero_deck.y,-hand_size - 2, obj_hero_card, {
 				card_to_hand : true,
 				card_number : hand[hand_size-1][0],
-				hand_position : hand_size-1
+				hand_position : hand_size-1,
+				card_in_hand : false
 			});
-			*/
-			
 			
 		}
 	}
