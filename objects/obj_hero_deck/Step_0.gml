@@ -1,25 +1,12 @@
 /// @description handle keybinds
 
-
 // on [ mouse scroll ] // deck view navigation
-/*
-//if (mouse_y <= y+sprite_height/2  && mouse_y >= y-sprite_height/2 && hand_size > hand_size_visable) {
-
-/// @description increment through revealed deck
-if (deck_reveal) {
-	var _above_hand_y = player.y-sprite_height-deck_reveal_spacing;
-	if (mouse_y <= _above_hand_y  || mouse_y >= _above_hand_y-sprite_height) {
-		if (deck_reveal_offset<0) deck_reveal_offset ++;
-	}
+if (mouse_y <= deck_reveal_y+sprite_height/2  && mouse_y >= deck_reveal_y-sprite_height/2 && deck_reveal) {
+	// increment through deck view
+	if (mouse_wheel_up() && deck_reveal_offset<0) deck_reveal_offset ++;
+	// decrement through deck view
+	if (mouse_wheel_down() && deck_reveal_offset>deck_visable-player.deck_size) deck_reveal_offset --;
 }
-/// @description decrement through revealed deck
-if (deck_reveal) {
-	var _above_hand_y = player.y-sprite_height-deck_reveal_spacing;
-	if (mouse_y <= _above_hand_y  || mouse_y >= _above_hand_y-sprite_height) {
-		if (deck_reveal_offset>deck_visable-player.deck_size) deck_reveal_offset --;
-	}
-}
-*/
 
 // mouse over deck
 if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
