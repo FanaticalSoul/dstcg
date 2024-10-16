@@ -77,6 +77,7 @@
     {"id":{"name":"spr_zone_hero_deck_reveal_old","path":"sprites/spr_zone_hero_deck_reveal_old/spr_zone_hero_deck_reveal_old.yy",},},
     {"id":{"name":"spr_zone_hero_deck_reveal","path":"sprites/spr_zone_hero_deck_reveal/spr_zone_hero_deck_reveal.yy",},},
     {"id":{"name":"spr_zone_hero_deck","path":"sprites/spr_zone_hero_deck/spr_zone_hero_deck.yy",},},
+    {"id":{"name":"spr_zone_loot","path":"sprites/spr_zone_loot/spr_zone_loot.yy",},},
     {"id":{"name":"spr_zone_player_field","path":"sprites/spr_zone_player_field/spr_zone_player_field.yy",},},
     {"id":{"name":"Sprite25","path":"sprites/Sprite25/Sprite25.yy",},},
   ],
