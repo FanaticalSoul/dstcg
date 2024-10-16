@@ -8,8 +8,24 @@ if (card_in_hand) {
 		if (path_position) card_visable = true;
 	}
 	var _card_size_x = sprite_width+player.hand_spacing;
-	var _center_x = room_width/2-player.hand_size/2*_card_size_x+player.hand_spacing/2;
+	//var _center_x = room_width/2-player.hand_size/2*_card_size_x+player.hand_spacing/2;
+	var _center_x = room_width/2-player.hand_size/2*_card_size_x;
 	pos_x_1 = _center_x+(player.hand_offset+hand_position)*_card_size_x;
+	//pos_x_1 += sprite_width/2+4;
+	pos_x_1 += _card_size_x/2;
+	
+	
+	/*
+	pos_x_1 = room_width/2;
+	pos_x_1 += (player.hand_offset+hand_position)*(sprite_width+player.hand_spacing);
+	pos_x_1 -= (player.hand_offset+hand_position)*0;
+	pos_x_1 -= player.hand_spacing/2;
+	//pos_x_1 = room_width/2+(player.hand_offset+hand_position)*(sprite_width+player.hand_spacing);
+	*/
+	
+	
+	//pos_x_1 -= player.hand_size/2*(player.hand_spacing+sprite_width/2);
+	//pos_x_1 += sprite_width;
 	pos_y_1 = player.y;
 	if (point_distance(x,y,pos_x_1,pos_y_1) > path_speed) {
 		move_towards_point(pos_x_1,pos_y_1,path_speed);

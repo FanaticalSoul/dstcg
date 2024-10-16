@@ -24,7 +24,7 @@
   ],
   "name":"spr_card_examples",
   "nineSlice":null,
-  "origin":6,
+  "origin":7,
   "parent":{
     "name":"Sprites",
     "path":"folders/Sprites.yy",
@@ -51,7 +51,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":2.0,
-    "lockOrigin":true,
+    "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -79,7 +79,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":65,
     "yorigin":177,
   },
   "swatchColours":null,

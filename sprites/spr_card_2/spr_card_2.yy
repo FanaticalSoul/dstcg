@@ -23,7 +23,7 @@
   ],
   "name":"spr_card_2",
   "nineSlice":null,
-  "origin":6,
+  "origin":7,
   "parent":{
     "name":"Test Cards",
     "path":"folders/Sprites/Test Cards.yy",
@@ -50,7 +50,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":true,
+    "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -75,7 +75,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":16,
     "yorigin":48,
   },
   "swatchColours":null,
