@@ -48,7 +48,7 @@
     {"id":{"name":"txt_sources","path":"notes/txt_sources/txt_sources.yy",},},
     {"id":{"name":"obj_enemy_card","path":"objects/obj_enemy_card/obj_enemy_card.yy",},},
     {"id":{"name":"obj_enemy_deck","path":"objects/obj_enemy_deck/obj_enemy_deck.yy",},},
-    {"id":{"name":"obj_hero","path":"objects/obj_hero/obj_hero.yy",},},
+    {"id":{"name":"obj_hero_card","path":"objects/obj_hero_card/obj_hero_card.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_start_card","path":"objects/obj_start_card/obj_start_card.yy",},},
     {"id":{"name":"obj_start_deck","path":"objects/obj_start_deck/obj_start_deck.yy",},},

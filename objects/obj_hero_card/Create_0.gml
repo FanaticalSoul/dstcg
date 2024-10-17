@@ -5,6 +5,8 @@
 path_speed = 4;
 // temporary varibles
 temp_depth = depth;
+inital_x = x;
+inital_y = y;
 des_x = x;
 des_y = y;
 dragable = false;

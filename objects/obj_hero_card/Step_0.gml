@@ -1,4 +1,4 @@
-/// @description handle keybinds, animation state, and movement within hand
+/// @description step
 
 // move towards origin
 if (point_distance(x,y,des_x,des_y) > path_speed) {
@@ -23,7 +23,6 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 	// WoL //*/
 }
 // release [ mouse left ] // stop draging card
-if (mouse_check_button_released(mb_left)) {
-	dragable = false;
-	depth = temp_depth;
-}
+if (mouse_check_button_released(mb_left)) dragable = false;
+// reset depth upon returning to start
+if (!dragable && depth != temp_depth && x == des_x && y == des_y) depth = temp_depth;
