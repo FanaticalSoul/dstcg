@@ -1,51 +1,19 @@
 /// @description Insert description here
+
+//
 enemy_to_field = true ;
 enemy_on_field = false;
-
-
-
-
-
-show_debug_message("created");
-
-// placement cords
-player = obj_player;
-enemy_field_offset = [0,56];
-card_spacing = player.hand_spacing;
-
 path_speed = 10;
 
-// |  24, 88 |  64, 88 | 104, 88 |
-// |  24,144 |  64,144 | 104,144 |
+// placement cords
 
-// set enemy placement positions
-var _cord_x = sprite_width /2+card_spacing+enemy_field_offset[0];
-var _cord_y = sprite_height/2+card_spacing+enemy_field_offset[1];
-i = 0;
-for (iy = 0; iy < 2; iy++) {
-	for (ix = 0; ix < 3; ix++) {
-		enemy_cords[i] = [
-			_cord_x+ix*(sprite_width +card_spacing),
-			_cord_y+iy*(sprite_height+card_spacing)
-		];
-		//show_debug_message("enemy_cords["+string(i)+"] = "+string(enemy_cords[i]));
-		i++;
-	}
-}
-i = 0;
 
+//deck = obj_enemy_deck.deck;
+enemy_cords = obj_enemy_deck.enemy_cords;
+sprites = obj_enemy_deck.sprites;
 // set destination
 des_x = x;
 des_y = y;
 
-
-
-if (card_level == 1) {
-	sprite_index = obj_enemy_deck_1.sprites[sprite_number];
-}
-else if (card_level == 2) {
-
-}
-else if (card_level == 3) {
-
-}
+// get sprite
+sprite_index = sprites[card_number+(card_level-1)*20];

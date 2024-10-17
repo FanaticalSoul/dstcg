@@ -9,6 +9,15 @@ if (enemy_on_field) {
 		des_x = enemy_cords[placement][0];
 		des_y = enemy_cords[placement][1];
 	}
+	
+	
+	// check if another card is in that exact position
+	//instance_place_list(des_x,des_y,obj_enemy_card,ds_list_create(),false)
+	
+	
+	
+	
+	
 	if (point_distance(x,y,des_x,des_y) > path_speed) {
 		move_towards_point(des_x,des_y,path_speed);
 	}
