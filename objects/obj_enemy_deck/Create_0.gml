@@ -2,7 +2,7 @@
 deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
 enemy_max = 6; // max enemy cards allowed in play
-sprites = scr_enemy_get_sprites(); // get sprites
+sprites = scr_enemy_sprites_set(); // get sprites
 // prevent errors for decks smaller than the max size of deck
 for (i = 0; i < deck_max; i++) {
 	deck[i][0] = 0; // sprite_index
@@ -37,7 +37,7 @@ deck_size = i;
 i = 0;
 
 // automatically shuffle after deck is made
-scr_shuffle_deck(deck,deck_size,true);
+scr_deck_shuffle(deck,deck_size,true);
 
 
 

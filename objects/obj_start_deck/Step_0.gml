@@ -13,7 +13,7 @@ if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
 mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 	// press [ mouse left ] // draw card from deck
 	if (mouse_check_button_pressed(mb_left) && !deck_reveal) {
-		with (player) scr_draw_hero_card(1);
+		with (player) scr_start_card_draw(1);
 	}
 }
 

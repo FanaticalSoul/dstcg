@@ -1,4 +1,4 @@
-function scr_set_hero_deck(){
+function scr_start_deck_set (){
 	deck_point = 0; // position in deck (pointer)
 	deck_min = 28; // starting deck size
 	deck_max = 40; // ending deck size
@@ -7,10 +7,6 @@ function scr_set_hero_deck(){
 		deck[i][0] = 0; // sprite_index
 		deck[i][1] = false; // evealed
 	}
-	return;
-}
-
-function scr_set_hero_deck_cards () {
 	// set cards in deck
 	i = 0;
 	/*

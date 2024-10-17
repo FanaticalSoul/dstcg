@@ -1,4 +1,4 @@
-function scr_enemy_draw_card () {
+function scr_enemy_card_draw () {
 	if (enemy_count > enemy_max) {
 		// above max enemies on the field // WoL
 		return;

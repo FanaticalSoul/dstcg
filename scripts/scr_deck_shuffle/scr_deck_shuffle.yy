@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_shuffle_deck",
+  "%Name":"scr_deck_shuffle",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_shuffle_deck",
+  "name":"scr_deck_shuffle",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

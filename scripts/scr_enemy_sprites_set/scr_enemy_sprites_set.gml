@@ -1,4 +1,4 @@
-function scr_enemy_get_sprites(){
+function scr_enemy_sprites_set (){
 	i = 0;
 	sprites[i++] = spr_card_back;
 	// sprites 01-20 are card level 1

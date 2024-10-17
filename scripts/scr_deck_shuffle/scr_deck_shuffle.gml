@@ -1,4 +1,4 @@
-function scr_shuffle_deck(_deck, _cards, _states = false, _shuffles = 100){
+function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
 	//var _shuffles = 100; // ammount of shuffles
 	//var _cards = array_length(_deck);
 	if (_cards==0) {return [];}

@@ -1,4 +1,4 @@
-function scr_set_hero_sprites () {
+function scr_start_sprites_set () {
 	i = 0;
 	sprites[i++] = spr_card_back;
 	sprites[i++] = spr_card_1;
