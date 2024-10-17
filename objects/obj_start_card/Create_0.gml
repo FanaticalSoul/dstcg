@@ -2,5 +2,3 @@
 sprites = scr_start_sprites_set();
 player = obj_player;
 path_speed = card_speed;
-// temporary varibles
-temp_depth = depth;
