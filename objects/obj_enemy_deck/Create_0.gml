@@ -12,16 +12,17 @@ for (i = 0; i < deck_max; i++) {
 
 // set cards in deck ( no states )
 i = 0;
-deck[i++] = 1;
-deck[i++] = 2;
-deck[i++] = 3;
-deck[i++] = 4;
-deck[i++] = 5;
-deck[i++] = 6;
-deck[i++] = 7;
-deck[i++] = 8;
-deck[i++] = 9;
-deck[i++] = 0;
+deck[i++] = [1,2];
+deck[i++] = [2,3];
+/*
+deck[i++] = [3;
+deck[i++] = [4;
+deck[i++] = [5;
+deck[i++] = [6;
+deck[i++] = [7;
+deck[i++] = [8;
+deck[i++] = [9;
+*/
 deck_size = i;
 i = 0;
 //
