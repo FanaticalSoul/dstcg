@@ -11,9 +11,13 @@ function scr_draw_enemy_card_1 () {
 	deck[deck_size] = 0;
 	deck_point ++;
 	
+	var _tmp_sprite = 
+	
 	enemy_card[enemy_count] = instance_create_depth(obj_enemy_deck_1.x,obj_enemy_deck_1.y,-enemy_count-1,obj_enemy_card,{
 		placement : enemy_count,
-		card_number : enemy[enemy_count]
+		card_number : enemy[enemy_count],
+		card_level : card_level,
+		sprite_number : 1
 	});
 	
 	enemy_count ++;

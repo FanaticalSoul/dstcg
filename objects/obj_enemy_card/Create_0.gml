@@ -37,3 +37,15 @@ i = 0;
 // set destination
 des_x = x;
 des_y = y;
+
+
+
+if (card_level == 1) {
+	sprite_index = obj_enemy_deck_1.sprites[sprite_number];
+}
+else if (card_level == 2) {
+
+}
+else if (card_level == 3) {
+
+}

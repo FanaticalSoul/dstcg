@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_card_zone_deck",
-    "path":"sprites/spr_card_zone_deck/spr_card_zone_deck.yy",
+    "name":"spr_card_zone_deck_enemy_1",
+    "path":"sprites/spr_card_zone_deck_enemy_1/spr_card_zone_deck_enemy_1.yy",
   },
   "spriteMaskId":null,
   "tags":[

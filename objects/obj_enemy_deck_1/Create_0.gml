@@ -1,11 +1,11 @@
 /// @description Insert description here
-
+card_level = 1; // level of cards within deck
 deck_point =  0; // position in deck (pointer)
 deck_max   = 10; // starting deck size ( max size )
 deck_size  =  0;
 enemy_count =  0; // enemy cards currently in play
 cards_max  =  6; // max enemy cards allowed in play
-
+sprites = scr_set_enemy_sprites_1(); // get sprites
 // prevent errors for decks smaller than the max size of deck
 for (i = 0; i < deck_max; i++) {
 	deck[i][0] = 0; // sprite_index
@@ -32,3 +32,7 @@ for (i = 0; i < cards_max; i++) {
 	enemy_card[i] = noone;
 }
 i = 0;
+
+
+
+

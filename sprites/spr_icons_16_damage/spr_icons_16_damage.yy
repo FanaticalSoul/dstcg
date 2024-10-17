@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_damage_icons_16",
+  "%Name":"spr_icons_16_damage",
   "bboxMode":0,
   "bbox_bottom":15,
   "bbox_left":0,
@@ -24,19 +24,19 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"e7bb5ef5-05c4-4342-9f9d-22468b051f9d","blendMode":0,"displayName":"default","isLocked":false,"name":"e7bb5ef5-05c4-4342-9f9d-22468b051f9d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_damage_icons_16",
+  "name":"spr_icons_16_damage",
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Stamina Cards",
-    "path":"folders/Sprites/Arced/Stamina Cards.yy",
+    "name":"16-Bit Icons",
+    "path":"folders/Sprites/16-Bit Icons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_damage_icons_16",
+    "%Name":"spr_icons_16_damage",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -60,7 +60,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_damage_icons_16",
+    "name":"spr_icons_16_damage",
     "playback":1,
     "playbackSpeed":0.0,
     "playbackSpeedType":0,
@@ -72,16 +72,16 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"23d9bdff-fb78-42ca-97f4-3b21ee6a7f6b","path":"sprites/spr_damage_icons_16/spr_damage_icons_16.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"23d9bdff-fb78-42ca-97f4-3b21ee6a7f6b","path":"sprites/spr_icons_16_damage/spr_icons_16_damage.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"9ff2fe70-a5ef-4f0c-87a1-85a22042a860","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9fc852f7-5042-4c74-9d82-134d1f7f26c6","path":"sprites/spr_damage_icons_16/spr_damage_icons_16.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9fc852f7-5042-4c74-9d82-134d1f7f26c6","path":"sprites/spr_icons_16_damage/spr_icons_16_damage.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"8a70eca1-462a-46a6-a756-7491c8611f18","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"344a1092-839e-403a-ab93-752e979c3a75","path":"sprites/spr_damage_icons_16/spr_damage_icons_16.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"344a1092-839e-403a-ab93-752e979c3a75","path":"sprites/spr_icons_16_damage/spr_icons_16_damage.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"8a3364c4-5834-4404-8612-84b2171f69fd","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1aaffd2e-cb04-4086-acff-cad4f9593096","path":"sprites/spr_damage_icons_16/spr_damage_icons_16.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1aaffd2e-cb04-4086-acff-cad4f9593096","path":"sprites/spr_icons_16_damage/spr_icons_16_damage.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"6be322e4-419a-4520-baff-62fdecf72e46","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
