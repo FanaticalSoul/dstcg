@@ -10,9 +10,10 @@ function scr_set_hero_sprites () {
 	sprites[i++] = spr_card_7;
 	sprites[i++] = spr_card_8;
 	sprites[i++] = spr_card_9;
-	sprites[i++] = spr_card_stamina_dex; // 10
-	sprites[i++] = spr_card_stamina_int; // 11
-	sprites[i++] = spr_card_stamina_fth; // 12
-	sprites[i++] = spr_card_stamina_str; // 13
+	sprites[i++] = spr_card_0;
+	sprites[i++] = spr_card_stamina_dex; // 11
+	sprites[i++] = spr_card_stamina_int; // 12
+	sprites[i++] = spr_card_stamina_fth; // 13
+	sprites[i++] = spr_card_stamina_str; // 14
 	return sprites;
 }

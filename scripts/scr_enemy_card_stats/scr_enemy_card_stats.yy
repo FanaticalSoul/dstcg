@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_test_features",
+  "%Name":"scr_enemy_card_stats",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_test_features",
+  "name":"scr_enemy_card_stats",
   "parent":{
     "name":"WoL",
     "path":"folders/Scripts/WoL.yy",

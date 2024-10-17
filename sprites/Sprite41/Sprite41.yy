@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Arced",
-    "path":"folders/Sprites/Arced.yy",
+    "name":"WoL",
+    "path":"folders/Sprites/WoL.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

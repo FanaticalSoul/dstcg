@@ -1,5 +1,4 @@
 /// @description Insert description here
-//deck_point =  0; // position in deck (pointer)
 deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
 enemy_max = 6; // max enemy cards allowed in play
@@ -9,26 +8,44 @@ for (i = 0; i < deck_max; i++) {
 	deck[i][0] = 0; // sprite_index
 	deck[i][1] = false; // evealed
 }
-
 // set cards in deck ( no states )
 i = 0;
-deck[i++] = [1,2];
-deck[i++] = [2,3];
+deck[i++] = [1,1];
+deck[i++] = [2,1];
+deck[i++] = [3,1];
+deck[i++] = [4,1];
+deck[i++] = [5,1];
+deck[i++] = [6,1];
 /*
-deck[i++] = [3;
-deck[i++] = [4;
-deck[i++] = [5;
-deck[i++] = [6;
-deck[i++] = [7;
-deck[i++] = [8;
-deck[i++] = [9;
+deck[i++] = [7,1];
+deck[i++] = [8,1];
+deck[i++] = [9,1];
+deck[i++] = [0,1];
+/*
+deck[i++] = [1,1];
+deck[i++] = [2,2];
+deck[i++] = [3,3];
+deck[i++] = [4,4];
+deck[i++] = [5,5];
+deck[i++] = [6,6];
+deck[i++] = [7,1];
+deck[i++] = [8,2];
+deck[i++] = [9,3];
+deck[i++] = [0,4];
 */
 deck_size = i;
 i = 0;
+
+// automatically shuffle after deck is made
+scr_shuffle_deck(deck,deck_size,true);
+
+
+
 //
 for (i = 0; i < enemy_max; i++) {
 	enemy[i] = 0;
 	enemy_card[i] = noone;
+	card_placements[i] = noone; // holds enemy position ( for when 2 cards end up being placed on top of each other)
 }
 i = 0;
 // set enemy placement positions

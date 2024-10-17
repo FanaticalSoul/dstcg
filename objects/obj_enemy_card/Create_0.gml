@@ -17,3 +17,5 @@ des_y = y;
 
 // get sprite
 sprite_index = sprites[card_number+(card_level-1)*20];
+
+//show_debug_message("created");

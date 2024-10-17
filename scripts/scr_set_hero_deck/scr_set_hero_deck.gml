@@ -15,9 +15,9 @@ function scr_set_hero_deck_cards () {
 	i = 0;
 	/*
 	// 11 faith cards
-	for (j = 0; j < 11; j++) {deck[i++][0] = 12;}
+	for (j = 0; j < 11; j++) {deck[i++][0] = 11;}
 	// 4 int cards
-	for (j = 0; j <  4; j++) {deck[i++][0] = 11;}
+	for (j = 0; j <  4; j++) {deck[i++][0] = 12;}
 	// 4 str cards
 	for (j = 0; j <  4; j++) {deck[i++][0] = 13;}
 	*/
@@ -30,7 +30,7 @@ function scr_set_hero_deck_cards () {
 	deck[i++][0] = 7;
 	deck[i++][0] = 8;
 	deck[i++][0] = 9;
-	deck[i-2][1] = true; // reveal card under top card
+	//deck[i-2][1] = true; // reveal card under top card
 	deck_size = i;
 	i = 0; // reset increments
 	return;

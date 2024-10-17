@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Arced",
-    "path":"folders/Sprites/Arced.yy",
+    "path":"folders/Sprites/WoL/Arced.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
