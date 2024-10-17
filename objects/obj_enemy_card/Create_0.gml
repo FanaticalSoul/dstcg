@@ -1,4 +1,10 @@
 /// @description Insert description here
+enemy_to_field = true ;
+enemy_on_field = false;
+
+
+
+
 
 show_debug_message("created");
 
@@ -7,7 +13,7 @@ player = obj_player;
 enemy_field_offset = [0,56];
 card_spacing = player.hand_spacing;
 
-speed = 10;
+path_speed = 10;
 
 // |  24, 88 |  64, 88 | 104, 88 |
 // |  24,144 |  64,144 | 104,144 |

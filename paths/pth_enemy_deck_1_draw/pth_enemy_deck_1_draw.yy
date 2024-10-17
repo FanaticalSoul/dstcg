@@ -1,0 +1,19 @@
+{
+  "$GMPath":"",
+  "%Name":"pth_enemy_deck_1_draw",
+  "closed":false,
+  "kind":1,
+  "name":"pth_enemy_deck_1_draw",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":144.0,"y":88.0,},
+    {"speed":100.0,"x":124.0,"y":116.0,},
+    {"speed":100.0,"x":64.0,"y":116.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

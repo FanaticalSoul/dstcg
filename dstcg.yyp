@@ -48,6 +48,7 @@
     {"id":{"name":"obj_hero_card","path":"objects/obj_hero_card/obj_hero_card.yy",},},
     {"id":{"name":"obj_hero_deck","path":"objects/obj_hero_deck/obj_hero_deck.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"pth_enemy_deck_1_draw","path":"paths/pth_enemy_deck_1_draw/pth_enemy_deck_1_draw.yy",},},
     {"id":{"name":"pth_hero_deck_draw","path":"paths/pth_hero_deck_draw/pth_hero_deck_draw.yy",},},
     {"id":{"name":"loc_room","path":"rooms/loc_room/loc_room.yy",},},
     {"id":{"name":"scr_draw_enemy_card","path":"scripts/scr_draw_enemy_card/scr_draw_enemy_card.yy",},},
