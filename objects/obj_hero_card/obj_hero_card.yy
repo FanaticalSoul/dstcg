@@ -11,8 +11,8 @@
   "name":"obj_hero_card",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Hero Cards",
+    "path":"folders/Objects/Hero Cards.yy",
   },
   "parentObjectId":null,
   "persistent":false,

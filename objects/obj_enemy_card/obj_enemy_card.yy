@@ -12,8 +12,8 @@
   "name":"obj_enemy_card",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Enemy Cards",
+    "path":"folders/Objects/Enemy Cards.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -9,9 +9,19 @@ for (i = 0; i < 6; i++) {
 		y > _tmp_y - sprite_height/2 && 
 		y < _tmp_y + sprite_height/2
 	) {
-		des_x = _tmp_x;
-		des_y = _tmp_y;
-		break;
+		if (obj_player.field_card[i] == noone) {
+			// remove prior instance of object from field
+			for (j = 0; j < 6; j++) {
+				if (obj_player.field_card[j] == id) {
+					obj_player.field_card[j] = noone;
+					break;
+				}
+			}
+			des_x = _tmp_x;
+			des_y = _tmp_y;
+			obj_player.field_card[i] = id;
+			break;
+		}
 	}
 	else if (
 		x > inital_x - sprite_width /2 && 
@@ -19,6 +29,13 @@ for (i = 0; i < 6; i++) {
 		y > inital_y - sprite_height/2 && 
 		y < inital_y + sprite_height/2
 	) {
+		// remove prior instance of object from field
+		for (j = 0; j < 6; j++) {
+			if (obj_player.field_card[j] == id) {
+				obj_player.field_card[j] = noone;
+				break;
+			}
+		}
 		des_x = inital_x;
 		des_y = inital_y;
 		break;

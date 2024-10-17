@@ -10,8 +10,8 @@
   "name":"obj_start_deck",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Start Cards",
+    "path":"folders/Objects/Start Cards.yy",
   },
   "parentObjectId":null,
   "persistent":false,
