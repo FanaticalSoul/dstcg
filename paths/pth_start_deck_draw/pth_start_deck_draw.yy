@@ -1,9 +1,9 @@
 {
   "$GMPath":"",
-  "%Name":"pth_hero_deck_draw",
+  "%Name":"pth_start_deck_draw",
   "closed":false,
   "kind":1,
-  "name":"pth_hero_deck_draw",
+  "name":"pth_start_deck_draw",
   "parent":{
     "name":"Paths",
     "path":"folders/Paths.yy",

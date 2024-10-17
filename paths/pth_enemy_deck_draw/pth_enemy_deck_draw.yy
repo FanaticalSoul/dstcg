@@ -1,9 +1,9 @@
 {
   "$GMPath":"",
-  "%Name":"pth_enemy_deck_1_draw",
+  "%Name":"pth_enemy_deck_draw",
   "closed":false,
   "kind":1,
-  "name":"pth_enemy_deck_1_draw",
+  "name":"pth_enemy_deck_draw",
   "parent":{
     "name":"Paths",
     "path":"folders/Paths.yy",
