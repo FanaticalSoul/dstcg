@@ -1,4 +1,4 @@
-/// @description draw card
+/// @description draw hero
 
 if (!card_visable) sprite_index = spr_card_back;
 else if (card_number>0) sprite_index = sprites[card_number];

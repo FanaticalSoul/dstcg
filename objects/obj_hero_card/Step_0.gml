@@ -35,13 +35,14 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 	if (mouse_check_button_pressed(mb_left)) {
 		if (card_visable && x == des_x && y == des_y) dragable = true;
 	}
-	// release [ mouse left ] // stop draging card
-	if (mouse_check_button_released(mb_left)) {
-		dragable = false;
-		depth = temp_depth;
-	}
 	// hold [ mouse right ] // visual spoiler // WoL
 	if (mouse_check_button(mb_right)) {
 		show_debug_message("visual spoiler");
 	}
+}
+
+// release [ mouse left ] // stop draging card
+if (mouse_check_button_released(mb_left)) {
+	dragable = false;
+	depth = temp_depth;
 }
