@@ -3,7 +3,7 @@
 //
 enemy_to_field = true ;
 enemy_on_field = false;
-path_speed = 4;
+path_speed = card_speed;
 
 // placement cords
 

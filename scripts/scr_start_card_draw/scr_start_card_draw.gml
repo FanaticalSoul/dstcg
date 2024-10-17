@@ -28,14 +28,12 @@ function scr_start_card_draw (_num){
 			hand[hand_size-1][1] = true; // reveal card
 
 
-			// create card object
-			// the position will be a bit off // this is because the offset isn't being used
-			
-			
-			
+			// create card object using deck offset		
+			var _tmp_x = obj_start_deck.x+deck_size*obj_start_deck.deck_spacing;
+			var _tmp_y = obj_start_deck.y-deck_size*obj_start_deck.deck_spacing;
 
 			
-			hand_card[hand_size-1] = instance_create_depth(obj_start_deck.x,obj_start_deck.y,-hand_size-1, obj_start_card, {
+			hand_card[hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-hand_size-1, obj_start_card, {
 				card_to_hand : true,
 				card_number : hand[hand_size-1][0],
 				hand_position : hand_size-1,

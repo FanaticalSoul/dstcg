@@ -3,6 +3,7 @@ deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
 enemy_max = 6; // max enemy cards allowed in play
 sprites = scr_enemy_sprites_set(); // get sprites
+deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
 for (i = 0; i < deck_max; i++) {
 	deck[i][0] = 0; // sprite_index

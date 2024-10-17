@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-path_speed = 4;
+path_speed = card_speed;
 // temporary varibles
 temp_depth = depth;
 inital_x = x;

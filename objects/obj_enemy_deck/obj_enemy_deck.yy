@@ -31,7 +31,7 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"card_level","filters":[],"listItems":[],"multiselect":false,"name":"card_level","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"deck_max","filters":[],"listItems":[],"multiselect":false,"name":"deck_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"20","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"deck_spacing","filters":[],"listItems":[],"multiselect":false,"name":"deck_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.2","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"deck_spacing_width_in_pixels","filters":[],"listItems":[],"multiselect":false,"name":"deck_spacing_width_in_pixels","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
