@@ -6,12 +6,18 @@ if (card_to_hand && alarm[0] == -1) alarm[0] = 1;
 // position card within hand
 if (card_in_hand) {
 	// flip card over when hidden off screen
-	if (!card_visable && path_position) card_visable = true;
+	//if (!card_visable && path_position) card_visable = true;
+	if (!card_visable && path_position>=0.5) card_visable = true;
 	var _card_size_x = sprite_width+player.hand_spacing;
 	var _center_x = room_width/2-player.hand_size/2*_card_size_x;
 	des_x = _center_x+(player.hand_offset+hand_position)*_card_size_x;
 	des_x += _card_size_x/2; // offset
 	des_y = player.y;
+	
+	// end path early if placement location is above or bellow path
+	//if (x <= des_x && y == des_y) path_end();
+	
+	// move towards placement within hand
 	if (point_distance(x,y,des_x,des_y) > path_speed) {
 		move_towards_point(des_x,des_y,path_speed);
 	}

@@ -8,9 +8,11 @@ if (enemy_on_field) {
 	if (placement != -1) {
 		des_x = enemy_cords[placement][0];
 		des_y = enemy_cords[placement][1];
+		// end path early if placement location is above or bellow path
+		if (x <= des_x) path_end();
 	}
 	
-	
+
 	// check if another card is in that exact position
 	//instance_place_list(des_x,des_y,obj_enemy_card,ds_list_create(),false)
 	
@@ -25,6 +27,7 @@ if (enemy_on_field) {
 		speed = 0;
 		x = des_x;
 		y = des_y;
+		depth = 0; // "reset" depth
 	}
 }
 

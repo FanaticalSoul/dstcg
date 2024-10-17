@@ -3,7 +3,7 @@
 //
 enemy_to_field = true ;
 enemy_on_field = false;
-path_speed = 10;
+path_speed = 1;
 
 // placement cords
 

@@ -13,7 +13,7 @@
   "isDnd":false,
   "layers":[
     {"$GMRPathLayer":"","%Name":"Paths","colour":4278190335,"depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[
-        {"$GMRPathLayer":"","%Name":"Player_Card_Draw_Path","colour":4278190335,"depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Player_Card_Draw_Path","pathId":{"name":"pth_hero_deck_draw","path":"paths/pth_hero_deck_draw/pth_hero_deck_draw.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+        {"$GMRPathLayer":"","%Name":"Player_Card_Draw_Path","colour":4278190335,"depth":100,"effectEnabled":true,"effectType":null,"gridX":4,"gridY":4,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Player_Card_Draw_Path","pathId":{"name":"pth_hero_deck_draw","path":"paths/pth_hero_deck_draw/pth_hero_deck_draw.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
         {"$GMRPathLayer":"","%Name":"Enemy_Card_Draw_Path","colour":4278190335,"depth":200,"effectEnabled":true,"effectType":null,"gridX":4,"gridY":4,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Enemy_Card_Draw_Path","pathId":{"name":"pth_enemy_deck_1_draw","path":"paths/pth_enemy_deck_1_draw/pth_enemy_deck_1_draw.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
       ],"name":"Paths","pathId":null,"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":300,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
@@ -53,8 +53,8 @@
   },
   "sequenceId":null,
   "views":[
-    {"hborder":32,"hport":336,"hspeed":-1,"hview":168,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":416,"wview":208,"xport":0,"xview":0,"yport":0,"yview":176,},
-    {"hborder":32,"hport":2040,"hspeed":-1,"hview":408,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":1360,"wview":272,"xport":0,"xview":-32,"yport":0,"yview":-32,},
+    {"hborder":32,"hport":336,"hspeed":-1,"hview":168,"inherit":false,"objectId":null,"vborder":32,"visible":true,"vspeed":-1,"wport":416,"wview":208,"xport":0,"xview":0,"yport":0,"yview":176,},
+    {"hborder":32,"hport":2040,"hspeed":-1,"hview":408,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1360,"wview":272,"xport":0,"xview":-32,"yport":0,"yview":-32,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1366,"wview":1366,"xport":0,"xview":0,"yport":0,"yview":0,},
