@@ -21,10 +21,8 @@ for (i = 0; i < deck_max; i++) {
 // set cards in deck ( no states )
 i = 0;
 deck[i++] = "hollow soldier";
-deck[i++] = "hollow soldier";
-deck[i++] = "hollow soldier";
-deck[i++] = "hollow soldier";
-deck[i++] = "hollow soldier";
+deck[i++] = "irithyllian beast hound";
+deck[i++] = "peasant hollow";
 /*
 deck[i++] = [2,1];
 deck[i++] = [3,1];

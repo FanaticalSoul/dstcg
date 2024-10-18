@@ -65,6 +65,7 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "peasant hollow",
+			image : spr_enemy_card_peasant_hollow,
 			enemy_level : 1,
 			souls : 3,
 			defense_value : 1,
@@ -111,6 +112,7 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "irithyllian beast hound",
+			image : spr_enemy_card_irithyllian_beast_hound,
 			enemy_level : 1,
 			souls : 1,
 			defense_value : 1,
