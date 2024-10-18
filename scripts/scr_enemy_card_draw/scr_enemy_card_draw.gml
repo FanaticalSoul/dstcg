@@ -7,12 +7,12 @@ function scr_enemy_card_draw () {
 	//enemy[enemy_count] = deck[--deck_size][0];
 	//enemy[enemy_count] = deck[--deck_size];
 	deck_size --;
-	show_debug_message(string(deck[deck_size]));
-	show_debug_message(string(enemy_card_stats));
+	//show_debug_message(string(deck[deck_size]));
+	//show_debug_message(string(enemy_card_stats));
 	for (i = 0; i < array_length(enemy_card_stats); i++) {
 		if (struct_get(enemy_card_stats[i],"name") == deck[deck_size]) {
 			enemy[enemy_count] = enemy_card_stats[i];
-			show_debug_message("changed");
+			//show_debug_message("changed");
 			break;
 		}
 	}

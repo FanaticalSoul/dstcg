@@ -22,6 +22,7 @@ function scr_start_card_stats_set () {
 			block : 2
 		}],[{
 			name : "spear",
+			image : spr_start_card_spear,
 			damage : 2,
 			attack : "heavy",
 			stamina : [
@@ -55,6 +56,7 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "kite shield",
+			image : spr_start_card_kite_shield,
 			block  : 3,
 			attack : "heavy",
 			stamina : [
@@ -77,6 +79,7 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "talisman",
+			image : spr_start_card_talisman,
 			block  : 2,
 			stamina : [
 				0, // dexerity
