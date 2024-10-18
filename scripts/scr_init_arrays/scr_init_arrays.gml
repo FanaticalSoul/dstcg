@@ -38,127 +38,112 @@ function scr_init_arrays() {
 	
 	
 	
-	temp_array = [
-		 [
-			{
-				block : 3,
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					0, // strength
-					1, // faith
-					0  // generic
-				],
-				name : "herald armour"
-			},
-			{
-				standard_action : true,
-				block : 2
-			}
-		],
-		[
-			{
-				damage : 2,
-				attack : "heavy",
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					1, // strength
-					1, // faith
-					1  // generic
-				],
-				name : "spear"
-			},
-			{
-				standard_action : true,
-				damage : 2,
-				attack : "heavy",
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					0, // strength
-					1, // faith
-					0  // generic
-				]
-			},
-			{
-				standard_action : true,
-				damage : 3,
-				attack : "heavy",
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					1, // strength
-					1, // faith
-					2  // generic
-				]
-			}
-		],
-		[
-			{
-				block  : 3,
-				attack : "heavy",
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					1, // strength
-					1, // faith
-					0  // generic
-				],
-				name : "kite shield"
-			},
-			{
-				standard_action : true,
-				damage : 2,
-				attack : "heavy",
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					0, // strength
-					1, // faith
-					0  // generic
-				]
-			}
-		],
-		[
-			{
-				block  : 2,
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					0, // strength
-					1, // faith
-					0  // generic
-				],
-				name : "talisman"
-			},
-			{
-				standard_action : true,
-				heal  : 5,
-				stamina : [
-					0, // dexerity
-					0, // intelligence
-					0, // strength
-					0, // faith
-					1  // generic
-				]
-			}
-		]
+	start_card_stats = [
+		 [{
+			name : "herald armour",
+			block : 3,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				1, // faith
+				0  // generic
+			]
+		},{
+			standard_action : true,
+			block : 2
+		}],[{
+			name : "spear",
+			damage : 2,
+			attack : "heavy",
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				1, // faith
+				1  // generic
+			]
+		}, {
+			standard_action : true,
+			damage : 2,
+			attack : "heavy",
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				1, // faith
+				0  // generic
+			]
+		}, {
+			standard_action : true,
+			damage : 3,
+			attack : "heavy",
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				1, // faith
+				2  // generic
+			]
+		}],[{
+			name : "kite shield",
+			block  : 3,
+			attack : "heavy",
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				1, // faith
+				0  // generic
+			]	
+		},{
+			standard_action : true,
+			damage : 2,
+			attack : "heavy",
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				1, // faith
+				0  // generic
+			]
+		}],[{
+			name : "talisman",
+			block  : 2,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				1, // faith
+				0  // generic
+			]	
+		},{
+			standard_action : true,
+			heal  : 5,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				0, // faith
+				1  // generic
+			]
+		}]
 	];
-	for (i = 0; i < array_length(temp_array); i++ ) {
-		var _card = temp_array[i];
-		show_debug_message("item : "+string(struct_get(temp_array[i][0],"name")));
+	// add default values // add name of item to all item actions //
+	var _test = false;
+	for (i = 0; i < array_length(start_card_stats); i++ ) {
+		var _card = start_card_stats[i];
+		if (_test) show_debug_message("item : "+string(struct_get(start_card_stats[i][0],"name")));
 		for (j = 0; j < array_length(_card); j++ ) {
 			struct_foreach (default_action, function(_name, _value) {
-				var _tmp_action = struct_get(temp_array[i][j],string(_name));
-				if (_tmp_action == undefined) {
-					struct_set(temp_array[i][j],string(_name),_value);
+				if (struct_get(start_card_stats[i][j],string(_name)) == undefined) {
+					struct_set(start_card_stats[i][j],string(_name),_value);
 				}
 			});
-			if (struct_get(temp_array[i][j],"name") == undefined) {
-				struct_set(temp_array[i][j],"name",struct_get(temp_array[i][0],"name"));
+			if (struct_get(start_card_stats[i][j],"name") == undefined) {
+				struct_set(start_card_stats[i][j],"name",struct_get(start_card_stats[i][0],"name"));
 			}
-			show_debug_message(string(temp_array[i][j]));
+			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}
 	}
 	return;
