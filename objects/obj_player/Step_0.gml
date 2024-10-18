@@ -15,3 +15,10 @@ if (keyboard_check_pressed(3+48)) deck = scr_deck_shuffle(deck,deck_size,true);
 
 // press [ 4 ] // restart game (TF)
 if (keyboard_check_pressed(4+48)) game_restart();
+
+
+
+// press [ 5 ] // TF
+if (keyboard_check_pressed(5+48)) {
+	scr_init_arrays();
+}
