@@ -1,21 +1,9 @@
-/// @description Insert description here
-
-
-
-
+/// @description set deck stuff
 // set start card stats
 start_card_stats = scr_start_card_stats_set();
-
-
-
-//deck_point = 0; // position in deck (pointer)
 deck_min = 28; // starting deck size
 deck_max = 40; // ending deck size
 // prevent errors for decks smaller than the max size of deck
-/*for (i = 0; i < deck_max; i++) {
-	deck[i][0] = 0; // sprite_index
-	deck[i][1] = false; // evealed
-}*/
 for (i = 0; i < deck_max; i++) {
 	deck[i][0] = ""; // card name
 	deck[i][1] = false; // revealed

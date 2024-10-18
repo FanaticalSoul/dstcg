@@ -10,7 +10,7 @@ else if (card_stats != noone) {
 	if (struct_get(card_stats[0],"name") != "") {
 		//sprite_index = sprites[card_number];
 		sprite_index = struct_get(card_stats[0],"image");
-		if (selected) sprite_index = spr_card_stamina_str;
+		if (selected) sprite_index = spr_start_card_stamina_str;
 	}
 }
 

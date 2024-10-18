@@ -11,9 +11,9 @@ function scr_start_sprites_set () {
 	sprites[i++] = spr_card_8;
 	sprites[i++] = spr_card_9;
 	sprites[i++] = spr_card_0;
-	sprites[i++] = spr_card_stamina_dex; // 11
-	sprites[i++] = spr_card_stamina_int; // 12
-	sprites[i++] = spr_card_stamina_fth; // 13
-	sprites[i++] = spr_card_stamina_str; // 14
+	sprites[i++] = spr_start_card_stamina_dex; // 11
+	sprites[i++] = spr_start_card_stamina_int; // 12
+	sprites[i++] = spr_start_card_stamina_fth; // 13
+	sprites[i++] = spr_start_card_stamina_str; // 14
 	return sprites;
 }
