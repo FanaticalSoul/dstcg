@@ -70,8 +70,6 @@
     {"id":{"name":"scr_hero_field_set","path":"scripts/scr_hero_field_set/scr_hero_field_set.yy",},},
     {"id":{"name":"scr_start_card_draw","path":"scripts/scr_start_card_draw/scr_start_card_draw.yy",},},
     {"id":{"name":"scr_start_card_stats_set","path":"scripts/scr_start_card_stats_set/scr_start_card_stats_set.yy",},},
-    {"id":{"name":"scr_start_deck_set","path":"scripts/scr_start_deck_set/scr_start_deck_set.yy",},},
-    {"id":{"name":"scr_start_hand_set","path":"scripts/scr_start_hand_set/scr_start_hand_set.yy",},},
     {"id":{"name":"scr_start_sprites_set","path":"scripts/scr_start_sprites_set/scr_start_sprites_set.yy",},},
     {"id":{"name":"scr_test_features","path":"scripts/scr_test_features/scr_test_features.yy",},},
     {"id":{"name":"spr_card_0","path":"sprites/spr_card_0/spr_card_0.yy",},},
