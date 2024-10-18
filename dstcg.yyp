@@ -120,6 +120,7 @@
     {"id":{"name":"spr_icons_enemies","path":"sprites/spr_icons_enemies/spr_icons_enemies.yy",},},
     {"id":{"name":"spr_icons","path":"sprites/spr_icons/spr_icons.yy",},},
     {"id":{"name":"spr_start_card_back","path":"sprites/spr_start_card_back/spr_start_card_back.yy",},},
+    {"id":{"name":"spr_start_card_front_1","path":"sprites/spr_start_card_front_1/spr_start_card_front_1.yy",},},
     {"id":{"name":"spr_start_card_front","path":"sprites/spr_start_card_front/spr_start_card_front.yy",},},
     {"id":{"name":"spr_start_card_herald_armour","path":"sprites/spr_start_card_herald_armour/spr_start_card_herald_armour.yy",},},
     {"id":{"name":"spr_start_card_kite_shield","path":"sprites/spr_start_card_kite_shield/spr_start_card_kite_shield.yy",},},
