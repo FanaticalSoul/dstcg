@@ -1,43 +1,10 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function scr_init_arrays() {
-	
+function scr_start_card_stats_set () {
 	
 	/*/ WoL //
 	// Area Attacks ( AoE )
 	// WoL /*/
-	
-	/*/ Template // 3 actions max //
 
-	// Template /*/
-	
-	
-	default_action = {
-		standard_action : false, // discard on use
-		block  : 0,
-		damage : 0,
-		heal : 0,
-		search : 0,
-		shift  : 0,
-		push   : false, // false = 0 // N = 1 // E = 2 // ect...
-		ranged : false,
-		dodge  : false,
-		attack : "none", // heavy, precise, magical, skilled, none
-		inflict : [
-			// inflict condition(s) // bleed, frostbite, poison, stagger
-		],
-		stamina : [
-			0, // dexerity
-			0, // intelligence
-			0, // strength
-			0, // faith
-			0  // generic
-		]
-	};
-	
-	
-	
-	
+	// set actions for cards
 	start_card_stats = [
 		 [{
 			name : "herald armour",
@@ -129,12 +96,32 @@ function scr_init_arrays() {
 			]
 		}]
 	];
+	// set default action
+	default_action = {
+		standard_action : false, // discard on use
+		block  : 0,
+		damage : 0,
+		heal : 0,
+		search : 0,
+		shift  : 0,
+		push   : false, // false = 0 // N = 1 // E = 2 // ect...
+		ranged : false,
+		dodge  : false,
+		attack : "none", // heavy, precise, magical, skilled, none
+		inflict : false, // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
+		stamina : [
+			0, // dexerity
+			0, // intelligence
+			0, // strength
+			0, // faith
+			0  // generic
+		]
+	};
 	// add default values // add name of item to all item actions //
 	var _test = false;
 	for (i = 0; i < array_length(start_card_stats); i++ ) {
-		var _card = start_card_stats[i];
 		if (_test) show_debug_message("item : "+string(struct_get(start_card_stats[i][0],"name")));
-		for (j = 0; j < array_length(_card); j++ ) {
+		for (j = 0; j < array_length(start_card_stats[i]); j++ ) {
 			struct_foreach (default_action, function(_name, _value) {
 				if (struct_get(start_card_stats[i][j],string(_name)) == undefined) {
 					struct_set(start_card_stats[i][j],string(_name),_value);
