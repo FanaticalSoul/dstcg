@@ -140,5 +140,5 @@ function scr_start_card_stats_set () {
 			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}
 	}
-	return;
+	return start_card_stats;
 }
