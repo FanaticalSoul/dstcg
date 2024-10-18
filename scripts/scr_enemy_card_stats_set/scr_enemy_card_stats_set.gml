@@ -233,6 +233,7 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "hollow soldier",
+			image : spr_enemy_card_hollow_soldier,
 			enemy_level : 1,
 			souls : 2,
 			defense_value : 1,
@@ -268,6 +269,7 @@ function scr_enemy_card_stats_set(){
 	];
 	// set default enemy stats
 	default_enemy = {
+		image : spr_enemy_card_front,
 		enemy_level   : 1,
 		souls         : 1,
 		defense_value : 0,
@@ -285,7 +287,7 @@ function scr_enemy_card_stats_set(){
 		spawn_location : 1
 	};
 	// add default values //
-	var _test = true;
+	var _test = false;
 	for (i = 0; i < array_length(enemy_card_stats); i++ ) {
 		if (_test) show_debug_message("enemy : "+string(struct_get(enemy_card_stats[i],"name")));
 		struct_foreach (default_enemy, function(_name, _value) {
@@ -303,5 +305,5 @@ function scr_enemy_card_stats_set(){
 		});
 		if (_test) show_debug_message(string(enemy_card_stats[i]));
 	}
-	return;
+	return enemy_card_stats;
 }

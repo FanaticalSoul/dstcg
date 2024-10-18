@@ -18,8 +18,10 @@ if (keyboard_check_pressed(4+48)) game_restart();
 
 
 
-// press [ 5 ] // set card stats
+// press [ 5 ] // set card stats (TF)
+/*
 if (keyboard_check_pressed(5+48)) {
 	scr_start_card_stats_set ();
-	scr_enemy_card_stats_set();
+	
 }
+*/

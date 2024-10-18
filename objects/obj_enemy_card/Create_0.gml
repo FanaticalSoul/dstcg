@@ -16,6 +16,7 @@ des_x = x;
 des_y = y;
 
 // get sprite
-sprite_index = sprites[card_number+(card_level-1)*20];
+//sprite_index = sprites[card_number+(card_level-1)*20];
+sprite_index = card_stats.image;
 
 //show_debug_message("created");

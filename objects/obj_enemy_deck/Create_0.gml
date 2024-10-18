@@ -1,4 +1,14 @@
 /// @description Insert description here
+
+
+// set enemy card stats
+enemy_card_stats = scr_enemy_card_stats_set();
+
+
+
+
+
+
 deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
 enemy_max = 6; // max enemy cards allowed in play
@@ -6,17 +16,23 @@ sprites = scr_enemy_sprites_set(); // get sprites
 deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
 for (i = 0; i < deck_max; i++) {
-	deck[i][0] = 0; // sprite_index
-	deck[i][1] = false; // evealed
+	deck[i] = "";
 }
 // set cards in deck ( no states )
 i = 0;
-deck[i++] = [1,1];
+deck[i++] = "hollow soldier";
+deck[i++] = "hollow soldier";
+deck[i++] = "hollow soldier";
+deck[i++] = "hollow soldier";
+deck[i++] = "hollow soldier";
+/*
 deck[i++] = [2,1];
 deck[i++] = [3,1];
 deck[i++] = [4,1];
 deck[i++] = [5,1];
 deck[i++] = [6,1];
+*/
+
 /*
 deck[i++] = [7,1];
 deck[i++] = [8,1];
@@ -38,9 +54,9 @@ deck_size = i;
 i = 0;
 
 // automatically shuffle after deck is made
-scr_deck_shuffle(deck,deck_size,true);
+scr_enemy_deck_shuffle(deck,deck_size);
 
-
+show_debug_message("deck : "+string(deck));
 
 //
 for (i = 0; i < enemy_max; i++) {
