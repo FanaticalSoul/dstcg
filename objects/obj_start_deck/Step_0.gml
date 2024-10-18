@@ -27,7 +27,7 @@ if (keyboard_check_pressed(1+48)) {
 if (keyboard_check_pressed(2+48)) deck_reveal_full = !deck_reveal_full;
 
 // press [ 3 ] // shuffle deck (TF)
-if (keyboard_check_pressed(3+48)) deck = scr_deck_shuffle(deck,deck_size,true);
+if (keyboard_check_pressed(3+48)) deck = scr_start_deck_shuffle(deck,deck_size,true);
 
 
 // press [ enter ] // draw opening hand
