@@ -8,6 +8,7 @@ function scr_start_card_stats_set () {
 	start_card_stats = [
 		 [{
 			name : "herald armour",
+			image : spr_start_card_herald_armour,
 			block : 3,
 			stamina : [
 				0, // dexerity
@@ -127,8 +128,11 @@ function scr_start_card_stats_set () {
 					struct_set(start_card_stats[i][j],string(_name),_value);
 				}
 			});
-			if (struct_get(start_card_stats[i][j],"name") == undefined) {
-				struct_set(start_card_stats[i][j],"name",struct_get(start_card_stats[i][0],"name"));
+			if (struct_get(start_card_stats[i][0],"image") == undefined) {
+				struct_set(start_card_stats[i][0],"image",spr_start_card_front);
+			}
+			if (struct_get(start_card_stats[i][0],"name") == undefined) {
+				struct_set(start_card_stats[i][0],"name","nameless enemy");
 			}
 			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}
