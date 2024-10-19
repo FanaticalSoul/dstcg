@@ -16,7 +16,9 @@ function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
 				}
 				else if (_card != "" && _tmp_card_a != "") _flag = true;
 				// if card exists
+				show_debug_message("almost did a shuffle");
 				if (_flag) {
+					show_debug_message("did a shuffle!");
 					var _tmp_card_b = _card;
 					_deck[j] = _tmp_card_a;
 					_deck[_tmp_pos_a] = _tmp_card_b;
