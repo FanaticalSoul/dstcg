@@ -11,5 +11,5 @@ for (i = 0; i < hand_start; i++) {
 	hand_card[i] = noone; // initalize cards in hand
 }
 i = 0;
-sprites = scr_start_sprites_set(); // get sprites // probably remove this later
+//sprites = scr_start_sprites_set(); // get sprites // probably remove this later
 scr_hero_field_set (); // for hero object

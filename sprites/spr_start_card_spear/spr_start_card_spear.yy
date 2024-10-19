@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Start Cards",
-    "path":"folders/Sprites/Start Cards.yy",
+    "name":"Equipment Cards",
+    "path":"folders/Sprites/Start Cards/Equipment Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

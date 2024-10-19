@@ -1,6 +1,4 @@
 function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
-	//var _shuffles = 100; // ammount of shuffles
-	//var _cards = array_length(_deck);
 	if (_cards==0) {return [];}
 	else {
 		for (i = 0; i < _shuffles; i++) {
@@ -14,11 +12,9 @@ function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
 				// check if card exists (based on state)
 				var _flag = false;
 				if (_states) {
-					if (_card[0] > 0 && _tmp_card_a[0] > 0) {_flag = true;}
+					if (_card[0] != "" && _tmp_card_a[0] != "") _flag = true;
 				}
-				else {
-					if (_card > 0 && _tmp_card_a > 0) {_flag = true;};
-				}
+				else if (_card != "" && _tmp_card_a != "") _flag = true;
 				// if card exists
 				if (_flag) {
 					var _tmp_card_b = _card;

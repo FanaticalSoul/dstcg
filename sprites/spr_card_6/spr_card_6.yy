@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Test Cards",
-    "path":"folders/Sprites/Test Cards.yy",
+    "path":"folders/Sprites/Unused/Test Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -12,7 +12,7 @@ enemy_card_stats = scr_enemy_card_stats_set();
 deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
 enemy_max = 6; // max enemy cards allowed in play
-sprites = scr_enemy_sprites_set(); // get sprites
+//sprites = scr_enemy_sprites_set(); // get sprites
 deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
 for (i = 0; i < deck_max; i++) {
@@ -23,6 +23,10 @@ i = 0;
 deck[i++] = "hollow soldier";
 deck[i++] = "irithyllian beast hound";
 deck[i++] = "peasant hollow";
+deck[i++] = "hollow soldier";
+deck[i++] = "irithyllian beast hound";
+deck[i++] = "peasant hollow";
+enemy_max = 3; // TF
 /*
 deck[i++] = [2,1];
 deck[i++] = [3,1];
@@ -52,7 +56,7 @@ deck_size = i;
 i = 0;
 
 // automatically shuffle after deck is made
-scr_enemy_deck_shuffle(deck,deck_size);
+//scr_enemy_deck_shuffle(deck,deck_size);
 
 show_debug_message("deck : "+string(deck));
 

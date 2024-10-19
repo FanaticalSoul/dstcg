@@ -27,7 +27,7 @@
   "origin":4,
   "parent":{
     "name":"WoL",
-    "path":"folders/Sprites/WoL.yy",
+    "path":"folders/Sprites/Unused/WoL.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

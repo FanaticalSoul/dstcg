@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"16-Bit Icons",
-    "path":"folders/Sprites/16-Bit Icons.yy",
+    "name":"Remasters",
+    "path":"folders/Sprites/Icons/Resized Icons/16-Bit Icons/Remasters.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

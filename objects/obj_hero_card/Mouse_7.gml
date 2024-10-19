@@ -20,12 +20,8 @@ for (i = 0; i < 6; i++) {
 			des_x = _tmp_x;
 			des_y = _tmp_y;
 			obj_player.field_card[i] = id;
-			
-			
 			// start game?
-			
-			if (obj_enemy_deck.alarm[0] == -1) obj_enemy_deck.alarm[0] = 1;
-			if (obj_start_deck.alarm[0] == -1) obj_start_deck.alarm[0] = 1;
+			scr_start_game ();
 			break;
 		}
 	}

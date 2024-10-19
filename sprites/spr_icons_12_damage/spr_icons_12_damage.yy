@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"16-Bit Icons",
-    "path":"folders/Sprites/16-Bit Icons.yy",
+    "name":"12-Bit Icons",
+    "path":"folders/Sprites/Icons/Resized Icons/12-Bit Icons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

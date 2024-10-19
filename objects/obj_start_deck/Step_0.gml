@@ -29,9 +29,10 @@ if (keyboard_check_pressed(1+48)) {
 // press [ 2 ] // reveal all cards in deck (TF)
 if (keyboard_check_pressed(2+48)) deck_reveal_full = !deck_reveal_full;
 
+/*
 // press [ 3 ] // shuffle deck (TF)
 if (keyboard_check_pressed(3+48)) deck = scr_start_deck_shuffle(deck,deck_size,true);
-
+*/
 
 // press [ enter ] // draw opening hand
 //if (keyboard_check_pressed(13) && alarm[0] == -1) alarm[0] = 1;

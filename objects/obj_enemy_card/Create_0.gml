@@ -10,7 +10,6 @@ path_speed = card_speed;
 
 //deck = obj_enemy_deck.deck;
 enemy_cords = obj_enemy_deck.enemy_cords;
-sprites = obj_enemy_deck.sprites;
 // set destination
 des_x = x;
 des_y = y;
