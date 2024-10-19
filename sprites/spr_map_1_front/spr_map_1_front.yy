@@ -27,7 +27,7 @@
   ],
   "name":"spr_map_1_front",
   "nineSlice":null,
-  "origin":0,
+  "origin":3,
   "parent":{
     "name":"Maps",
     "path":"folders/Sprites/Maps.yy",
@@ -80,7 +80,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":0,
-    "yorigin":0,
+    "yorigin":60,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
