@@ -1,15 +1,15 @@
 {
   "$GMRoom":"",
-  "%Name":"loc_room",
+  "%Name":"map_room",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_5CCFBD86","path":"rooms/loc_room/loc_room.yy",},
-    {"name":"inst_1BC4C051","path":"rooms/loc_room/loc_room.yy",},
-    {"name":"inst_FDE79FD","path":"rooms/loc_room/loc_room.yy",},
-    {"name":"inst_39827660","path":"rooms/loc_room/loc_room.yy",},
+    {"name":"inst_5CCFBD86","path":"rooms/map_room/map_room.yy",},
+    {"name":"inst_1BC4C051","path":"rooms/map_room/map_room.yy",},
+    {"name":"inst_FDE79FD","path":"rooms/map_room/map_room.yy",},
+    {"name":"inst_39827660","path":"rooms/map_room/map_room.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -32,7 +32,7 @@
       ],"name":"Playmat","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":0.0,"animationSpeedType":0,"colour":4278190080,"depth":1000,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"loc_room",
+  "name":"map_room",
   "parent":{
     "name":"Rooms",
     "path":"folders/Rooms.yy",

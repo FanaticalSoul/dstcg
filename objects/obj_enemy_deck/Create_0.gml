@@ -21,7 +21,7 @@ deck[i++] = "peasant hollow";
 deck[i++] = "hollow soldier";
 deck[i++] = "irithyllian beast hound";
 deck[i++] = "peasant hollow";
-enemy_max = 3; // TF
+enemy_max = 6; // TF
 deck_size = i;
 i = 0;
 // automatically shuffle after deck is made
