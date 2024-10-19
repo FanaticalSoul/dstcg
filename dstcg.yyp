@@ -122,6 +122,7 @@
     {"id":{"name":"spr_start_card_front","path":"sprites/spr_start_card_front/spr_start_card_front.yy",},},
     {"id":{"name":"spr_start_card_herald_armour","path":"sprites/spr_start_card_herald_armour/spr_start_card_herald_armour.yy",},},
     {"id":{"name":"spr_start_card_kite_shield","path":"sprites/spr_start_card_kite_shield/spr_start_card_kite_shield.yy",},},
+    {"id":{"name":"spr_start_card_selected","path":"sprites/spr_start_card_selected/spr_start_card_selected.yy",},},
     {"id":{"name":"spr_start_card_spear","path":"sprites/spr_start_card_spear/spr_start_card_spear.yy",},},
     {"id":{"name":"spr_start_card_stamina_dex","path":"sprites/spr_start_card_stamina_dex/spr_start_card_stamina_dex.yy",},},
     {"id":{"name":"spr_start_card_stamina_fth","path":"sprites/spr_start_card_stamina_fth/spr_start_card_stamina_fth.yy",},},
