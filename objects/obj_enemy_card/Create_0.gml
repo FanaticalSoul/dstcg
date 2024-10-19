@@ -2,9 +2,9 @@
 
 
 // flip animation varibles // needs revisions
-flip_speed = 0.1;    // Speed of the flip animation
+flip_speed = 0.08;    // Speed of the flip animation
 flip_scale_x = 1;         // X scale of the card, will change to simulate the flip
-flip_active = true;    // Whether the card is currently flipping
+flip_active = false;    // Whether the card is currently flipping
 flip_finished = false;     // Whether the card is flipped (showing the back)
 
 

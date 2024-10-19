@@ -18,7 +18,11 @@ if (flip_active) {
         }
     }
 }
-
+else if (enemy_on_field && !flip_finished) {
+	if (!point_distance(x,y,des_x,des_y) && !flip_active) {
+		flip_active = true
+	}
+}
 
 // alarm on card draw
 if (enemy_to_field && alarm[0] == -1) alarm[0] = 1;
