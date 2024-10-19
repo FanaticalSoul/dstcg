@@ -26,7 +26,7 @@ function scr_enemy_card_draw () {
 	
 	// fix placement positions
 	while (card_placements[enemy_placement] != noone) {
-		enemy_placement = irandom_range(0,enemy_max-1);
+		enemy_placement = irandom_range(0,field_spaces-1);
 	}
 	card_placements[enemy_placement] = enemy_placement;
 	

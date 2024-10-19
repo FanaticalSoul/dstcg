@@ -23,35 +23,8 @@ i = 0;
 deck[i++] = "hollow soldier";
 deck[i++] = "irithyllian beast hound";
 deck[i++] = "peasant hollow";
-deck[i++] = "hollow soldier";
-deck[i++] = "irithyllian beast hound";
-deck[i++] = "peasant hollow";
 enemy_max = 3; // TF
-/*
-deck[i++] = [2,1];
-deck[i++] = [3,1];
-deck[i++] = [4,1];
-deck[i++] = [5,1];
-deck[i++] = [6,1];
-*/
-
-/*
-deck[i++] = [7,1];
-deck[i++] = [8,1];
-deck[i++] = [9,1];
-deck[i++] = [0,1];
-/*
-deck[i++] = [1,1];
-deck[i++] = [2,2];
-deck[i++] = [3,3];
-deck[i++] = [4,4];
-deck[i++] = [5,5];
-deck[i++] = [6,6];
-deck[i++] = [7,1];
-deck[i++] = [8,2];
-deck[i++] = [9,3];
-deck[i++] = [0,4];
-*/
+field_spaces = 6;
 deck_size = i;
 i = 0;
 
@@ -61,7 +34,7 @@ i = 0;
 show_debug_message("deck : "+string(deck));
 
 //
-for (i = 0; i < enemy_max; i++) {
+for (i = 0; i < field_spaces; i++) {
 	enemy[i] = 0;
 	enemy_card[i] = noone;
 	card_placements[i] = noone; // holds enemy position ( for when 2 cards end up being placed on top of each other)

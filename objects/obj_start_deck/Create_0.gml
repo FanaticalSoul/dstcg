@@ -17,18 +17,7 @@ for (j = 0; j < 11; j++) {deck[i++][0] = 11;}
 for (j = 0; j <  4; j++) {deck[i++][0] = 12;}
 // 4 str cards
 for (j = 0; j <  4; j++) {deck[i++][0] = 13;}
-
-deck[i++][0] = 1;
-deck[i++][0] = 2;
-deck[i++][0] = 3;
-deck[i++][0] = 4;
-deck[i++][0] = 5;
-deck[i++][0] = 6;
-deck[i++][0] = 7;
-deck[i++][0] = 8;
-deck[i++][0] = 9;
 */
-
 deck[i++][0] = "herald armour";
 deck[i++][0] = "herald armour";
 deck[i++][0] = "spear";
@@ -37,9 +26,7 @@ deck[i++][0] = "kite shield";
 deck[i++][0] = "kite shield";
 deck[i++][0] = "talisman";
 deck[i++][0] = "talisman";
-
-
-//deck[i-2][1] = true; // reveal card under top card
+deck[i-2][1] = true; // reveal card under top card // TF
 deck_size = i;
 i = 0; // reset increments
 
