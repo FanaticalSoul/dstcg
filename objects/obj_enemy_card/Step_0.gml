@@ -1,6 +1,25 @@
 /// @description Insert description here
 
 
+// flip animation // needs revisions
+if (flip_active) {
+    // Decrease scale_x to 0, then switch sprites and increase it back to 1
+    if (!flip_finished) {
+        flip_scale_x -= flip_speed;   // Shrinking the card
+        if (flip_scale_x <= 0) {
+            flip_finished = true;      // Mark as flipped
+            flip_scale_x = 0;         // Prevent negative scale
+        }
+    } else {
+        flip_scale_x += flip_speed;   // Expanding the card
+        if (flip_scale_x >= 1) {
+            flip_scale_x = 1;         // Full-size again
+            flip_active = false;    // Flip finished
+        }
+    }
+}
+
+
 // alarm on card draw
 if (enemy_to_field && alarm[0] == -1) alarm[0] = 1;
 

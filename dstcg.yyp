@@ -81,6 +81,7 @@
     {"id":{"name":"scr_start_card_stats_set","path":"scripts/scr_start_card_stats_set/scr_start_card_stats_set.yy",},},
     {"id":{"name":"scr_start_game","path":"scripts/scr_start_game/scr_start_game.yy",},},
     {"id":{"name":"scr_test_features","path":"scripts/scr_test_features/scr_test_features.yy",},},
+    {"id":{"name":"mp3_bonfire","path":"sounds/mp3_bonfire/mp3_bonfire.yy",},},
     {"id":{"name":"spr_banner_death","path":"sprites/spr_banner_death/spr_banner_death.yy",},},
     {"id":{"name":"spr_card_0","path":"sprites/spr_card_0/spr_card_0.yy",},},
     {"id":{"name":"spr_card_1","path":"sprites/spr_card_1/spr_card_1.yy",},},

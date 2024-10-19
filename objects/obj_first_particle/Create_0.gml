@@ -1,4 +1,5 @@
 // Create the particle system
+
 var _ps = part_system_create();
 part_system_depth(_ps, depth);
 
@@ -33,8 +34,3 @@ part_emitter_burst(_ps, _pemit1, _ptype1, 30); // Burst with fewer particles for
 
 // Set system position at the card's position on the field (replace with your card's x/y position)
 part_system_position(_ps, obj_hero_card.x, obj_hero_card.y);
-
-
-
-
-// destroy

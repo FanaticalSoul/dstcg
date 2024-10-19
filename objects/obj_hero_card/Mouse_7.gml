@@ -27,6 +27,8 @@ for (i = 0; i < 6; i++) {
 					instance_destroy(obj_first_particle);
 				}
 				instance_create_depth(0,0,temp_depth+1,obj_first_particle);
+
+				
 				scr_start_game ();
 			}
 			break;
