@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
+game_start = false;
 path_speed = card_speed;
 // temporary varibles
 temp_depth = depth;

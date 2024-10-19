@@ -21,7 +21,14 @@ for (i = 0; i < 6; i++) {
 			des_y = _tmp_y;
 			obj_player.field_card[i] = id;
 			// start game?
-			scr_start_game ();
+			if (!game_start) {
+			// do particle magic
+				while (instance_exists(obj_first_particle)) {
+					instance_destroy(obj_first_particle);
+				}
+				instance_create_depth(0,0,temp_depth+1,obj_first_particle);
+				scr_start_game ();
+			}
 			break;
 		}
 	}
