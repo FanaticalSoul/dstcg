@@ -21,11 +21,9 @@ for (j = 0; j <  4; j++) {deck[i++][0] = 13;}
 deck[i++][0] = "herald armour";
 deck[i++][0] = "herald armour";
 deck[i++][0] = "spear";
-deck[i++][0] = "spear";
-deck[i++][0] = "kite shield";
 deck[i++][0] = "kite shield";
 deck[i++][0] = "talisman";
-deck[i++][0] = "talisman";
+
 deck[i-2][1] = true; // reveal card under top card // TF
 deck_size = i;
 i = 0; // reset increments
