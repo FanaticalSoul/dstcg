@@ -20,6 +20,9 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mp3_you_died.mp3",
+  "tags":[
+    "WoL",
+  ],
   "type":0,
   "volume":1.0,
 }

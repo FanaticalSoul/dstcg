@@ -17,4 +17,7 @@
   "precision":4,
   "resourceType":"GMPath",
   "resourceVersion":"2.0",
+  "tags":[
+    "enemy",
+  ],
 }

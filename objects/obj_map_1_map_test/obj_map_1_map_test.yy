@@ -32,5 +32,9 @@
     "path":"sprites/spr_map_1_front/spr_map_1_front.yy",
   },
   "spriteMaskId":null,
+  "tags":[
+    "WoL",
+    "map",
+  ],
   "visible":true,
 }

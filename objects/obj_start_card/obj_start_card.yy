@@ -48,7 +48,7 @@
   },
   "spriteMaskId":null,
   "tags":[
-    "hero",
+    "start",
   ],
   "visible":true,
 }

@@ -45,7 +45,6 @@
   "spriteMaskId":null,
   "tags":[
     "hero",
-    "deck",
     "hand",
   ],
   "visible":false,

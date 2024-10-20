@@ -49,8 +49,7 @@
   },
   "spriteMaskId":null,
   "tags":[
-    "hero",
-    "deck",
+    "start",
   ],
   "visible":true,
 }
