@@ -1,10 +1,7 @@
-/// @description set deck stuff
-// set start card stats
-start_card_stats = scr_start_card_stats_set();
-deck_min = 28; // starting deck size
-//deck_max = 40; // ending deck size
+/// @description Insert description here
 // prevent errors for decks smaller than the max size of deck
-for (i = 0; i < deck_max; i++) {
+/*
+for (i = 0; i < obj_start_deck.deck_max; i++) {
 	deck[i][0] = ""; // card name
 	deck[i][1] = false; // revealed
 }
@@ -28,5 +25,4 @@ deck_reveal_full = false; // reveal all cards in deck
 deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // deck cord varibles
 deck_reveal_y = obj_player.y-sprite_height-deck_reveal_spacing*3/4;
-// create assossiated discard // TF
-instance_create_depth(x,y+sprite_height+deck_reveal_spacing,depth,obj_start_discard);
+*/

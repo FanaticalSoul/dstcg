@@ -9,8 +9,9 @@ hand_size = 0;
 // set hand
 hand_spacing = 8;
 hand_start = 6;
-hand_max = hand_start+3;
-for (i = 0; i < hand_start; i++) {
+//hand_max = hand_start+3;
+//hand_max = obj_start_deck.deck_max; // TF
+for (i = 0; i < hand_max; i++) {
 	hand[i][0] = 0; // sprite index
 	hand[i][1] = false; // revealed
 	hand[i][2] = false; // selected

@@ -34,6 +34,7 @@
         "\"knight\"",
         "\"sorcerer\"",
       ],"multiselect":false,"name":"hero_class","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\"","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"hand_max","filters":[],"listItems":[],"multiselect":false,"name":"hand_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"40","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

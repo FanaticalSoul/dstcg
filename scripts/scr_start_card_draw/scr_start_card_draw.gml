@@ -4,12 +4,12 @@ function scr_start_card_draw (_num){
 		// end the encounter as a loss // WoL
 		return; // do nothing
 	}
-	else if (obj_player.hand_size == obj_player.hand_start) {
+	else if (obj_player.hand_size == obj_player.hand_max) {
 		// if max hand size was reached
 		// add functionality to handle additional cards later // WoL
 		return; // do nothing
 	}
-	else if (obj_player.hand_size > obj_player.hand_start) {
+	else if (obj_player.hand_size > obj_player.hand_max) {
 		// WoL
 		return; // do nothing
 	}

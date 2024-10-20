@@ -39,3 +39,12 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 	}
 	// WoL */
 }
+
+
+
+// press [ space ] // discard this card if selected and draw a new one (TF)
+if (keyboard_check_pressed(32) && selected) {
+	with (obj_start_deck) {
+		scr_start_card_draw(1);
+	}
+}

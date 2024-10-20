@@ -30,4 +30,4 @@ if (keyboard_check_pressed(40) && deck_reveal) {
 	deck_reveal = false;
 }
 // press [ alt ] // reveal all cards in deck (TF)
-if ((keyboard_check_pressed(164) || keyboard_check_pressed(165))) deck_reveal_full = !deck_reveal_full;
+if (keyboard_check_pressed(164) || keyboard_check_pressed(165)) deck_reveal_full = !deck_reveal_full;
