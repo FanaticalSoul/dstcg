@@ -19,12 +19,15 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 		}
 	}
 }
-
-// press [ 1 ]
-if (keyboard_check_pressed(1+48) && (deck_reveal || deck_size > 0)) {
+// press [ up on d-pad ]
+if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0)) {
 	deck_reveal_offset = 0;
 	deck_reveal = !deck_reveal; // toggle reveal state
 }
-
-// press [ 2 ] // reveal all cards in deck (TF)
-if (keyboard_check_pressed(2+48)) deck_reveal_full = !deck_reveal_full;
+// press [ down on d-pad ]
+if (keyboard_check_pressed(40) && deck_reveal) {
+	deck_reveal_offset = 0;
+	deck_reveal = false;
+}
+// press [ alt ] // reveal all cards in deck (TF)
+if ((keyboard_check_pressed(164) || keyboard_check_pressed(165))) deck_reveal_full = !deck_reveal_full;

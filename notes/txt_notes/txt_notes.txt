@@ -1,1 +1,7 @@
-lower the depth, the closer it is to the screen
+// depth notes
+ lower the depth, the closer it is to the screen
+// keybind notes
+ keyboard_check_pressed(1+48) // press [ 1 ]
+// macro notes
+ // set macro ( read-only global varible ) to avoid reading nonexistant cards
+ #macro HEROCARDCOUNT array_length(sprites)
