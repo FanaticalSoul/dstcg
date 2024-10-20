@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy_card_back_1",
-    "path":"sprites/spr_enemy_card_back_1/spr_enemy_card_back_1.yy",
+    "name":"spr_enemy_card_sm_back_1",
+    "path":"sprites/spr_enemy_card_sm_back_1/spr_enemy_card_sm_back_1.yy",
   },
   "spriteMaskId":null,
   "tags":[

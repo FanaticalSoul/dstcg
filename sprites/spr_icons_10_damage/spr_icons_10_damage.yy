@@ -29,7 +29,7 @@
   "origin":4,
   "parent":{
     "name":"10-Bit Icons",
-    "path":"folders/Sprites/Icons/Resized Icons/10-Bit Icons.yy",
+    "path":"folders/Sprites/Archive/Icons/Resized Icons/10-Bit Icons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

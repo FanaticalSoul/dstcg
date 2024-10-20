@@ -142,7 +142,7 @@ function scr_start_card_stats_set () {
 				struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
 			}
 			if (struct_get(start_card_stats[i][0],"name") == undefined) {
-				struct_set(start_card_stats[i][0],"name","nameless enemy");
+				struct_set(start_card_stats[i][0],"name","undefined enemy");
 			}
 			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}

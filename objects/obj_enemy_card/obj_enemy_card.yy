@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_enemy_card_front",
-    "path":"sprites/spr_enemy_card_front/spr_enemy_card_front.yy",
+    "name":"spr_enemy_card_sm_front",
+    "path":"sprites/spr_enemy_card_sm_front/spr_enemy_card_sm_front.yy",
   },
   "spriteMaskId":null,
   "tags":[

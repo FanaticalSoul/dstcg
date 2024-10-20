@@ -29,7 +29,7 @@
   "origin":4,
   "parent":{
     "name":"Icons",
-    "path":"folders/Sprites/Icons.yy",
+    "path":"folders/Sprites/Archive/Icons.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

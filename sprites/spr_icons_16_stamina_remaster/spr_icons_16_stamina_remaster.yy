@@ -30,7 +30,7 @@
   "origin":4,
   "parent":{
     "name":"Remasters",
-    "path":"folders/Sprites/Icons/Resized Icons/16-Bit Icons/Remasters.yy",
+    "path":"folders/Sprites/Archive/Icons/Resized Icons/16-Bit Icons/Remasters.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

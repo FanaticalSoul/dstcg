@@ -20,14 +20,14 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"09d2e1ca-6259-44d8-8bea-a9edd5695d49","blendMode":0,"displayName":"icon","isLocked":false,"name":"09d2e1ca-6259-44d8-8bea-a9edd5695d49","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"951e1fbd-052f-45cc-8483-3faa61ee4782","blendMode":0,"displayName":"default","isLocked":true,"name":"951e1fbd-052f-45cc-8483-3faa61ee4782","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"951e1fbd-052f-45cc-8483-3faa61ee4782","blendMode":0,"displayName":"default","isLocked":false,"name":"951e1fbd-052f-45cc-8483-3faa61ee4782","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_start_card_sm_back",
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Small Cards",
-    "path":"folders/Sprites/Start Cards/Small Cards.yy",
+    "name":"Start Cards",
+    "path":"folders/Sprites/Start Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

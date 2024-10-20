@@ -27,7 +27,7 @@
   "origin":4,
   "parent":{
     "name":"Enemy Cards",
-    "path":"folders/Sprites/Enemy Cards.yy",
+    "path":"folders/Sprites/Archive/Enemy Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -12,16 +12,10 @@ for (i = 0; i < deck_max; i++) {
 }
 // set cards in deck ( no states )
 i = 0;
-deck[i++] = "hollow soldier";
+deck[i++] = "winged corvian";
 deck[i++] = "irithyllian beast hound";
 deck[i++] = "peasant hollow";
-deck[i++] = "hollow soldier";
-deck[i++] = "irithyllian beast hound";
-deck[i++] = "peasant hollow";
-deck[i++] = "hollow soldier";
-deck[i++] = "irithyllian beast hound";
-deck[i++] = "peasant hollow";
-enemy_max = 6; // TF
+//enemy_max = 6; // TF
 deck_size = i;
 i = 0;
 // automatically shuffle after deck is made
