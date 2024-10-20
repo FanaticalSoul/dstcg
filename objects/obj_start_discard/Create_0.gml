@@ -1,28 +1,7 @@
 /// @description Insert description here
-// prevent errors for decks smaller than the max size of deck
-/*
-for (i = 0; i < obj_start_deck.deck_max; i++) {
-	deck[i][0] = ""; // card name
-	deck[i][1] = false; // revealed
-}
-// set cards in deck
-i = 0;
-for (j = 0; j < 11; j++) deck[i++][0] = "fth stamina";
-for (j = 0; j <  4; j++) deck[i++][0] = "int stamina";
-for (j = 0; j <  4; j++) deck[i++][0] = "str stamina";
-for (j = 0; j <  2; j++) deck[i++][0] = "herald armour";
-for (j = 0; j <  3; j++) deck[i++][0] = "spear";
-for (j = 0; j <  2; j++) deck[i++][0] = "kite shield";
-for (j = 0; j <  2; j++) deck[i++][0] = "talisman";
-//deck[i-2][1] = true; // reveal card under top card // TF
-deck_size = i;
-i = 0; // reset increments
-// reveal state
-deck_reveal = false;
-deck_reveal_offset = 0;
-deck_reveal_full = false; // reveal all cards in deck
-// custom adjustments
-deck_spacing = deck_spacing_width_in_pixels / deck_max;
-// deck cord varibles
-deck_reveal_y = obj_player.y-sprite_height-deck_reveal_spacing*3/4;
-*/
+discard_max = obj_start_deck.deck_max;
+discard_spacing = obj_start_deck.deck_spacing;
+discard_reveal_y = obj_start_deck.deck_reveal_y;
+for (i = 0; i < discard_max; i++) discard[i] = ""; // card name
+discard_size = i;
+
