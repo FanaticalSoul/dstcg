@@ -5,7 +5,7 @@ function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
 			// shuffle
 			for (j = 0; j < _cards; j++) {
 				// set varibles
-				var _tmp_pos_a = irandom_range(0,_cards);
+				var _tmp_pos_a = irandom_range(0,_cards-1);
 				// get card and temp card (a)
 				var _card = _deck[j];
 				var _tmp_card_a = _deck[_tmp_pos_a];

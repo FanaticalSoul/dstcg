@@ -4,10 +4,19 @@ function scr_start_card_stats_set () {
 	// Area Attacks ( AoE )
 	// WoL /*/
 
+	/* WoL //
+	diffrent card types
+	
+	type = "weapon" // equipment with an attack type and way to deal damage
+	type = "equipment" // equipment with no attack type and no way to deal damage
+	type = "stamina" // stamina
+	// WoL */
+
 	// set actions for cards
 	start_card_stats = [
 		 [{
 			name : "herald armour",
+			type : "equipment",
 			image : spr_start_card_sm_herald_armour,
 			image_hq : spr_start_card_hq_herald_armour,
 			block : 3,
@@ -23,6 +32,7 @@ function scr_start_card_stats_set () {
 			block : 2
 		}],[{
 			name : "spear",
+			type : "weapon",
 			image : spr_start_card_sm_spear,
 			image_hq : spr_start_card_hq_spear,
 			damage : 2,
@@ -58,6 +68,7 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "kite shield",
+			type : "weapon",
 			image : spr_start_card_sm_kite_shield,
 			image_hq : spr_start_card_hq_kite_shield,
 			block  : 3,
@@ -82,6 +93,7 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "talisman",
+			type : "equipment",
 			image : spr_start_card_sm_talisman,
 			image_hq : spr_start_card_hq_talisman,
 			block  : 2,
@@ -101,6 +113,45 @@ function scr_start_card_stats_set () {
 				0, // strength
 				0, // faith
 				1  // generic
+			]
+		}],[{
+			name : "str stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_str,
+			image_hq : spr_start_card_hq_stamina_str
+			// options for stamina are bellow
+		}, {
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				0  // faith
+			]
+		}],[{
+			name : "int stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_int,
+			image_hq : spr_start_card_hq_stamina_int
+			// options for stamina are bellow
+		}, {
+			stamina : [
+				0, // dexerity
+				1, // intelligence
+				0, // strength
+				0  // faith
+			]
+		}],[{
+			name : "fth stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_fth,
+			image_hq : spr_start_card_hq_stamina_fth
+			// options for stamina are bellow
+		}, {
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				1  // faith
 			]
 		}]
 	];
@@ -130,11 +181,14 @@ function scr_start_card_stats_set () {
 	for (i = 0; i < array_length(start_card_stats); i++ ) {
 		if (_test) show_debug_message("item : "+string(struct_get(start_card_stats[i][0],"name")));
 		for (j = 0; j < array_length(start_card_stats[i]); j++ ) {
-			struct_foreach (default_action, function(_name, _value) {
-				if (struct_get(start_card_stats[i][j],string(_name)) == undefined) {
-					struct_set(start_card_stats[i][j],string(_name),_value);
-				}
-			});
+			if (struct_get(start_card_stats[i][0],"type") == "equipment"
+			 || struct_get(start_card_stats[i][0],"type") == "weapon") {
+				struct_foreach (default_action, function(_name, _value) {
+					if (struct_get(start_card_stats[i][j],string(_name)) == undefined) {
+						struct_set(start_card_stats[i][j],string(_name),_value);
+					}
+				});
+			}
 			if (struct_get(start_card_stats[i][0],"image") == undefined) {
 				struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
 			}
@@ -142,7 +196,7 @@ function scr_start_card_stats_set () {
 				struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
 			}
 			if (struct_get(start_card_stats[i][0],"name") == undefined) {
-				struct_set(start_card_stats[i][0],"name","undefined enemy");
+				struct_set(start_card_stats[i][0],"name","undefined");
 			}
 			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}

@@ -247,7 +247,6 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "hollow soldier",
-			image : spr_enemy_card_hollow_soldier,
 			enemy_level : 1,
 			souls : 2,
 			defense_value : 1,
