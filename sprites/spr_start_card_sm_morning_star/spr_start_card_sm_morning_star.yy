@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Small Cards",
-    "path":"folders/Sprites/Start Cards/Small Cards.yy",
+    "name":"Treasure Cards",
+    "path":"folders/Sprites/Start Cards/Small Cards/Treasure Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

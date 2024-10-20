@@ -30,6 +30,12 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"card_speed","filters":[],"listItems":[],"multiselect":false,"name":"card_speed","rangeEnabled":true,"rangeMax":16.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"hero_class","filters":[],"listItems":[
+        "\"Assassin\"",
+        "\"Herald\"",
+        "\"Knight\"",
+        "\"Sorcerer\"",
+      ],"multiselect":false,"name":"hero_class","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"Assassin\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

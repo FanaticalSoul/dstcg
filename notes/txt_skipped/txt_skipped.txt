@@ -1,0 +1,2 @@
+tutorial 5:
+- I didn't create a function that would've created a deck with every card in it

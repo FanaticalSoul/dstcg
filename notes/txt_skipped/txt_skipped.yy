@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"txt_skipped",
+  "name":"txt_skipped",
+  "parent":{
+    "name":"Notes",
+    "path":"folders/Notes.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

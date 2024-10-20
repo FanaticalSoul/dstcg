@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Finished",
-    "path":"folders/Sprites/High Quality Scans/Base Game/Revised/Finished.yy",
+    "path":"folders/Sprites/Base Game Scans/Revised/Finished.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

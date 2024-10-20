@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Stamina Cards",
-    "path":"folders/Sprites/Start Cards/High Quality Cards/Stamina Cards.yy",
+    "name":"Herald Cards",
+    "path":"folders/Sprites/Start Cards/High Quality Cards/Herald Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
