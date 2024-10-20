@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_test_features",
   "parent":{
-    "name":"WoL",
-    "path":"folders/Scripts/WoL.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

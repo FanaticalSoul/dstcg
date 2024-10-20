@@ -29,4 +29,4 @@ deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // deck cord varibles
 deck_reveal_y = obj_player.y-sprite_height-deck_reveal_spacing*3/4;
 // create assossiated discard // TF
-instance_create_depth(x,y+sprite_height+deck_reveal_spacing,depth,obj_start_discard);
+discard = instance_create_depth(x,y+sprite_height+deck_reveal_spacing,depth,obj_start_discard);

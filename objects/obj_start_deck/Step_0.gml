@@ -19,8 +19,8 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 		}
 	}
 }
-// press [ up on d-pad ]
-if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0)) {
+// press [ up on d-pad ] // toggle deck reveal area
+if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0) && !discard.discard_reveal) {
 	deck_reveal_offset = 0;
 	deck_reveal = !deck_reveal; // toggle reveal state
 }
