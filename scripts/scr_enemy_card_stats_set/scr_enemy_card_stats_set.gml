@@ -112,7 +112,8 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "irithyllian beast hound",
-			image : spr_enemy_card_irithyllian_beast_hound,
+			image : spr_enemy_card_sm_irithyllian_beast_hound,
+			image_hq : spr_enemy_card_hq_irithyllian_beast_hound,
 			enemy_level : 1,
 			souls : 1,
 			defense_value : 1,
@@ -272,6 +273,7 @@ function scr_enemy_card_stats_set(){
 	// set default enemy stats
 	default_enemy = {
 		image : spr_enemy_card_front,
+		image_hq : spr_enemy_card_hq_irithyllian_beast_hound,
 		enemy_level   : 1,
 		souls         : 1,
 		defense_value : 0,
