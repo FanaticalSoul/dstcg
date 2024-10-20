@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_enemy_card_sm_irithyllian_beast_hound",
+  "%Name":"spr_enemy_card_sm_peasant_hollow",
   "bboxMode":0,
   "bbox_bottom":47,
   "bbox_left":0,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"6f6255db-cce4-43be-a952-e301366d1428","name":"6f6255db-cce4-43be-a952-e301366d1428","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"d2ad5bfd-9edc-467c-a84d-96ff81e39698","name":"d2ad5bfd-9edc-467c-a84d-96ff81e39698","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -21,7 +21,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"e6107064-f006-41cb-b180-86b5b00923c0","blendMode":0,"displayName":"default","isLocked":false,"name":"e6107064-f006-41cb-b180-86b5b00923c0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_enemy_card_sm_irithyllian_beast_hound",
+  "name":"spr_enemy_card_sm_peasant_hollow",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_enemy_card_sm_irithyllian_beast_hound",
+    "%Name":"spr_enemy_card_sm_peasant_hollow",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_enemy_card_sm_irithyllian_beast_hound",
+    "name":"spr_enemy_card_sm_peasant_hollow",
     "playback":1,
     "playbackSpeed":0.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6f6255db-cce4-43be-a952-e301366d1428","path":"sprites/spr_enemy_card_sm_irithyllian_beast_hound/spr_enemy_card_sm_irithyllian_beast_hound.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"3c4aad1f-63b3-4fa7-a528-c07e2242a477","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d2ad5bfd-9edc-467c-a84d-96ff81e39698","path":"sprites/spr_enemy_card_sm_peasant_hollow/spr_enemy_card_sm_peasant_hollow.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c30bdc75-8b30-490d-9793-e574e40aaa15","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

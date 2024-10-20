@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Enemy Cards",
-    "path":"folders/Sprites/Enemy Cards/Enemy Cards.yy",
+    "name":"High Quality Images",
+    "path":"folders/Sprites/Enemy Cards/Enemy Cards/High Quality Images.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

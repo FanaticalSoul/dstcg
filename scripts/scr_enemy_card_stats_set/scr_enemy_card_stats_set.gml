@@ -19,6 +19,8 @@ function scr_enemy_card_stats_set(){
 	enemy_card_stats = [
 		{
 			name : "hollow manservant",
+			image : spr_enemy_card_sm_hollow_manservant,
+			image_hq : spr_enemy_card_hq_hollow_manservant,
 			enemy_level : 1,
 			souls : 2,
 			defense_value : 0,
@@ -65,7 +67,8 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "peasant hollow",
-			image : spr_enemy_card_peasant_hollow,
+			image : spr_enemy_card_sm_peasant_hollow,
+			image_hq : spr_enemy_card_hq_peasant_hollow,
 			enemy_level : 1,
 			souls : 3,
 			defense_value : 1,
@@ -130,6 +133,8 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "ghru leaper",
+			image : spr_enemy_card_sm_ghru_leaper,
+			image_hq : spr_enemy_card_hq_ghru_leaper,
 			enemy_level : 1,
 			souls : 3,
 			defense_value : 1,
@@ -146,6 +151,8 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "winged corvian",
+			image : spr_enemy_card_sm_winged_corvian,
+			image_hq : spr_enemy_card_hq_winged_corvian,
 			enemy_level : 1,
 			souls : 2,
 			defense_value : 1,
@@ -176,6 +183,8 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "crossbow grave warden",
+			image : spr_enemy_card_sm_crossbow_grave_warden,
+			image_hq : spr_enemy_card_hq_crossbow_grave_warden,
 			enemy_level : 1,
 			souls : 2,
 			defense_value : 1,
@@ -191,6 +200,8 @@ function scr_enemy_card_stats_set(){
 		},
 		{
 			name : "grave warden",
+			image : spr_enemy_card_sm_grave_warden,
+			image_hq : spr_enemy_card_hq_grave_warden,			
 			enemy_level : 1,
 			souls : 2,
 			defense_value : 1,
@@ -273,7 +284,7 @@ function scr_enemy_card_stats_set(){
 	// set default enemy stats
 	default_enemy = {
 		image : spr_enemy_card_front,
-		image_hq : spr_enemy_card_hq_irithyllian_beast_hound,
+		image_hq : spr_enemy_card_front,
 		enemy_level   : 1,
 		souls         : 1,
 		defense_value : 0,
