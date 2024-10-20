@@ -10,6 +10,41 @@ inital_y = y;
 des_x = x;
 des_y = y;
 dragable = false;
+
+
+
+
+
+
+
+// set sprite // (temporary code) // TF
+switch (hero_class) {
+	case "assassin":
+		sprite_front = spr_hero_card_sm_assassin_front;
+		sprite_back  = spr_hero_card_sm_assassin_back ;
+		break;
+	case "herald":
+		sprite_front = spr_hero_card_sm_herald_front;
+		sprite_back  = spr_hero_card_sm_herald_back ;
+		break;
+	case "sorcerer":
+		sprite_front = spr_hero_hero_sm_sorcerer_front;
+		sprite_back  = spr_hero_card_sm_sorcerer_back ;
+		break;
+	case "knight":
+		sprite_front = spr_hero_card_sm_knight_front;
+		sprite_back  = spr_hero_card_sm_knight_back ;
+		break;
+	default:
+		sprite_front = spr_hero_card_sm_front;
+		sprite_back  = spr_hero_card_sm_back ;
+		break;
+}
+
+sprite_index = sprite_front;
+
+
+
 //player = obj_player;
 
 // set placements for hero card

@@ -1,6 +1,8 @@
 /// @description set empty hand and sprites
 // create hero
-instance_create_depth(obj_start_deck.x-8-sprite_width, obj_start_deck.y, depth, obj_hero_card);
+instance_create_depth(obj_start_deck.x-8-sprite_width, obj_start_deck.y, depth, obj_hero_card, {
+	hero_class : hero_class
+});
 
 
 hand_size = 0;
