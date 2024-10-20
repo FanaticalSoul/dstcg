@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Small Cards",
-    "path":"folders/Sprites/Start Cards/Start Cards/Small Cards.yy",
+    "path":"folders/Sprites/Start Cards/Small Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

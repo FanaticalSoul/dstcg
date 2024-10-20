@@ -8,7 +8,8 @@ function scr_start_card_stats_set () {
 	start_card_stats = [
 		 [{
 			name : "herald armour",
-			image : spr_start_card_herald_armour,
+			image : spr_start_card_sm_herald_armour,
+			image_hq : spr_start_card_hq_herald_armour,
 			block : 3,
 			stamina : [
 				0, // dexerity
@@ -22,7 +23,8 @@ function scr_start_card_stats_set () {
 			block : 2
 		}],[{
 			name : "spear",
-			image : spr_start_card_spear,
+			image : spr_start_card_sm_spear,
+			image_hq : spr_start_card_hq_spear,
 			damage : 2,
 			attack : "heavy",
 			stamina : [
@@ -56,7 +58,8 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "kite shield",
-			image : spr_start_card_kite_shield,
+			image : spr_start_card_sm_kite_shield,
+			image_hq : spr_start_card_hq_kite_shield,
 			block  : 3,
 			attack : "heavy",
 			stamina : [
@@ -79,7 +82,8 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "talisman",
-			image : spr_start_card_talisman,
+			image : spr_start_card_sm_talisman,
+			image_hq : spr_start_card_hq_talisman,
 			block  : 2,
 			stamina : [
 				0, // dexerity
@@ -132,7 +136,10 @@ function scr_start_card_stats_set () {
 				}
 			});
 			if (struct_get(start_card_stats[i][0],"image") == undefined) {
-				struct_set(start_card_stats[i][0],"image",spr_start_card_front);
+				struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
+			}
+			if (struct_get(start_card_stats[i][0],"image_hq") == undefined) {
+				struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
 			}
 			if (struct_get(start_card_stats[i][0],"name") == undefined) {
 				struct_set(start_card_stats[i][0],"name","nameless enemy");

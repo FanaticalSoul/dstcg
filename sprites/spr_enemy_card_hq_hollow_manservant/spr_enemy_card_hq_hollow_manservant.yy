@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"High Quality Images",
-    "path":"folders/Sprites/Enemy Cards/Enemy Cards/High Quality Images.yy",
+    "path":"folders/Sprites/Enemy Cards/High Quality Images.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

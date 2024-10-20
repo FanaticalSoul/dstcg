@@ -30,7 +30,7 @@
   "origin":4,
   "parent":{
     "name":"Equipment Cards",
-    "path":"folders/Sprites/Start Cards/Equipment Cards.yy",
+    "path":"folders/Sprites/Archive/Start Cards/Equipment Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

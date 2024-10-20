@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Stamina Cards",
-    "path":"folders/Sprites/Start Cards/Start Cards/High Quality Cards/Stamina Cards.yy",
+    "path":"folders/Sprites/Start Cards/High Quality Cards/Stamina Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"High Quality Cards",
-    "path":"folders/Sprites/Start Cards/Start Cards/High Quality Cards.yy",
+    "path":"folders/Sprites/Start Cards/High Quality Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
