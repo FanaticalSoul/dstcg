@@ -1,12 +1,12 @@
 /// @description create particle system
 part_sys = part_system_create();
 // set varibles
-lifetime_frames = 20; // adjust this instead of speed
+lifetime_frames = 200; // adjust this instead of speed
 offset_pixels = 1; // how much the particles are hidden by the object they are under
 increase_pixels = 4;
 particle_count = 1; // number of particles
 // do calculations
-offset_frames = offset_pixels*(increase_pixels/increase_pixels);
+offset_frames = offset_pixels*(lifetime_frames/increase_pixels);
 lifetime_frames += offset_frames;
 particle_speed = 1/(lifetime_frames/(increase_pixels+offset_pixels));
 // create particle type
@@ -28,7 +28,7 @@ part_type_direction(particle_x, 90, 90, 0, 0); // direction of emission
 part_particles_create(part_sys, x, y-obj_hero_card.sprite_height/2+offset_pixels, particle_x, particle_count);
 // emit a burst of only a single particle
 part_type_direction(particle_x, 360-90, 360-90, 0, 0); // direction of emission
-part_particles_create(part_sys, x, y+obj_hero_card.sprite_height/2-offset_pixels, particle_x, particle_count);
+part_particles_create(part_sys, x, y+obj_hero_card.sprite_height/2-1-offset_pixels, particle_x, particle_count);
 // set horizontal particles
 part_type_sprite (particle_y,spr_particle_y,false,false,false); // particle sprite
 increase_x = 0;
@@ -40,6 +40,6 @@ part_type_direction(particle_y, 180, 180, 0, 0); // direction of emission
 part_particles_create(part_sys, x-obj_hero_card.sprite_width /2+offset_pixels, y, particle_y, particle_count);
 // emit a burst of only a single particle
 part_type_direction(particle_y, 0, 0, 0, 0); // direction of emission
-part_particles_create(part_sys, x+obj_hero_card.sprite_width /2-offset_pixels, y, particle_y, particle_count);
+part_particles_create(part_sys, x+obj_hero_card.sprite_width /2-1-offset_pixels, y, particle_y, particle_count);
 // Set a timer to destroy the system after particles fade out
 alarm[0] = lifetime_frames;
