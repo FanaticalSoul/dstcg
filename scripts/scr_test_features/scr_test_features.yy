@@ -12,5 +12,9 @@
   "resourceVersion":"2.0",
   "tags":[
     "test",
+    "hero",
+    "discard",
+    "enemy",
+    "start",
   ],
 }

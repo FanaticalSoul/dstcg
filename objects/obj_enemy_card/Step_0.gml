@@ -1,5 +1,11 @@
 /// @description Insert description here
 
+// mouse over card
+if (scr_mouse_over_card()) {
+	// hold [ mouse right ] // visual spoiler
+	if (mouse_check_button(mb_right)) visual_spoiler = true;
+	else visual_spoiler = false;
+}
 
 // flip animation // needs revisions
 if (flip_active) {

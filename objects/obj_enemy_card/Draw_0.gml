@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (card_stats != noone && visual_spoiler) {
+	draw_sprite(card_stats.image_hq,-1, room_width/2, room_height/2);
+}
+
 if (placement != -1) {
 	des_x = enemy_cords[placement][0];
 	des_y = enemy_cords[placement][1];

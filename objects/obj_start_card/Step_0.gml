@@ -25,8 +25,7 @@ if (card_in_hand) {
 }
 
 // mouse over card
-if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
-mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
+if (scr_mouse_over_card()) {
 	// press [ mouse left ] // select card
 	if (mouse_check_button_pressed(mb_left)) {
 		if (card_visable && x == des_x && y == des_y) {

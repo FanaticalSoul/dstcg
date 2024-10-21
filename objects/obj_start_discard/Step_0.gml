@@ -7,8 +7,7 @@ if (mouse_y <= discard_reveal_y+sprite_height/2  && mouse_y >= discard_reveal_y-
 	if (mouse_wheel_down() && discard_reveal_offset>discard_visable-discard_size) discard_reveal_offset --;
 }
 // mouse over discard // WoL
-if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
-mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
+if (scr_mouse_over_card()) {
 	// press [ mouse left ] // draw card from deck
 	if (mouse_check_button_pressed(mb_left) && !discard_reveal && !obj_start_deck.deck_reveal
 	&& array_length(obj_player.selection) > 0 && !obj_player.action_cycle) {

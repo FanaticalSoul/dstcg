@@ -1,10 +1,5 @@
 /// @description draw card
 
-/*// WoL //
-if (!hero_ability_used) sprite_index = spr_card_back;
-else if (card_number>0) sprite_index = sprites[card_number];
-// WoL //*/
-
 if (card_stats != noone && x > 0-sprite_width/2 && x < room_width) {
 	if (ability_used) {
 		sprite_index = struct_get(card_stats,"image_sm_back");

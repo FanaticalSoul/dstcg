@@ -10,8 +10,7 @@ else {
 	y = des_y;
 }
 // mouse over card
-if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
-mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
+if (scr_mouse_over_card()) {
 	// temporary fix to overlay
 	if (obj_start_deck.deck_reveal == false) {
 		// press [ mouse left ]
