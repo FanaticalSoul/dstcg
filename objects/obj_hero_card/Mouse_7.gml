@@ -27,11 +27,14 @@ for (i = 0; i < 6; i++) {
 				// start encounter?
 				if (!obj_player.encounter_start) {
 				// do particle magic
+					/*
 					while (instance_exists(obj_first_particle)) {
 						instance_destroy(obj_first_particle);
 					}
 					instance_create_depth(0,0,temp_depth+1,obj_first_particle);
-
+					*/
+					//instance_create_layer(x, y, "Particles", obj_particle_system);
+					instance_create_layer(_tmp_x, _tmp_y, "Particles", obj_particle_system);
 				
 					scr_start_encounter ();
 				}

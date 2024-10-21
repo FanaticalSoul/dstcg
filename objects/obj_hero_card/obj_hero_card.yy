@@ -41,8 +41,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_start_card_sm_back",
-    "path":"sprites/spr_start_card_sm_back/spr_start_card_sm_back.yy",
+    "name":"spr_hero_card_sm_front",
+    "path":"sprites/spr_hero_card_sm_front/spr_hero_card_sm_front.yy",
   },
   "spriteMaskId":null,
   "tags":[

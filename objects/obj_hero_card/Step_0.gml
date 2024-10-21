@@ -17,6 +17,8 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 		// press [ mouse left ] // make card dragable
 		if (mouse_check_button_pressed(mb_left)) {
 			if (x == des_x && y == des_y) dragable = true;
+			// particles // TF
+			//instance_create_layer(x, y, "Particles", obj_particle_system);
 		}
 		/*// WoL // hold [ mouse right ] // visual spoiler //
 		if (mouse_check_button(mb_right)) {
