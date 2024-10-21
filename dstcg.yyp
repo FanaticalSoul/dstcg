@@ -101,7 +101,7 @@
     {"id":{"name":"scr_start_card_discard","path":"scripts/scr_start_card_discard/scr_start_card_discard.yy",},},
     {"id":{"name":"scr_start_card_draw","path":"scripts/scr_start_card_draw/scr_start_card_draw.yy",},},
     {"id":{"name":"scr_start_card_stats_set","path":"scripts/scr_start_card_stats_set/scr_start_card_stats_set.yy",},},
-    {"id":{"name":"scr_start_game","path":"scripts/scr_start_game/scr_start_game.yy",},},
+    {"id":{"name":"scr_start_encounter","path":"scripts/scr_start_encounter/scr_start_encounter.yy",},},
     {"id":{"name":"scr_test_features","path":"scripts/scr_test_features/scr_test_features.yy",},},
     {"id":{"name":"mp3_bonfire","path":"sounds/mp3_bonfire/mp3_bonfire.yy",},},
     {"id":{"name":"mp3_you_died","path":"sounds/mp3_you_died/mp3_you_died.yy",},},

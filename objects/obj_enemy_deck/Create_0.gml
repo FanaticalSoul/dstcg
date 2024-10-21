@@ -15,10 +15,12 @@ i = 0;
 deck[i++] = "winged corvian";
 deck[i++] = "irithyllian beast hound";
 deck[i++] = "peasant hollow";
+/*
 deck[i++] = "hollow manservant";
 deck[i++] = "ghru leaper";
 deck[i++] = "crossbow grave warden";
 deck[i++] = "grave warden";
+*/
 
 
 

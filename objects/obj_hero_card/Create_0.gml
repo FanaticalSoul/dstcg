@@ -1,5 +1,5 @@
 /// @description Insert description here
-game_start = false;
+//game_start = false;
 path_speed = card_speed;
 // temporary varibles
 temp_depth = depth;

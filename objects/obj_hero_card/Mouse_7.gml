@@ -10,28 +10,33 @@ for (i = 0; i < 6; i++) {
 		y < _tmp_y + sprite_height/2
 	) {
 		if (obj_player.field_card[i] == noone) {
-			// remove prior instance of object from field
-			for (j = 0; j < 6; j++) {
-				if (obj_player.field_card[j] == id) {
-					obj_player.field_card[j] = noone;
-					break;
-				}
+			if (obj_player.encounter_start) {
+			
 			}
-			des_x = _tmp_x;
-			des_y = _tmp_y;
-			obj_player.field_card[i] = id;
-			// start game?
-			if (!game_start) {
-			// do particle magic
-				while (instance_exists(obj_first_particle)) {
-					instance_destroy(obj_first_particle);
+			else {
+				// remove prior instance of object from field
+				for (j = 0; j < 6; j++) {
+					if (obj_player.field_card[j] == id) {
+						obj_player.field_card[j] = noone;
+						break;
+					}
 				}
-				instance_create_depth(0,0,temp_depth+1,obj_first_particle);
+				des_x = _tmp_x;
+				des_y = _tmp_y;
+				obj_player.field_card[i] = id;
+				// start encounter?
+				if (!obj_player.encounter_start) {
+				// do particle magic
+					while (instance_exists(obj_first_particle)) {
+						instance_destroy(obj_first_particle);
+					}
+					instance_create_depth(0,0,temp_depth+1,obj_first_particle);
 
 				
-				scr_start_game ();
+					scr_start_encounter ();
+				}
+				break;
 			}
-			break;
 		}
 	}
 	/* // momentarily remove the ability to move the card back to the side

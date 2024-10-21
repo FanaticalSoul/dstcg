@@ -17,3 +17,4 @@ scr_hero_field_set (); // for hero object
 selection = [];
 // actions taken
 action_cycle = false;
+encounter_start = false;
