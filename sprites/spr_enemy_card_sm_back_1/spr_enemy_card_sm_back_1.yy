@@ -19,7 +19,6 @@
   "height":48,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"407e7e51-5ef6-47b7-904c-e07727e394ea","blendMode":0,"displayName":"icon","isLocked":false,"name":"407e7e51-5ef6-47b7-904c-e07727e394ea","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"951e1fbd-052f-45cc-8483-3faa61ee4782","blendMode":0,"displayName":"default","isLocked":false,"name":"951e1fbd-052f-45cc-8483-3faa61ee4782","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_enemy_card_sm_back_1",
