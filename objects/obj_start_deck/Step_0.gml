@@ -12,7 +12,7 @@ if (mouse_y <= deck_reveal_y+sprite_height/2  && mouse_y >= deck_reveal_y-sprite
 if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
 mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 	// press [ mouse left ] // draw card from deck
-	if (mouse_check_button_pressed(mb_left) && !deck_reveal) {
+	if (mouse_check_button_pressed(mb_left) && !obj_start_discard.discard_reveal && !deck_reveal) {
 		// only allow this after hero has been placed and opening hand drawn
 		if (alarm[0] != -1) {
 			scr_start_card_draw(1);
