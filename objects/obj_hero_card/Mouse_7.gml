@@ -34,7 +34,7 @@ for (i = 0; i < 6; i++) {
 					instance_create_depth(0,0,temp_depth+1,obj_first_particle);
 					*/
 					//instance_create_layer(x, y, "Particles", obj_particle_system);
-					instance_create_layer(_tmp_x, _tmp_y, "Particles", obj_particle_system);
+					instance_create_depth(_tmp_x, _tmp_y, temp_depth+1, obj_particle_card_ripple);
 				
 					scr_start_encounter ();
 				}

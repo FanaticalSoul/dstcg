@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_first_particle",
+  "%Name":"obj_particle_card_ripple",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_first_particle",
+  "name":"obj_particle_card_ripple",
   "overriddenProperties":[],
   "parent":{
     "name":"Particle Systems",
@@ -32,7 +33,7 @@
   "spriteId":null,
   "spriteMaskId":null,
   "tags":[
-    "work on later",
+    "hero",
   ],
   "visible":true,
 }
