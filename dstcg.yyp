@@ -90,6 +90,7 @@
     {"id":{"name":"obj_start_deck","path":"objects/obj_start_deck/obj_start_deck.yy",},},
     {"id":{"name":"obj_start_discard","path":"objects/obj_start_discard/obj_start_discard.yy",},},
     {"id":{"name":"pth_enemy_deck_draw","path":"paths/pth_enemy_deck_draw/pth_enemy_deck_draw.yy",},},
+    {"id":{"name":"pth_hand_discard","path":"paths/pth_hand_discard/pth_hand_discard.yy",},},
     {"id":{"name":"pth_start_deck_draw","path":"paths/pth_start_deck_draw/pth_start_deck_draw.yy",},},
     {"id":{"name":"map_map_view","path":"rooms/map_map_view/map_map_view.yy",},},
     {"id":{"name":"map_room","path":"rooms/map_room/map_room.yy",},},

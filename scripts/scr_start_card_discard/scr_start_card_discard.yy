@@ -12,5 +12,7 @@
   "resourceVersion":"2.0",
   "tags":[
     "start",
+    "discard",
+    "hand",
   ],
 }

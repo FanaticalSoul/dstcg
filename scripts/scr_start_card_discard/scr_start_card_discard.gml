@@ -18,9 +18,6 @@ function scr_start_card_discard (id) {
 		for (i = _hand_pos; i < obj_player.hand_size; i++) {
 			obj_player.hand_card[i].hand_position = obj_player.hand_card[i].hand_position-1;
 		}
-		// set card object offset
-		//var _tmp_x = x+deck_size*deck_spacing;
-		//var _tmp_y = y-deck_size*deck_spacing;
 	}
 	return;
 }

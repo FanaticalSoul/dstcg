@@ -40,6 +40,7 @@
     {"$GMObjectProperty":"v1","%Name":"deck_visable","filters":[],"listItems":[],"multiselect":false,"name":"deck_visable","rangeEnabled":false,"rangeMax":4.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"field_offset","filters":[],"listItems":[],"multiselect":false,"name":"field_offset","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"deck_max","filters":[],"listItems":[],"multiselect":false,"name":"deck_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"40","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"card_draw_frame_delay","filters":[],"listItems":[],"multiselect":false,"name":"card_draw_frame_delay","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

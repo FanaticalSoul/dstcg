@@ -1,0 +1,31 @@
+{
+  "$GMPath":"",
+  "%Name":"pth_hand_discard",
+  "closed":false,
+  "kind":1,
+  "name":"pth_hand_discard",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":24.0,"y":320.0,},
+    {"speed":100.0,"x":-4.0,"y":320.0,},
+    {"speed":100.0,"x":-24.0,"y":292.0,},
+    {"speed":100.0,"x":-24.0,"y":72.0,},
+    {"speed":100.0,"x":-4.0,"y":32.0,},
+    {"speed":100.0,"x":132.0,"y":32.0,},
+    {"speed":100.0,"x":144.0,"y":72.0,},
+    {"speed":100.0,"x":144.0,"y":232.0,},
+    {"speed":100.0,"x":156.0,"y":264.0,},
+    {"speed":100.0,"x":184.0,"y":264.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+  "tags":[
+    "hand",
+    "discard",
+    "start",
+  ],
+}

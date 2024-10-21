@@ -11,3 +11,4 @@ for (i = 0; i < discard_max; i++) {
 discard_size = 0;
 discard_reveal_offset = 0;
 discard_reveal = false;
+cycle_size = 0; // used to keep track of cards being cycled
