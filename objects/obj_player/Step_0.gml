@@ -7,16 +7,5 @@ if (mouse_y <= y+sprite_height/2  && mouse_y >= y-sprite_height/2 && hand_size >
 	if (mouse_wheel_down() && hand_offset > -_hidden_cards/2) hand_offset -= 0.5; // decrement hand view
 }
 
-
 // press [ 4 ] // restart game (TF)
 if (keyboard_check_pressed(4+48)) game_restart();
-
-
-
-// press [ 5 ] // set card stats (TF)
-/*
-if (keyboard_check_pressed(5+48)) {
-	scr_start_card_stats_set ();
-	
-}
-*/

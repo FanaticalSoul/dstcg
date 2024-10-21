@@ -12,6 +12,5 @@
   "resourceVersion":"2.0",
   "tags":[
     "start",
-    "WoL",
   ],
 }

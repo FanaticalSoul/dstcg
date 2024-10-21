@@ -36,5 +36,8 @@
     "path":"sprites/spr_start_card_sm_back/spr_start_card_sm_back.yy",
   },
   "spriteMaskId":null,
+  "tags":[
+    "start",
+  ],
   "visible":true,
 }

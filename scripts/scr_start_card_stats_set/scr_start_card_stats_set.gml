@@ -189,17 +189,12 @@ function scr_start_card_stats_set () {
 					}
 				});
 			}
-			if (struct_get(start_card_stats[i][0],"image") == undefined) {
-				struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
-			}
-			if (struct_get(start_card_stats[i][0],"image_hq") == undefined) {
-				struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
-			}
-			if (struct_get(start_card_stats[i][0],"name") == undefined) {
-				struct_set(start_card_stats[i][0],"name","undefined");
-			}
 			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}
+		var _tmp_card = start_card_stats[i][0];
+		if (struct_get(_tmp_card,"image") == undefined) struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
+		if (struct_get(_tmp_card,"image_hq") == undefined) struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
+		if (struct_get(_tmp_card,"name") == undefined) struct_set(start_card_stats[i][0],"name","undefined");
 	}
 	return start_card_stats;
 }

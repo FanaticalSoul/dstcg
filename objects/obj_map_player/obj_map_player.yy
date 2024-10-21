@@ -33,8 +33,8 @@
   },
   "spriteMaskId":null,
   "tags":[
-    "WoL",
     "map",
+    "work on later",
   ],
   "visible":true,
 }

@@ -80,9 +80,6 @@
   },
   "swatchColours":null,
   "swfPrecision":0.5,
-  "tags":[
-    "WoL",
-  ],
   "textureGroupId":{
     "name":"Default",
     "path":"texturegroups/Default",

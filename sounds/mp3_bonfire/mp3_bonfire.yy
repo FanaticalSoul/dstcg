@@ -21,7 +21,7 @@
   "sampleRate":44100,
   "soundFile":"mp3_bonfire.mp3",
   "tags":[
-    "WoL",
+    "work on later",
   ],
   "type":0,
   "volume":1.0,

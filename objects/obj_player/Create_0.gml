@@ -3,14 +3,8 @@
 instance_create_depth(obj_start_deck.x-8-sprite_width, obj_start_deck.y, depth, obj_hero_card, {
 	hero_class : hero_class
 });
-
-
-hand_size = 0;
 // set hand
-hand_spacing = 8;
-hand_start = 6;
-//hand_max = hand_start+3;
-//hand_max = obj_start_deck.deck_max; // TF
+hand_size = 0;
 for (i = 0; i < hand_max; i++) {
 	hand[i][0] = 0; // sprite index
 	hand[i][1] = false; // revealed

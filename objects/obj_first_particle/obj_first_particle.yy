@@ -32,7 +32,7 @@
   "spriteId":null,
   "spriteMaskId":null,
   "tags":[
-    "WoL",
+    "work on later",
   ],
   "visible":true,
 }
