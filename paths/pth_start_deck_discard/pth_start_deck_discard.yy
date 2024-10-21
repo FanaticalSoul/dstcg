@@ -1,0 +1,29 @@
+{
+  "$GMPath":"",
+  "%Name":"pth_start_deck_discard",
+  "closed":false,
+  "kind":1,
+  "name":"pth_start_deck_discard",
+  "parent":{
+    "name":"Paths",
+    "path":"folders/Paths.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":184.0,"y":268.0,},
+    {"speed":100.0,"x":212.0,"y":268.0,},
+    {"speed":100.0,"x":228.0,"y":264.0,},
+    {"speed":100.0,"x":240.0,"y":252.0,},
+    {"speed":100.0,"x":240.0,"y":224.0,},
+    {"speed":100.0,"x":228.0,"y":212.0,},
+    {"speed":100.0,"x":212.0,"y":208.0,},
+    {"speed":100.0,"x":184.0,"y":208.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+  "tags":[
+    "hand",
+    "discard",
+    "start",
+  ],
+}
