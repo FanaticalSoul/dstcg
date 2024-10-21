@@ -5,8 +5,16 @@ if (!hero_ability_used) sprite_index = spr_card_back;
 else if (card_number>0) sprite_index = sprites[card_number];
 // WoL //*/
 
-
-if (x > 0-sprite_width/2 && x < room_width) draw_self(); // only draw inside the room
+if (card_stats != noone && x > 0-sprite_width/2 && x < room_width) {
+	if (ability_used) {
+		sprite_index = struct_get(card_stats,"image_sm_back");
+	}
+	else {
+		sprite_index = struct_get(card_stats,"image_sm_front");
+	}
+	draw_self(); // only draw inside the room
+	if (selected) draw_sprite(spr_card_sm_selected,-1,x,y);
+}
 
 // drag card
 if (dragable) {
@@ -14,4 +22,14 @@ if (dragable) {
 	speed = 0;
 	x = mouse_x;
 	y = mouse_y;
+}
+
+if (card_stats != noone && visual_spoiler) {
+	if (ability_used) {
+		sprite_index = struct_get(card_stats,"image_hq_back");
+	}
+	else {
+		sprite_index = struct_get(card_stats,"image_hq_front");
+	}
+	draw_sprite(sprite_index,-1, room_width/2, room_height/2);
 }

@@ -8,15 +8,19 @@ inital_y = y;
 des_x = x;
 des_y = y;
 dragable = false;
+selected = false;
+visual_spoiler = false;
+ability_used = false;
 // set sprite // (temporary code) // TF
-hero_card_stats = scr_hero_card_stats_set();
-for (i = 0; i < array_length(hero_card_stats); i++ ) {
-	if (struct_get(hero_card_stats[i],"name") == hero_class) {
-		sprite_front = struct_get(hero_card_stats[i],"image_sm_front");
-		sprite_back  = struct_get(hero_card_stats[i],"image_sm_back" );
+card_stats = noone;
+var _tmp_card_stats = scr_hero_card_stats_set();
+for (i = 0; i < array_length(_tmp_card_stats); i++ ) {
+	if (struct_get(_tmp_card_stats[i],"name") == hero_class) {
+		card_stats = _tmp_card_stats[i]
+		break;
 	}
 }
-sprite_index = sprite_front;
+//sprite_index = sprite_front;
 /*// WoL //
 hero_ability_used = false; // recharges at bonfire
 // WoL //*/

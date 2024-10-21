@@ -39,10 +39,8 @@ function scr_start_card_draw (_num){
 			var _tmp_y = y-deck_size*deck_spacing;
 			// create card object
 			obj_player.hand_card[obj_player.hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-obj_player.hand_size-1, obj_start_card, {
-				card_to_hand : true,
 				card_stats : _card_stats,
 				hand_position : obj_player.hand_size-1,
-				card_in_hand : false
 			});
 		}
 	}

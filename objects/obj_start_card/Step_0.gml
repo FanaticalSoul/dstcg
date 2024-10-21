@@ -42,9 +42,7 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 			}
 		}
 	}
-	/*// WoL // hold [ mouse right ] // visual spoiler
-	if (mouse_check_button(mb_right)) {
-		show_debug_message("visual spoiler");
-	}
-	// WoL */
+	// hold [ mouse right ] // visual spoiler
+	if (mouse_check_button(mb_right)) visual_spoiler = true;
+	else visual_spoiler = false;
 }
