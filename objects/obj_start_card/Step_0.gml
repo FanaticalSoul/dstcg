@@ -27,25 +27,19 @@ if (card_in_hand) {
 // mouse over card
 if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
 mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
-	// press [ mouse left ] // use card
+	// press [ mouse left ] // select card
 	if (mouse_check_button_pressed(mb_left)) {
 		if (card_visable && x == des_x && y == des_y) {
 			selected = !selected;
-			if (selected) {
-				obj_player.selection[array_length(obj_player.selection)] = id;
-				//obj_player.selection_count = obj_player.selection_count + 1;
-			}
+			if (selected) obj_player.selection[array_length(obj_player.selection)] = id;
 			else {
 				for (var _i = 0; _i < array_length(obj_player.selection); _i ++) {
 					if (obj_player.selection[_i] == id) {
 						array_delete(obj_player.selection,_i,1);
-						//obj_player.selection_count = obj_player.selection_count - 1;
 						break;
 					}
 				}
-			
 			}
-			show_debug_message("selection = "+string(obj_player.selection));
 		}
 	}
 	/*// WoL // hold [ mouse right ] // visual spoiler
@@ -54,14 +48,3 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 	}
 	// WoL */
 }
-
-
-
-// press [ space ] // discard this card if selected and draw a new one (TF)
-/*
-if (keyboard_check_pressed(32) && selected) {
-	scr_start_card_discard(id);
-	with (obj_start_deck) scr_start_card_draw(1);
-	instance_destroy();
-}
-*/

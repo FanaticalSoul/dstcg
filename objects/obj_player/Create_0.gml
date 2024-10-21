@@ -21,4 +21,5 @@ i = 0;
 scr_hero_field_set (); // for hero object
 // track selected cards
 selection = [];
-//selection_count = 0;
+// actions taken
+action_cycle = false;
