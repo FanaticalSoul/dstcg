@@ -14,6 +14,8 @@ function scr_character_card_stats_set() {
 			name : "herald",
 			image_sm_front : spr_character_card_sm_herald_front,
 			image_sm_back  : spr_character_card_sm_herald_back ,
+			image_hq_front : spr_character_card_hq_herald_front,
+			image_hq_back  : spr_character_card_hq_herald_back ,
 			taunt_value : 4
 		},
 		{

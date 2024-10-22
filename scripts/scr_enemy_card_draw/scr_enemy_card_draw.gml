@@ -20,8 +20,7 @@ function scr_enemy_card_draw () {
 	// add enemy grid tracking outside draw method to be called in draw method
 	enemy_card[enemy_count] = instance_create_depth(obj_enemy_deck.x,obj_enemy_deck.y,-enemy_count-1,obj_enemy_card,{
 		placement : enemy_placement,
-		card_stats : enemy[enemy_count],
-		card_level : card_level
+		card_stats : enemy[enemy_count]
 	});
 	enemy_count ++;
 	return;

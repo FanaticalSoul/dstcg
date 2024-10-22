@@ -1,68 +1,60 @@
-/// @description Insert description here
-
+/// @description keybinds and flip animation
 // mouse over card
 if (scr_mouse_over_card()) {
 	// hold [ mouse right ] // visual spoiler
 	if (mouse_check_button(mb_right) && card_stats != noone) {
-		obj_visual_spoiler.sprite_index = card_stats.image_hq;
-		obj_visual_spoiler.visible = true;
+		card_hq.sprite_index = card_stats.image_hq;
+		card_hq.visible = true;
 	}
 	else {
-		obj_visual_spoiler.sprite_index = spr_card_hq;
-		obj_visual_spoiler.visible = false;
+		card_hq.sprite_index = spr_card_hq;
+		card_hq.visible = false;
 	}
 }
-
-// flip animation // needs revisions
+// flip animation
 if (flip_active) {
-    // Decrease scale_x to 0, then switch sprites and increase it back to 1
+    // decrease scale_x to 0, then switch sprites and increase it back to 1
     if (!flip_finished) {
-        flip_scale_x -= flip_speed;   // Shrinking the card
+        flip_scale_x -= flip_speed; // shrinking the card
         if (flip_scale_x <= 0) {
-            flip_finished = true;      // Mark as flipped
-            flip_scale_x = 0;         // Prevent negative scale
+            flip_finished = true; // mark as flipped
+            flip_scale_x = 0; // prevent negative scale
         }
     } else {
-        flip_scale_x += flip_speed;   // Expanding the card
+        flip_scale_x += flip_speed; // expanding the card
         if (flip_scale_x >= 1) {
-            flip_scale_x = 1;         // Full-size again
-            flip_active = false;    // Flip finished
+            flip_scale_x = 1; // full-size card
+            flip_active = false; // flip finished
         }
     }
 }
-else if (enemy_on_field && !flip_finished) {
-	if (!point_distance(x,y,des_x,des_y) && !flip_active) {
-		flip_active = true
-	}
+// if the card is not flipping and the enemy is on the board
+else if (enemy_on_board && !flip_finished) {
+	// flip the card
+	if (!point_distance(x,y,des_x,des_y) && !flip_active) flip_active = true;
 }
-
 // alarm on card draw
-if (enemy_to_field && alarm[0] == -1) alarm[0] = 1;
-
-if (enemy_on_field) {
+if (enemy_to_board && alarm[0] == -1) alarm[0] = 1;
+// if the enemy is on the board
+if (enemy_on_board) {
+	// change des cords
 	if (placement != -1) {
 		des_x = enemy_cords[placement][0];
 		des_y = enemy_cords[placement][1];
 		// end path early if placement location is above or bellow path
 		if (x <= des_x) path_end();
 	}
-	
-
+	//* WoL //
 	// check if another card is in that exact position
-	//instance_place_list(des_x,des_y,obj_enemy_card,ds_list_create(),false)
-	
-	
-	
-	
-	
-	if (point_distance(x,y,des_x,des_y) > path_speed) {
-		move_towards_point(des_x,des_y,path_speed);
-	}
+	// instance_place_list(des_x,des_y,obj_enemy_card,ds_list_create(),false)
+	/// WoL */
+	// move card towards des cords
+	if (point_distance(x,y,des_x,des_y) > path_speed) move_towards_point(des_x,des_y,path_speed);
 	else {
 		speed = 0;
 		x = des_x;
 		y = des_y;
-		depth = 0; // "reset" depth
+		depth = 0; // "reset" depth // WoL
 	}
 }
 
