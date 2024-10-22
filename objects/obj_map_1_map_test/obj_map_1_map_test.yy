@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_map_1_front",
-    "path":"sprites/spr_map_1_front/spr_map_1_front.yy",
+    "name":"spr_exploration_board_1_front",
+    "path":"sprites/spr_exploration_board_1_front/spr_exploration_board_1_front.yy",
   },
   "spriteMaskId":null,
   "tags":[

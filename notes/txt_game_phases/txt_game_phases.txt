@@ -1,0 +1,59 @@
+terms used:
+	boss icons
+	explore
+	this playthrough
+
+note - start with Vordt and Ponti Sulyvahn on playthrough 1
+note - players can have a max of 6 cards in hand ( this applies to the ring treasure card )
+
+Game Start Phase ( before first exploration phase ) ( only once per playthrough )
+	Each player picks a character ( hero )
+	Create 3 ( levels of ) Encounter Card decks 
+		Shuffle each deck and deal a card face down into each encounter space on the exploration board
+		Get rid of the rest of the Encounter Cards
+	Create 3 ( levels of ) Enemy Card Decks
+		Shuffle each deck
+		put them face down next to the exploration board
+	Create the boss cards and behaviour cards generated for the playthrough
+	Create and shuffle the Common Treasure Deck
+	Create and shuffle the Transposed Treasure Deck
+	Sort the bonfire deck, starting at level 1 ( with 5 at the bottom )
+		have a way to view this information at any time during the exploration phase
+	Create the Stamina Market
+		2 piles of 4 cards ( a pile of 2 soul cards and a pile of 5 soul cards )
+
+Exploration Phases
+	Pick a path from the bonfire or a cleared encounter and ( possibly flip ) the first encounter card on that route
+		that Encounter Card remains in this space for the entire game
+	After the encounter
+		Players do not shuffle their decks ( the states within the deck remain the same )
+		Place cards from player hands ontop of their libary in a way that their 
+		 opening hand in the following game is exactly the same as the one they ended with in the prior game
+			Note that you should just keep the cards in thier hands if possible
+		Shuffle all enemies back into their respective decks
+		If encounter was successful
+			Move cards from "Loot Pile" into "Inventory"
+			Move cards from "Encounter Rewards" into "Loot Pile"
+			The encounter becomes cleared
+		If encounter was unsuccessful
+			Shuffle cards from "Loot Pile" into thier respective decks
+			Shuffle cards from "Encounter Rewards" into thier respective decks
+			Rest at Bonfire
+
+Encounter setup
+	Each player puts their character card on an empty space on the character battle board
+	Each player brings their cards in hand up to six cards
+	A player that has no cards with attack actions in thier hand can
+		shuffle their hand into their deck ( reseting the revealed state of all cards within the deck )
+		then draw a new hand of 6 cards ( this can only be done once )
+	Enemy cards are drawn and enemies are placed
+	Enemy activation
+
+During Encounter
+	Players can know how many cards remain in their deck at any time
+	Players can look through thier own discard pile
+
+Enemy Activation
+
+Character Activation
+Rest at Bonfire

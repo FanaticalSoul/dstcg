@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"txt_game_phases",
+  "name":"txt_game_phases",
+  "parent":{
+    "name":"Notes",
+    "path":"folders/Notes.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

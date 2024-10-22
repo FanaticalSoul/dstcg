@@ -2,7 +2,7 @@
 for (i = 0; i < discard_size; i++) {
 	if (discard[i]!="") { // existing cards
 		if (discard_reveal) {
-			draw_sprite(spr_zone_hero_deck_reveal,-1,obj_player.x-sprite_width/2,discard_reveal_y); // draw background
+			draw_sprite(spr_reveal_board,-1,obj_player.x-sprite_width/2,discard_reveal_y); // draw background
 			var _above_hand_x = obj_player.x+discard_reveal_spacing+discard_reveal_offset*(sprite_width+discard_reveal_spacing); // offset cards
 			// tmp cordinate values
 			var _tmp_x = _above_hand_x+i*(sprite_width+discard_reveal_spacing);

@@ -1,0 +1,10 @@
+Player Area ( for each player )
+	Deck
+	Discard Pile
+Party Area ( for all players )
+	Encounter Rewards
+		contains Souls and ( face down ) Treasure cards from the current encounter
+	Loot Pile
+		contains Souls and Treasure cards from the most recent encounter
+	Inventory
+		which will include Souls and Treasure cards from prior encounters

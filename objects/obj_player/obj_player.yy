@@ -28,13 +28,13 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"hand_start","filters":[],"listItems":[],"multiselect":false,"name":"hand_start","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"hand_max","filters":[],"listItems":[],"multiselect":false,"name":"hand_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"40","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"hero_class","filters":[],"listItems":[
+    {"$GMObjectProperty":"v1","%Name":"hand_max","filters":[],"listItems":[],"multiselect":false,"name":"hand_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"character","filters":[],"listItems":[
         "\"assassin\"",
         "\"herald\"",
         "\"knight\"",
         "\"sorcerer\"",
-      ],"multiselect":false,"name":"hero_class","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\"","varType":6,},
+      ],"multiselect":false,"name":"character","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\"","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"hand_size_visable","filters":[],"listItems":[],"multiselect":false,"name":"hand_size_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"hand_spacing","filters":[],"listItems":[],"multiselect":false,"name":"hand_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":0,},
   ],
@@ -42,8 +42,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_card_zone_hand",
-    "path":"sprites/spr_card_zone_hand/spr_card_zone_hand.yy",
+    "name":"spr_card_sm_selected",
+    "path":"sprites/spr_card_sm_selected/spr_card_sm_selected.yy",
   },
   "spriteMaskId":null,
   "tags":[

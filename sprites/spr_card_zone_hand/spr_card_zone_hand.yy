@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Zones",
-    "path":"folders/Sprites/Zones.yy",
+    "name":"Archive",
+    "path":"folders/Sprites/Archive.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

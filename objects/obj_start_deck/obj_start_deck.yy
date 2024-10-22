@@ -46,8 +46,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_card_zone_deck",
-    "path":"sprites/spr_card_zone_deck/spr_card_zone_deck.yy",
+    "name":"spr_card_sm_selected",
+    "path":"sprites/spr_card_sm_selected/spr_card_sm_selected.yy",
   },
   "spriteMaskId":null,
   "tags":[
