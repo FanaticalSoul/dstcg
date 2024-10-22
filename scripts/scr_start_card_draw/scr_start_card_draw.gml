@@ -1,47 +1,39 @@
-function scr_start_card_draw (_num){
-	if (deck_size - _num < 0) {
-		// milled out
+function scr_start_card_draw (){
+	// milled out // WoL
+	if (deck_size - 1 < 0) {
 		// end the encounter as a loss // WoL
 		show_debug_message("play you died animation");
-		return; // do nothing
+		return; // do nothing // WoL
 	}
-	else if (obj_player.hand_size == obj_player.hand_max) {
-		// if max hand size was reached
-		// add functionality to handle additional cards later // WoL
-		return; // do nothing
-	}
-	else if (obj_player.hand_size > obj_player.hand_max) {
-		// WoL
-		return; // do nothing
-	}
+	// if max hand size was reached or surpassed
+	else if (player.hand_size >= HANDMAX) return; // do nothing
 	else {
-		for	(i = 0; i < _num; i++) {
-			// reset offset
-			obj_player.hand_offset = 0;
-			// BUG001 // resolved //
-			deck_size --;
-			var _card_stats = noone;
-			for (i = 0; i < array_length(start_card_stats); i++) {
-				if (struct_get(start_card_stats[i][0],"name") == deck[deck_size][0]) {
-					_card_stats = start_card_stats[i];
-					break;
-				}
+		// reset offset
+		player.hand_offset = 0;
+		// get card stats
+		var _card_stats = noone;
+		for (var _i = 0; _i < array_length(start_card_stats); _i++) {
+			if (struct_get(start_card_stats[_i][0],"name") == deck[deck_size-1][0]) {
+				_card_stats = start_card_stats[_i];
+				break;
 			}
-			obj_player.hand[obj_player.hand_size] = deck[deck_size][0];
-			obj_player.hand_size ++;
-			// remember states
-			deck[deck_size][0] = "";
-			deck[deck_size][1] = false;
-			// set card object offset
-			var _tmp_x = x+deck_size*deck_spacing;
-			var _tmp_y = y-deck_size*deck_spacing;
-			// create card object
-			obj_player.hand_card[obj_player.hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-obj_player.hand_size-1, obj_start_card, {
-				card_stats : _card_stats,
-				hand_position : obj_player.hand_size-1,
-				player : player
-			});
 		}
+		// add card to hand
+		player.hand[player.hand_size] = deck[deck_size-1][0];
+		player.hand_size ++;
+		// remove card from deck
+		deck[deck_size-1][0] = "";
+		deck[deck_size-1][1] = false;
+		deck_size --;
+		// set card object offset
+		var _tmp_x = x+deck_size*deck_spacing;
+		var _tmp_y = y-deck_size*deck_spacing;
+		// create card object
+		player.hand_card[player.hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-player.hand_size-1, obj_start_card, {
+			card_stats : _card_stats,
+			hand_position : player.hand_size-1,
+			player : player
+		});
 	}
 	return;
 }

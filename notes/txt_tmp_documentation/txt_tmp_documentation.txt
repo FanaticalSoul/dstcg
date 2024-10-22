@@ -4,4 +4,5 @@ done
 	obj_enemy_deck
 	obj_start_card
 	obj_start_deck
+	obj_start_discard
 working on
