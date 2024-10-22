@@ -3,8 +3,6 @@
 // lifetime_frames // adjust this instead of speed
 // particle_count // number of particles
 // set varibles
-card_width  = SMCARDSIZEX;
-card_height = SMCARDSIZEY;
 part_sys = part_system_create();
 // do calculations
 offset_frames = offset_pixels*(lifetime_frames/increase_pixels);

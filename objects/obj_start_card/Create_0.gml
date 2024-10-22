@@ -7,7 +7,5 @@ des_x = x;
 des_y = y;
 // set varibles
 path_speed = card_speed;
-card_width  = SMCARDSIZEX;
-card_height = SMCARDSIZEY;
 card_hq = obj_visual_spoiler;
 // show_card // hide card for draw animation

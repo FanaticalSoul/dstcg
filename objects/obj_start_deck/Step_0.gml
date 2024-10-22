@@ -1,7 +1,7 @@
 /// @description handle keybinds
 // on [ mouse scroll ] // deck view navigation
 if (mouse_y <= deck_reveal_y+card_height/2 && mouse_y >= deck_reveal_y-card_height/2 && 
-mouse_x <= deck_reveal_x+CARDSPACING+deck_visable*(card_width+CARDSPACING)
+mouse_x <= deck_reveal_x+card_spacing+deck_visable*(card_width+card_spacing)
 && mouse_x >= deck_reveal_x && deck_reveal) {
 	// increment through deck view
 	if (mouse_wheel_up() && deck_reveal_offset<0) deck_reveal_offset ++;

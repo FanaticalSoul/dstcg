@@ -1,5 +1,5 @@
 /// @description allow placement on board
-for (var _i = 0; _i < BOARDSIZE; _i++) {
+for (var _i = 0; _i < board_size; _i++) {
 	var _tmp_x = player.board_cords[_i][0];
 	var _tmp_y = player.board_cords[_i][1];
 	if (x > _tmp_x-card_width/2 && x < _tmp_x+card_width/2 &&

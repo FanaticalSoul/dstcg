@@ -11,7 +11,5 @@ discard_reveal = false;
 cycle_size = 0; // used to keep track of cards being cycled
 // set varibles
 discard_spacing = discard_spacing_width_in_pixels / discard_max;
-card_width = SMCARDSIZEX;
-card_height = SMCARDSIZEY;
 // set all discard cards to be empty
 for (var _i = 0; _i < discard_max; _i++) discard[_i] = "";

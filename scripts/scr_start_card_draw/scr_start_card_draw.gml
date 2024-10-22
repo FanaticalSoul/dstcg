@@ -6,7 +6,7 @@ function scr_start_card_draw (){
 		return; // do nothing // WoL
 	}
 	// if max hand size was reached or surpassed
-	else if (player.hand_size >= HANDMAX) return; // do nothing
+	else if (player.hand_size >= hand_max) return; // do nothing
 	else {
 		// reset offset
 		player.hand_offset = 0;

@@ -1,7 +1,7 @@
 /// @description handle keybinds
 // on [ mouse scroll ] // discard view navigation
 if (mouse_y <= discard_reveal_y+card_height/2  && mouse_y >= discard_reveal_y-card_height/2
-&& discard_reveal && mouse_x <= discard_reveal_x+CARDSPACING+discard_visable*(card_width+CARDSPACING)
+&& discard_reveal && mouse_x <= discard_reveal_x+card_spacing+discard_visable*(card_width+card_spacing)
 && mouse_x >= discard_reveal_x && discard_reveal) {
 	// increment through discard view
 	if (mouse_wheel_up() && discard_reveal_offset<0) discard_reveal_offset ++;

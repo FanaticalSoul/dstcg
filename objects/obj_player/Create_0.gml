@@ -1,19 +1,16 @@
 /// @description create character, deck, hand, and phases
-// set varibles
-card_width  = SMCARDSIZEX;
-card_height = SMCARDSIZEY;
 // create assossated deck
 start_deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
 	player : id
 })
 // create assossated character
-instance_create_depth(start_deck.x-CARDSPACING-card_width, start_deck.y, depth, obj_character_card, {
+instance_create_depth(start_deck.x-card_spacing-card_width, start_deck.y, depth, obj_character_card, {
 	character : character,
 	player : id
 });
 // set hand
 hand_size = 0;
-for (var _i = 0; _i < HANDMAX; _i++) {
+for (var _i = 0; _i < hand_max; _i++) {
 	hand[_i] = "";
 	hand_card[_i] = noone; // initalize cards in hand
 }

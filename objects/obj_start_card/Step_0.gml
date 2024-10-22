@@ -6,7 +6,7 @@ if (card_in_hand) {
 	// flip card over when hidden off screen
 	if (!show_card && path_position>=0.5) show_card = true;
 	// set des cords
-	var _card_size_x = card_width+CARDSPACING;
+	var _card_size_x = card_width+card_spacing;
 	var _center_x = room_width/2-player.hand_size/2*_card_size_x;
 	des_x = _center_x+(player.hand_offset+hand_position)*_card_size_x;
 	des_x += _card_size_x/2; // offset
