@@ -1,12 +1,10 @@
 function scr_enemy_card_draw () {
-	if (enemy_count > ENEMYMAX) {
-		// above max enemies on the field // WoL
-		return;
-	}
+	// above max enemies on the field
+	if (enemy_count > ENEMYMAX) return; // WoL
 	deck_size --;
-	for (i = 0; i < array_length(enemy_card_stats); i++) {
-		if (struct_get(enemy_card_stats[i],"name") == deck[deck_size]) {
-			enemy[enemy_count] = enemy_card_stats[i];
+	for (var _i = 0; _i < array_length(enemy_card_stats); _i++) {
+		if (struct_get(enemy_card_stats[_i],"name") == deck[deck_size]) {
+			enemy[enemy_count] = enemy_card_stats[_i];
 			break;
 		}
 	}
@@ -14,7 +12,7 @@ function scr_enemy_card_draw () {
 	deck[deck_size] = "";
 	// fix placement positions
 	while (card_placements[enemy_placement] != noone) {
-		enemy_placement = irandom_range(0,field_spaces-1);
+		enemy_placement = irandom_range(0,BOARDSIZE-1); // TF
 	}
 	card_placements[enemy_placement] = enemy_placement;
 	// add enemy grid tracking outside draw method to be called in draw method

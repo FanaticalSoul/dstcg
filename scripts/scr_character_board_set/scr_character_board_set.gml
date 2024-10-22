@@ -1,10 +1,10 @@
-function scr_character_board_set (_board_rows = 2, _board_size = 6){
+function scr_character_board_set (){
 	// pick positions on board
 	var _i = 0;
-	for (var _iy = 0; _iy < _board_rows; _iy++) {
-		for (var _ix = 0; _ix < _board_size/_board_rows; _ix++) {
-			board_cords[_i][0] =  24+_ix*(8+32); // 24
-			board_cords[_i][1] = 208+_iy*(8+48); // 208
+	for (var _iy = 0; _iy < BOARDROWS; _iy++) {
+		for (var _ix = 0; _ix < BOARDCOLS; _ix++) {
+			board_cords[_i][0] = (CARDSPACING+card_width/2)+_ix*(CARDSPACING+card_width); // 24
+			board_cords[_i][1] = start_deck.y+_iy*(CARDSPACING+card_height); // 208
 			board_card [_i] = noone;
 			_i++;
 		}

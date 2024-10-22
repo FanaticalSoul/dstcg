@@ -8,9 +8,19 @@ done
 	obj_macros
 	obj_player
 	obj_visual_spoiler
+	scr_character_board_set
+	scr_enemy_card_draw
+	scr_start_card_discard
+	scr_start_card_draw
+	scr_start_card_mulligan
+	scr_start_card_return
+	scr_start_card_unselect
+	scr_deck_shuffle
+	scr_test_features
 working on
 	
-to work on
-
 WoL
 	obj_particle_card_ripple
+	scr_character_card_stats_set
+	scr_enemy_card_stats_set
+	scr_start_card_stats_set

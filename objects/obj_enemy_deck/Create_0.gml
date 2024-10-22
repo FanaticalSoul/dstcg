@@ -26,8 +26,8 @@ for (_i = 0; _i < BOARDSIZE; _i++) {
 	card_placements[_i] = noone; // holds enemy position // fixes card stacking
 }
 // set enemy placement positions
-var _cord_x = sprite_width /2+CARDSPACING+enemy_field_offset[0];
-var _cord_y = sprite_height/2+CARDSPACING+enemy_field_offset[1];
+var _cord_x = sprite_width /2+CARDSPACING+enemy_board_offset[0];
+var _cord_y = sprite_height/2+CARDSPACING+enemy_board_offset[1];
 _i = 0;
 for (var _iy = 0; _iy < BOARDROWS; _iy++) {
 	for (var _ix = 0; _ix < BOARDCOLS; _ix++) {

@@ -6,7 +6,7 @@ function scr_sout_last_key () {
 }
 
 function scr_mouse_over_card () {
-	if (mouse_x >= x-sprite_width /2 && mouse_x <= x+sprite_width /2 &&
-	mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) return true;
+	if (mouse_x >= x-SMCARDSIZEX/2 && mouse_x <= x+SMCARDSIZEX/2 &&
+	mouse_y >= y-SMCARDSIZEY/2 && mouse_y <= y+SMCARDSIZEY/2) return true;
 	else return false;
 }
