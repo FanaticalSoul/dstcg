@@ -19,7 +19,6 @@
   "height":120,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"215d28d6-b2dd-4a59-a6de-5df178dad4f3","blendMode":0,"displayName":"test","isLocked":false,"name":"215d28d6-b2dd-4a59-a6de-5df178dad4f3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"306d401a-887f-410a-81df-8ba1671c1e35","blendMode":0,"displayName":"default","isLocked":false,"name":"306d401a-887f-410a-81df-8ba1671c1e35","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_character_battle_board",

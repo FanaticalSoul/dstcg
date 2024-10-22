@@ -10,10 +10,7 @@ for (i = 0; i < 6; i++) {
 		y < _tmp_y + sprite_height/2
 	) {
 		if (obj_player.board_card[i] == noone) {
-			if (obj_player.encounter_start) {
-			
-			}
-			else {
+			if (obj_player.character_placement_phase) {
 				// remove prior instance of object from field
 				for (var _j = 0; _j < 6; _j++) {
 					if (obj_player.board_card[_j] == id) {
@@ -25,10 +22,10 @@ for (i = 0; i < 6; i++) {
 				des_y = _tmp_y;
 				obj_player.board_card[i] = id;
 				// start encounter?
-				if (!obj_player.encounter_start) {
+				if (obj_player.character_placement_phase) {
 					// do particle magic
 					instance_create_depth(_tmp_x, _tmp_y, temp_depth+1, obj_particle_card_ripple);
-					scr_start_encounter ();
+					with (obj_player) if (alarm[1]==-1) alarm[1] = 1;
 				}
 				break;
 			}

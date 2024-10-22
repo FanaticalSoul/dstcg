@@ -19,5 +19,7 @@ function scr_start_card_discard (id) {
 			obj_player.hand_card[i].hand_position = obj_player.hand_card[i].hand_position-1;
 		}
 	}
+	//with (id) scr_start_card_unselect ();
+	instance_destroy(id);
 	return;
 }

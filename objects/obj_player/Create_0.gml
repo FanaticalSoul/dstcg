@@ -1,5 +1,4 @@
-/// @description set empty hand and sprites
-// create hero
+/// @description create character, hand, and phases
 instance_create_depth(obj_start_deck.x-8-sprite_width, obj_start_deck.y, depth, obj_character_card, {
 	character : character
 });
@@ -12,13 +11,15 @@ for (i = 0; i < hand_max; i++) {
 	hand_card[i] = noone; // initalize cards in hand
 }
 i = 0;
-scr_character_board_set (); // for hero object
+scr_character_board_set (); // for character object
 // track selected cards
 selection = [];
-// game phases
-// hero placement takes place before encounter start
-
-encounter_start = false;
-
+// encounter setup phases
+randomize();
+// encounter phases
+character_placement_phase = true;
+muligan_phase = false;
+enemy_activation_phase = false;
+character_activation_phase = false;
 // actions taken
 action_cycle = false;

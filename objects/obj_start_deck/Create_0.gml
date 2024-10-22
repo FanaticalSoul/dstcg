@@ -14,8 +14,10 @@ for (j = 0; j < 11; j++) deck[i++][0] = "fth stamina";
 for (j = 0; j <  4; j++) deck[i++][0] = "int stamina";
 for (j = 0; j <  4; j++) deck[i++][0] = "str stamina";
 for (j = 0; j <  2; j++) deck[i++][0] = "herald armour";
+/*
 for (j = 0; j <  3; j++) deck[i++][0] = "spear";
 for (j = 0; j <  2; j++) deck[i++][0] = "kite shield";
+*/
 for (j = 0; j <  2; j++) deck[i++][0] = "talisman";
 //deck[i-2][1] = true; // reveal card under top card // TF
 deck_size = i;
@@ -30,3 +32,5 @@ deck_spacing = deck_spacing_width_in_pixels / deck_max;
 deck_reveal_y = obj_player.y-sprite_height-deck_reveal_spacing*3/4;
 // create assossiated discard // TF
 discard = instance_create_depth(x,y+sprite_height+deck_reveal_spacing,depth,obj_start_discard);
+// shuffle deck on creation
+deck = scr_deck_shuffle (deck, deck_size, true);

@@ -14,17 +14,17 @@ if (scr_mouse_over_card()) {
 	// temporary fix to overlay
 	if (obj_start_deck.deck_reveal == false) {
 		// press [ mouse left ]
-		if (mouse_check_button_pressed(mb_left) && !obj_player.encounter_start) {
+		if (mouse_check_button_pressed(mb_left) && obj_player.character_placement_phase) {
 			// make card dragable
 			if (x == des_x && y == des_y) dragable = true;
 		}
-		if (mouse_check_button_pressed(mb_left ) && obj_player.encounter_start) {
+		if (mouse_check_button_pressed(mb_left) && (obj_player.character_activation_phase
+		 || obj_player.enemy_activation_phase)) {
 			// toggle selection
 			if (x == des_x && y == des_y) selected = !selected;
 		}
-		
 		// hold [ mouse right ] // visual spoiler
-		if (mouse_check_button(mb_right) && obj_player.encounter_start) {
+		if (mouse_check_button(mb_right)) {
 			if (card_stats != noone) {
 				if (ability_used) obj_visual_spoiler.sprite_index = struct_get(card_stats,"image_hq_back");
 				else obj_visual_spoiler.sprite_index = struct_get(card_stats,"image_hq_front");

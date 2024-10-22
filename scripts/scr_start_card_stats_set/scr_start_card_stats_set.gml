@@ -32,7 +32,7 @@ function scr_start_card_stats_set () {
 			block : 2
 		}],[{
 			name : "spear",
-			type : "weapon",
+			type : "equipment",
 			image : spr_start_card_sm_spear,
 			image_hq : spr_start_card_hq_spear,
 			damage : 2,
@@ -68,7 +68,7 @@ function scr_start_card_stats_set () {
 			]
 		}],[{
 			name : "kite shield",
-			type : "weapon",
+			type : "equipment",
 			image : spr_start_card_sm_kite_shield,
 			image_hq : spr_start_card_hq_kite_shield,
 			block  : 3,

@@ -56,4 +56,5 @@ During Encounter
 Enemy Activation
 
 Character Activation
+
 Rest at Bonfire

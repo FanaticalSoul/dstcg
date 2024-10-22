@@ -29,14 +29,19 @@ if (scr_mouse_over_card()) {
 	// press [ mouse left ] // select card
 	if (mouse_check_button_pressed(mb_left)) {
 		if (card_visable && x == des_x && y == des_y) {
-			selected = !selected;
-			if (selected) obj_player.selection[array_length(obj_player.selection)] = id;
-			else {
-				for (var _i = 0; _i < array_length(obj_player.selection); _i ++) {
-					if (obj_player.selection[_i] == id) {
-						array_delete(obj_player.selection,_i,1);
-						break;
+			if (obj_player.character_activation_phase || obj_player.enemy_activation_phase) {
+				selected = !selected;
+				if (selected) obj_player.selection[array_length(obj_player.selection)] = id;
+				else {
+					scr_start_card_unselect ();
+					/*
+					for (var _i = 0; _i < array_length(obj_player.selection); _i ++) {
+						if (obj_player.selection[_i] == id) {
+							array_delete(obj_player.selection,_i,1);
+							break;
+						}
 					}
+					*/
 				}
 			}
 		}

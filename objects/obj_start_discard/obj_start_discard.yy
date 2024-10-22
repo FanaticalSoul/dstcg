@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_start_card_sm_back",
-    "path":"sprites/spr_start_card_sm_back/spr_start_card_sm_back.yy",
+    "name":"spr_card_sm_selected",
+    "path":"sprites/spr_card_sm_selected/spr_card_sm_selected.yy",
   },
   "spriteMaskId":null,
   "tags":[

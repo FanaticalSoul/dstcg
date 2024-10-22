@@ -8,16 +8,21 @@ if (mouse_y <= discard_reveal_y+sprite_height/2  && mouse_y >= discard_reveal_y-
 }
 // mouse over discard // WoL
 if (scr_mouse_over_card()) {
-	// press [ mouse left ] // draw card from deck
-	if (mouse_check_button_pressed(mb_left) && !discard_reveal && !obj_start_deck.deck_reveal
-	&& array_length(obj_player.selection) > 0 && !obj_player.action_cycle) {
+	// press [ mouse left ] // take mulligan
+	if (mouse_check_button_pressed(mb_left) && obj_player.muligan_phase) {
+		with (obj_player) scr_start_card_mulligan ();
+	}
+	// press [ mouse left ] // cycle selected cards
+	else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !obj_start_deck.deck_reveal
+	&& array_length(obj_player.selection) > 0 && !obj_player.action_cycle
+	&& obj_player.character_activation_phase) {
 		// cycle selected cards
 		while (array_length(obj_player.selection) > 0) {
 			with (obj_player.selection[0]) {
 				scr_start_card_discard(id);
 				instance_destroy();
 			}
-			array_delete(obj_player.selection,0,1);
+			//array_delete(obj_player.selection,0,1); // TF
 			cycle_size ++;
 		}
 		if (alarm[0] == -1) alarm[0] = 1;

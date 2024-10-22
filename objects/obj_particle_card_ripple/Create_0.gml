@@ -1,7 +1,7 @@
 /// @description create particle system
 part_sys = part_system_create();
 // set varibles
-lifetime_frames = 200; // adjust this instead of speed
+lifetime_frames = 20; // adjust this instead of speed
 offset_pixels = 1; // how much the particles are hidden by the object they are under
 increase_pixels = 4;
 particle_count = 1; // number of particles

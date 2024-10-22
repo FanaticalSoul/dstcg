@@ -1,7 +1,5 @@
-function scr_character_board_set(){
-	// pick positions on field
-	var _board_rows = 2;
-	var _board_size = 6;
+function scr_character_board_set (_board_rows = 2, _board_size = 6){
+	// pick positions on board
 	var _i = 0;
 	for (var _iy = 0; _iy < _board_rows; _iy++) {
 		for (var _ix = 0; _ix < _board_size/_board_rows; _ix++) {

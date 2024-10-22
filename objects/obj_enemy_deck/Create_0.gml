@@ -49,3 +49,5 @@ for (iy = 0; iy < 2; iy++) {
 	}
 }
 i = 0;
+// shuffle deck on creation
+deck = scr_deck_shuffle (deck, deck_size);
