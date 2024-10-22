@@ -3,8 +3,14 @@
 // mouse over card
 if (scr_mouse_over_card()) {
 	// hold [ mouse right ] // visual spoiler
-	if (mouse_check_button(mb_right)) visual_spoiler = true;
-	else visual_spoiler = false;
+	if (mouse_check_button(mb_right) && card_stats != noone) {
+		obj_visual_spoiler.sprite_index = card_stats.image_hq;
+		obj_visual_spoiler.visible = true;
+	}
+	else {
+		obj_visual_spoiler.sprite_index = spr_card_hq;
+		obj_visual_spoiler.visible = false;
+	}
 }
 
 // flip animation // needs revisions

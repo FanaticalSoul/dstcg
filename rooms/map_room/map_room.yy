@@ -9,9 +9,13 @@
     {"name":"inst_5CCFBD86","path":"rooms/map_room/map_room.yy",},
     {"name":"inst_1BC4C051","path":"rooms/map_room/map_room.yy",},
     {"name":"inst_FDE79FD","path":"rooms/map_room/map_room.yy",},
+    {"name":"inst_8C18212","path":"rooms/map_room/map_room.yy",},
   ],
   "isDnd":false,
   "layers":[
+    {"$GMRInstanceLayer":"","%Name":"Visual_Spoiler","depth":-100,"effectEnabled":true,"effectType":null,"gridX":4,"gridY":4,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"","%Name":"inst_8C18212","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_8C18212","objectId":{"name":"obj_visual_spoiler","path":"objects/obj_visual_spoiler/obj_visual_spoiler.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":104.0,"y":172.0,},
+      ],"layers":[],"name":"Visual_Spoiler","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRPathLayer":"","%Name":"Paths","colour":4278190335,"depth":0,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[
         {"$GMRPathLayer":"","%Name":"Start_Card_Discard_Path","colour":4278190335,"depth":100,"effectEnabled":true,"effectType":null,"gridX":4,"gridY":4,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Start_Card_Discard_Path","pathId":{"name":"pth_start_deck_discard","path":"paths/pth_start_deck_discard/pth_start_deck_discard.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
         {"$GMRPathLayer":"","%Name":"Start_Card_Draw_Path","colour":4278190335,"depth":200,"effectEnabled":true,"effectType":null,"gridX":4,"gridY":4,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Start_Card_Draw_Path","pathId":{"name":"pth_start_deck_draw","path":"paths/pth_start_deck_draw/pth_start_deck_draw.yy",},"properties":[],"resourceType":"GMRPathLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},

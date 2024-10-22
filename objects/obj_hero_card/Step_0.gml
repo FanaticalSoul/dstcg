@@ -22,11 +22,22 @@ if (scr_mouse_over_card()) {
 			// toggle selection
 			if (x == des_x && y == des_y) selected = !selected;
 		}
+		
 		// hold [ mouse right ] // visual spoiler
-		if (mouse_check_button(mb_right) && obj_player.encounter_start) visual_spoiler = true;
-		else visual_spoiler = false;
+		if (mouse_check_button(mb_right) && obj_player.encounter_start) {
+			if (card_stats != noone) {
+				if (ability_used) obj_visual_spoiler.sprite_index = struct_get(card_stats,"image_hq_back");
+				else obj_visual_spoiler.sprite_index = struct_get(card_stats,"image_hq_front");
+			}
+			obj_visual_spoiler.visible = true;
+		}
+		else {
+			obj_visual_spoiler.sprite_index = spr_card_hq;
+			obj_visual_spoiler.visible = false;
+		}
 	}
 }
+
 // release [ mouse left ]
 if (mouse_check_button_released(mb_left ) && dragable) {
 	// stop draging card

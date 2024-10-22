@@ -9,7 +9,6 @@ des_x = x;
 des_y = y;
 dragable = false;
 selected = false;
-visual_spoiler = false;
 ability_used = false;
 // set sprite // (temporary code) // TF
 card_stats = noone;

@@ -1,10 +1,5 @@
 /// @description draw hero
 
-
-if (card_visable && card_stats != noone && visual_spoiler) {
-	draw_sprite(struct_get(card_stats[0],"image_hq"),-1, room_width/2, room_height/2);
-}
-
 if (!card_visable) sprite_index = spr_start_card_sm_back;
 else if (card_stats != noone) {
 	if (struct_get(card_stats[0],"name") != "") {
