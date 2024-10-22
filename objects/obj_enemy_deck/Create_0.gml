@@ -1,53 +1,42 @@
-/// @description Insert description here
-// set enemy card stats
-enemy_card_stats = scr_enemy_card_stats_set();
+/// @description set varibles
+// initalize varibles
 deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
-enemy_max = 6; // max enemy cards allowed in play
-field_spaces = 6; // spaces around for enemies
+// set varibles
+enemy_card_stats = scr_enemy_card_stats_set(); // enemy card stats
 deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
-for (i = 0; i < deck_max; i++) {
-	deck[i] = "";
-}
+for (var _i = 0; _i < deck_max; _i++) deck[_i] = "";
 // set cards in deck ( no states )
-i = 0;
-deck[i++] = "winged corvian";
-deck[i++] = "irithyllian beast hound";
-deck[i++] = "peasant hollow";
+var _i = 0;
+deck[_i++] = "winged corvian";
+deck[_i++] = "irithyllian beast hound";
+deck[_i++] = "peasant hollow";
 /*
 deck[i++] = "hollow manservant";
 deck[i++] = "ghru leaper";
 deck[i++] = "crossbow grave warden";
 deck[i++] = "grave warden";
 */
-
-
-
-//enemy_max = 6; // TF
-deck_size = i;
-i = 0;
-// automatically shuffle after deck is made
-for (i = 0; i < field_spaces; i++) {
-	enemy[i] = 0;
-	enemy_card[i] = noone;
-	card_placements[i] = noone; // holds enemy position ( for when 2 cards end up being placed on top of each other)
+deck_size = _i;
+// initalize varibles for enemies on board
+for (_i = 0; _i < BOARDSIZE; _i++) {
+	enemy[_i] = "";
+	enemy_card[_i] = noone;
+	card_placements[_i] = noone; // holds enemy position // fixes card stacking
 }
-i = 0;
 // set enemy placement positions
-enemy_field_offset = [0,56];
-card_spacing = obj_player.hand_spacing;
-var _cord_x = sprite_width /2+card_spacing+enemy_field_offset[0];
-var _cord_y = sprite_height/2+card_spacing+enemy_field_offset[1];
-for (iy = 0; iy < 2; iy++) {
-	for (ix = 0; ix < 3; ix++) {
-		enemy_cords[i] = [
-			_cord_x+ix*(sprite_width +card_spacing),
-			_cord_y+iy*(sprite_height+card_spacing)
+var _cord_x = sprite_width /2+CARDSPACING+enemy_field_offset[0];
+var _cord_y = sprite_height/2+CARDSPACING+enemy_field_offset[1];
+_i = 0;
+for (var _iy = 0; _iy < BOARDROWS; _iy++) {
+	for (var _ix = 0; _ix < BOARDCOLS; _ix++) {
+		enemy_cords[_i] = [
+			_cord_x+_ix*(sprite_width +CARDSPACING),
+			_cord_y+_iy*(sprite_height+CARDSPACING)
 		];
-		i++;
+		_i++;
 	}
 }
-i = 0;
 // shuffle deck on creation
 deck = scr_deck_shuffle (deck, deck_size);

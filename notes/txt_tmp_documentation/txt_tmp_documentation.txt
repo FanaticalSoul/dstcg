@@ -1,4 +1,5 @@
 done
 	obj_character_card
 	obj_enemy_card
+	obj_enemy_deck
 working on

@@ -1,5 +1,5 @@
 function scr_enemy_card_draw () {
-	if (enemy_count > enemy_max) {
+	if (enemy_count > ENEMYMAX) {
 		// above max enemies on the field // WoL
 		return;
 	}
@@ -18,7 +18,7 @@ function scr_enemy_card_draw () {
 	}
 	card_placements[enemy_placement] = enemy_placement;
 	// add enemy grid tracking outside draw method to be called in draw method
-	enemy_card[enemy_count] = instance_create_depth(obj_enemy_deck.x,obj_enemy_deck.y,-enemy_count-1,obj_enemy_card,{
+	enemy_card[enemy_count] = instance_create_depth(x,y,-enemy_count-1,obj_enemy_card,{
 		placement : enemy_placement,
 		card_stats : enemy[enemy_count]
 	});
