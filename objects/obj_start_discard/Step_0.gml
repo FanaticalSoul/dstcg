@@ -10,7 +10,10 @@ if (mouse_y <= discard_reveal_y+sprite_height/2  && mouse_y >= discard_reveal_y-
 if (scr_mouse_over_card()) {
 	// press [ mouse left ] // take mulligan
 	if (mouse_check_button_pressed(mb_left) && obj_player.muligan_phase) {
-		with (obj_player) scr_start_card_mulligan ();
+		with (obj_player) {
+			scr_start_card_mulligan ();
+			if (alarm[2] == -1) alarm[2] = 1;
+		}
 	}
 	// press [ mouse left ] // cycle selected cards
 	else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !obj_start_deck.deck_reveal

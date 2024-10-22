@@ -22,5 +22,6 @@ function scr_start_card_return (id) {
 			obj_player.hand_card[_i].hand_position = obj_player.hand_card[_i].hand_position-1;
 		}
 	}
+	instance_destroy(id);
 	return;
 }

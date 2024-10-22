@@ -4,7 +4,7 @@ function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
 		for (i = 0; i < _shuffles; i++) {
 			// shuffle
 			for (j = 0; j < _cards; j++) {
-				// set card revealed state to false // TF
+				// set card revealed state to false
 				if (_states) {
 					if (_deck[j][1]) _deck[j][1] = false;
 				}
