@@ -1,6 +1,8 @@
 /// @description handle keybinds
 // on [ mouse scroll ] // deck view navigation
-if (mouse_y <= discard_reveal_y+sprite_height/2  && mouse_y >= discard_reveal_y-sprite_height/2 && discard_reveal) {
+if (mouse_y <= discard_reveal_y+sprite_height/2  && mouse_y >= discard_reveal_y-sprite_height/2
+&& discard_reveal && mouse_x <= discard_reveal_x+CARDSPACING+discard_visable*(card_width+CARDSPACING)
+&& mouse_x >= discard_reveal_x && discard_reveal) {
 	// increment through deck view
 	if (mouse_wheel_up() && discard_reveal_offset<0) discard_reveal_offset ++;
 	// decrement through deck view
