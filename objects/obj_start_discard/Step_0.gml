@@ -18,24 +18,20 @@ if (scr_mouse_over_card()) {
 		}
 	}
 	// press [ mouse left ] // cycle selected cards
-	else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !obj_start_deck.deck_reveal
-	&& array_length(obj_player.selection) > 0 && !obj_player.action_cycle
-	&& obj_player.character_activation_phase) {
+	else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !deck.deck_reveal
+	&& array_length(player.selection) > 0 && !player.action_cycle
+	&& player.character_activation_phase) {
 		// cycle selected cards
 		while (array_length(obj_player.selection) > 0) {
-			with (obj_player.selection[0]) {
-				scr_start_card_discard(id);
-				//instance_destroy();
-			}
-			//array_delete(obj_player.selection,0,1); // TF
+			scr_start_card_discard(obj_player.selection[0]);
 			cycle_size ++;
 		}
 		if (alarm[0] == -1) alarm[0] = 1;
-		obj_player.action_cycle = true;
+		player.action_cycle = true;
 	}
 }
 // press [ w ] // toggle deck reveal area
-if (keyboard_check_pressed(87) && (discard_reveal || discard_size > 0) && !obj_start_deck.deck_reveal) {
+if (keyboard_check_pressed(87) && (discard_reveal || discard_size > 0) && !deck.deck_reveal) {
 	discard_reveal_offset = 0;
 	discard_reveal = !discard_reveal; // toggle reveal state
 }

@@ -4,11 +4,12 @@ instance_create_depth(obj_start_deck.x-8-sprite_width, obj_start_deck.y, depth, 
 });
 // set hand
 hand_size = 0;
-for (i = 0; i < hand_max; i++) {
-	hand[i][0] = 0; // sprite index
-	hand[i][1] = false; // revealed
-	hand[i][2] = false; // selected
-	hand_card[i] = noone; // initalize cards in hand
+for (var _i = 0; _i < hand_max; _i++) {
+	//hand[i][0] = 0; // sprite index
+	hand[_i] = "";
+	//hand[i][1] = false; // revealed
+	//hand[i][2] = false; // selected
+	hand_card[_i] = noone; // initalize cards in hand
 }
 i = 0;
 scr_character_board_set (); // for character object

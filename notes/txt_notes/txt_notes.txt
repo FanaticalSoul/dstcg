@@ -5,3 +5,6 @@
 // macro notes
  // set macro ( read-only global varible ) to avoid reading nonexistant cards
  #macro HEROCARDCOUNT array_length(sprites)
+// text notes
+ draw_set_color(c_black);
+ draw_text(16,16,string(deck_reveal_offset));

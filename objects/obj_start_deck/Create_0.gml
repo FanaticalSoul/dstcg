@@ -21,10 +21,8 @@ for (var _i = 0; _i <  4; _i++) deck[i++][0] = "int stamina";
 for (var _i = 0; _i <  4; _i++) deck[i++][0] = "str stamina";
 for (var _i = 0; _i <  2; _i++) deck[i++][0] = "herald armour";
 for (var _i = 0; _i <  2; _i++) deck[i++][0] = "talisman";
-/*
 for (var _i = 0; _i <  3; _i++) deck[i++][0] = "spear";
 for (var _i = 0; _i <  2; _i++) deck[i++][0] = "kite shield";
-*/
 deck_size = i;
 // custom adjustments
 deck_spacing = deck_spacing_width_in_pixels / deck_max;
@@ -32,6 +30,9 @@ deck_spacing = deck_spacing_width_in_pixels / deck_max;
 deck_reveal_y = player.y-card_height-CARDSPACING*3/4;
 deck_reveal_x = player.x-card_width/2;
 // create assossiated discard // TF
-discard = instance_create_depth(x,y+card_height+CARDSPACING,depth,obj_start_discard);
+discard = instance_create_depth(x,y+card_height+CARDSPACING,depth,obj_start_discard, {
+	player : player,
+	deck : id
+});
 // shuffle deck on creation
 deck = scr_deck_shuffle (deck, deck_size, true);

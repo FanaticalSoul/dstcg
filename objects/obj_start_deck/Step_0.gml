@@ -1,8 +1,8 @@
 /// @description handle keybinds
-// on [ mouse scroll ] // deck view navigation // no x limit (WoL)
+// on [ mouse scroll ] // deck view navigation
 if (mouse_y <= deck_reveal_y+card_height/2 && mouse_y >= deck_reveal_y-card_height/2 && 
-	mouse_x <= deck_reveal_x+CARDSPACING+deck_visable*(card_width+CARDSPACING)
-	&& mouse_x >= deck_reveal_x && deck_reveal) {
+mouse_x <= deck_reveal_x+CARDSPACING+deck_visable*(card_width+CARDSPACING)
+&& mouse_x >= deck_reveal_x && deck_reveal) {
 	// increment through deck view
 	if (mouse_wheel_up() && deck_reveal_offset<0) deck_reveal_offset ++;
 	// decrement through deck view
@@ -11,8 +11,8 @@ if (mouse_y <= deck_reveal_y+card_height/2 && mouse_y >= deck_reveal_y-card_heig
 // mouse over deck
 if (scr_mouse_over_card()) {
 	// press [ mouse left ] // don't take mulligan
-	if (mouse_check_button_pressed(mb_left) && obj_player.muligan_phase) {
-		with obj_player if (alarm[2]==-1) alarm[2] = 1;
+	if (mouse_check_button_pressed(mb_left) && player.muligan_phase) {
+		with player if (alarm[2]==-1) alarm[2] = 1; // go to next phase of game
 	}
 }
 // press [ up on d-pad ] // toggle deck reveal area
