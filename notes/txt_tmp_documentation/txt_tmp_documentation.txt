@@ -2,5 +2,6 @@ done
 	obj_character_card
 	obj_enemy_card
 	obj_enemy_deck
-working on
 	obj_start_card
+working on
+	obj_start_deck

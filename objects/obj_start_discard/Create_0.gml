@@ -1,7 +1,7 @@
 /// @description Insert description here
 discard_max = obj_start_deck.deck_max;
-discard_spacing = obj_start_deck.deck_spacing;
-discard_reveal_spacing = obj_start_deck.deck_reveal_spacing;
+discard_spacing = discard_spacing_width_in_pixels / discard_max;
+//discard_reveal_spacing = obj_start_deck.deck_reveal_spacing;
 start_card_stats = obj_start_deck.start_card_stats;
 discard_reveal_y = obj_start_deck.deck_reveal_y;
 discard_visable = obj_start_deck.deck_visable;

@@ -34,7 +34,7 @@
         "0",
         "56",
       ],"multiselect":true,"name":"enemy_field_offset","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0, 56","varType":6,},
-    {"$GMObjectProperty":"v1","%Name":"card_draw_frame_delay","filters":[],"listItems":[],"multiselect":false,"name":"card_draw_frame_delay","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"card_draw_frame_delay","filters":[],"listItems":[],"multiselect":false,"name":"card_draw_frame_delay","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

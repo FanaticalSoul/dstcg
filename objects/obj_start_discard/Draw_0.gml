@@ -3,9 +3,9 @@ for (i = 0; i < discard_size; i++) {
 	if (discard[i]!="") { // existing cards
 		if (discard_reveal) {
 			draw_sprite(spr_reveal_board,-1,obj_player.x-sprite_width/2,discard_reveal_y); // draw background
-			var _above_hand_x = obj_player.x+discard_reveal_spacing+discard_reveal_offset*(sprite_width+discard_reveal_spacing); // offset cards
+			var _above_hand_x = obj_player.x+CARDSPACING+discard_reveal_offset*(sprite_width+CARDSPACING); // offset cards
 			// tmp cordinate values
-			var _tmp_x = _above_hand_x+i*(sprite_width+discard_reveal_spacing);
+			var _tmp_x = _above_hand_x+i*(sprite_width+CARDSPACING);
 			// check bounds
 			if (_tmp_x >= 0 && _tmp_x <= room_width) {
 				// reverse card order to get an accurate view of upcoming cards
@@ -23,7 +23,7 @@ for (i = 0; i < discard_size; i++) {
 				// hide missing cards
 				if (discard_size < discard_visable) {
 					for (var _j = 0; _j < discard_visable-discard_size; _j++) {
-						draw_sprite(spr_texture_black,-1,_tmp_x+(_j+1)*(discard_reveal_spacing+sprite_width),discard_reveal_y);
+						draw_sprite(spr_texture_black,-1,_tmp_x+(_j+1)*(CARDSPACING+sprite_width),discard_reveal_y);
 					}
 				}
 			}
