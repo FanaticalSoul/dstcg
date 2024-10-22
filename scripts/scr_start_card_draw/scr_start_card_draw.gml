@@ -21,6 +21,8 @@ function scr_start_card_draw (){
 		// add card to hand
 		player.hand[player.hand_size] = deck[deck_size-1][0];
 		player.hand_size ++;
+		// get card reveal status
+		var _show_card = deck[deck_size-1][1];
 		// remove card from deck
 		deck[deck_size-1][0] = "";
 		deck[deck_size-1][1] = false;
@@ -32,7 +34,8 @@ function scr_start_card_draw (){
 		player.hand_card[player.hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-player.hand_size-1, obj_start_card, {
 			card_stats : _card_stats,
 			hand_position : player.hand_size-1,
-			player : player
+			player : player,
+			show_card : _show_card
 		});
 	}
 	return;

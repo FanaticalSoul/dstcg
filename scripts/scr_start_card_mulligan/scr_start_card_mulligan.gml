@@ -7,17 +7,14 @@ function scr_start_card_mulligan() {
 		}
 	}
 	// take mulligan
-	var _test = false;
 	while (hand_size > 0) {
 		with (start_deck) {
 			scr_start_card_return (player.hand_card[player.hand_size-1].id);
 		}
 	}
-	if (!_test) {
-		with (start_deck) {
-			deck = scr_deck_shuffle (deck, deck_size, true);
-			if (alarm[0] == -1) alarm[0] = 1;
-		}
+	with (start_deck) {
+		deck = scr_deck_shuffle (deck, deck_size, true);
+		if (alarm[0] == -1) alarm[0] = 1;
 	}
 	return;
 }
