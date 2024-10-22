@@ -5,4 +5,6 @@ done
 	obj_start_card
 	obj_start_deck
 	obj_start_discard
+	obj_macros
+	obj_player
 working on

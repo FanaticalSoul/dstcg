@@ -29,8 +29,6 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"hand_start","filters":[],"listItems":[],"multiselect":false,"name":"hand_start","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"hand_max","filters":[],"listItems":[],"multiselect":false,"name":"hand_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"6","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"character","filters":[],"listItems":[
         "\"assassin\"",
         "\"herald\"",
@@ -38,7 +36,10 @@
         "\"sorcerer\"",
       ],"multiselect":false,"name":"character","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\"","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"hand_size_visable","filters":[],"listItems":[],"multiselect":false,"name":"hand_size_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"hand_spacing","filters":[],"listItems":[],"multiselect":false,"name":"hand_spacing","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"deck_cords","filters":[],"listItems":[
+        "184",
+        "208",
+      ],"multiselect":true,"name":"deck_cords","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"184, 208","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -36,6 +36,7 @@
         "\"knight\"",
         "\"sorcerer\"",
       ],"multiselect":false,"name":"character","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"assassin\"","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"player","filters":[],"listItems":[],"multiselect":false,"name":"player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_player","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

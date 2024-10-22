@@ -1,17 +1,22 @@
-/// @description create character, hand, and phases
-instance_create_depth(obj_start_deck.x-8-sprite_width, obj_start_deck.y, depth, obj_character_card, {
-	character : character
+/// @description create character, deck, hand, and phases
+// set varibles
+card_width  = SMCARDSIZEX;
+card_height = SMCARDSIZEY;
+// create assossated deck
+start_deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
+	player : id
+})
+// create assossated character
+instance_create_depth(start_deck.x-CARDSPACING-card_width, start_deck.y, depth, obj_character_card, {
+	character : character,
+	player : id
 });
 // set hand
 hand_size = 0;
-for (var _i = 0; _i < hand_max; _i++) {
-	//hand[i][0] = 0; // sprite index
+for (var _i = 0; _i < HANDMAX; _i++) {
 	hand[_i] = "";
-	//hand[i][1] = false; // revealed
-	//hand[i][2] = false; // selected
 	hand_card[_i] = noone; // initalize cards in hand
 }
-i = 0;
 scr_character_board_set (); // for character object
 // track selected cards
 selection = [];

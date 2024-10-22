@@ -9,11 +9,11 @@ else {
 // mouse over card
 if (scr_mouse_over_card()) {
 	// temporary fix to overlay // WoL
-	if (obj_start_deck.deck_reveal == false) {
+	if (player.start_deck.deck_reveal == false) {
 		// get phases
-		var _place_phase = obj_player.character_placement_phase;
-		var _cha_act_phase = obj_player.character_activation_phase;
-		var _ene_act_phase = obj_player.enemy_activation_phase;
+		var _place_phase = player.character_placement_phase;
+		var _cha_act_phase = player.character_activation_phase;
+		var _ene_act_phase = player.enemy_activation_phase;
 		// press [ mouse left ] // make card dragable
 		if (mouse_check_button_pressed(mb_left) && (_place_phase || _cha_act_phase)) {
 			if (x == des_x && y == des_y) dragable = true;
@@ -37,6 +37,6 @@ if (scr_mouse_over_card()) {
 	}
 }
 // release [ mouse left ] // stop draging card
-if (mouse_check_button_released(mb_left ) && dragable) dragable = false;
+if (mouse_check_button_released(mb_left) && dragable) dragable = false;
 // reset depth upon returning to start
 if (!dragable && depth != temp_depth && x == des_x && y == des_y) depth = temp_depth;
