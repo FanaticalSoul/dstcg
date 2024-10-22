@@ -110,6 +110,7 @@
     {"id":{"name":"scr_start_card_mulligan","path":"scripts/scr_start_card_mulligan/scr_start_card_mulligan.yy",},},
     {"id":{"name":"scr_start_card_return","path":"scripts/scr_start_card_return/scr_start_card_return.yy",},},
     {"id":{"name":"scr_start_card_stats_set","path":"scripts/scr_start_card_stats_set/scr_start_card_stats_set.yy",},},
+    {"id":{"name":"scr_start_card_unselect","path":"scripts/scr_start_card_unselect/scr_start_card_unselect.yy",},},
     {"id":{"name":"scr_test_features","path":"scripts/scr_test_features/scr_test_features.yy",},},
     {"id":{"name":"mp3_bonfire","path":"sounds/mp3_bonfire/mp3_bonfire.yy",},},
     {"id":{"name":"mp3_you_died","path":"sounds/mp3_you_died/mp3_you_died.yy",},},

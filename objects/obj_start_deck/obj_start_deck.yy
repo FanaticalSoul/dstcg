@@ -41,6 +41,7 @@
     {"$GMObjectProperty":"v1","%Name":"field_offset","filters":[],"listItems":[],"multiselect":false,"name":"field_offset","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"deck_max","filters":[],"listItems":[],"multiselect":false,"name":"deck_max","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"40","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"card_draw_frame_delay","filters":[],"listItems":[],"multiselect":false,"name":"card_draw_frame_delay","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"player","filters":[],"listItems":[],"multiselect":false,"name":"player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_player","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

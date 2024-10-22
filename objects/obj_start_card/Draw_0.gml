@@ -1,6 +1,5 @@
-/// @description draw hero
-
-if (!card_visable) sprite_index = spr_start_card_sm_back;
+/// @description draw object
+if (!show_card) sprite_index = spr_start_card_sm_back;
 else if (card_stats != noone) {
 	if (struct_get(card_stats[0],"name") != "") {
 		sprite_index = struct_get(card_stats[0],"image");

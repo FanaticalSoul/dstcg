@@ -23,7 +23,7 @@ if (scr_mouse_over_card()) {
 		while (array_length(obj_player.selection) > 0) {
 			with (obj_player.selection[0]) {
 				scr_start_card_discard(id);
-				instance_destroy();
+				//instance_destroy();
 			}
 			//array_delete(obj_player.selection,0,1); // TF
 			cycle_size ++;

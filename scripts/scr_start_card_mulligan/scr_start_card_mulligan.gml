@@ -8,10 +8,13 @@ function scr_start_card_mulligan() {
 		}
 	}
 	// take mulligan
+	var _test = false;
 	while (hand_size > 0) scr_start_card_return (hand_card[hand_size-1].id);
-	with (obj_start_deck) {
-		deck = scr_deck_shuffle (deck, deck_size, true);
-		if (alarm[0] == -1) alarm[0] = 1;
+	if (!_test) {
+		with (obj_start_deck) {
+			deck = scr_deck_shuffle (deck, deck_size, true);
+			if (alarm[0] == -1) alarm[0] = 1;
+		}
 	}
 	return;
 }

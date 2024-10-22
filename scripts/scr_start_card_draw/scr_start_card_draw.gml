@@ -29,10 +29,12 @@ function scr_start_card_draw (_num){
 			}
 			obj_player.hand[obj_player.hand_size][0] = deck[deck_size][0];
 			obj_player.hand[obj_player.hand_size][1] = deck[deck_size][1];
-			obj_player.hand[obj_player.hand_size][2] = false; // selected
+			//obj_player.hand[obj_player.hand_size][2] = false; // selected
 			obj_player.hand_size ++;
 			// remember states
 			deck[deck_size][0] = "";
+			deck[deck_size][1] = false;
+			var _card_visable = deck[deck_size][1];
 			obj_player.hand[obj_player.hand_size-1][1] = true; // reveal card
 			// set card object offset
 			var _tmp_x = x+deck_size*deck_spacing;
@@ -41,6 +43,7 @@ function scr_start_card_draw (_num){
 			obj_player.hand_card[obj_player.hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-obj_player.hand_size-1, obj_start_card, {
 				card_stats : _card_stats,
 				hand_position : obj_player.hand_size-1,
+				player : player
 			});
 		}
 	}

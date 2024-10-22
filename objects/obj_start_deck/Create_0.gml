@@ -14,8 +14,10 @@ for (j = 0; j < 11; j++) deck[i++][0] = "fth stamina";
 for (j = 0; j <  4; j++) deck[i++][0] = "int stamina";
 for (j = 0; j <  4; j++) deck[i++][0] = "str stamina";
 for (j = 0; j <  2; j++) deck[i++][0] = "herald armour";
+/*
 for (j = 0; j <  3; j++) deck[i++][0] = "spear";
 for (j = 0; j <  2; j++) deck[i++][0] = "kite shield";
+*/
 for (j = 0; j <  2; j++) deck[i++][0] = "talisman";
 deck_size = i;
 i = 0; // reset increments
