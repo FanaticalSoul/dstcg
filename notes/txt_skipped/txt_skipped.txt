@@ -1,2 +1,3 @@
 tutorial 5:
 - I didn't create a function that would've created a deck with every card in it
+- I didn't limit previewing to only showing a preview if the card is in it's original location
