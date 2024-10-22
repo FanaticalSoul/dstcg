@@ -7,4 +7,10 @@ done
 	obj_start_discard
 	obj_macros
 	obj_player
+	obj_visual_spoiler
 working on
+	
+to work on
+
+WoL
+	obj_particle_card_ripple

@@ -26,7 +26,12 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"lifetime_frames","filters":[],"listItems":[],"multiselect":false,"name":"lifetime_frames","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"20","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"offset_pixels","filters":[],"listItems":[],"multiselect":false,"name":"offset_pixels","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"increase_pixels","filters":[],"listItems":[],"multiselect":false,"name":"increase_pixels","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"particle_count","filters":[],"listItems":[],"multiselect":false,"name":"particle_count","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
