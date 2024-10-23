@@ -15,3 +15,5 @@ card_hq = obj_visual_spoiler;
 enemy_cords = obj_enemy_deck.enemy_cords; // placement cords
 // set sprite
 sprite_index = card_stats.image;
+// TF // TT7 //
+wounds = 0;
