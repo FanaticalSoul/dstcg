@@ -4,6 +4,7 @@ start_deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_star
 	player : id
 })
 // create assossated character
+scr_character_board_set (); // for character object
 instance_create_depth(start_deck.x-card_spacing-card_width, start_deck.y, depth, obj_character_card, {
 	character : character,
 	player : id
@@ -14,7 +15,6 @@ for (var _i = 0; _i < hand_max; _i++) {
 	hand[_i] = "";
 	hand_card[_i] = noone; // initalize cards in hand
 }
-scr_character_board_set (); // for character object
 // track selected cards
 selection = [];
 // encounter setup phases

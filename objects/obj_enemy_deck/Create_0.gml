@@ -22,21 +22,8 @@ deck_size = _i;
 // initalize varibles for enemies on board
 for (_i = 0; _i < board_size; _i++) {
 	enemy[_i] = "";
-	enemy_card[_i] = noone;
 	card_placements[_i] = noone; // holds enemy position // fixes card stacking
 }
-// set enemy placement positions
-var _cord_x = sprite_width /2+card_spacing+enemy_board_offset[0];
-var _cord_y = sprite_height/2+card_spacing+enemy_board_offset[1];
-_i = 0;
-for (var _iy = 0; _iy < board_rows; _iy++) {
-	for (var _ix = 0; _ix < board_cols; _ix++) {
-		enemy_cords[_i] = [
-			_cord_x+_ix*(sprite_width +card_spacing),
-			_cord_y+_iy*(sprite_height+card_spacing)
-		];
-		_i++;
-	}
-}
+scr_enemy_board_set ();
 // shuffle deck on creation
 deck = scr_deck_shuffle (deck, deck_size);
