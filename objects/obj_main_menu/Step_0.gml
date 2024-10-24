@@ -13,7 +13,7 @@ if (mouse_check_button_released(mb_left)) {
 		room_goto(1);
 	}
 	else if (step == 2) {
-	
+		room_goto(2);
 	}
 	else if (step == 3) {
 	

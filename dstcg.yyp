@@ -210,6 +210,10 @@
     {"id":{"name":"spr_menu_main_tile_1","path":"sprites/spr_menu_main_tile_1/spr_menu_main_tile_1.yy",},},
     {"id":{"name":"spr_menu_main_tile","path":"sprites/spr_menu_main_tile/spr_menu_main_tile.yy",},},
     {"id":{"name":"spr_menu_main","path":"sprites/spr_menu_main/spr_menu_main.yy",},},
+    {"id":{"name":"spr_menu_start_characters","path":"sprites/spr_menu_start_characters/spr_menu_start_characters.yy",},},
+    {"id":{"name":"spr_menu_start_equipment","path":"sprites/spr_menu_start_equipment/spr_menu_start_equipment.yy",},},
+    {"id":{"name":"spr_menu_start_stamina","path":"sprites/spr_menu_start_stamina/spr_menu_start_stamina.yy",},},
+    {"id":{"name":"spr_menu_start_weapons","path":"sprites/spr_menu_start_weapons/spr_menu_start_weapons.yy",},},
     {"id":{"name":"spr_particle_x","path":"sprites/spr_particle_x/spr_particle_x.yy",},},
     {"id":{"name":"spr_particle_y","path":"sprites/spr_particle_y/spr_particle_y.yy",},},
     {"id":{"name":"spr_reveal_board","path":"sprites/spr_reveal_board/spr_reveal_board.yy",},},
@@ -300,8 +304,8 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"map_main_menu","path":"rooms/map_main_menu/map_main_menu.yy",},},
     {"roomId":{"name":"map_encounter","path":"rooms/map_encounter/map_encounter.yy",},},
-    {"roomId":{"name":"map_map_view","path":"rooms/map_map_view/map_map_view.yy",},},
     {"roomId":{"name":"map_room_2","path":"rooms/map_room_2/map_room_2.yy",},},
+    {"roomId":{"name":"map_map_view","path":"rooms/map_map_view/map_map_view.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
