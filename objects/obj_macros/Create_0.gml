@@ -1,5 +1,6 @@
 /// @description create macros
 // set card demensions
+#macro max_deck 40 // max deck size
 #macro card_width 32 // card width
 #macro card_height 48 // card height
 // set visual spoiler demensions

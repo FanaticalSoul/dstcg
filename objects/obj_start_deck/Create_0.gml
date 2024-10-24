@@ -7,7 +7,7 @@ deck_reveal_offset = 0;
 deck_reveal = false; // reveal state
 deck_reveal_full = false; // reveal all cards in deck // TF
 // prevent errors for decks smaller than the max size of deck
-for (var _i = 0; _i < deck_max; _i++) {
+for (var _i = 0; _i < max_deck; _i++) {
 	deck[_i][0] = ""; // card name
 	deck[_i][1] = false; // revealed
 }
@@ -22,7 +22,7 @@ for (var _i = 0; _i <  3; _i++) deck[i++][0] = "spear";
 for (var _i = 0; _i <  2; _i++) deck[i++][0] = "kite shield";
 deck_size = i;
 // custom adjustments
-deck_spacing = deck_spacing_width_in_pixels / deck_max;
+deck_spacing = deck_spacing_width_in_pixels / max_deck;
 // deck cord varibles
 deck_reveal_y = player.y-card_height-card_spacing*3/4;
 deck_reveal_x = player.x-card_width/2;

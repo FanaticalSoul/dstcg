@@ -10,10 +10,10 @@ for (var _i = 0; _i < 3; _i++) {
 // release [ mouse left ] // go to corrisponding room
 if (mouse_check_button_released(mb_left)) {
 	if (step == 1) {
-		room_goto(1);
+		room_goto(2);
 	}
 	else if (step == 2) {
-		room_goto(2);
+		room_goto(1);
 	}
 	else if (step == 3) {
 	
