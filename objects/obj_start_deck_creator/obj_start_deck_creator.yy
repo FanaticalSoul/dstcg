@@ -28,12 +28,15 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"cards_visable","filters":[],"listItems":[],"multiselect":false,"name":"cards_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"cards_visable","filters":[],"listItems":[],"multiselect":false,"name":"cards_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_reveal_board",
+    "path":"sprites/spr_reveal_board/spr_reveal_board.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

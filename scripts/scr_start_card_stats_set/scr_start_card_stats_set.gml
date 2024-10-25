@@ -47,7 +47,7 @@ function scr_start_card_stats_set () {
 		}, {
 			standard_action : true,
 			damage : 2,
-			attack : "heavy",
+			//attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -58,7 +58,7 @@ function scr_start_card_stats_set () {
 		}, {
 			standard_action : true,
 			damage : 3,
-			attack : "heavy",
+			//attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -83,7 +83,7 @@ function scr_start_card_stats_set () {
 		},{
 			standard_action : true,
 			damage : 2,
-			attack : "heavy",
+			//attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -145,6 +145,32 @@ function scr_start_card_stats_set () {
 			type : "stamina",
 			image : spr_start_card_sm_stamina_fth,
 			image_hq : spr_start_card_hq_stamina_fth
+			// options for stamina are bellow
+		}, {
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				0, // strength
+				1  // faith
+			]
+		}],[{
+			name : "dex stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_dex,
+			image_hq : spr_start_card_hq_stamina_dex
+			// options for stamina are bellow
+		}, {
+			stamina : [
+				1, // dexerity
+				0, // intelligence
+				0, // strength
+				0  // faith
+			]
+		}],[{
+			name : "remant of humanity",
+			type : "equipment",
+			image : spr_start_card_sm_remant_of_humanity,
+			image_hq : spr_start_card_hq_remant_of_humanity
 			// options for stamina are bellow
 		}, {
 			stamina : [
