@@ -1,7 +1,7 @@
 /// @description set varibles
 // set start card stats
 start_card_stats = scr_start_card_stats_set();
-deck_min = 28; // starting deck size
+//deck_min = 28; // starting deck size
 // initalize varibles
 deck_reveal_offset = 0;
 deck_reveal = false; // reveal state

@@ -15,3 +15,5 @@
 #macro board_size board_rows*board_cols // number of spaces on boards
 // set spacing demensions
 #macro card_spacing 8 // number of pixels between cards
+// set spacing demensions
+#macro deck_min 28 // starting deck size

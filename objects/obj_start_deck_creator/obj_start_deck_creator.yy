@@ -10,8 +10,8 @@
   "name":"obj_start_deck_creator",
   "overriddenProperties":[],
   "parent":{
-    "name":"Other",
-    "path":"folders/Objects/Other.yy",
+    "name":"Deck Construction",
+    "path":"folders/Objects/Deck Construction.yy",
   },
   "parentObjectId":null,
   "persistent":false,

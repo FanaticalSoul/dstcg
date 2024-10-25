@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_visual_spoiler_test",
+  "%Name":"obj_start_deck_creator_spoiler",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_visual_spoiler_test",
+  "name":"obj_start_deck_creator_spoiler",
   "overriddenProperties":[],
   "parent":{
-    "name":"Other",
-    "path":"folders/Objects/Other.yy",
+    "name":"Deck Construction",
+    "path":"folders/Objects/Deck Construction.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -34,5 +34,5 @@
     "path":"sprites/spr_start_card_hq_back/spr_start_card_hq_back.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
