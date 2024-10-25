@@ -2,7 +2,6 @@
   "$GMObject":"",
   "%Name":"obj_visual_spoiler_test",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
@@ -31,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_start_card_hq_herald_armour",
-    "path":"sprites/spr_start_card_hq_herald_armour/spr_start_card_hq_herald_armour.yy",
+    "name":"spr_start_card_hq_back",
+    "path":"sprites/spr_start_card_hq_back/spr_start_card_hq_back.yy",
   },
   "spriteMaskId":null,
   "visible":true,
