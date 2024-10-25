@@ -102,6 +102,7 @@
     {"id":{"name":"obj_start_deck_creator","path":"objects/obj_start_deck_creator/obj_start_deck_creator.yy",},},
     {"id":{"name":"obj_start_deck","path":"objects/obj_start_deck/obj_start_deck.yy",},},
     {"id":{"name":"obj_start_discard","path":"objects/obj_start_discard/obj_start_discard.yy",},},
+    {"id":{"name":"obj_visual_spoiler_test","path":"objects/obj_visual_spoiler_test/obj_visual_spoiler_test.yy",},},
     {"id":{"name":"obj_visual_spoiler","path":"objects/obj_visual_spoiler/obj_visual_spoiler.yy",},},
     {"id":{"name":"pth_enemy_deck_draw","path":"paths/pth_enemy_deck_draw/pth_enemy_deck_draw.yy",},},
     {"id":{"name":"pth_start_deck_discard","path":"paths/pth_start_deck_discard/pth_start_deck_discard.yy",},},

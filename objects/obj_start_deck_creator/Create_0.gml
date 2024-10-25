@@ -1,8 +1,7 @@
 /// @description Insert description here
 // set deck varibles
 //visual_spoiler = instance_create_depth(x-208/2,y+sprite_width/2,depth-1,obj_visual_spoiler);
-
-
+//image_xscale = 2;
 deck_size = 0; // cards in deck
 deck_offset = 0;
 // set selection varibles

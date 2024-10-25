@@ -1,6 +1,7 @@
 /// @description Insert description here
 // draw boards
-draw_sprite(spr_reveal_board,-1,x,y);
+//draw_sprite(spr_reveal_board,-1,x,y);
+draw_self();
 draw_sprite(spr_reveal_board,-1,x,y+sprite_height+card_height);
 // draw cards at the top of screen ( infinite supply of stamina, max of 4 of each equipment )
 for (var _i = 0; _i < selection_size; _i ++) {
