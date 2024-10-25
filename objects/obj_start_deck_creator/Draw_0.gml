@@ -1,27 +1,22 @@
 /// @description Insert description here
 // draw boards
-draw_self ();
+draw_sprite(spr_reveal_board,-1,x,y);
 draw_sprite(spr_reveal_board,-1,x,y+sprite_height+card_height);
 // draw cards at the top of screen ( infinite supply of stamina, max of 4 of each equipment )
-for (var _i = 0; _i < 28; _i ++) {
+for (var _i = 0; _i < selection_size; _i ++) {
 	var _sprite = spr_start_card_sm_back;
-	var _tmp_x = card_spacing+card_width/2+x+(_i+deck_offset)*(card_spacing+card_width);
-	if (_tmp_x <= 0 || _tmp_x >= sprite_width) {}
-	else {
-		draw_sprite(_sprite,-1,_tmp_x,y);
-	}
-	
-	/*
-	var _sprite = spr_start_card_sm_back;
-	if (deck[_i] != "") {
-		for (var _j = 0; _j < array_length(card_stats); _j++) {
-			if (struct_get(card_stats[_j][0],"name") == deck[_i]) {
-				_sprite = struct_get(card_stats[_j][0],"image");
-				break;
+	var _tmp_x = card_spacing+card_width/2+x+(_i+selection_offset)*(card_spacing+card_width);
+	if (_tmp_x > 0 && _tmp_x < sprite_width) {
+		if (selection[_i] != "") {
+			for (var _j = 0; _j < array_length(card_stats); _j++) {
+				if (struct_get(card_stats[_j][0],"name") == selection[_i]) {
+					_sprite = struct_get(card_stats[_j][0],"image");
+					break;
+				}
 			}
 		}
+		draw_sprite(_sprite,-1,_tmp_x,y);
 	}
-	*/
 }
 /*
 
