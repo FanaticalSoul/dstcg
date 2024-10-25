@@ -6,6 +6,7 @@ deck_min = 28; // starting deck size
 deck_reveal_offset = 0;
 deck_reveal = false; // reveal state
 deck_reveal_full = false; // reveal all cards in deck // TF
+tmp_depth = depth; // fixes bug with displaying over enemy cards
 // prevent errors for decks smaller than the max size of deck
 for (var _i = 0; _i < max_deck; _i++) {
 	deck[_i][0] = ""; // card name

@@ -2,6 +2,7 @@
 for (var _i = 0; _i < deck_size; _i++) {
 	if (deck[_i][0]!="") { // existing cards
 		if (deck_reveal) {
+			depth = -board_size-2; // fixes bug with displaying over enemy cards
 			draw_sprite(spr_reveal_board,-1,player.x-card_width/2,deck_reveal_y); // draw background
 			var _above_hand_x = player.x+card_spacing+deck_reveal_offset*(card_width+card_spacing); // offset cards
 			// tmp cordinate values
@@ -29,8 +30,10 @@ for (var _i = 0; _i < deck_size; _i++) {
 					}
 				}
 			}
+			//depth = tmp_depth;
 		}
 		else {
+			depth = tmp_depth;
 			// show card in deck if revealed
 			if (deck[_i][1] || deck_reveal_full) {
 				var _sprite = spr_start_card_sm_back;
