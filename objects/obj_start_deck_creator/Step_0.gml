@@ -54,6 +54,8 @@ mouse_x >= x && mouse_x <= sprite_width) {
 				else if (mouse_check_button_pressed(mb_right)) {
 					// WoL
 				}
+				// sort deck
+				array_sort(deck,false);
 			}
 			break;
 		}
@@ -62,6 +64,9 @@ mouse_x >= x && mouse_x <= sprite_width) {
 else if (mouse_y <= (y+sprite_height+view_spacing)+card_height/2 && 
 mouse_y >= (y+sprite_height+view_spacing)-card_height/2 && 
 mouse_x >= x && mouse_x <= sprite_width) {
+	// sort deck
+	array_sort(deck,false);
+
 	// on [ mouse scroll ] // hand view navigation
 	if (deck_size > cards_visable) {
 		if (mouse_wheel_up() && deck_offset < 0) deck_offset += 1; // increment hand view
@@ -78,7 +83,7 @@ mouse_x >= x && mouse_x <= sprite_width) {
 		) {
 			//scr_sout("over card");
 			// get the stats of the card being hovered over
-			var _over_card = deck[abs(selection_offset)+_i];
+			var _over_card = deck[abs(deck_offset)+_i];
 			var _over_card_stats = scr_get_stats(_over_card,card_stats);
 			if (_over_card_stats != undefined) {
 				// set the visual spoiler to show the card being hovered over
