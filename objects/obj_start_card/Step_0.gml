@@ -32,8 +32,12 @@ if (scr_mouse_over_card()) {
 			}
 		}
 	}
-	// hold [ mouse right ] // visual spoiler
-	if (mouse_check_button(mb_right)) {
+	// press [ mouse right ] // if only card selected // do script instead of showing spoiler
+	if (mouse_check_button_pressed(mb_right) && selected && array_length(player.selection)==1) {
+		card_stats[1].play_script(id);
+	}
+	// hold [ mouse right ] // visual spoiler // do not delete the code bellow
+	else if (mouse_check_button(mb_right)) {
 		if (card_stats != noone) card_hq.sprite_index = struct_get(card_stats[0],"image_hq");
 		card_hq.visible = true;
 	}

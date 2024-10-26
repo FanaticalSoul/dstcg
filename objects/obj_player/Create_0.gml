@@ -26,3 +26,4 @@ enemy_activation_phase = false;
 character_activation_phase = false;
 // actions taken
 action_cycle = false;
+action_use_equipment = false; // equipment was used for a non-attack action

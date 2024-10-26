@@ -173,12 +173,15 @@ function scr_start_card_stats_set () {
 			image_hq : spr_start_card_hq_remant_of_humanity
 			// options for stamina are bellow
 		}, {
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				1  // faith
-			]
+			play_script : function (_id) {
+				with (_id) {
+					if (!player.action_use_equipment) {
+						with (player.start_deck.discard) scr_start_card_discard(_id);
+						with (player.start_deck) scr_start_card_draw ();
+						player.action_use_equipment = true;
+					}
+				}
+			}
 		}]
 	];
 	// set default action
