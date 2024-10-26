@@ -82,3 +82,5 @@ for (var _i = 0; _i < deck_size; _i ++) {
 		draw_sprite(_sprite,-1,_tmp_x,_tmp_y);
 	}
 }
+draw_set_color(c_red);
+draw_text (x+sprite_width/2,y+sprite_height/2+view_spacing/2,string(deck_size));
