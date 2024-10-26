@@ -8,3 +8,6 @@
 // text notes
  draw_set_color(c_black);
  draw_text(16,16,string(deck_reveal_offset));
+// instance creation notes
+ you can edit the creation code for instances as shown bellow
+ https://youtu.be/2FjLJvUWXuY?list=PLRezuJB81E7SzoGWpvP1M9kWJSVie0gK5&t=3620

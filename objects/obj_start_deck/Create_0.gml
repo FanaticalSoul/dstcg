@@ -13,6 +13,7 @@ for (var _i = 0; _i < max_deck; _i++) {
 	deck[_i][1] = false; // revealed
 }
 // set cards in deck
+/*
 i = 0;
 for (var _i = 0; _i < 11; _i++) deck[i++][0] = "fth stamina";
 for (var _i = 0; _i <  4; _i++) deck[i++][0] = "int stamina";
@@ -22,6 +23,18 @@ for (var _i = 0; _i <  2; _i++) deck[i++][0] = "talisman";
 for (var _i = 0; _i <  3; _i++) deck[i++][0] = "spear";
 for (var _i = 0; _i <  2; _i++) deck[i++][0] = "kite shield";
 deck_size = i;
+*/
+ini_open("Game1.ini")
+for (var _i = 0; _i < deck_min; _i ++) {
+	deck[_i][0] = ini_read_string("deck",string(_i),"");
+}
+ini_close();
+deck_size = deck_min;
+
+
+
+
+
 // custom adjustments
 deck_spacing = deck_spacing_width_in_pixels / max_deck;
 // deck cord varibles
