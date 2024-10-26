@@ -39,3 +39,47 @@ for (_i = 0; _i < max_deck; _i++) {
 }
 //y_view = 700;
 // have deck act as a psuedo-hand
+
+
+function scr_handle_deck_edit (_over_card,_over_card_stats) {
+	// on [ mouse left  click ] // add card to deck
+	if (mouse_check_button_pressed(mb_left)) {
+		// check card type and assossiated limits
+		if (_over_card_stats[0].type == "equipment" && _over_card != "remant of humanity") {
+			var _card_copy_count = 0;
+			for (var _j = 0; _j < deck_size; _j ++) {
+				if (deck[_j] == _over_card) _card_copy_count ++;
+			}
+			if (_card_copy_count < 4 && deck_size < deck_min) {
+				// add card to deck
+				deck[deck_size] = _over_card;
+				deck_size++;
+			}
+		}
+		// no limit
+		else if (deck_size < deck_min) {
+			// add card to deck
+			deck[deck_size] = _over_card;
+			deck_size++;
+		}
+	}
+	// on [ mouse right click ] // remove card from deck
+	else if (mouse_check_button_pressed(mb_right)) {
+		// WoL
+		var _removed_card_index = -1;
+		for (var _j = 0; _j < deck_size; _j ++) {
+			if (deck[_j]==_over_card) {
+				_removed_card_index = _j;
+				break;
+			}
+		}
+		if (_removed_card_index != -1) {
+			deck[_removed_card_index] = ""; // don't worry about this because of sorting
+			deck_size --;
+		}
+					
+	}
+	// sort deck
+	array_sort(deck,false);
+	//return;
+}

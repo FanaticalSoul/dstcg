@@ -29,38 +29,14 @@ mouse_x >= x && mouse_x <= sprite_width) {
 				// set the visual spoiler to show the card being hovered over
 				obj_start_deck_creator_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = true;
-				// on [ mouse left  click ] // add card to deck
-				if (mouse_check_button_pressed(mb_left)) {
-					// check card type and assossiated limits
-					if (_over_card_stats[0].type == "equipment" && _over_card != "remant of humanity") {
-						var _card_copy_count = 0;
-						for (var _j = 0; _j < deck_size; _j ++) {
-							if (deck[_j] == _over_card) _card_copy_count ++;
-						}
-						if (_card_copy_count < 4 && deck_size < deck_min) {
-							// add card to deck
-							deck[deck_size] = _over_card;
-							deck_size++;
-						}
-					}
-					// no limit
-					else if (deck_size < deck_min) {
-						// add card to deck
-						deck[deck_size] = _over_card;
-						deck_size++;
-					}
-				}
-				// on [ mouse right click ] // remove card from deck
-				else if (mouse_check_button_pressed(mb_right)) {
-					// WoL
-				}
-				// sort deck
-				array_sort(deck,false);
+				// handle various keybinds
+				scr_handle_deck_edit (_over_card, _over_card_stats);
 			}
 			break;
 		}
 	}
 }
+// if mouse is within deck boundaries
 else if (mouse_y <= (y+sprite_height+view_spacing)+card_height/2 && 
 mouse_y >= (y+sprite_height+view_spacing)-card_height/2 && 
 mouse_x >= x && mouse_x <= sprite_width) {
@@ -81,7 +57,6 @@ mouse_x >= x && mouse_x <= sprite_width) {
 			mouse_y > card_spacing+sprite_height+view_spacing && 
 			mouse_y <= card_height+card_spacing+sprite_height+view_spacing
 		) {
-			//scr_sout("over card");
 			// get the stats of the card being hovered over
 			var _over_card = deck[abs(deck_offset)+_i];
 			var _over_card_stats = scr_get_stats(_over_card,card_stats);
@@ -89,6 +64,8 @@ mouse_x >= x && mouse_x <= sprite_width) {
 				// set the visual spoiler to show the card being hovered over
 				obj_start_deck_creator_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = true;
+				// handle various keybinds
+				scr_handle_deck_edit (_over_card, _over_card_stats);
 			}
 			break;
 		}
