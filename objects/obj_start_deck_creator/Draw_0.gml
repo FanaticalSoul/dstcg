@@ -3,7 +3,7 @@
 //draw_sprite(spr_reveal_board,-1,x,y);
 draw_self();
 var _tmp_y = y+sprite_height+view_spacing;
-draw_sprite(spr_reveal_board,-1,x,_tmp_y);
+draw_sprite(sprite_index,-1,x,_tmp_y);
 // draw selection cards at the top of screen ( infinite supply of stamina, max of 4 of each equipment )
 
 

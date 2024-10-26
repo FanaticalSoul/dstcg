@@ -65,7 +65,6 @@ function scr_handle_deck_edit (_over_card,_over_card_stats) {
 	}
 	// on [ mouse right click ] // remove card from deck
 	else if (mouse_check_button_pressed(mb_right)) {
-		// WoL
 		var _removed_card_index = -1;
 		for (var _j = 0; _j < deck_size; _j ++) {
 			if (deck[_j]==_over_card) {
@@ -76,10 +75,8 @@ function scr_handle_deck_edit (_over_card,_over_card_stats) {
 		if (_removed_card_index != -1) {
 			deck[_removed_card_index] = ""; // don't worry about this because of sorting
 			deck_size --;
-			scr_sout(deck_offset);
-			deck_offset = -max(0,abs(deck_offset)-1); // decrement offset
-		}
-					
+			deck_offset = min(0,deck_offset+1); // decrement offset
+		}		
 	}
 	// sort deck
 	array_sort(deck,false);

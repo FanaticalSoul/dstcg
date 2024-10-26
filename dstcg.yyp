@@ -105,6 +105,7 @@
     {"id":{"name":"obj_start_deck_creator_filter_stamina","path":"objects/obj_start_deck_creator_filter_stamina/obj_start_deck_creator_filter_stamina.yy",},},
     {"id":{"name":"obj_start_deck_creator_filter_weapons","path":"objects/obj_start_deck_creator_filter_weapons/obj_start_deck_creator_filter_weapons.yy",},},
     {"id":{"name":"obj_start_deck_creator_filter","path":"objects/obj_start_deck_creator_filter/obj_start_deck_creator_filter.yy",},},
+    {"id":{"name":"obj_start_deck_creator_play","path":"objects/obj_start_deck_creator_play/obj_start_deck_creator_play.yy",},},
     {"id":{"name":"obj_start_deck_creator_spoiler","path":"objects/obj_start_deck_creator_spoiler/obj_start_deck_creator_spoiler.yy",},},
     {"id":{"name":"obj_start_deck_creator","path":"objects/obj_start_deck_creator/obj_start_deck_creator.yy",},},
     {"id":{"name":"obj_start_deck","path":"objects/obj_start_deck/obj_start_deck.yy",},},
