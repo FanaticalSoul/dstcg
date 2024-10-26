@@ -12,6 +12,10 @@ for (var _i = 0; _i < selection_max; _i++) {
 }
 selection_offset = 0;
 selection_size = 0;
+// add filtered varibles
+filtered_selection = undefined;
+selection_filter = "";
+filtered_selection_size = 0;
 // set selection // TF // WoL
 var _i = 0;
 selection[_i++] = "remant of humanity";
@@ -34,5 +38,4 @@ for (_i = 0; _i < max_deck; _i++) {
 	deck[_i] = "";
 }
 //y_view = 700;
-selection_filter = "";
 // have deck act as a psuedo-hand

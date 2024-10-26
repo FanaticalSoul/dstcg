@@ -4,9 +4,13 @@
 if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 &&
 mouse_x >= x && mouse_x <= sprite_width) {
 	// on [ mouse scroll ] // hand view navigation
-	if (selection_size > cards_visable) {
+	if (selection_filter = "" && selection_size > cards_visable) {
 		if (mouse_wheel_up() && selection_offset < 0) selection_offset += 1; // increment hand view
 		if (mouse_wheel_down() && selection_offset > -(selection_size-cards_visable)) selection_offset -= 1; // decrement hand view
+	}
+	else if (filtered_selection_size > cards_visable) {
+		if (mouse_wheel_up() && selection_offset < 0) selection_offset += 1; // increment hand view
+		if (mouse_wheel_down() && selection_offset > -(filtered_selection_size-cards_visable)) selection_offset -= 1; // decrement hand view
 	}
 	// on mouse hover // display card in visual spoiler
 	for (var _i = 0; _i < cards_visable; _i++) {
@@ -17,16 +21,9 @@ mouse_x >= x && mouse_x <= sprite_width) {
 			mouse_y <= card_height+card_spacing
 		) {
 			// get the stats of the card being hovered over
-			var _over_card = selection[abs(selection_offset)+_i];
-			/*
-			var _over_card_stats = undefined;
-			for (var _j = 0; _j < array_length(card_stats); _j++) {
-				if (struct_get(card_stats[_j][0],"name") == _over_card) {
-					_over_card_stats = card_stats[_j];
-					break;
-				}
-			}
-			*/
+			var _over_card = undefined;
+			if (selection_filter = "") _over_card = selection[abs(selection_offset)+_i];
+			else _over_card = filtered_selection[abs(selection_offset)+_i];
 			var _over_card_stats = scr_get_stats(_over_card,card_stats);
 			if (_over_card_stats != undefined) {
 				// set the visual spoiler to show the card being hovered over
