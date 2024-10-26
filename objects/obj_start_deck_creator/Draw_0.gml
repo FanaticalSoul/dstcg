@@ -5,17 +5,69 @@ draw_self();
 var _tmp_y = y+sprite_height+view_spacing;
 draw_sprite(spr_reveal_board,-1,x,_tmp_y);
 // draw selection cards at the top of screen ( infinite supply of stamina, max of 4 of each equipment )
-for (var _i = 0; _i < selection_size; _i ++) {
-	var _sprite = spr_start_card_sm_back;
-	var _tmp_x = card_spacing+card_width/2+x+(_i+selection_offset)*(card_spacing+card_width);
-	if (0 < _tmp_x && _tmp_x < sprite_width) {
-		if (selection[_i] != "") {
-			var _card_stats = scr_get_stats(selection[_i], card_stats);
-			if (_card_stats != undefined) _sprite = _card_stats[0].image;
+
+
+// unfiltered selection
+if (selection_filter == "") {
+	for (var _i = 0; _i < selection_size; _i ++) {
+		var _sprite = spr_start_card_sm_back;
+		var _tmp_x = card_spacing+card_width/2+x+(_i+selection_offset)*(card_spacing+card_width);
+		if (0 < _tmp_x && _tmp_x < sprite_width) {
+			if (selection[_i] != "") {
+				var _card_stats = scr_get_stats(selection[_i], card_stats);
+				if (_card_stats != undefined) _sprite = _card_stats[0].image;
+			}
+			draw_sprite(_sprite,-1,_tmp_x,y);
 		}
-		draw_sprite(_sprite,-1,_tmp_x,y);
 	}
 }
+// filter selection
+else {
+	// define filtered selection
+	var _filtered_selection = undefined;
+	var _filtered_selection_size = 0;
+	for (var _i = 0; _i < selection_size; _i++) _filtered_selection[_i] = "";
+	// set filtered selection
+	for (var _i = 0; _i < selection_size; _i ++) {
+		if (selection[_i] != "") {
+			var _card_stats = scr_get_stats(selection[_i], card_stats);
+			if (_card_stats != undefined) {
+				if ( _card_stats[0].type == "equipment") {
+					if (selection_filter == "equipment") {
+						// this is an equipment
+						_filtered_selection[_filtered_selection_size] = selection[_i];
+						_filtered_selection_size ++;
+					}
+					else if (selection_filter == "weapons" && _card_stats[0].attack != "none") {
+						// this is a weapon
+						_filtered_selection[_filtered_selection_size] = selection[_i];
+						_filtered_selection_size ++;
+					}
+				}
+				else if (_card_stats[0].type == "stamina" && selection_filter == "stamina") {
+					// this is stamina
+					_filtered_selection[_filtered_selection_size] = selection[_i];
+					_filtered_selection_size ++;
+				}
+			}
+		}
+	}
+	// draw filtered selection
+	for (var _i = 0; _i < _filtered_selection_size; _i ++) {
+		var _sprite = spr_start_card_sm_back;
+		var _tmp_x = card_spacing+card_width/2+x+(_i+selection_offset)*(card_spacing+card_width);
+		if (0 < _tmp_x && _tmp_x < sprite_width) {
+			if (_filtered_selection[_i] != "") {
+				var _card_stats = scr_get_stats(_filtered_selection[_i], card_stats);
+				if (_card_stats != undefined) _sprite = _card_stats[0].image;
+			}
+			draw_sprite(_sprite,-1,_tmp_x,y);
+		}
+	}
+}
+
+
+
 
 // draw cards at the top of screen ( infinite supply of stamina, max of 4 of each equipment )
 for (var _i = 0; _i < deck_size; _i ++) {

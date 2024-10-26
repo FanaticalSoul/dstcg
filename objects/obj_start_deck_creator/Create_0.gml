@@ -34,5 +34,5 @@ for (_i = 0; _i < max_deck; _i++) {
 	deck[_i] = "";
 }
 //y_view = 700;
-
+selection_filter = "";
 // have deck act as a psuedo-hand
