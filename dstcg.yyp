@@ -214,7 +214,6 @@
     {"id":{"name":"spr_loot_board","path":"sprites/spr_loot_board/spr_loot_board.yy",},},
     {"id":{"name":"spr_map_player","path":"sprites/spr_map_player/spr_map_player.yy",},},
     {"id":{"name":"spr_menu_main_arrow","path":"sprites/spr_menu_main_arrow/spr_menu_main_arrow.yy",},},
-    {"id":{"name":"spr_menu_main_tile","path":"sprites/spr_menu_main_tile/spr_menu_main_tile.yy",},},
     {"id":{"name":"spr_menu_main","path":"sprites/spr_menu_main/spr_menu_main.yy",},},
     {"id":{"name":"spr_menu_start_cancel","path":"sprites/spr_menu_start_cancel/spr_menu_start_cancel.yy",},},
     {"id":{"name":"spr_menu_start_characters","path":"sprites/spr_menu_start_characters/spr_menu_start_characters.yy",},},
