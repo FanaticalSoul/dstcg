@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_start_deck_creator_default_deck",
+  "%Name":"obj_start_deck_creator_default",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_start_deck_creator_default_deck",
+  "name":"obj_start_deck_creator_default",
   "overriddenProperties":[],
   "parent":{
     "name":"Deck Construction",
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_menu_start_default",
-    "path":"sprites/spr_menu_start_default/spr_menu_start_default.yy",
+    "name":"spr_class_counter",
+    "path":"sprites/spr_class_counter/spr_class_counter.yy",
   },
   "spriteMaskId":null,
   "visible":true,
