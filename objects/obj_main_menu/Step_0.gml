@@ -13,7 +13,13 @@ if (mouse_check_button_released(mb_left)) {
 		room_goto(1);
 	}
 	else if (step == 2) {
-		room_goto(2);
+		ini_open("Game1.ini");
+		// only load game if a saved deck exists
+		if (ini_section_exists("deck")) {
+			ini_close();
+			room_goto(2);
+		}
+		else ini_close();
 	}
 	else if (step == 3) {
 	
