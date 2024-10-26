@@ -100,6 +100,7 @@
     {"id":{"name":"obj_particle_card_ripple","path":"objects/obj_particle_card_ripple/obj_particle_card_ripple.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_start_card","path":"objects/obj_start_card/obj_start_card.yy",},},
+    {"id":{"name":"obj_start_deck_creator_cancel","path":"objects/obj_start_deck_creator_cancel/obj_start_deck_creator_cancel.yy",},},
     {"id":{"name":"obj_start_deck_creator_filter_equipment","path":"objects/obj_start_deck_creator_filter_equipment/obj_start_deck_creator_filter_equipment.yy",},},
     {"id":{"name":"obj_start_deck_creator_filter_stamina","path":"objects/obj_start_deck_creator_filter_stamina/obj_start_deck_creator_filter_stamina.yy",},},
     {"id":{"name":"obj_start_deck_creator_filter_weapons","path":"objects/obj_start_deck_creator_filter_weapons/obj_start_deck_creator_filter_weapons.yy",},},

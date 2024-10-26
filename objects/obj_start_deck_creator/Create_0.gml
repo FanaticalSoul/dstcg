@@ -76,7 +76,8 @@ function scr_handle_deck_edit (_over_card,_over_card_stats) {
 		if (_removed_card_index != -1) {
 			deck[_removed_card_index] = ""; // don't worry about this because of sorting
 			deck_size --;
-			deck_offset = 0; // reset offset
+			scr_sout(deck_offset);
+			deck_offset = -max(0,abs(deck_offset)-1); // decrement offset
 		}
 					
 	}
