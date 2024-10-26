@@ -24,3 +24,13 @@ function scr_sout (_str, _spacing = " | ") {
 	else show_debug_message(string(_str));
 	//return;
 }
+
+
+function scr_get_stats (_card_name, _card_stats) {
+	for (var _i = 0; _i < array_length(_card_stats); _i++) {
+		if (struct_get(_card_stats[_i][0],"name") == _card_name) {
+			return _card_stats[_i];
+		}
+	}
+	return undefined;
+}

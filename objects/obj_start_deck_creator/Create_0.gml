@@ -4,6 +4,7 @@
 //image_xscale = 2;
 deck_size = 0; // cards in deck
 deck_offset = 0;
+view_spacing = card_height; // space between views
 // set selection varibles
 var selection_max = 9;
 for (var _i = 0; _i < selection_max; _i++) {

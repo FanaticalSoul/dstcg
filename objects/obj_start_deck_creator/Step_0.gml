@@ -2,11 +2,12 @@
 
 // if mouse is within selection boundaries
 if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 &&
-mouse_x >= x && mouse_x <= sprite_width && selection_size > cards_visable) {
+mouse_x >= x && mouse_x <= sprite_width) {
 	// on [ mouse scroll ] // hand view navigation
-	var _hidden_cards = selection_size-cards_visable;
-	if (mouse_wheel_up()   && selection_offset+2 <  _hidden_cards/2) selection_offset += 1; // increment hand view
-	if (mouse_wheel_down() && selection_offset+2 > -_hidden_cards/2) selection_offset -= 1; // decrement hand view
+	if (selection_size > cards_visable) {
+		if (mouse_wheel_up() && selection_offset < 0) selection_offset += 1; // increment hand view
+		if (mouse_wheel_down() && selection_offset > -(selection_size-cards_visable)) selection_offset -= 1; // decrement hand view
+	}
 	// on mouse hover // display card in visual spoiler
 	for (var _i = 0; _i < cards_visable; _i++) {
 		if (
@@ -17,6 +18,7 @@ mouse_x >= x && mouse_x <= sprite_width && selection_size > cards_visable) {
 		) {
 			// get the stats of the card being hovered over
 			var _over_card = selection[abs(selection_offset)+_i];
+			/*
 			var _over_card_stats = undefined;
 			for (var _j = 0; _j < array_length(card_stats); _j++) {
 				if (struct_get(card_stats[_j][0],"name") == _over_card) {
@@ -24,6 +26,8 @@ mouse_x >= x && mouse_x <= sprite_width && selection_size > cards_visable) {
 					break;
 				}
 			}
+			*/
+			var _over_card_stats = scr_get_stats(_over_card,card_stats);
 			if (_over_card_stats != undefined) {
 				// set the visual spoiler to show the card being hovered over
 				obj_start_deck_creator_spoiler.sprite_index = _over_card_stats[0].image_hq;
@@ -58,8 +62,37 @@ mouse_x >= x && mouse_x <= sprite_width && selection_size > cards_visable) {
 		}
 	}
 }
-
-
-scr_sout(deck);
+else if (mouse_y <= (y+sprite_height+view_spacing)+card_height/2 && 
+mouse_y >= (y+sprite_height+view_spacing)-card_height/2 && 
+mouse_x >= x && mouse_x <= sprite_width) {
+	// on [ mouse scroll ] // hand view navigation
+	if (deck_size > cards_visable) {
+		if (mouse_wheel_up() && deck_offset < 0) deck_offset += 1; // increment hand view
+		if (mouse_wheel_down() && deck_offset > -(deck_size-cards_visable)) deck_offset -= 1; // decrement hand view
+	}
+	// on mouse hover // display card in visual spoiler
+	//scr_sout("in zone 2");
+	for (var _i = 0; _i < cards_visable; _i++) {
+		if (
+			mouse_x > card_spacing+_i*(card_width+card_spacing) && 
+			mouse_x <= card_width+card_spacing+_i*(card_width+card_spacing) && 
+			mouse_y > card_spacing+sprite_height+view_spacing && 
+			mouse_y <= card_height+card_spacing+sprite_height+view_spacing
+		) {
+			//scr_sout("over card");
+			// get the stats of the card being hovered over
+			var _over_card = deck[abs(selection_offset)+_i];
+			var _over_card_stats = scr_get_stats(_over_card,card_stats);
+			if (_over_card_stats != undefined) {
+				// set the visual spoiler to show the card being hovered over
+				obj_start_deck_creator_spoiler.sprite_index = _over_card_stats[0].image_hq;
+				if (!obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = true;
+			}
+			break;
+		}
+	}
+}
+// hide visual spoiler if not in deck customizer areas
+else if (obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = false;
 
 // limit equipment cards allowed in a deck to 4 per card
