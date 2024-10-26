@@ -1,6 +1,10 @@
 /// @description Insert description here
-// You can write your code in this editor
-var _tmp_y = room_height-(60*2+48);
-image_yscale = _tmp_y/296;
+var _tmp_y = room_height-(deck_creator.sprite_height*2+deck_creator.view_spacing);
+// set card scaling
+image_yscale = _tmp_y/sprite_height;
+image_xscale = round(sprite_height)/(sprite_height/image_yscale); // round sprite height
 image_xscale = image_yscale;
-y = obj_start_deck_creator.sprite_height*2+card_height+sprite_height/2;
+image_xscale = round(sprite_width)/(sprite_width/image_xscale); // round sprite width
+// change y and x position
+y = deck_creator.sprite_height*2+card_height+sprite_height/2;
+x = room_width/2;

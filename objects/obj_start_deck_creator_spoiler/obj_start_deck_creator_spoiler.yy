@@ -25,7 +25,9 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"deck_creator","filters":[],"listItems":[],"multiselect":false,"name":"deck_creator","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_start_deck_creator","path":"objects/obj_start_deck_creator/obj_start_deck_creator.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_start_deck_creator","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

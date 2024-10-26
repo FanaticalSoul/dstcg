@@ -27,8 +27,8 @@ mouse_x >= x && mouse_x <= sprite_width) {
 			var _over_card_stats = scr_get_stats(_over_card,card_stats);
 			if (_over_card_stats != undefined) {
 				// set the visual spoiler to show the card being hovered over
-				obj_start_deck_creator_spoiler.sprite_index = _over_card_stats[0].image_hq;
-				if (!obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = true;
+				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
+				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
 				scr_handle_deck_edit (_over_card, _over_card_stats);
 			}
@@ -62,8 +62,8 @@ mouse_x >= x && mouse_x <= sprite_width) {
 			var _over_card_stats = scr_get_stats(_over_card,card_stats);
 			if (_over_card_stats != undefined) {
 				// set the visual spoiler to show the card being hovered over
-				obj_start_deck_creator_spoiler.sprite_index = _over_card_stats[0].image_hq;
-				if (!obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = true;
+				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
+				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
 				scr_handle_deck_edit (_over_card, _over_card_stats);
 			}
@@ -72,6 +72,6 @@ mouse_x >= x && mouse_x <= sprite_width) {
 	}
 }
 // hide visual spoiler if not in deck customizer areas
-else if (obj_start_deck_creator_spoiler.visible) obj_start_deck_creator_spoiler.visible = false;
+else if (visual_spoiler.visible) visual_spoiler.visible = false;
 
 // limit equipment cards allowed in a deck to 4 per card
