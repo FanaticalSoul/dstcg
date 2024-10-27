@@ -34,7 +34,12 @@ if (scr_mouse_over_card()) {
 	}
 	// press [ mouse right ] // if only card selected // do script instead of showing spoiler
 	if (mouse_check_button_pressed(mb_right) && selected && array_length(player.selection)==1) {
-		card_stats[1].play_script(id);
+		if (card_stats[0].name == "remant of humanity") {
+			card_stats[0].play_script(id);
+		}
+		else if (card_stats[0].name == "talisman") {
+			card_stats[1].play_script(id);
+		}
 	}
 	// hold [ mouse right ] // visual spoiler // do not delete the code bellow
 	else if (mouse_check_button(mb_right)) {

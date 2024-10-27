@@ -105,8 +105,9 @@ function scr_start_card_stats_set () {
 				0  // generic
 			]	
 		},{
+			play_script : scr_equipment_talisman_2(id),
 			standard_action : true,
-			heal  : 5,
+			heal : 5,
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -170,18 +171,8 @@ function scr_start_card_stats_set () {
 			name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
-			image_hq : spr_start_card_hq_remant_of_humanity
-			// options for stamina are bellow
-		}, {
-			play_script : function (_id) {
-				with (_id) {
-					if (!player.action_use_equipment) {
-						with (player.start_deck.discard) scr_start_card_discard(_id);
-						with (player.start_deck) scr_start_card_draw ();
-						player.action_use_equipment = true;
-					}
-				}
-			}
+			image_hq : spr_start_card_hq_remant_of_humanity,
+			play_script : scr_equipment_remant_of_humanity_1 (id)
 		}]
 	];
 	// set default action

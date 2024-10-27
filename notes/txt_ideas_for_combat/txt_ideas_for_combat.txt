@@ -1,0 +1,3 @@
+check field positions in a function being called
+this function should intake infromation from the attack itself
+	as formatted in the attacks already

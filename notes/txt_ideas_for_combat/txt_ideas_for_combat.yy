@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"txt_ideas_for_combat",
+  "name":"txt_ideas_for_combat",
+  "parent":{
+    "name":"Notes",
+    "path":"folders/Notes.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}
