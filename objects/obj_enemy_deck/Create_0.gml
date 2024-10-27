@@ -9,9 +9,10 @@ deck_spacing = deck_spacing_width_in_pixels / deck_max;
 for (var _i = 0; _i < deck_max; _i++) deck[_i] = "";
 // set cards in deck ( no states )
 var _i = 0;
-deck[_i++] = "winged corvian";
+//deck[_i++] = "winged corvian";
 deck[_i++] = "irithyllian beast hound";
-deck[_i++] = "peasant hollow";
+//deck[_i++] = "peasant hollow";
+deck[_i++] = "ghru leaper";
 /*
 deck[i++] = "hollow manservant";
 deck[i++] = "ghru leaper";

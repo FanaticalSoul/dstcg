@@ -87,7 +87,7 @@ function scr_equipment_spear_1 (_id) {
 						// this validation needs to take into account invisiblity
 						
 						// get enemies in the same column as the character
-						var _column_enemies = [noone,noone];
+						var _column_enemies = [noone, noone];
 						for (var _i = 0; _i < obj_enemy_deck.enemy_count; _i++) {
 							var _enemy = obj_enemy_deck.enemy_card[_i];
 							if (_enemy.placement%board_cols == _character_placement%board_cols) {
@@ -96,14 +96,46 @@ function scr_equipment_spear_1 (_id) {
 							}
 						}
 						// TF
-						sout("enemies:");
+						var _target_enemy = noone;
+						// Figure out what enemy in the column is a legal target // WoL
+						
+						//sout("enemies:");
 						if (_column_enemies[0] != noone) {
-							sout(" - "+string(_column_enemies[0].card_stats.name)+" is in 1st column");
+							//sout(" - "+string(_column_enemies[0].card_stats.name)+" is in 1st column");
+							_target_enemy = _column_enemies[0];
 						}
-						if (_column_enemies[1] != noone) {
-							sout(" - "+string(_column_enemies[1].card_stats.name)+" is in 2nd column");
+						else if (_column_enemies[1] != noone) {
+							//sout(" - "+string(_column_enemies[1].card_stats.name)+" is in 2nd column");
+							_target_enemy = _column_enemies[1];
 						}
 						
+						
+						if (_target_enemy != noone && _flag) {
+							sout("targeting "+string(_target_enemy.card_stats.name));
+							var _damage_dealt = 0;
+							if (_target_enemy.card_stats.weakness == _attack) {
+								// get around the defence of the enemy
+								_damage_dealt = _damage;
+							}
+							else {
+								_damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
+							}
+							_target_enemy.wounds += _damage_dealt;
+							sout(_target_enemy.wounds);
+							if (_target_enemy.wounds >= _target_enemy.card_stats.hit_points) {
+								if (_target_enemy.card_stats.regenerate) {
+									_target_enemy.wounds = 0;
+									_target_enemy.card_stats.regenerate = false; // fix // WoL
+									// remove status conditions
+									// fix this as maybe in the future encountering a new instance of this card
+									// might cause the card to have no regeneration
+								}
+								else {
+									instance_destroy(_target_enemy); // destroy the card ( use the destroy method to handle this )
+								}
+							}
+
+						}
 						
 					}
 					//scr_sout(_character_placement);

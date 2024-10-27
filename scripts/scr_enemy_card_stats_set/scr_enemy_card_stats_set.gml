@@ -289,6 +289,7 @@ function scr_enemy_card_stats_set(){
 		defense_value : 0,
 		hit_points    : 1,
 		attack_value  : 0,
+		regenerate : false, // TF
 		weakness      : "none", // heavy, precise, magical, skilled, none
 		attack : [
 			{
