@@ -43,7 +43,10 @@ function scr_start_card_stats_set () {
 				1, // strength
 				1, // faith
 				1  // generic
-			]
+			],
+			play_script : function (id) {
+				return scr_equipment_spear_1 (id);
+			}
 		}, {
 			standard_action : true,
 			damage : 2,
@@ -190,6 +193,7 @@ function scr_start_card_stats_set () {
 		push   : false, // false = 0 // N = 1 // E = 2 // ect...
 		ranged : false,
 		dodge  : false,
+		area_of_effect  : false,
 		attack : "none", // heavy, precise, magical, skilled, none
 		inflict : false, // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
 		stamina : [

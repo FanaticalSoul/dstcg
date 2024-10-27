@@ -82,7 +82,6 @@
   },
   "name":"dstcg",
   "resources":[
-    {"id":{"name":"Note11","path":"notes/Note11/Note11.yy",},},
     {"id":{"name":"txt_areas","path":"notes/txt_areas/txt_areas.yy",},},
     {"id":{"name":"txt_bugs","path":"notes/txt_bugs/txt_bugs.yy",},},
     {"id":{"name":"txt_features","path":"notes/txt_features/txt_features.yy",},},

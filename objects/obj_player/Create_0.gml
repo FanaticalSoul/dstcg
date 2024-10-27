@@ -1,11 +1,12 @@
 /// @description create character, deck, hand, and phases
 // create assossated deck
-start_deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
+//start_deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
+deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
 	player : id
 })
 // create assossated character
 scr_character_board_set (); // for character object
-instance_create_depth(start_deck.x-card_spacing-card_width, start_deck.y, depth, obj_character_card, {
+character_card = instance_create_depth(deck.x-card_spacing-card_width, deck.y, depth, obj_character_card, {
 	character : character,
 	player : id
 });
@@ -27,3 +28,4 @@ character_activation_phase = false;
 // actions taken
 action_cycle = false;
 action_use_equipment = false; // equipment was used for a non-attack action
+action_attack = false;

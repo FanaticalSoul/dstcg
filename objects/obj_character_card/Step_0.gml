@@ -9,7 +9,7 @@ else {
 // mouse over card
 if (scr_mouse_over_card()) {
 	// temporary fix to overlay // WoL
-	if (player.start_deck.deck_reveal == false) {
+	if (player.deck.deck_reveal == false) {
 		// get phases
 		var _place_phase = player.character_placement_phase;
 		var _cha_act_phase = player.character_activation_phase;
