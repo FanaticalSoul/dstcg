@@ -1,0 +1,17 @@
+before
+[ "remant of humanity",0 ] x 5 | [ "talisman",0 ] |
+[ "",0 ] x 23
+after
+[ "",1 ] x 4 | [ "remant of humanity",1 ] | [ "remant of humanity",0 ] x 5 | [ "talisman",0 ] | 
+[ "",0 ] x 23
+
+
+so the deck functionality is almost working as planned,
+if you cut the top 4 positions
+
+
+
+
+
+
+5555| [ "",0 ] | [ "",0 ] | [ "",0 ]

@@ -11,10 +11,14 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 
 function scr_equipment_talisman_2 (_id,_heal) {
 	with (_id) {
+		scr_sout("before");
+		scr_sout(player.start_deck.deck);
 		if (!player.action_use_equipment) {
 			with (player.start_deck) {
 				scr_start_card_heal(_heal);
 				player.action_use_equipment = true;
+				scr_sout("after");
+				scr_sout(deck);
 			}
 		}
 	}
