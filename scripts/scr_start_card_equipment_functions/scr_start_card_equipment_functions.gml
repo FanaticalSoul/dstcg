@@ -86,52 +86,23 @@ function scr_equipment_spear_1 (_id) {
 						// check if enemy is in the same collumn and is valid
 						// this validation needs to take into account invisiblity
 						
-						/*
-						var _column_enemies = [
-							obj_enemy_deck.card_placements[_character_placement%board_cols], // closest enemy
-							obj_enemy_deck.card_placements[_character_placement%board_cols+board_cols],
-						];
-						//scr_sout(obj_enemy_deck.card_placements[_character_placement%board_cols]);
-						//scr_sout(obj_enemy_deck.card_placements[_character_placement%board_cols+board_cols]);
+						// get enemies in the same column as the character
+						var _column_enemies = [noone,noone];
+						for (var _i = 0; _i < obj_enemy_deck.enemy_count; _i++) {
+							var _enemy = obj_enemy_deck.enemy_card[_i];
+							if (_enemy.placement%board_cols == _character_placement%board_cols) {
+								if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
+								else _column_enemies[1] = _enemy;
+							}
+						}
+						// TF
 						sout("enemies:");
 						if (_column_enemies[0] != noone) {
-							sout(" - enemy in first column");
+							sout(" - "+string(_column_enemies[0].card_stats.name)+" is in 1st column");
 						}
-						if (_column_enemies[0] != noone) {
-							sout(" - enemy in seccond column");
+						if (_column_enemies[1] != noone) {
+							sout(" - "+string(_column_enemies[1].card_stats.name)+" is in 2nd column");
 						}
-						*/
-						
-						
-						for (var _i = 0; _i < obj_enemy_deck.enemy_count; _i++) {
-							sout([obj_enemy_deck.enemy_card[_i].card_stats.name,obj_enemy_deck.enemy_card[_i].placement]);
-							//sout(obj_enemy_deck.card_placements[_i]);
-							
-							/*
-							if (obj_enemy_deck.card_placements[_i] != noone) {
-								
-								sout(obj_enemy_deck.card_placements[_i].name);
-								
-								with (obj_enemy_deck.card_placements[_i]) {
-									if (card_stats != undefined) {
-										if (card_stats != noone) sout(card_stats.name);
-										else sout("noone");
-									}
-									else sout("noone");
-								}
-								
-							}
-							else sout("noone");
-							*/
-						}
-						/*
-						if (_column_enemies[0] != noone) {
-							scr_sout(_column_enemies[0].card_stats.name);
-						}
-						else if (_column_enemies[1] != noone) {
-							scr_sout(_column_enemies[1].card_stats.name);
-						}
-						*/
 						
 						
 					}
