@@ -12,7 +12,8 @@ function scr_mouse_over_card () {
 }
 
 
-function scr_sout (_str, _spacing = " | ") {
+//function scr_sout (_str, _spacing = " | ") {
+function sout (_str, _spacing = " | ") {
 	if (is_array(_str)) {
 		var _str_out = "";
 		for (var _i = 0; _i < array_length(_str); _i++) {
@@ -26,10 +27,17 @@ function scr_sout (_str, _spacing = " | ") {
 }
 
 
-function scr_get_stats (_card_name, _card_stats) {
+function scr_get_stats (_card_name, _card_stats, _states = true) {
 	for (var _i = 0; _i < array_length(_card_stats); _i++) {
-		if (struct_get(_card_stats[_i][0],"name") == _card_name) {
-			return _card_stats[_i];
+		if (_states) {
+			if (struct_get(_card_stats[_i][0],"name") == _card_name) {
+				return _card_stats[_i];
+			}
+		}
+		else {
+			if (struct_get(_card_stats[_i],"name") == _card_name) {
+				return _card_stats[_i];
+			}
 		}
 	}
 	return undefined;

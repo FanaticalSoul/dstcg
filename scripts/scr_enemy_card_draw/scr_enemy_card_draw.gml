@@ -2,12 +2,10 @@ function scr_enemy_card_draw () {
 	// above max enemies on the field
 	if (enemy_count > enemy_max) return; // WoL
 	deck_size --;
-	for (var _i = 0; _i < array_length(enemy_card_stats); _i++) {
-		if (struct_get(enemy_card_stats[_i],"name") == deck[deck_size]) {
-			enemy[enemy_count] = enemy_card_stats[_i];
-			break;
-		}
-	}
+	// get enemy stats
+	enemy[enemy_count] = scr_get_stats(deck[deck_size], enemy_card_stats, false);
+	if (enemy[enemy_count] == undefined) enemy[enemy_count] = noone;
+	
 	enemy_placement = struct_get(enemy[enemy_count],"spawn_location")-1;
 	deck[deck_size] = "";
 	// fix placement positions

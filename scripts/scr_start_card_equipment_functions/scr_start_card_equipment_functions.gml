@@ -2,8 +2,10 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 	with (_id) {
 		if (player.character_activation_phase) {
 			if (!player.action_use_equipment) {
-				with (player.start_deck.discard) scr_start_card_discard(_id);
-				with (player.start_deck) scr_start_card_draw ();
+				with (player.deck) {
+					with (discard) scr_start_card_discard(_id);
+					scr_start_card_draw ();
+				}
 				player.action_use_equipment = true;
 			}
 		}
@@ -61,7 +63,80 @@ function scr_equipment_spear_1 (_id) {
 				if (_ranged) {
 					// WoL
 				}
-				//else if (player.character_card.) {
+				else {
+					// valid target
+					var _flag = true;
+					// get character card placement
+					var _character_placement = undefined;
+					var _enemy_placement = undefined;
+					for (var _i = 0; _i < board_size; _i++) {
+						if (player.board_card[_i] == player.character_card.id) {
+							_character_placement = _i;
+							break;
+						}
+					}
+					if (_character_placement != undefined) {
+						// check if character is blocking view
+						if (_character_placement+3<board_size) {
+							if (player.board_card[_character_placement+3] != noone) {
+								// there is a character blocking the view
+								_flag = false;
+							}
+						}
+						// check if enemy is in the same collumn and is valid
+						// this validation needs to take into account invisiblity
+						
+						/*
+						var _column_enemies = [
+							obj_enemy_deck.card_placements[_character_placement%board_cols], // closest enemy
+							obj_enemy_deck.card_placements[_character_placement%board_cols+board_cols],
+						];
+						//scr_sout(obj_enemy_deck.card_placements[_character_placement%board_cols]);
+						//scr_sout(obj_enemy_deck.card_placements[_character_placement%board_cols+board_cols]);
+						sout("enemies:");
+						if (_column_enemies[0] != noone) {
+							sout(" - enemy in first column");
+						}
+						if (_column_enemies[0] != noone) {
+							sout(" - enemy in seccond column");
+						}
+						*/
+						
+						
+						for (var _i = 0; _i < obj_enemy_deck.enemy_count; _i++) {
+							sout([obj_enemy_deck.enemy_card[_i].card_stats.name,obj_enemy_deck.enemy_card[_i].placement]);
+							//sout(obj_enemy_deck.card_placements[_i]);
+							
+							/*
+							if (obj_enemy_deck.card_placements[_i] != noone) {
+								
+								sout(obj_enemy_deck.card_placements[_i].name);
+								
+								with (obj_enemy_deck.card_placements[_i]) {
+									if (card_stats != undefined) {
+										if (card_stats != noone) sout(card_stats.name);
+										else sout("noone");
+									}
+									else sout("noone");
+								}
+								
+							}
+							else sout("noone");
+							*/
+						}
+						/*
+						if (_column_enemies[0] != noone) {
+							scr_sout(_column_enemies[0].card_stats.name);
+						}
+						else if (_column_enemies[1] != noone) {
+							scr_sout(_column_enemies[1].card_stats.name);
+						}
+						*/
+						
+						
+					}
+					//scr_sout(_character_placement);
+				}
 				//else if (player.board_card[0]) {
 					// is character in front row or not obbscured by another character
 					
@@ -75,8 +150,6 @@ function scr_equipment_spear_1 (_id) {
 				// pay cost
 				
 				// do effect
-				
-				scr_sout(_name);
 				
 				
 				
