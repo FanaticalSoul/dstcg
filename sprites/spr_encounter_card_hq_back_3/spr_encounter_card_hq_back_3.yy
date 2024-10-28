@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Encounter Cards",
-    "path":"folders/Sprites/Encounter Cards.yy",
+    "name":"High Quality Images",
+    "path":"folders/Sprites/Encounter Cards/High Quality Images.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

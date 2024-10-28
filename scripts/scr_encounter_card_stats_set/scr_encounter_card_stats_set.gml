@@ -2,7 +2,7 @@ function scr_encounter_card_stats_set () {
 	encounter_card_stats = [
 		{
 			name : "hollow manservant",
-			image : spr_encounter_card_sm_,
+			image : spr_encounter_card_hq_high_wall_of_lothric,
 			image_hq : spr_encounter_card_hq_,
 			encounter_level : 1,
 			encounter : [

@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_encounter_card_sm_back_3",
+  "%Name":"spr_encounter_card_sm_ashen_hollow",
   "bboxMode":0,
   "bbox_bottom":47,
   "bbox_left":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"269f88b5-4a42-499c-8494-799a3119e144","name":"269f88b5-4a42-499c-8494-799a3119e144","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b645fc5b-b93e-4a21-9b5d-6b8088c4283d","name":"b645fc5b-b93e-4a21-9b5d-6b8088c4283d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":48,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","blendMode":0,"displayName":"default","isLocked":false,"name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f9efdff5-88be-44e5-8be1-7264005ca6bd","blendMode":0,"displayName":"default","isLocked":false,"name":"f9efdff5-88be-44e5-8be1-7264005ca6bd","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_encounter_card_sm_back_3",
+  "name":"spr_encounter_card_sm_ashen_hollow",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_encounter_card_sm_back_3",
+    "%Name":"spr_encounter_card_sm_ashen_hollow",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -50,14 +50,14 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":false,
+    "lockOrigin":true,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_encounter_card_sm_back_3",
+    "name":"spr_encounter_card_sm_ashen_hollow",
     "playback":1,
     "playbackSpeed":0.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"269f88b5-4a42-499c-8494-799a3119e144","path":"sprites/spr_encounter_card_sm_back_3/spr_encounter_card_sm_back_3.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"0101e7d8-f015-4d15-b705-498f94720f30","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b645fc5b-b93e-4a21-9b5d-6b8088c4283d","path":"sprites/spr_encounter_card_sm_ashen_hollow/spr_encounter_card_sm_ashen_hollow.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"fd4af46c-0ec0-42f8-970c-66b14cd38159","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

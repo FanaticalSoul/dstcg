@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_encounter_card_sm_back_3",
+  "%Name":"spr_encounter_card_sm_prison_tower",
   "bboxMode":0,
   "bbox_bottom":47,
   "bbox_left":0,
@@ -12,16 +12,16 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"269f88b5-4a42-499c-8494-799a3119e144","name":"269f88b5-4a42-499c-8494-799a3119e144","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"cc6cd3e5-406f-4a73-87b3-abfad475afa6","name":"cc6cd3e5-406f-4a73-87b3-abfad475afa6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":48,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","blendMode":0,"displayName":"default","isLocked":false,"name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"69945311-ac15-4663-a8ab-e7ea529ef258","blendMode":0,"displayName":"default","isLocked":false,"name":"69945311-ac15-4663-a8ab-e7ea529ef258","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_encounter_card_sm_back_3",
+  "name":"spr_encounter_card_sm_prison_tower",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"spr_encounter_card_sm_back_3",
+    "%Name":"spr_encounter_card_sm_prison_tower",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -50,14 +50,14 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":false,
+    "lockOrigin":true,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"spr_encounter_card_sm_back_3",
+    "name":"spr_encounter_card_sm_prison_tower",
     "playback":1,
     "playbackSpeed":0.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"269f88b5-4a42-499c-8494-799a3119e144","path":"sprites/spr_encounter_card_sm_back_3/spr_encounter_card_sm_back_3.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"0101e7d8-f015-4d15-b705-498f94720f30","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"cc6cd3e5-406f-4a73-87b3-abfad475afa6","path":"sprites/spr_encounter_card_sm_prison_tower/spr_encounter_card_sm_prison_tower.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"754b82d0-bdbf-46f8-8775-59f9c66b7f1d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
