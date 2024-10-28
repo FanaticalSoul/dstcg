@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"",
+  "%Name":"txt_source_control_test",
+  "name":"txt_source_control_test",
+  "parent":{
+    "name":"Notes",
+    "path":"folders/Notes.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

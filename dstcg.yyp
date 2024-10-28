@@ -90,6 +90,7 @@
     {"id":{"name":"txt_key","path":"notes/txt_key/txt_key.yy",},},
     {"id":{"name":"txt_notes","path":"notes/txt_notes/txt_notes.yy",},},
     {"id":{"name":"txt_skipped","path":"notes/txt_skipped/txt_skipped.yy",},},
+    {"id":{"name":"txt_source_control_test","path":"notes/txt_source_control_test/txt_source_control_test.yy",},},
     {"id":{"name":"txt_sources","path":"notes/txt_sources/txt_sources.yy",},},
     {"id":{"name":"txt_tmp_documentation","path":"notes/txt_tmp_documentation/txt_tmp_documentation.yy",},},
     {"id":{"name":"obj_character_card","path":"objects/obj_character_card/obj_character_card.yy",},},
