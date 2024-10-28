@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Finished",
-    "path":"folders/Sprites/Base Game Scans/Revised/Finished.yy",
+    "name":"Revised",
+    "path":"folders/Sprites/Base Game Scans/Revised.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
