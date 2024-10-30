@@ -36,9 +36,11 @@ if (scr_mouse_over_card()) {
 					}
 					else if (array_length(player.stamina_selection) == 0 && 
 					array_length(player.selection)==1) {
-						// if card selected was the equipment
-						player.action_pay_stamina = false;
-						with (player.selection[0]) scr_start_card_unselect ();
+						if (player.selection[0] == id) {
+							// if card selected was the equipment
+							player.action_pay_stamina = false;
+							with (player.selection[0]) scr_start_card_unselect ();
+						}
 					}
 				}
 				else {
@@ -77,9 +79,17 @@ if (selected && array_length(player.selection)==1) {
 	}
 	else if (keyboard_check_pressed(2+48)) {
 		if (
-			card_stats[0].name == "talisman"
+			card_stats[0].name == "talisman" || 
+			card_stats[0].name == "spear"
 		) {
 			card_stats[2].play_script(id);
+		}
+	}
+	else if (keyboard_check_pressed(3+48)) {
+		if (
+			card_stats[0].name == "spear"
+		) {
+			card_stats[3].play_script(id);
 		}
 	}
 }

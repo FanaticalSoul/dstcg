@@ -58,7 +58,10 @@ function scr_start_card_stats_set () {
 				0, // strength
 				1, // faith
 				0  // generic
-			]
+			],
+			play_script : function (id) {
+				return scr_equipment_spear_1 (id);
+			}
 		}, {
 			standard_action : true,
 			damage : 3,
@@ -69,7 +72,10 @@ function scr_start_card_stats_set () {
 				1, // strength
 				1, // faith
 				2  // generic
-			]
+			],
+			play_script : function (id) {
+				return scr_equipment_spear_1 (id);
+			}
 		}],[{
 			name : "kite shield",
 			type : "equipment",
@@ -121,7 +127,7 @@ function scr_start_card_stats_set () {
 				1  // generic
 			],
 			play_script : function (id) {
-				return scr_equipment_talisman_2 (id, heal);
+				return scr_equipment_talisman_2 (id);
 			}
 		}],[{
 			name : "str stamina",
@@ -213,10 +219,15 @@ function scr_start_card_stats_set () {
 	var _test = false;
 	for (i = 0; i < array_length(start_card_stats); i++ ) {
 		var _tmp_card = start_card_stats[i][0];
+		// set undefined varibles
 		if (struct_get(_tmp_card,"image") == undefined) struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
 		if (struct_get(_tmp_card,"image_hq") == undefined) struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
 		if (struct_get(_tmp_card,"name") == undefined) struct_set(start_card_stats[i][0],"name","undefined");
-		default_action.name = start_card_stats[i][0].name; // fix for attack method
+		if (struct_get(_tmp_card,"attack") == undefined) struct_set(start_card_stats[i][0],"attack","none");
+		// copy varibles across the array // this is a fix for the attack method
+		default_action.name = start_card_stats[i][0].name;
+		default_action.attack = start_card_stats[i][0].attack;
+		// go through default array and update missing information in the attack action structure
 		if (_test) show_debug_message("item : "+string(struct_get(start_card_stats[i][0],"name")));
 		for (j = 0; j < array_length(start_card_stats[i]); j++ ) {
 			if (struct_get(start_card_stats[i][0],"type") == "equipment"
