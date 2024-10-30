@@ -19,6 +19,7 @@ function scr_start_card_stats_set () {
 			type : "equipment",
 			image : spr_start_card_sm_herald_armour,
 			image_hq : spr_start_card_hq_herald_armour,
+		},{
 			block : 3,
 			stamina : [
 				0, // dexerity
@@ -35,8 +36,9 @@ function scr_start_card_stats_set () {
 			type : "equipment",
 			image : spr_start_card_sm_spear,
 			image_hq : spr_start_card_hq_spear,
+			attack : "heavy"
+		},{
 			damage : 2,
-			attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -50,7 +52,6 @@ function scr_start_card_stats_set () {
 		}, {
 			standard_action : true,
 			damage : 2,
-			//attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -74,6 +75,7 @@ function scr_start_card_stats_set () {
 			type : "equipment",
 			image : spr_start_card_sm_kite_shield,
 			image_hq : spr_start_card_hq_kite_shield,
+		},{
 			block  : 3,
 			attack : "heavy",
 			stamina : [
@@ -98,7 +100,8 @@ function scr_start_card_stats_set () {
 			name : "talisman",
 			type : "equipment",
 			image : spr_start_card_sm_talisman,
-			image_hq : spr_start_card_hq_talisman,
+			image_hq : spr_start_card_hq_talisman
+		},{
 			block  : 2,
 			stamina : [
 				0, // dexerity
@@ -176,7 +179,8 @@ function scr_start_card_stats_set () {
 			name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
-			image_hq : spr_start_card_hq_remant_of_humanity,
+			image_hq : spr_start_card_hq_remant_of_humanity
+		},{
 			play_script : function (id) {
 				return scr_equipment_remant_of_humanity_1 (id);
 			}
@@ -184,6 +188,7 @@ function scr_start_card_stats_set () {
 	];
 	// set default action
 	default_action = {
+		name : undefined,
 		standard_action : false, // discard on use
 		block  : 0,
 		damage : 0,
@@ -193,7 +198,7 @@ function scr_start_card_stats_set () {
 		push   : false, // false = 0 // N = 1 // E = 2 // ect...
 		ranged : false,
 		dodge  : false,
-		area_of_effect  : false,
+		area_of_effect : false,
 		attack : "none", // heavy, precise, magical, skilled, none
 		inflict : false, // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
 		stamina : [
@@ -207,6 +212,11 @@ function scr_start_card_stats_set () {
 	// add default values // add name of item to all item actions //
 	var _test = false;
 	for (i = 0; i < array_length(start_card_stats); i++ ) {
+		var _tmp_card = start_card_stats[i][0];
+		if (struct_get(_tmp_card,"image") == undefined) struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
+		if (struct_get(_tmp_card,"image_hq") == undefined) struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
+		if (struct_get(_tmp_card,"name") == undefined) struct_set(start_card_stats[i][0],"name","undefined");
+		default_action.name = start_card_stats[i][0].name; // fix for attack method
 		if (_test) show_debug_message("item : "+string(struct_get(start_card_stats[i][0],"name")));
 		for (j = 0; j < array_length(start_card_stats[i]); j++ ) {
 			if (struct_get(start_card_stats[i][0],"type") == "equipment"
@@ -219,10 +229,6 @@ function scr_start_card_stats_set () {
 			}
 			if (_test) show_debug_message(string(start_card_stats[i][j]));
 		}
-		var _tmp_card = start_card_stats[i][0];
-		if (struct_get(_tmp_card,"image") == undefined) struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
-		if (struct_get(_tmp_card,"image_hq") == undefined) struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
-		if (struct_get(_tmp_card,"name") == undefined) struct_set(start_card_stats[i][0],"name","undefined");
 	}
 	return start_card_stats;
 }

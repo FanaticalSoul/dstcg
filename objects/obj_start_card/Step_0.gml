@@ -38,7 +38,7 @@ if (scr_mouse_over_card()) {
 					array_length(player.selection)==1) {
 						// if card selected was the equipment
 						player.action_pay_stamina = false;
-						scr_start_card_unselect ();
+						with (player.selection[0]) scr_start_card_unselect ();
 					}
 				}
 				else {
@@ -51,15 +51,18 @@ if (scr_mouse_over_card()) {
 		}
 	}
 	// press [ mouse right ] // if only card selected // do script instead of showing spoiler
+	//sout("STEP 0");
 	if (mouse_check_button_pressed(mb_right) && selected && array_length(player.selection)==1) {
+		sout("STEP 1");
 		if (
 			card_stats[0].name == "remant of humanity" || 
 			card_stats[0].name == "spear"
 		) {
-			card_stats[0].play_script(id);
+			sout("STEP 1.5");
+			card_stats[1].play_script(id);
 		}
 		if (card_stats[0].name == "talisman") {
-			card_stats[1].play_script(id);
+			card_stats[2].play_script(id);
 		}
 	}
 	// hold [ mouse right ] // visual spoiler // do not delete the code bellow
