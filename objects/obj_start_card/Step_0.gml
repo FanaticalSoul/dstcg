@@ -50,26 +50,7 @@ if (scr_mouse_over_card()) {
 			}
 		}
 	}
-	
-	// if this card is the only card selected
-	if (selected && array_length(player.selection)==1) {
-		// press [ number ] // do script
-		if (keyboard_check_pressed(1+48)) {
-			if (
-				card_stats[0].name == "remant of humanity" || 
-				card_stats[0].name == "spear"
-			) {
-				card_stats[1].play_script(id);
-			}
-		}
-		else if (keyboard_check_pressed(2+48)) {
-			if (
-				card_stats[0].name == "talisman"
-			) {
-				card_stats[2].play_script(id);
-			}
-		}
-	}
+
 	// hold [ mouse right ] // visual spoiler
 	if (mouse_check_button(mb_right)) {
 		if (card_stats != noone) card_hq.sprite_index = struct_get(card_stats[0],"image_hq");
@@ -78,5 +59,27 @@ if (scr_mouse_over_card()) {
 	else {
 		card_hq.sprite_index = spr_card_hq;
 		card_hq.visible = false;
+	}
+}
+
+
+
+// if this card is the only card selected // keep out of hover over card area
+if (selected && array_length(player.selection)==1) {
+	// press [ number ] // do script
+	if (keyboard_check_pressed(1+48)) {
+		if (
+			card_stats[0].name == "remant of humanity" || 
+			card_stats[0].name == "spear"
+		) {
+			card_stats[1].play_script(id);
+		}
+	}
+	else if (keyboard_check_pressed(2+48)) {
+		if (
+			card_stats[0].name == "talisman"
+		) {
+			card_stats[2].play_script(id);
+		}
 	}
 }
