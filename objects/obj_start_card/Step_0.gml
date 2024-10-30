@@ -50,23 +50,28 @@ if (scr_mouse_over_card()) {
 			}
 		}
 	}
-	// press [ mouse right ] // if only card selected // do script instead of showing spoiler
-	//sout("STEP 0");
-	if (mouse_check_button_pressed(mb_right) && selected && array_length(player.selection)==1) {
-		sout("STEP 1");
-		if (
-			card_stats[0].name == "remant of humanity" || 
-			card_stats[0].name == "spear"
-		) {
-			sout("STEP 1.5");
-			card_stats[1].play_script(id);
+	
+	// if this card is the only card selected
+	if (selected && array_length(player.selection)==1) {
+		// press [ number ] // do script
+		if (keyboard_check_pressed(1+48)) {
+			if (
+				card_stats[0].name == "remant of humanity" || 
+				card_stats[0].name == "spear"
+			) {
+				card_stats[1].play_script(id);
+			}
 		}
-		if (card_stats[0].name == "talisman") {
-			card_stats[2].play_script(id);
+		else if (keyboard_check_pressed(2+48)) {
+			if (
+				card_stats[0].name == "talisman"
+			) {
+				card_stats[2].play_script(id);
+			}
 		}
 	}
-	// hold [ mouse right ] // visual spoiler // do not delete the code bellow
-	else if (mouse_check_button(mb_right)) {
+	// hold [ mouse right ] // visual spoiler
+	if (mouse_check_button(mb_right)) {
 		if (card_stats != noone) card_hq.sprite_index = struct_get(card_stats[0],"image_hq");
 		card_hq.visible = true;
 	}

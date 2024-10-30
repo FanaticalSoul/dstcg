@@ -29,7 +29,6 @@ function scr_equipment_talisman_2 (_id,_heal) {
 
 
 function scr_equipment_spear_1 (_id) {
-	sout("STEP 2");
 	var _name = name;
 	var _area_of_effect = area_of_effect; // an array of structures if true
 	var _standard_action = standard_action; // discard on use
@@ -52,15 +51,12 @@ function scr_equipment_spear_1 (_id) {
 		// generic
 	*/
 	with (_id) {
-		sout("STEP 3");
 		if (player.character_activation_phase) {
-			sout("STEP 4");
 			if (!player.action_attack) {
 				if (_ranged) {
 					// WoL
 				}
 				else {
-					sout("STEP 5");
 					// valid target
 					var _flag = true;
 					// get character card placement
@@ -109,10 +105,8 @@ function scr_equipment_spear_1 (_id) {
 						}
 						// if valid attack ( so far )
 						if (_target_enemy != noone && _flag) {
-							sout("STEP 6");
 							// pay for attack 
 							if (player.action_pay_stamina) {
-								sout("STEP 7");
 								//sout("total stamina");
 								var _total_stamina = [0,0,0,0];
 								for (var _i = 0; _i < array_length(player.stamina_selection); _i ++) {
@@ -157,8 +151,6 @@ function scr_equipment_spear_1 (_id) {
 								 _flag = false;
 								// successful payment
 								if (!(_stamina_cost_remaining > 0)) {
-									sout("STEP 8");
-									
 									// discard stamina
 									while (array_length(player.stamina_selection)>0) {
 										scr_start_card_stamina_discard (player.stamina_selection[0]);
