@@ -25,10 +25,22 @@ if (scr_mouse_over_card()) {
 	if (mouse_check_button_pressed(mb_left)) {
 		if (show_card && x == des_x && y == des_y) {
 			if (player.character_activation_phase || player.enemy_activation_phase) {
-				// select or unselect card
-				selected = !selected;
-				if (selected) player.selection[array_length(player.selection)] = id;
-				else scr_start_card_unselect ();
+				if (player.action_pay_stamina) {
+					// if only selecting stamina
+					if (card_stats[0].type == "stamina") {
+						if (selected) scr_start_card_stamina_unselect ();
+						else {
+							selected = true;
+							player.stamina_selection[array_length(player.stamina_selection)] = id;
+						}
+					}
+				}
+				else {
+					// select or unselect card
+					selected = !selected;
+					if (selected) player.selection[array_length(player.selection)] = id;
+					else scr_start_card_unselect ();
+				}
 			}
 		}
 	}

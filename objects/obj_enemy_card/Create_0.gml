@@ -17,3 +17,4 @@ enemy_cords = obj_enemy_deck.enemy_cords; // placement cords
 sprite_index = card_stats.image;
 // TF // TT7 //
 wounds = 0;
+conditions = [];

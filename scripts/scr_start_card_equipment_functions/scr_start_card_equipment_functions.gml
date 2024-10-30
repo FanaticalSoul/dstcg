@@ -90,9 +90,11 @@ function scr_equipment_spear_1 (_id) {
 						var _column_enemies = [noone, noone];
 						for (var _i = 0; _i < obj_enemy_deck.enemy_count; _i++) {
 							var _enemy = obj_enemy_deck.enemy_card[_i];
-							if (_enemy.placement%board_cols == _character_placement%board_cols) {
-								if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
-								else _column_enemies[1] = _enemy;
+							if ( instance_exists(_enemy) ) {
+								if (_enemy.placement%board_cols == _character_placement%board_cols) {
+									if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
+									else _column_enemies[1] = _enemy;
+								}
 							}
 						}
 						// TF
@@ -111,30 +113,101 @@ function scr_equipment_spear_1 (_id) {
 						
 						
 						if (_target_enemy != noone && _flag) {
-							sout("targeting "+string(_target_enemy.card_stats.name));
-							var _damage_dealt = 0;
-							if (_target_enemy.card_stats.weakness == _attack) {
-								// get around the defence of the enemy
-								_damage_dealt = _damage;
-							}
-							else {
-								_damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
-							}
-							_target_enemy.wounds += _damage_dealt;
-							sout(_target_enemy.wounds);
-							if (_target_enemy.wounds >= _target_enemy.card_stats.hit_points) {
-								if (_target_enemy.card_stats.regenerate) {
-									_target_enemy.wounds = 0;
-									_target_enemy.card_stats.regenerate = false; // fix // WoL
-									// remove status conditions
-									// fix this as maybe in the future encountering a new instance of this card
-									// might cause the card to have no regeneration
+							
+							
+							
+							// pay for attack 
+							//sout("total stamina");
+							if (player.action_pay_stamina) {
+								sout("total stamina");
+								var _total_stamina = [0,0,0,0];
+								for (var _i = 0; _i < array_length(player.stamina_selection); _i ++) {
+									var _card_stats = player.stamina_selection[_i].card_stats;
+									sout(_card_stats[0].name);
+									for (var _j = 0; _j < array_length(_total_stamina); _j ++) {
+										//sout(_card_stats[1].stamina);
+										_total_stamina[_j] += _card_stats[1].stamina[_j];
+										if (array_length(_card_stats) == 3) _total_stamina[_j] += _card_stats[2].stamina[_j];
+									}
 								}
-								else {
-									instance_destroy(_target_enemy); // destroy the card ( use the destroy method to handle this )
+								sout("dex "+string(_total_stamina[0]));
+								sout("int "+string(_total_stamina[1]));
+								sout("str "+string(_total_stamina[2]));
+								sout("fth "+string(_total_stamina[3]));
+								// pay cost
+								var _i = 0;
+								var _stamina_cost = _stamina;
+								while (_i < array_length(_total_stamina) && (_stamina_cost[0] > 0 || 
+								_stamina_cost[1] > 0 || _stamina_cost[2] > 0 || _stamina_cost[3] > 0 ||
+								_stamina_cost[4] > 0)) {
+									if (_total_stamina[_i] > 0) {
+										while (_total_stamina[_i] > 0 && _stamina_cost[_i] > 0) {
+											// pay normal cost
+											_total_stamina[_i] --;
+											_stamina_cost[_i] --;
+										}
+										while (_total_stamina[_i] > 0 && _stamina_cost[4] > 0) {
+											// pay generic cost
+											_total_stamina[_i] --;
+											_stamina_cost[4] --;
+										}
+									}
+									_i ++;
+								}
+								/*
+								var _stamina_cost_remaining = 0;
+								for (_i = 0; _i < array_length(_stamina_cost); _i ++) {
+									_stamina_cost_remaining += _stamina_cost[_i];
+								}
+								if (_stamina_cost_remaining > 0) {
+									// unsuccessful payment
+									_flag = false;
+								}
+								*/
+								
+								_flag = false;
+								// successful payment
+								if (_flag) {
+									
+									// discard stamina
+									while (array_length(player.stamina_selection) > 0) {
+										var _stamina_card = player.stamina_selection[0];
+										scr_start_card_stamina_unselect ();
+										scr_start_card_discard (_stamina_card);
+									}
+									player.action_pay_stamina = false; // exit payment state
+									
+									sout("targeting "+string(_target_enemy.card_stats.name));
+								
+									/*
+									
+									var _damage_dealt = 0;
+									if (_target_enemy.card_stats.weakness == _attack) {
+										// get around the defence of the enemy
+										_damage_dealt = _damage;
+									}
+									else {
+										_damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
+									}
+									_target_enemy.wounds += _damage_dealt;
+									sout(_target_enemy.wounds);
+									if (_target_enemy.wounds >= _target_enemy.card_stats.hit_points) {
+										if (_target_enemy.card_stats.regenerate) {
+											_target_enemy.wounds = 0;
+											_target_enemy.card_stats.regenerate = false; // fix // WoL
+											// remove status conditions
+											_target_enemy.conditions = []; // remove all conditions
+											// fix this as maybe in the future encountering a new instance of this card
+											// might cause the card to have no regeneration
+										}
+										else {
+											instance_destroy(_target_enemy); // destroy the card ( use the destroy method to handle this )
+										}
+									}
+									*/
 								}
 							}
-
+							else player.action_pay_stamina = true;
 						}
 						
 					}
