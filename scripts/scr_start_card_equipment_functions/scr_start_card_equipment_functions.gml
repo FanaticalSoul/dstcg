@@ -154,7 +154,6 @@ function scr_equipment_spear_1 (_id) {
 									}
 									_i ++;
 								}
-								/*
 								var _stamina_cost_remaining = 0;
 								for (_i = 0; _i < array_length(_stamina_cost); _i ++) {
 									_stamina_cost_remaining += _stamina_cost[_i];
@@ -163,17 +162,12 @@ function scr_equipment_spear_1 (_id) {
 									// unsuccessful payment
 									_flag = false;
 								}
-								*/
-								
-								_flag = false;
 								// successful payment
 								if (_flag) {
 									
 									// discard stamina
-									while (array_length(player.stamina_selection) > 0) {
-										var _stamina_card = player.stamina_selection[0];
-										scr_start_card_stamina_unselect ();
-										scr_start_card_discard (_stamina_card);
+									while (array_length(player.stamina_selection)>0) {
+										scr_start_card_stamina_discard (player.stamina_selection[0]);
 									}
 									player.action_pay_stamina = false; // exit payment state
 									

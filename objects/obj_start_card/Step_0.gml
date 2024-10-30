@@ -34,6 +34,12 @@ if (scr_mouse_over_card()) {
 							player.stamina_selection[array_length(player.stamina_selection)] = id;
 						}
 					}
+					else if (array_length(player.stamina_selection) == 0 && 
+					array_length(player.selection)==1) {
+						// if card selected was the equipment
+						player.action_pay_stamina = false;
+						scr_start_card_unselect ();
+					}
 				}
 				else {
 					// select or unselect card
