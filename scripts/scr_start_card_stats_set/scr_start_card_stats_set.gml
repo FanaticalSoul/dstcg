@@ -27,10 +27,12 @@ function scr_start_card_stats_set () {
 				0, // strength
 				1, // faith
 				0  // generic
-			]
+			],
+			reaction : true
 		},{
 			standard_action : true,
-			block : 2
+			block : 2,
+			reaction : true
 		}],[{
 			name : "spear",
 			type : "equipment",
@@ -65,7 +67,6 @@ function scr_start_card_stats_set () {
 		}, {
 			standard_action : true,
 			damage : 3,
-			//attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -79,22 +80,22 @@ function scr_start_card_stats_set () {
 		}],[{
 			name : "kite shield",
 			type : "equipment",
+			attack : "heavy",
 			image : spr_start_card_sm_kite_shield,
 			image_hq : spr_start_card_hq_kite_shield,
 		},{
 			block  : 3,
-			attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
 				1, // strength
 				1, // faith
 				0  // generic
-			]	
+			],
+			reaction : true
 		},{
 			standard_action : true,
 			damage : 2,
-			//attack : "heavy",
 			stamina : [
 				0, // dexerity
 				0, // intelligence
@@ -115,7 +116,8 @@ function scr_start_card_stats_set () {
 				0, // strength
 				1, // faith
 				0  // generic
-			]	
+			],
+			reaction : true
 		},{
 			standard_action : true,
 			heal : 5,
@@ -213,7 +215,8 @@ function scr_start_card_stats_set () {
 			0, // strength
 			0, // faith
 			0  // generic
-		]
+		],
+		reaction : false // can be used in response to an enemy attack
 	};
 	// add default values // add name of item to all item actions //
 	var _test = false;

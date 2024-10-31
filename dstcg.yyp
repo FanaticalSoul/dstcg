@@ -129,6 +129,7 @@
     {"id":{"name":"scr_encounter_card_stats_set","path":"scripts/scr_encounter_card_stats_set/scr_encounter_card_stats_set.yy",},},
     {"id":{"name":"scr_enemy_board_set","path":"scripts/scr_enemy_board_set/scr_enemy_board_set.yy",},},
     {"id":{"name":"scr_enemy_card_draw","path":"scripts/scr_enemy_card_draw/scr_enemy_card_draw.yy",},},
+    {"id":{"name":"scr_enemy_card_functions","path":"scripts/scr_enemy_card_functions/scr_enemy_card_functions.yy",},},
     {"id":{"name":"scr_enemy_card_stats_set","path":"scripts/scr_enemy_card_stats_set/scr_enemy_card_stats_set.yy",},},
     {"id":{"name":"scr_start_card_discard","path":"scripts/scr_start_card_discard/scr_start_card_discard.yy",},},
     {"id":{"name":"scr_start_card_draw","path":"scripts/scr_start_card_draw/scr_start_card_draw.yy",},},

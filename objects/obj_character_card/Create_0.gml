@@ -20,3 +20,5 @@ for (var _i = 0; _i < array_length(_tmp_card_stats); _i++ ) {
 		break;
 	}
 }
+// conditions // WoL
+conditions = [];

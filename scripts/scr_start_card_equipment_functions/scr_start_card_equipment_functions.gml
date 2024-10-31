@@ -54,36 +54,6 @@ function scr_equipment_spear_1 (_id) {
 	}
 	return;
 }
-/*
-function scr_equipment_spear_2 (_id) {
-	// get relevant stats
-	var _name = name;
-	var _standard_action = standard_action;
-	var _damage = damage;
-	var _shift = shift;
-	var _push = push;
-	var _attack = attack;
-	var _inflict = inflict;
-	var _stamina = stamina;
-	// do basic attack
-	with (_id) scr_basic_attack(_id,_name,_standard_action,_damage,_shift,_push,_attack,_inflict,_stamina);
-	return;
-}
-function scr_equipment_spear_3 (_id) {
-	// get relevant stats
-	var _name = name;
-	var _standard_action = standard_action;
-	var _damage = damage;
-	var _shift = shift;
-	var _push = push;
-	var _attack = attack;
-	var _inflict = inflict;
-	var _stamina = stamina;
-	// do basic attack
-	with (_id) scr_basic_attack(_id,_name,_standard_action,_damage,_shift,_push,_attack,_inflict,_stamina);
-	return;
-}
-*/
 
 // non-ranged attack
 function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_attack,_inflict,_stamina) {
@@ -140,49 +110,8 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 					// pay for attack 
 					if (player.action_pay_stamina) {
 						//sout("total stamina");
-						var _total_stamina = [0,0,0,0];
-						for (var _i = 0; _i < array_length(player.stamina_selection); _i ++) {
-							var _card_stats = player.stamina_selection[_i].card_stats;
-							//sout(_card_stats[0].name);
-							for (var _j = 0; _j < array_length(_total_stamina); _j ++) {
-								//sout(_card_stats[1].stamina);
-								_total_stamina[_j] += _card_stats[1].stamina[_j];
-								if (array_length(_card_stats) == 3) _total_stamina[_j] += _card_stats[2].stamina[_j];
-							}
-						}
-						//sout("dex "+string(_total_stamina[0]));
-						//sout("int "+string(_total_stamina[1]));
-						//sout("str "+string(_total_stamina[2]));
-						//sout("fth "+string(_total_stamina[3]));
-						// pay cost
-						var _i = 0;
-						var _stamina_cost = _stamina;
-						while (_i < array_length(_total_stamina) && (_stamina_cost[0] > 0 || 
-						_stamina_cost[1] > 0 || _stamina_cost[2] > 0 || _stamina_cost[3] > 0 ||
-						_stamina_cost[4] > 0)) {
-							if (_total_stamina[_i] > 0) {
-								while (_total_stamina[_i] > 0 && _stamina_cost[_i] > 0) {
-									// pay normal cost
-									_total_stamina[_i] --;
-									_stamina_cost[_i] --;
-								}
-								while (_total_stamina[_i] > 0 && _stamina_cost[4] > 0) {
-									// pay generic cost
-									_total_stamina[_i] --;
-									_stamina_cost[4] --;
-								}
-							}
-							_i ++;
-						}
-						var _stamina_cost_remaining = 0;
-						for (_i = 0; _i < array_length(_stamina_cost); _i ++) {
-							_stamina_cost_remaining += _stamina_cost[_i];
-						}
-																	
-						// unsuccessful payment
-							_flag = false;
 						// successful payment
-						if (!(_stamina_cost_remaining > 0)) {
+						if (!(scr_stamina_cost (player.stamina_selection,_stamina) > 0)) {
 							// discard equipment
 							if (_standard_action) {
 								_id = id;
@@ -231,4 +160,45 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 		}
 	}
 	return;
+}
+
+
+function scr_stamina_cost (_stamina_selection,_stamina_cost) {
+	var _total_stamina;
+	for (var _i = 0; _i < array_length(_stamina_selection); _i ++) {
+		_total_stamina[_i] = 0;
+		var _card_stats = _stamina_selection[_i].card_stats;
+		for (var _j = 0; _j < array_length(_total_stamina); _j ++) {
+			_total_stamina[_j] += _card_stats[1].stamina[_j];
+			if (array_length(_card_stats) == 3) _total_stamina[_j] += _card_stats[2].stamina[_j];
+		}
+	}
+	//sout("dex "+string(_total_stamina[0]));
+	//sout("int "+string(_total_stamina[1]));
+	//sout("str "+string(_total_stamina[2]));
+	//sout("fth "+string(_total_stamina[3]));
+	// pay cost
+	var _i = 0;
+	while (_i < array_length(_total_stamina) && (_stamina_cost[0] > 0 || 
+	_stamina_cost[1] > 0 || _stamina_cost[2] > 0 || _stamina_cost[3] > 0 ||
+	_stamina_cost[4] > 0)) {
+		if (_total_stamina[_i] > 0) {
+			while (_total_stamina[_i] > 0 && _stamina_cost[_i] > 0) {
+				// pay normal cost
+				_total_stamina[_i] --;
+				_stamina_cost[_i] --;
+			}
+			while (_total_stamina[_i] > 0 && _stamina_cost[4] > 0) {
+				// pay generic cost
+				_total_stamina[_i] --;
+				_stamina_cost[4] --;
+			}
+		}
+		_i ++;
+	}
+	var _stamina_cost_remaining = 0;
+	for (_i = 0; _i < array_length(_stamina_cost); _i ++) {
+		_stamina_cost_remaining += _stamina_cost[_i];
+	}
+	return _stamina_cost_remaining;
 }

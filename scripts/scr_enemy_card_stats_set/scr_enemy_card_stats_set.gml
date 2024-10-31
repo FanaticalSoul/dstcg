@@ -16,8 +16,7 @@ function scr_enemy_card_stats_set(){
 	
 	
 	
-	enemy_card_stats = [
-		{
+	enemy_card_stats = [{
 			name : "hollow manservant",
 			image : spr_enemy_card_sm_hollow_manservant,
 			image_hq : spr_enemy_card_hq_hollow_manservant,
@@ -34,8 +33,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 1
-		},
-		{
+		},{
 			name : "sage\'s devout",
 			enemy_level : 1,
 			souls : 3,
@@ -49,8 +47,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 4
-		},
-		{
+		},{
 			name : "firebomb hollow",
 			enemy_level : 1,
 			souls : 2,
@@ -64,8 +61,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 1
-		},
-		{
+		},{
 			name : "peasant hollow",
 			image : spr_enemy_card_sm_peasant_hollow,
 			image_hq : spr_enemy_card_hq_peasant_hollow,
@@ -82,8 +78,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 2
-		},
-		{
+		},{
 			name : "hound rat",
 			enemy_level : 1,
 			souls : 1,
@@ -97,8 +92,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 2
-		},
-		{
+		},{
 			name : "cage spider",
 			enemy_level : 1,
 			souls : 3,
@@ -112,8 +106,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 3
-		},
-		{
+		},{
 			name : "irithyllian beast hound",
 			image : spr_enemy_card_sm_irithyllian_beast_hound,
 			image_hq : spr_enemy_card_hq_irithyllian_beast_hound,
@@ -129,9 +122,11 @@ function scr_enemy_card_stats_set(){
 					inflict : ["frostbite"]
 				}
 			],
-			spawn_location : 3
-		},
-		{
+			spawn_location : 3,
+			play_script : function (id) {
+				return scr_enemy_card_irithyllian_beast_hound (id);
+			}
+		},{
 			name : "ghru leaper",
 			image : spr_enemy_card_sm_ghru_leaper,
 			image_hq : spr_enemy_card_hq_ghru_leaper,
@@ -147,9 +142,11 @@ function scr_enemy_card_stats_set(){
 					inflict : ["poison"]
 				}
 			],
-			spawn_location : 5
-		},
-		{
+			spawn_location : 5,
+			play_script : function (id) {
+				return scr_enemy_card_ghru_leaper (id);
+			}
+		},{
 			name : "winged corvian",
 			image : spr_enemy_card_sm_winged_corvian,
 			image_hq : spr_enemy_card_hq_winged_corvian,
@@ -165,8 +162,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 5
-		},
-		{
+		},{
 			name : "silver knight greatbowman",
 			enemy_level : 1,
 			souls : 2,
@@ -180,8 +176,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 5
-		},
-		{
+		},{
 			name : "crossbow grave warden",
 			image : spr_enemy_card_sm_crossbow_grave_warden,
 			image_hq : spr_enemy_card_hq_crossbow_grave_warden,
@@ -197,8 +192,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 6
-		},
-		{
+		},{
 			name : "grave warden",
 			image : spr_enemy_card_sm_grave_warden,
 			image_hq : spr_enemy_card_hq_grave_warden,			
@@ -214,8 +208,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 4
-		},
-		{
+		},{
 			name : "hollow assassin",
 			enemy_level : 1,
 			souls : 2,
@@ -229,8 +222,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 2
-		},
-		{
+		},{
 			name : "crossbow hollow",
 			enemy_level : 1,
 			souls : 2,
@@ -244,8 +236,7 @@ function scr_enemy_card_stats_set(){
 				}
 			],
 			spawn_location : 4
-		},
-		{
+		},{
 			name : "hollow soldier",
 			enemy_level : 1,
 			souls : 2,
@@ -291,6 +282,7 @@ function scr_enemy_card_stats_set(){
 		attack_value  : 0,
 		regenerate : false, // TF
 		weakness      : "none", // heavy, precise, magical, skilled, none
+		area_of_effect : false, // WoL
 		attack : [
 			{
 				attack_location : 1,
