@@ -44,4 +44,10 @@ if (!dragable && depth != temp_depth && x == des_x && y == des_y) depth = temp_d
 //scr_sout_last_key();
 if (keyboard_key_press(37) || keyboard_key_press(38) || keyboard_key_press(39) || keyboard_key_press(40)) {
 	/////////////////////////////////////////////////////
+	if (selected && player.action_movement) {
+		if (keyboard_key_press(37)) {
+			//if ()
+			// WoL
+		}
+	}
 }

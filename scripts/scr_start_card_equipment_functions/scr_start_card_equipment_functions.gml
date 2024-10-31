@@ -90,8 +90,6 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 					var _enemy = obj_enemy_deck.enemy_card[_i];
 					sout("placements");
 					if (instance_exists(_enemy)) {
-						//sout(["character placement",_character_placement]);
-						//sout([_enemy.card_stats.name,"placement",_enemy.placement]);
 						if (_enemy.placement%board_cols == _character_placement%board_cols) {
 							if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
 							else _column_enemies[1] = _enemy;
@@ -151,7 +149,7 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 							// exit payment state
 							player.action_pay_stamina = false;									
 							// mark attack as complete
-							//player.action_attack = true; // TR
+							player.action_attack = true;
 						}
 					}
 					else player.action_pay_stamina = true;
