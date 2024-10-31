@@ -23,19 +23,8 @@ else {
 		if (instance_exists(value)) {
 			// do particle effect for attack
 			instance_create_depth(value.x, value.y, value.depth+1, obj_particle_card_ripple);
-			
-			
+			// activate enemy
 			value.card_stats.play_script(value.id);
-			// activate this enemy
-			/*
-			sout([index,value.card_stats.name]);
-			*/
 		}
 	});
 }
-/*
-array_foreach(enemy, function(value, index) {
-	sout([index,value]);
-	return;
-});
-*/

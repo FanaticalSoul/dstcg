@@ -15,7 +15,7 @@ if (scr_mouse_over_card()) {
 		var _cha_act_phase = player.character_activation_phase;
 		var _ene_act_phase = player.enemy_activation_phase;
 		// press [ mouse left ] // make card dragable
-		if (mouse_check_button_pressed(mb_left) && (_place_phase || _cha_act_phase)) {
+		if (mouse_check_button_pressed(mb_left) && _place_phase) {
 			if (x == des_x && y == des_y) dragable = true;
 		}
 		// press [ mouse left ] // toggle selection
@@ -40,3 +40,8 @@ if (scr_mouse_over_card()) {
 if (mouse_check_button_released(mb_left) && dragable) dragable = false;
 // reset depth upon returning to start
 if (!dragable && depth != temp_depth && x == des_x && y == des_y) depth = temp_depth;
+// move character
+//scr_sout_last_key();
+if (keyboard_key_press(37) || keyboard_key_press(38) || keyboard_key_press(39) || keyboard_key_press(40)) {
+	/////////////////////////////////////////////////////
+}

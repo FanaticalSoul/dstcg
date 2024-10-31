@@ -25,12 +25,13 @@ if (scr_mouse_over_card()) {
 	}
 }
 // press [ up on d-pad ] // toggle deck reveal area
-if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0) && !discard.discard_reveal) {
+if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0) && 
+ !discard.discard_reveal && !player.character_card.selected) {
 	deck_reveal_offset = 0;
 	deck_reveal = !deck_reveal; // toggle reveal state
 }
 // press [ down on d-pad ]
-if (keyboard_check_pressed(40) && deck_reveal) {
+if ((keyboard_check_pressed(40) && deck_reveal) || player.character_card.selected) {
 	deck_reveal_offset = 0;
 	deck_reveal = false;
 }

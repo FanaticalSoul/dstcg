@@ -33,4 +33,3 @@ action_attack = false;
 // labeled as actions but treated as sub-states
 action_pay_stamina = false;
 reaction = false;
-//damage_taken = 0;
