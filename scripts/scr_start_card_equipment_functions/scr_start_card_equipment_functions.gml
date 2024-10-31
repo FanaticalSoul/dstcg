@@ -59,6 +59,7 @@ function scr_equipment_spear_1 (_id) {
 function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_attack,_inflict,_stamina) {
 	if (player.character_activation_phase) {
 		if (!player.action_attack) {
+			//sout("PART 1");
 			// valid target
 			var _flag = true;
 			// get character card placement
@@ -71,6 +72,7 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 				}
 			}
 			if (_character_placement != undefined) {
+				//sout("PART "+string(_character_placement));
 				// check if character is blocking view
 				if (_character_placement+board_cols<board_size) {
 					if (player.board_card[_character_placement+board_cols] != noone) {
@@ -83,9 +85,13 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 						
 				// get enemies in the same column as the character
 				var _column_enemies = [noone, noone];
-				for (var _i = 0; _i < obj_enemy_deck.enemy_count; _i++) {
+				for (var _i = 0; _i < array_length(obj_enemy_deck.enemy_card); _i++) {
+					// this is messed up because of the sort method
 					var _enemy = obj_enemy_deck.enemy_card[_i];
-					if ( instance_exists(_enemy) ) {
+					sout("placements");
+					if (instance_exists(_enemy)) {
+						//sout(["character placement",_character_placement]);
+						//sout([_enemy.card_stats.name,"placement",_enemy.placement]);
 						if (_enemy.placement%board_cols == _character_placement%board_cols) {
 							if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
 							else _column_enemies[1] = _enemy;
@@ -95,20 +101,14 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 				// TF
 				var _target_enemy = noone;
 				// Figure out what enemy in the column is a legal target // WoL
-						
-				//sout("enemies:");
-				if (_column_enemies[0] != noone) {
-					//sout(" - "+string(_column_enemies[0].card_stats.name)+" is in 1st column");
-					_target_enemy = _column_enemies[0];
-				}
-				else if (_column_enemies[1] != noone) {
-					//sout(" - "+string(_column_enemies[1].card_stats.name)+" is in 2nd column");
-					_target_enemy = _column_enemies[1];
-				}
+				if (_column_enemies[0] != noone) _target_enemy = _column_enemies[0];
+				else if (_column_enemies[1] != noone) _target_enemy = _column_enemies[1];
 				// if valid attack ( so far )
 				if (_target_enemy != noone && _flag) {
+					//sout("PART 3");
 					// pay for attack 
 					if (player.action_pay_stamina) {
+						//sout("PART 4");
 						//sout("total stamina");
 						// successful payment
 						if (!(scr_stamina_cost (player.stamina_selection,_stamina) > 0)) {
@@ -164,9 +164,10 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 
 
 function scr_stamina_cost (_stamina_selection,_stamina_cost) {
-	var _total_stamina;
+	//sout(["here",array_length(_stamina_selection)]);
+	var _total_stamina = [0,0,0,0];
 	for (var _i = 0; _i < array_length(_stamina_selection); _i ++) {
-		_total_stamina[_i] = 0;
+		//_total_stamina[_i] = 0;
 		var _card_stats = _stamina_selection[_i].card_stats;
 		for (var _j = 0; _j < array_length(_total_stamina); _j ++) {
 			_total_stamina[_j] += _card_stats[1].stamina[_j];

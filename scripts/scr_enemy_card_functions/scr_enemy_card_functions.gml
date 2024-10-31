@@ -24,7 +24,7 @@ function scr_enemy_card_basic_attack (_id,_attack,_attack_value) {
 		// if target is valid
 		if (_target_character != noone) {
 			// do each basic attack listed
-			sout("targeting "+_target_character.card_stats.name);
+			sout(_id.card_stats.name+" is targeting "+_target_character.card_stats.name);
 			// for each attack, allow targeted player to respond once ( if they can )
 			_target_character.player.reaction = true;
 			// check if any cards in hand or on field can react
