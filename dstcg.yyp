@@ -135,6 +135,7 @@
     {"id":{"name":"scr_start_card_draw","path":"scripts/scr_start_card_draw/scr_start_card_draw.yy",},},
     {"id":{"name":"scr_start_card_equipment_functions","path":"scripts/scr_start_card_equipment_functions/scr_start_card_equipment_functions.yy",},},
     {"id":{"name":"scr_start_card_heal","path":"scripts/scr_start_card_heal/scr_start_card_heal.yy",},},
+    {"id":{"name":"scr_start_card_mill","path":"scripts/scr_start_card_mill/scr_start_card_mill.yy",},},
     {"id":{"name":"scr_start_card_mulligan","path":"scripts/scr_start_card_mulligan/scr_start_card_mulligan.yy",},},
     {"id":{"name":"scr_start_card_return","path":"scripts/scr_start_card_return/scr_start_card_return.yy",},},
     {"id":{"name":"scr_start_card_stats_set","path":"scripts/scr_start_card_stats_set/scr_start_card_stats_set.yy",},},

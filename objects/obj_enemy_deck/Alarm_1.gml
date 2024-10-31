@@ -21,6 +21,10 @@ if (_test) {
 else {
 	array_foreach(enemy_card, function(value, index) {
 		if (instance_exists(value)) {
+			// do particle effect for attack
+			instance_create_depth(value.x, value.y, value.depth+1, obj_particle_card_ripple);
+			
+			
 			value.card_stats.play_script(value.id);
 			// activate this enemy
 			/*

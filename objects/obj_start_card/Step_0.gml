@@ -52,7 +52,7 @@ if (scr_mouse_over_card()) {
 					else scr_start_card_unselect ();
 				}
 			}
-			// damage resolving //
+			// resolve damage //
 			else if (player.character_card.damage_taken > 0) {
 				scr_start_card_stamina_discard (id); // TF
 				player.character_card.damage_taken --;

@@ -10,9 +10,18 @@ mouse_x <= deck_reveal_x+card_spacing+deck_visable*(card_width+card_spacing)
 }
 // mouse over deck
 if (scr_mouse_over_card()) {
-	// press [ mouse left ] // don't take mulligan
-	if (mouse_check_button_pressed(mb_left) && player.muligan_phase) {
-		with player if (alarm[2]==-1) alarm[2] = 1; // go to next phase of game
+	// press [ mouse left ]
+	if (mouse_check_button_pressed(mb_left)) {
+		// don't take mulligan
+		if (player.muligan_phase) {
+			with player if (alarm[2]==-1) alarm[2] = 1; // go to next phase of game
+		}
+		// resolve damage //
+		else if (player.character_card.damage_taken > 0 && deck_size > 0) {
+			//scr_start_card_stamina_discard (id); // TF
+			scr_start_card_mill (); // mill card
+			player.character_card.damage_taken --;
+		}
 	}
 }
 // press [ up on d-pad ] // toggle deck reveal area
