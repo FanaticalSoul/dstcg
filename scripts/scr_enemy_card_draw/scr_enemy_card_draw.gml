@@ -31,6 +31,7 @@ function scr_enemy_card_draw () {
 		placement : _enemy_placement,
 		card_stats : enemy[enemy_count]
 	});
+	//sout("created "+enemy_card[enemy_count].card_stats.name);
 	enemy_count ++;
 	return;
 }
