@@ -22,7 +22,8 @@ function scr_character_card_stats_set() {
 			name : "knight",
 			image_sm_front : spr_character_card_sm_knight_front,
 			image_sm_back  : spr_character_card_sm_knight_back ,
-			taunt_value : 10
+			taunt_value : 10,
+			reaction : true
 		},
 		{
 			name : "sorcerer",
@@ -37,7 +38,8 @@ function scr_character_card_stats_set() {
 		image_sm_back  : spr_start_card_sm_template,
 		image_hq_front : spr_card_hq,
 		image_hq_back  : spr_card_hq,
-		taunt_value : 1
+		taunt_value : 1,
+		reaction : false
 	};
 	// add default values // add name of item to all item actions //
 	var _test = false;

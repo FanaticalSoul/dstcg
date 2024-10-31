@@ -26,10 +26,44 @@ function scr_enemy_card_basic_attack (_id,_attack,_attack_value) {
 			// do each basic attack listed
 			sout("targeting "+_target_character.card_stats.name);
 			// for each attack, allow targeted player to respond once ( if they can )
-	
+			_target_character.player.reaction = true;
+			// check if any cards in hand or on field can react
+			reaction_flag = false;
+			// they can use their characters reaction ability
+			if (_target_character.card_stats.reaction && !_target_character.ability_used) reaction_flag = true;
+			// 
+			else {
+				var _hand_card = _target_character.player.hand_card;
+				// check equipment cards in hand for reaction cards
+				for (var _j = 0; _j < _target_character.player.hand_size; _j++) {
+					for (var _k = 0; _k < array_length(_hand_card[_j].card_stats); _k++) {
+						if (_hand_card[_j].card_stats[0].type = "equipment") {
+							if (_hand_card[_j].card_stats[_k].reaction) {
+								reaction_flag = true;
+								break;
+							}
+						}
+					}
+				}
+			}
+			if (reaction_flag) {
+				// they can use an equipment to react
+				sout("the player can react to this attack");
+				// PLAYER REACTION CODE // WoL //
+				// take into account _attack_value
+			}
+			else {
+				sout("the player can\'t react to this attack");
+				_target_character.player.reaction = false;
+			}
 			// resolve damage on player
-	
-			// end this enemies activation
+			_target_character.damage_taken += _attack_value;
+			/*
+			for (var _j = 0; _j < _attack_value; _j++) {
+			
+			}
+			*/
+			// end this enemy activation
 		}
 	}
 	return;

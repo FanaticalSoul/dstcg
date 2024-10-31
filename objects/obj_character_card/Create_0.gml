@@ -22,3 +22,4 @@ for (var _i = 0; _i < array_length(_tmp_card_stats); _i++ ) {
 }
 // conditions // WoL
 conditions = [];
+damage_taken = 0;

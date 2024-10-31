@@ -11,10 +11,6 @@ for (var _i = 0; _i < deck_max; _i++) deck[_i] = "";
 var _i = 0;
 //deck[_i++] = "winged corvian";
 deck[_i++] = "ghru leaper";
-deck[_i++] = "ghru leaper";
-deck[_i++] = "ghru leaper";
-deck[_i++] = "ghru leaper";
-deck[_i++] = "ghru leaper";
 deck[_i++] = "irithyllian beast hound";
 //deck[_i++] = "peasant hollow";
 /*

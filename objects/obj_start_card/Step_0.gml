@@ -24,7 +24,9 @@ if (scr_mouse_over_card()) {
 	// press [ mouse left ] // select card
 	if (mouse_check_button_pressed(mb_left)) {
 		if (show_card && x == des_x && y == des_y) {
-			if (player.character_activation_phase || player.enemy_activation_phase) {
+			// card selection //
+			if (player.character_activation_phase || 
+			(player.enemy_activation_phase && player.reaction)) { // conditional to use card on enemy activation
 				if (player.action_pay_stamina) {
 					// if only selecting stamina
 					if (card_stats[0].type == "stamina") {
@@ -49,6 +51,11 @@ if (scr_mouse_over_card()) {
 					if (selected) player.selection[array_length(player.selection)] = id;
 					else scr_start_card_unselect ();
 				}
+			}
+			// damage resolving //
+			else if (player.character_card.damage_taken > 0) {
+				scr_start_card_stamina_discard (id); // TF
+				player.character_card.damage_taken --;
 			}
 		}
 	}
