@@ -4,3 +4,56 @@ shuffle + drawing ( BUG001 ) ( resolved ):
 
 draging multiple cards is possible still ( BUG002 ) ( resolved ):
  - https://youtu.be/tfWj3B1lLx4?list=PLRezuJB81E7SzoGWpvP1M9kWJSVie0gK5&t=2199
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_start_card:
+
+Variable <unknown_object>.hand_position(100122, -2147483648) not set before reading it.
+ at gml_Script_scr_start_card_discard (line 3) -        discard[discard_size] = player.hand[id.hand_position];
+############################################################################################
+gml_Script_scr_start_card_discard (line 3)
+gml_Script_scr_post_stamina_cost (line 205) -               with player.deck.discard scr_start_card_discard(_id);
+gml_Script_scr_equipment_talisman_2 (line 30) -                                                  player.action_use_equipment = scr_post_stamina_cost (id, _standard_action);
+gml_Script_anon@2657@___struct___52@scr_start_card_stats_set@scr_start_card_stats_set (line 132) -                             return scr_equipment_talisman_2 (id);
+gml_Object_obj_start_card_Step_0 (line 92) -                      card_stats[2].play_script(id);
+
+
+
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_start_card:
+
+Variable <unknown_object>.hand_position(100122, -2147483648) not set before reading it.
+ at gml_Script_scr_start_card_discard (line 3) -        discard[discard_size] = player.hand[id.hand_position];
+############################################################################################
+gml_Script_scr_start_card_discard (line 3)
+gml_Script_scr_start_card_stamina_discard (line 9) -        with (player.deck.discard) scr_start_card_discard(_id);
+gml_Script_scr_post_stamina_cost (line 206) -               scr_start_card_stamina_discard (_id); // TF
+gml_Script_scr_equipment_talisman_2 (line 30) -                                                  player.action_use_equipment = scr_post_stamina_cost (id, _standard_action);
+gml_Script_anon@2657@___struct___52@scr_start_card_stats_set@scr_start_card_stats_set (line 132) -                             return scr_equipment_talisman_2 (id);
+gml_Object_obj_start_card_Step_0 (line 92) -                      card_stats[2].play_script(id);
+
+
+

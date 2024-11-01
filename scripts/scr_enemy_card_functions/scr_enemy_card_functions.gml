@@ -39,7 +39,10 @@ function scr_enemy_card_basic_attack (_id,_attack,_attack_value) {
 					for (var _k = 0; _k < array_length(_hand_card[_j].card_stats); _k++) {
 						if (_hand_card[_j].card_stats[0].type = "equipment") {
 							if (_hand_card[_j].card_stats[_k].reaction) {
-								reaction_flag = true;
+								// WoL
+								// reaction currently causes too many issues, as I haven't
+								// programmed anything for it yet
+								//reaction_flag = true; // TR
 								break;
 							}
 						}

@@ -8,5 +8,5 @@ image_xscale = round(sprite_width)/(sprite_width/image_xscale); // round sprite 
 // change y and x position
 y = deck_creator.sprite_height*2+card_height+sprite_height/2;
 x = room_width/2;
-scr_sout(sprite_height);
-scr_sout((room_width-sprite_width)/2);
+//scr_sout(sprite_height);
+//scr_sout((room_width-sprite_width)/2);

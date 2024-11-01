@@ -16,18 +16,32 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 function scr_equipment_talisman_2 (_id) {
 	// work on later // test later
 	var _heal = heal;
+	var _standard_action = standard_action;
+	var _stamina = stamina;
 	with (_id) {
 		if (player.character_activation_phase) {
 			if (!player.action_use_equipment) {
 				with (player.deck) {
-					scr_start_card_heal(_heal);
-					player.action_use_equipment = true;
+					// pay for action 
+					if (player.action_pay_stamina) {
+						// successful payment
+						if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
+							// post stamina code
+							player.action_use_equipment = scr_post_stamina_cost (_id, _standard_action);
+							// effect
+							scr_start_card_heal(_heal);
+						}
+					}
+					else player.action_pay_stamina = true;
 				}
 			}
 		}
 	}
 	return;
 }
+
+
+
 
 
 function scr_equipment_spear_1 (_id) {
@@ -59,7 +73,6 @@ function scr_equipment_spear_1 (_id) {
 function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_attack,_inflict,_stamina) {
 	if (player.character_activation_phase) {
 		if (!player.action_attack) {
-			//sout("PART 1");
 			// valid target
 			var _flag = true;
 			// get character card placement
@@ -72,7 +85,6 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 				}
 			}
 			if (_character_placement != undefined) {
-				//sout("PART "+string(_character_placement));
 				// check if character is blocking view
 				if (_character_placement+board_cols<board_size) {
 					if (player.board_card[_character_placement+board_cols] != noone) {
@@ -82,13 +94,12 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 				}
 				// check if enemy is in the same collumn and is valid
 				// this validation needs to take into account invisiblity
-						
 				// get enemies in the same column as the character
 				var _column_enemies = [noone, noone];
 				for (var _i = 0; _i < array_length(obj_enemy_deck.enemy_card); _i++) {
 					// this is messed up because of the sort method
 					var _enemy = obj_enemy_deck.enemy_card[_i];
-					sout("placements");
+					//sout("placements");
 					if (instance_exists(_enemy)) {
 						if (_enemy.placement%board_cols == _character_placement%board_cols) {
 							if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
@@ -103,22 +114,12 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 				else if (_column_enemies[1] != noone) _target_enemy = _column_enemies[1];
 				// if valid attack ( so far )
 				if (_target_enemy != noone && _flag) {
-					//sout("PART 3");
 					// pay for attack 
 					if (player.action_pay_stamina) {
-						//sout("PART 4");
-						//sout("total stamina");
 						// successful payment
-						if (!(scr_stamina_cost (player.stamina_selection,_stamina) > 0)) {
-							// discard equipment
-							if (_standard_action) {
-								_id = id;
-								with player.deck.discard scr_start_card_discard(_id);
-							}
-							// discard stamina
-							while (array_length(player.stamina_selection)>0) {
-								scr_start_card_stamina_discard (player.stamina_selection[0]);
-							}
+						if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
+							// discard stamina ( and possibily this card )
+							player.action_attack = scr_post_stamina_cost (id, _standard_action);
 							// show target
 							sout("targeting "+string(_target_enemy.card_stats.name));
 							// resolve basic attack
@@ -144,12 +145,14 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 								// destroy the card ( use the destroy method to handle this )
 								else instance_destroy(_target_enemy);
 							}
+							/*
 							// unselect this equipment
 							scr_start_card_unselect ();
 							// exit payment state
 							player.action_pay_stamina = false;									
 							// mark attack as complete
 							player.action_attack = true;
+							*/
 						}
 					}
 					else player.action_pay_stamina = true;
@@ -162,20 +165,14 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 
 
 function scr_stamina_cost (_stamina_selection,_stamina_cost) {
-	//sout(["here",array_length(_stamina_selection)]);
 	var _total_stamina = [0,0,0,0];
 	for (var _i = 0; _i < array_length(_stamina_selection); _i ++) {
-		//_total_stamina[_i] = 0;
 		var _card_stats = _stamina_selection[_i].card_stats;
 		for (var _j = 0; _j < array_length(_total_stamina); _j ++) {
 			_total_stamina[_j] += _card_stats[1].stamina[_j];
 			if (array_length(_card_stats) == 3) _total_stamina[_j] += _card_stats[2].stamina[_j];
 		}
 	}
-	//sout("dex "+string(_total_stamina[0]));
-	//sout("int "+string(_total_stamina[1]));
-	//sout("str "+string(_total_stamina[2]));
-	//sout("fth "+string(_total_stamina[3]));
 	// pay cost
 	var _i = 0;
 	while (_i < array_length(_total_stamina) && (_stamina_cost[0] > 0 || 
@@ -200,4 +197,23 @@ function scr_stamina_cost (_stamina_selection,_stamina_cost) {
 		_stamina_cost_remaining += _stamina_cost[_i];
 	}
 	return _stamina_cost_remaining;
+}
+
+function scr_post_stamina_cost (_id, _standard_action) {
+	// discard equipment
+	if (_standard_action) {
+		//with player.deck.discard scr_start_card_discard(_id); // TR
+		scr_start_card_stamina_discard (_id); // TF
+	}
+	// discard stamina
+	while (array_length(player.stamina_selection)>0) {
+		scr_start_card_stamina_discard (player.stamina_selection[0]);
+	}
+	// TF
+	// unselect this equipment
+	scr_start_card_unselect ();
+	// exit payment state
+	player.action_pay_stamina = false;
+	// mark action as complete
+	return true;
 }
