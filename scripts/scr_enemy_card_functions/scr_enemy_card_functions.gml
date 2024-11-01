@@ -39,21 +39,23 @@ function scr_enemy_card_basic_attack (_id,_attack,_attack_value) {
 					for (var _k = 0; _k < array_length(_hand_card[_j].card_stats); _k++) {
 						if (_hand_card[_j].card_stats[0].type = "equipment") {
 							if (_hand_card[_j].card_stats[_k].reaction) {
-								// WoL
-								// reaction currently causes too many issues, as I haven't
-								// programmed anything for it yet
-								//reaction_flag = true; // TR
+								reaction_flag = true;
 								break;
 							}
 						}
 					}
 				}
 			}
+			// WoL
+			// reaction currently causes too many issues, as I haven't
+			// programmed anything for it yet
+			reaction_flag = false; // TF // temp fix for reactions
 			if (reaction_flag) {
 				// they can use an equipment to react
 				sout("the player can react to this attack");
 				// PLAYER REACTION CODE // WoL //
 				// take into account _attack_value
+				// create a value on character for incoming damage, thats applied instead ( after being revised )
 			}
 			else {
 				sout("the player can\'t react to this attack");
@@ -61,12 +63,6 @@ function scr_enemy_card_basic_attack (_id,_attack,_attack_value) {
 			}
 			// resolve damage on player
 			_target_character.damage_taken += _attack_value;
-			/*
-			for (var _j = 0; _j < _attack_value; _j++) {
-			
-			}
-			*/
-			// end this enemy activation
 		}
 	}
 	return;

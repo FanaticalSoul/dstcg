@@ -20,7 +20,8 @@ if (scr_mouse_over_card()) {
 	// press [ mouse left ] // cycle selected cards
 	else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !deck.deck_reveal
 	&& array_length(player.selection) > 0 && !player.action_cycle
-	&& player.character_activation_phase) {
+	&& player.character_activation_phase && !player.action_pay_stamina
+	) {
 		// cycle selected cards
 		while (array_length(player.selection) > 0) {
 			scr_start_card_discard(player.selection[0]);

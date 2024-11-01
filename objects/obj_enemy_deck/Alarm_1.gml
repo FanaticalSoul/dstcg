@@ -1,5 +1,5 @@
 /// @description activate enemies
-sout("activate enemies")
+//sout("activate enemies")
 
 // activate enemy cards
 // sort by position

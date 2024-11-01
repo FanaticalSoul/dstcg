@@ -145,14 +145,6 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 								// destroy the card ( use the destroy method to handle this )
 								else instance_destroy(_target_enemy);
 							}
-							/*
-							// unselect this equipment
-							scr_start_card_unselect ();
-							// exit payment state
-							player.action_pay_stamina = false;									
-							// mark attack as complete
-							player.action_attack = true;
-							*/
 						}
 					}
 					else player.action_pay_stamina = true;

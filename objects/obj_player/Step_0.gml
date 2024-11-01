@@ -11,10 +11,9 @@ if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 && hand_size > han
 if (keyboard_check_pressed(4+48)) game_restart();
 
 // press [ enter ] // draw a card (TF)
-if (keyboard_check_pressed(13)) with deck scr_start_card_draw();
-
-
-
+//if (keyboard_check_pressed(13)) with deck scr_start_card_draw();
+// press [ enter ] // end activation phase
+if (keyboard_check_pressed(13) && character_activation_phase && alarm[4] == -1) alarm[4] = 1;
 // phase check //
 if (obj_enemy_deck.alarm[0] == -1 && obj_enemy_deck.alarm[1] == -1 && 
 alarm[3] == -1 && character_card.damage_taken == 0 && enemy_activation_phase) {
