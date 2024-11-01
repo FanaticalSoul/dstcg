@@ -30,7 +30,7 @@ character_activation_phase = false;
 action_cycle = false;
 action_use_equipment = false; // equipment was used for a non-attack action
 action_attack = false;
-action_movement = false;
+//action_movement = false;
 // labeled as actions but treated as sub-states
 action_pay_stamina = false;
 reaction = false;

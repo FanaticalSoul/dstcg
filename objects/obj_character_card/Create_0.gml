@@ -4,7 +4,8 @@ card_stats = noone;
 card_hq = obj_visual_spoiler;
 dragable = false;
 selected = false;
-ability_used = false; // WoL // recharges at bonfire
+action_ability = false; // WoL // recharges at bonfire
+action_movement = false
 // set varibles
 path_speed = card_speed;
 temp_depth = depth;
