@@ -23,15 +23,17 @@ function scr_save_encounter () {
 */
 function scr_game_save (_player_id = obj_player) {
 	// global.random_seed
+	/*
 	var _encounter_phases = [
-		_player_id.character_placement_phase,
-		_player_id.enemy_activation_phase,
-		_player_id.character_activation_phase,
+		obj_encounter.character_placement_phase,
+		obj_encounter.enemy_activation_phase,
+		obj_encounter.character_activation_phase,
 	];
+	*/
 	
 	
 	
-	
+	/*
 	var _character = {
 		name : noone, // name of character
 		act_ability : noone,
@@ -43,11 +45,21 @@ function scr_game_save (_player_id = obj_player) {
 		
 	
 	}
-	
-	
+	*/
+	var _encounter = {
+		random_seed : global.random_seed,
+		phase_c_place : global.random_seed,
+		// TR //phase_mulligan : global.random_seed, // sub phase
+		phase_e_place : global.random_seed,
+		phase_e_act : global.random_seed,
+		// TR //phase_react : global.random_seed, // sub phase
+		phase_c_act : global.random_seed
+	}
+	player = obj_player;
+	e_deck = obj_enemy_deck;
 	
 	var _save_w = file_text_open_write("save_system_test.txt");
-	file_text_write_real(_save_w, global.souls);
+	file_text_write_real(_save_w, json_stringify(_encounter));
 	file_text_close(_save_w);
 }
 function scr_game_load () {

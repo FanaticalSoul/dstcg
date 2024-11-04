@@ -11,8 +11,6 @@ function scr_mouse_over_card () {
 	else return false;
 }
 
-
-//function scr_sout (_str, _spacing = " | ") {
 function sout (_str, _spacing = " | ") {
 	if (is_array(_str)) {
 		var _str_out = "";
@@ -23,7 +21,6 @@ function sout (_str, _spacing = " | ") {
 		show_debug_message(_str_out);
 	}
 	else show_debug_message(string(_str));
-	//return;
 }
 
 

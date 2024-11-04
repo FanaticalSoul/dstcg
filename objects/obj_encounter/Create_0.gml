@@ -16,4 +16,4 @@ sout("phase 1 - character placement");
 player = obj_player;
 e_deck = obj_enemy_deck;
 // other varibles
-global.souls = 0;
+//WoL//global.souls = 0;

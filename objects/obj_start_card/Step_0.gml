@@ -69,17 +69,17 @@ if (scr_mouse_over_card()) {
 		card_hq.visible = false;
 	}
 }
-
-
-
 // if this card is the only card selected // keep out of hover over card area
 if (selected && array_length(player.selection)==1) {
 	// press [ number ] // do script
 	if (card_stats[0].type == "equipment") {
 		for (var i = 1; i <= 3; i++) {
-			if (keyboard_check_pressed(i+48)) {
+			if (keyboard_check_pressed(i+48) || (keyboard_check_pressed(32) && player.last_valid_num==i)) {
 				if (array_length(card_stats)-1 >= i) {
 					card_stats[i].play_script(id);
+					// allow space bar to be used when an action is selected
+					if (keyboard_check_pressed(i+48)) player.last_valid_num = i;
+					else player.last_valid_num = -1;
 				}
 			}
 		}

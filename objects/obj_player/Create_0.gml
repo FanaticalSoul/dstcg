@@ -25,3 +25,5 @@ act_use_equip = false; // equipment was used for a non-attack action
 act_attack = false; // attacked with equipment
 // states // these are not phases as they are only for the individual player
 pay_stamina = false; 
+// test varible
+last_valid_num = -1; // last valid number pressed on keyboard
