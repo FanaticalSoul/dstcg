@@ -18,4 +18,4 @@ if (keyboard_check_pressed(13) && character_activation_phase && alarm[4] == -1) 
 if (obj_enemy_deck.alarm[0] == -1 && obj_enemy_deck.alarm[1] == -1 && 
 alarm[3] == -1 && character_card.damage_taken == 0 && enemy_activation_phase) {
 	alarm[3] = 1;
-} 
+}

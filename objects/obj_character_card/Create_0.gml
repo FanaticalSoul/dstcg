@@ -4,8 +4,9 @@ card_stats = noone;
 card_hq = obj_visual_spoiler;
 dragable = false;
 selected = false;
-action_ability = false; // WoL // recharges at bonfire
-action_movement = false
+// action varibles
+act_ability = false; // character ability action // WoL // recharges at bonfire
+act_move = false; // character movement action
 // set varibles
 path_speed = card_speed;
 temp_depth = depth;
@@ -14,13 +15,14 @@ inital_y = y;
 des_x = x;
 des_y = y;
 // set card stats
-var _tmp_card_stats = scr_character_card_stats_set();
-for (var _i = 0; _i < array_length(_tmp_card_stats); _i++ ) {
-	if (struct_get(_tmp_card_stats[_i],"name") == character) {
-		card_stats = _tmp_card_stats[_i]
+var _card_stats = scr_character_card_stats_set();
+for (var i = 0; i < array_length(_card_stats); i++ ) {
+	if (struct_get(_card_stats[i],"name") == character) {
+		card_stats = _card_stats[i]
 		break;
 	}
 }
 // conditions // WoL
 conditions = [];
 damage_taken = 0;
+damage_stack = 0; // use this to make reactions easier to work with

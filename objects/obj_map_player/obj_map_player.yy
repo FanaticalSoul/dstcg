@@ -6,8 +6,8 @@
   "name":"obj_map_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"Map",
-    "path":"folders/Objects/Map.yy",
+    "name":"WoL",
+    "path":"folders/Objects/WoL.yy",
   },
   "parentObjectId":null,
   "persistent":false,

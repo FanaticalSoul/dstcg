@@ -1,6 +1,5 @@
 /// @description create character, deck, hand, and phases
 // create assossated deck
-//start_deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
 deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
 	player : id
 })
@@ -12,25 +11,16 @@ character_card = instance_create_depth(deck.x-card_spacing-card_width, deck.y, d
 });
 // set hand
 hand_size = 0;
-for (var _i = 0; _i < hand_max; _i++) {
-	hand[_i] = "";
-	hand_card[_i] = noone; // initalize cards in hand
+for (var i = 0; i < hand_max; i++) {
+	hand[i] = "";
+	hand_card[i] = noone; // initalize cards in hand
 }
 // track selected cards
 selection = [];
 stamina_selection = [];
-// encounter setup phases
-randomize();
-// encounter phases
-character_placement_phase = true;
-muligan_phase = false;
-enemy_activation_phase = false;
-character_activation_phase = false;
 // actions taken
-action_cycle = false;
-action_use_equipment = false; // equipment was used for a non-attack action
-action_attack = false;
-//action_movement = false;
-// labeled as actions but treated as sub-states
-action_pay_stamina = false;
-reaction = false;
+act_cycle = false; // cycled selected cards in hand
+act_use_equip = false; // equipment was used for a non-attack action
+act_attack = false; // attacked with equipment
+// states // these are not phases as they are only for the individual player
+state_pay_stamina = false; 

@@ -21,9 +21,39 @@ function scr_save_encounter () {
 	}
 }
 */
-function scr_save_game () {
-
+function scr_game_save (_player_id = obj_player) {
+	// global.random_seed
+	var _encounter_phases = [
+		_player_id.character_placement_phase,
+		_player_id.enemy_activation_phase,
+		_player_id.character_activation_phase,
+	];
+	
+	
+	
+	
+	var _character = {
+		name : noone, // name of character
+		act_ability : noone,
+		conditions : noone
+	}
+	
+	
+	var _player_hand = {
+		
+	
+	}
+	
+	
+	
+	var _save_w = file_text_open_write("save_system_test.txt");
+	file_text_write_real(_save_w, global.souls);
+	file_text_close(_save_w);
 }
-function scr_load_game () {
-
+function scr_game_load () {
+	if (file_exists("save_system_test.txt")) {
+		var _save_r = file_text_open_read("save_system_test.txt");
+		global.souls = file_text_read_real(_save_r);
+		file_text_close(_save_r);
+	}
 }
