@@ -13,7 +13,7 @@ for (var _i = 0; _i < max_deck; _i++) {
 	deck[_i][1] = false; // revealed
 }
 // set cards in deck from save
-ini_open("Game1.ini")
+ini_open("start_deck.ini");
 for (var _i = 0; _i < deck_min; _i ++) {
 	deck[_i][0] = ini_read_string("deck",string(_i),"");
 }

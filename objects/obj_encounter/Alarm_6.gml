@@ -34,5 +34,7 @@ else {
 	// default for now to drawing 6
 	sout("phase 6 - WoL");
 	with (player.deck) if (alarm[0] == -1) alarm[0] = card_draw_frame_delay;
+	// TF
+	//global.destroy_everything_test = true;
 	// toggle off phases // this is true at this point
 }

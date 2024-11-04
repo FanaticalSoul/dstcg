@@ -82,5 +82,4 @@ function scr_handle_deck_edit (_over_card,_over_card_stats) {
 	}
 	// sort deck
 	array_sort(deck,false);
-	//return;
 }

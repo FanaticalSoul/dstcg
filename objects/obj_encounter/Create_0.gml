@@ -17,3 +17,6 @@ player = obj_player;
 e_deck = obj_enemy_deck;
 // other varibles
 //WoL//global.souls = 0;
+
+// TF
+//global.destroy_everything_test = false;
