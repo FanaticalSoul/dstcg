@@ -21,51 +21,68 @@ function scr_save_encounter () {
 	}
 }
 */
-function scr_game_save (_player_id = obj_player) {
-	// global.random_seed
-	/*
-	var _encounter_phases = [
-		obj_encounter.character_placement_phase,
-		obj_encounter.enemy_activation_phase,
-		obj_encounter.character_activation_phase,
-	];
-	*/
-	
-	
+function scr_game_save () {//_player_id = obj_player) {
+	var _save_data = [];
 	
 	/*
-	var _character = {
-		name : noone, // name of character
-		act_ability : noone,
-		conditions : noone
-	}
-	
-	
-	var _player_hand = {
-		
-	
+	with obj_encounter {
+		var _struct = {
+			phase_c_place : global.phase_c_place,
+			phase_e_place : global.phase_e_place,
+			phase_e_act : global.phase_e_act,
+			phase_c_act : global.phase_c_act,
+			random_seed : global.random_seed
+			// TR //phase_mulligan : global.phase_mulligan, // sub phase
+			// TR //phase_react : global.phase_react, // sub phase
+		};
+		array_push(_save_data, _struct);
 	}
 	*/
-	var _encounter = {
-		random_seed : global.random_seed,
-		phase_c_place : global.random_seed,
-		// TR //phase_mulligan : global.random_seed, // sub phase
-		phase_e_place : global.random_seed,
-		phase_e_act : global.random_seed,
-		// TR //phase_react : global.random_seed, // sub phase
-		phase_c_act : global.random_seed
+	// set globals
+	with (global) {
+		var _struct = {
+			phase_c_place : phase_c_place,
+			phase_e_place : phase_e_place,
+			phase_e_act : phase_e_act,
+			phase_c_act : phase_c_act,
+			random_seed : random_seed
+			// TR //phase_mulligan : phase_mulligan, // sub phase
+			// TR //phase_react : phase_react, // sub phase
+		};
+		array_push(_save_data, _struct);
 	}
+	
+	
 	player = obj_player;
 	e_deck = obj_enemy_deck;
 	
 	var _save_w = file_text_open_write("save_system_test.txt");
-	file_text_write_real(_save_w, json_stringify(_encounter));
+	var _save_data_str = json_stringify(_save_data);
+	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
 function scr_game_load () {
 	if (file_exists("save_system_test.txt")) {
 		var _save_r = file_text_open_read("save_system_test.txt");
-		global.souls = file_text_read_real(_save_r);
+		var _save_data_str = file_text_read_string(_save_r);
+		var _save_data = json_parse(_save_data_str);
+		// set varibles
+		with (global) {
+			phase_c_place = _save_data[0].phase_c_place;
+			phase_e_place = _save_data[0].phase_e_place;
+			phase_e_act = _save_data[0].phase_e_act;
+			phase_c_act = _save_data[0].phase_c_act;
+			random_seed = _save_data[0].random_seed;
+		}
+		/*
+		instance_destroy (obj_encounter);
+		for (var i = 0; i < array_length(_save_data); i++) {
+			var _struct = _save_data[i];
+			instance_create_layer(_struct.x,_struct.y,"Encounter_System", obj_encounter, _struct);
+		}
+		*/
+		
+		
 		file_text_close(_save_r);
 	}
 }
