@@ -42,3 +42,12 @@ function scr_get_stats (_card_name, _card_stats, _states = true) {
 	}
 	return undefined;
 }
+
+function scr_get_csc (_stamina_cost) {
+	// get converted stamina cost
+	var _csc = 0;
+	for (var i = 0; i < array_length(_stamina_cost); i++) {
+		_csc += _stamina_cost[i];
+	}
+	return _csc;
+}

@@ -13,7 +13,7 @@ if (keyboard_check_pressed(4+48)) game_restart();
 // press [ enter ] // draw a card (TF)
 //if (keyboard_check_pressed(13)) with deck scr_start_card_draw();
 // press [ enter ] // end activation phase
-if (keyboard_check_pressed(13) && global.phase_c_act && obj_encounter.alarm[6] == -1) obj_encounter.alarm[6] = player.deck.card_draw_frame_delay;
+if (keyboard_check_pressed(13) && global.phase_c_act && obj_encounter.alarm[6] == -1) obj_encounter.alarm[6] = deck.card_draw_frame_delay;
 // phase check //
 /*
 
@@ -28,16 +28,3 @@ if (obj_enemy_deck.alarm[0] == -1 && obj_enemy_deck.alarm[1] == -1 &&
 	alarm[3] = 1;
 }
 */
-with (character_card) {
-	if (global.phase_e_act && !global.phase_react && damage_taken == 0) {
-		with (obj_encounter) {
-			if (alarm[4] == -1) {
-				var _prior_enemy = e_deck.enemy_card[card_placement-1];
-				if (instance_exists(_prior_enemy)) {
-					alarm[4] = _prior_enemy.attack_animation_speed;
-				}
-				else alarm[4] = 1;
-			}
-		}
-	}
-}

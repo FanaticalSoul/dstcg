@@ -75,28 +75,13 @@ if (scr_mouse_over_card()) {
 // if this card is the only card selected // keep out of hover over card area
 if (selected && array_length(player.selection)==1) {
 	// press [ number ] // do script
-	if (keyboard_check_pressed(1+48)) {
-		if (
-			card_stats[0].name == "remant of humanity" || 
-			card_stats[0].name == "talisman" || 
-			card_stats[0].name == "spear"
-		) {
-			card_stats[1].play_script(id);
-		}
-	}
-	else if (keyboard_check_pressed(2+48)) {
-		if (
-			card_stats[0].name == "talisman" || 
-			card_stats[0].name == "spear"
-		) {
-			card_stats[2].play_script(id);
-		}
-	}
-	else if (keyboard_check_pressed(3+48)) {
-		if (
-			card_stats[0].name == "spear"
-		) {
-			card_stats[3].play_script(id);
+	if (card_stats[0].type == "equipment") {
+		for (var i = 1; i <= 3; i++) {
+			if (keyboard_check_pressed(i+48)) {
+				if (array_length(card_stats)-1 >= i) {
+					card_stats[i].play_script(id);
+				}
+			}
 		}
 	}
 }

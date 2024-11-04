@@ -28,11 +28,17 @@ function scr_start_card_stats_set () {
 				1, // faith
 				0  // generic
 			],
-			reaction : true
+			reaction : true,
+			play_script : function (id) {
+				return scr_basic_block(id);
+			}
 		},{
 			standard_action : true,
 			block : 2,
-			reaction : true
+			reaction : true,
+			play_script : function (id) {
+				return scr_basic_block(id);
+			}
 		}],[{
 			name : "spear",
 			type : "equipment",
@@ -49,7 +55,7 @@ function scr_start_card_stats_set () {
 				1  // generic
 			],
 			play_script : function (id) {
-				return scr_equipment_spear_1 (id);
+				return scr_basic_attack(id);
 			}
 		}, {
 			standard_action : true,
@@ -62,7 +68,7 @@ function scr_start_card_stats_set () {
 				0  // generic
 			],
 			play_script : function (id) {
-				return scr_equipment_spear_1 (id);
+				return scr_basic_attack(id);
 			}
 		}, {
 			standard_action : true,
@@ -75,7 +81,7 @@ function scr_start_card_stats_set () {
 				2  // generic
 			],
 			play_script : function (id) {
-				return scr_equipment_spear_1 (id);
+				return scr_basic_attack(id);
 			}
 		}],[{
 			name : "kite shield",
@@ -92,7 +98,10 @@ function scr_start_card_stats_set () {
 				1, // faith
 				0  // generic
 			],
-			reaction : true
+			reaction : true,
+			play_script : function (id) {
+				return scr_basic_block(id);
+			}
 		},{
 			standard_action : true,
 			damage : 2,
@@ -102,7 +111,10 @@ function scr_start_card_stats_set () {
 				0, // strength
 				1, // faith
 				0  // generic
-			]
+			],
+			play_script : function (id) {
+				return scr_basic_attack(id);
+			}
 		}],[{
 			name : "talisman",
 			type : "equipment",
@@ -119,7 +131,7 @@ function scr_start_card_stats_set () {
 			],
 			reaction : true,
 			play_script : function (id) {
-				return scr_equipment_talisman_1 (id);
+				return scr_basic_block (id);
 			}
 		},{
 			standard_action : true,
@@ -132,7 +144,7 @@ function scr_start_card_stats_set () {
 				1  // generic
 			],
 			play_script : function (id) {
-				return scr_equipment_talisman_2 (id);
+				return scr_basic_heal (id);
 			}
 		}],[{
 			name : "str stamina",
