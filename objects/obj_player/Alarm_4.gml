@@ -1,4 +1,5 @@
 /// @description end character activation phase
+/*
 // toggle off character activations and activation phase
 character_activation_phase = false;
 action_cycle = false;
@@ -32,3 +33,4 @@ else {
 	// toggle off phases
 	character_activation_phase = false;
 }
+*/

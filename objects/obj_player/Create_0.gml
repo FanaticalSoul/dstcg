@@ -23,4 +23,4 @@ act_cycle = false; // cycled selected cards in hand
 act_use_equip = false; // equipment was used for a non-attack action
 act_attack = false; // attacked with equipment
 // states // these are not phases as they are only for the individual player
-state_pay_stamina = false; 
+pay_stamina = false; 

@@ -12,3 +12,5 @@ global.phase_react    = false; // character reaction // sub phase
 global.phase_c_act    = false; // character activation
 // testing varribles
 //global.souls = 20;
+player = obj_player;
+e_deck = obj_enemy_deck;
