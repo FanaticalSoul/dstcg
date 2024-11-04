@@ -78,6 +78,7 @@ if (selected && array_length(player.selection)==1) {
 	if (keyboard_check_pressed(1+48)) {
 		if (
 			card_stats[0].name == "remant of humanity" || 
+			card_stats[0].name == "talisman" || 
 			card_stats[0].name == "spear"
 		) {
 			card_stats[1].play_script(id);

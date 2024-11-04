@@ -117,7 +117,10 @@ function scr_start_card_stats_set () {
 				1, // faith
 				0  // generic
 			],
-			reaction : true
+			reaction : true,
+			play_script : function (id) {
+				return scr_equipment_talisman_1 (id);
+			}
 		},{
 			standard_action : true,
 			heal : 5,
