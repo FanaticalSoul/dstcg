@@ -10,38 +10,25 @@ if (flip_finished && attack_animation) {
 	draw_sprite(spr_card_sm_selected_alt,-1,x,y);
 }
 // simple damage counters for now
+// draw wound counters
 var _tmp_x = x-card_width/2+4;
 var _hit_points = card_stats.hit_points;
-// use highest possible HP to set stat displays
 var i = 0;
 var _counters = 0;
-while (i+9 < wounds && i+9 < _hit_points) {
-	draw_sprite(
-		spr_counter_sm_wound_3,
-		-1,
-		_tmp_x+_counters*4,
-		y-card_height/2-4
-	);
-	i += 10;
-	_counters += 1;
-}
-while (i+4 < wounds && i+4 < _hit_points) {
-	draw_sprite(
-		spr_counter_sm_wound_2,
-		-1,
-		_tmp_x+_counters*4,
-		y-card_height/2-4
-	);
-	i += 5;
-	_counters += 1;
-}
-while (i < wounds && i < _hit_points) {
-	draw_sprite(
-		spr_counter_sm_wound_1,
-		-1,
-		_tmp_x+_counters*4,
-		y-card_height/2-4
-	);
-	i++;
-	_counters += 1;
+var _counter_values = [
+	[spr_counter_sm_wound_3,10],
+	[spr_counter_sm_wound_2, 5],
+	[spr_counter_sm_wound_1, 1]
+];
+for (var j = 0; j < array_length(_counter_values); j++) {
+	while (i+_counter_values[j][1]-1 < wounds && i+_counter_values[j][1]-1 < _hit_points) {
+		draw_sprite(
+			_counter_values[j][0],
+			-1,
+			_tmp_x+_counters*4,
+			y-card_height/2-4
+		);
+		i += _counter_values[j][1];
+		_counters ++;
+	}
 }

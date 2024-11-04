@@ -16,35 +16,22 @@ if (dragable) {
 }
 // draw wound counters
 var _tmp_x = x-card_width/2+4;
-var _i = 0;
+var i = 0;
 var _counters = 0;
-while (_i+9 < damage_taken) {
-	draw_sprite(
-		spr_counter_sm_wound_3,
-		-1,
-		_tmp_x+_counters*4,
-		y-card_height/2-4
-	);
-	_i += 10;
-	_counters += 1;
-}
-while (_i+4 < damage_taken) {
-	draw_sprite(
-		spr_counter_sm_wound_2,
-		-1,
-		_tmp_x+_counters*4,
-		y-card_height/2-4
-	);
-	_i += 5;
-	_counters += 1;
-}
-while (_i < damage_taken) {
-	draw_sprite(
-		spr_counter_sm_wound_1,
-		-1,
-		_tmp_x+_counters*4,
-		y-card_height/2-4
-	);
-	_i++;
-	_counters += 1;
+var _counter_values = [
+	[spr_counter_sm_wound_3,10],
+	[spr_counter_sm_wound_2, 5],
+	[spr_counter_sm_wound_1, 1]
+];
+for (var j = 0; j < array_length(_counter_values); j++) {
+	while (i+_counter_values[j][1]-1 < damage_taken) {
+		draw_sprite(
+			_counter_values[j][0],
+			-1,
+			_tmp_x+_counters*4,
+			y-card_height/2-4
+		);
+		i += _counter_values[j][1];
+		_counters ++;
+	}
 }
