@@ -5,43 +5,44 @@ if (placement != -1) {
 }
 // draw either side of the card or the card in the process of flipping
 draw_sprite_ext(flip_finished ? sprite_index : spr_enemy_card_sm_back_1, 0, x, y, flip_scale_x, 1, 0, c_white, 1);
-
+// show card attacking or at least denote it as attacking ( WoL )
+if (flip_finished && attack_animation) {
+	draw_sprite(spr_card_sm_selected_alt,-1,x,y);
+}
 // simple damage counters for now
-//wounds = 11; // TF
 var _tmp_x = x-card_width/2+4;
 var _hit_points = card_stats.hit_points;
-//_hit_points = 80;
 // use highest possible HP to set stat displays
-var _i = 0;
+var i = 0;
 var _counters = 0;
-while (_i+9 < wounds && _i+9 < _hit_points) {
+while (i+9 < wounds && i+9 < _hit_points) {
 	draw_sprite(
 		spr_counter_sm_wound_3,
 		-1,
 		_tmp_x+_counters*4,
 		y-card_height/2-4
 	);
-	_i += 10;
+	i += 10;
 	_counters += 1;
 }
-while (_i+4 < wounds && _i+4 < _hit_points) {
+while (i+4 < wounds && i+4 < _hit_points) {
 	draw_sprite(
 		spr_counter_sm_wound_2,
 		-1,
 		_tmp_x+_counters*4,
 		y-card_height/2-4
 	);
-	_i += 5;
+	i += 5;
 	_counters += 1;
 }
-while (_i < wounds && _i < _hit_points) {
+while (i < wounds && i < _hit_points) {
 	draw_sprite(
 		spr_counter_sm_wound_1,
 		-1,
 		_tmp_x+_counters*4,
 		y-card_height/2-4
 	);
-	_i++;
+	i++;
 	_counters += 1;
 }
 

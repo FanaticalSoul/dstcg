@@ -26,10 +26,10 @@ function scr_equipment_talisman_2 (_id) {
 					if (player.pay_stamina) {
 						// successful payment
 						if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
-							// post stamina code
-							player.pay_stamina = scr_post_stamina_cost (_id, _standard_action);
 							// effect
 							scr_start_card_heal(_heal);
+							// post stamina code
+							player.pay_stamina = scr_post_effect(_id, _standard_action);
 							player.act_use_equip = true;
 						}
 					}
@@ -54,10 +54,10 @@ function scr_equipment_talisman_1 (_id) {
 				if (player.pay_stamina) {
 					// successful payment
 					if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
-						// post stamina code
-						player.pay_stamina = scr_post_stamina_cost (_id, _standard_action);
 						// effect
 						scr_start_card_block(_id, _block);
+						// post stamina code
+						player.pay_stamina = scr_post_effect (_id, _standard_action);
 						global.phase_react = false;
 					}
 				}
@@ -101,11 +101,7 @@ function scr_equipment_spear_1 (_id) {
 
 function scr_start_card_block (_id,_block) {
 	var _character = _id.player.character_card;
-	sout("resolving block");
-	sout(["taking",_character.damage_stack]);
-	sout(["blocking",_block]);
 	_character.damage_taken = max(0,_character.damage_stack-_block);
-	sout(["took",_character.damage_taken]);
 	_character.damage_stack = 0;
 	// unselect card
 	with (_id) scr_start_card_unselect();
@@ -161,9 +157,6 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 					if (player.pay_stamina) {
 						// successful payment
 						if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
-							// discard stamina ( and possibily this card )
-							player.pay_stamina = scr_post_stamina_cost (id, _standard_action);
-							player.act_attack = true;
 							// show target
 							sout("targeting "+string(_target_enemy.card_stats.name));
 							// resolve basic attack
@@ -189,6 +182,9 @@ function scr_basic_attack (_id,_name,_standard_action,_damage,_shift,_push,_atta
 								// destroy the card ( use the destroy method to handle this )
 								else instance_destroy(_target_enemy);
 							}
+							// post effect
+							player.pay_stamina = scr_post_effect (id, _standard_action);
+							player.act_attack = true;
 						}
 					}
 					else player.pay_stamina = true;
@@ -235,7 +231,7 @@ function scr_stamina_cost (_stamina_selection,_stamina_cost) {
 	return _stamina_cost_remaining;
 }
 
-function scr_post_stamina_cost (_id, _standard_action) {
+function scr_post_effect (_id, _standard_action) {
 	// discard equipment
 	if (_standard_action) {
 		//with player.deck.discard scr_start_card_discard(_id); // TR
