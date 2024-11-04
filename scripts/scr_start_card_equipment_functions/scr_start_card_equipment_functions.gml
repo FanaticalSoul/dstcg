@@ -13,37 +13,6 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 	return;
 }
 
-
-/*
-function scr_equipment_talisman_2 (_id) {
-	// work on later // test later
-	var _heal = heal;
-	var _standard_action = standard_action;
-	var _stamina = stamina;
-	with (_id) {
-		if (global.phase_c_act) {
-			if (!player.act_use_equip) {
-				with (player.deck) {
-					// pay for action 
-					if (player.pay_stamina) {
-						// successful payment
-						if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
-							// effect
-							scr_start_card_heal(_heal);
-							// post stamina code
-							player.pay_stamina = scr_post_effect(_id, _standard_action);
-							player.act_use_equip = true;
-						}
-					}
-					else player.pay_stamina = true;
-				}
-			}
-		}
-	}
-	return;
-}
-*/
-
 function scr_basic_attack (_id) {
 	// do basic attack
 	if (global.phase_c_act && !_id.player.act_attack) {
@@ -51,65 +20,6 @@ function scr_basic_attack (_id) {
 	}
 	return;
 }
-/*
-function scr_equipment_spear (_id) {
-	// do basic attack
-	if (global.phase_c_act && !_id.player.act_attack) {
-		scr_basic_attack(_id,name,standard_action,damage,shift,push,attack,inflict,stamina);
-	}
-	return;
-}
-function scr_equipment_talisman_1 (_id) {
-	// work on later // test later
-	var _block = block;
-	var _standard_action = standard_action;
-	var _stamina = stamina;
-	with (_id) {
-		if (global.phase_react) {
-			with (player.deck) {
-				// pay for action 
-				if (player.pay_stamina) {
-					// successful payment
-					if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
-						// effect
-						scr_start_card_block(_id, _block);
-						// post stamina code
-						player.pay_stamina = scr_post_effect (_id, _standard_action);
-						global.phase_react = false;
-					}
-				}
-				else player.pay_stamina = true;
-			}
-		}
-	}
-	return;
-}
-function scr_equipment_herald_armour (_id) {
-	var _block = block;
-	var _standard_action = standard_action;
-	var _stamina = stamina;
-	if (global.phase_react) {
-		with (_id.player.deck) {
-			// pay for action 
-			if (player.pay_stamina) {
-				// successful payment
-				if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
-					// effect
-					scr_start_card_block(_id, _block);
-					// post stamina code
-					player.pay_stamina = scr_post_effect (_id, _standard_action);
-					global.phase_react = false;
-				}
-			}
-			else player.pay_stamina = true;
-		}
-	}
-	return;
-}
-*/
-
-
-
 
 function scr_basic_block (_id) {
 	var _block = block;
@@ -137,6 +47,7 @@ function scr_basic_block (_id) {
 	}
 	return;
 }
+
 function scr_basic_heal (_id) {
 	var _heal = heal;
 	var _standard_action = standard_action;
@@ -161,7 +72,6 @@ function scr_basic_heal (_id) {
 	//scr_start_card_unselect();
 	return;
 }
-
 
 function scr_start_card_block (_block) {
 	var _character = player.character_card;

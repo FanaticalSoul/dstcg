@@ -15,9 +15,13 @@ with (player.character_card) {
 }
 // press [ enter ] // end reaction phase
 if (global.phase_react && keyboard_check_pressed(13)) {
-	with (player.character_card) {
-		damage_taken = damage_stack;
-		damage_stack = 0;
-		global.phase_react = false;
+	//scr_start_card_stamina_unselect()
+	with (player) {
+		scr_card_unselect();
+		with (character_card) {
+			damage_taken = damage_stack;
+			damage_stack = 0;
+			global.phase_react = false;
+		}
 	}
 }

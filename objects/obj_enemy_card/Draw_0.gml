@@ -45,6 +45,3 @@ while (i < wounds && i < _hit_points) {
 	i++;
 	_counters += 1;
 }
-
-//draw_text(x-card_width/32,y-card_height*5/16,wounds);
-// WoL */

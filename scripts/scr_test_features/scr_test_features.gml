@@ -51,3 +51,14 @@ function scr_get_csc (_stamina_cost) {
 	}
 	return _csc;
 }
+
+function scr_card_unselect () {
+	if (character_card.selected) character_card.selected = false;
+	while (array_length(stamina_selection) > 0) {
+		with (stamina_selection[0]) scr_start_card_stamina_unselect();
+	}
+	while (array_length(selection) > 0) {
+		with (selection[0]) scr_start_card_unselect();
+	}
+	return;
+}

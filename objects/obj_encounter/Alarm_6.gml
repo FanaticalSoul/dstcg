@@ -7,11 +7,13 @@ with (player) {
 	act_use_equip = false;
 	act_attack = false;
 	character_card.act_move = false;
-	//* TF //
+	//* TF // I do not believe these needed to be changed but I changed them just in case
 	pay_stamina = false;
 	global.phase_react = false;
 	// TF /*/
 	// unselect all cards
+	scr_card_unselect();
+	/*
 	if (character_card.selected) character_card.selected = false;
 	while (array_length(stamina_selection) > 0) {
 		with (stamina_selection[0]) scr_start_card_stamina_unselect();
@@ -19,6 +21,7 @@ with (player) {
 	while (array_length(selection) > 0) {
 		with (selection[0]) scr_start_card_unselect();
 	}
+	*/
 }
 // end turn
 if (e_deck.enemy_count > 0) {
