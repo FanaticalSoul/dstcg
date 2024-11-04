@@ -9,6 +9,7 @@ with (player) {
 	character_card.act_move = false;
 	//* TF //
 	pay_stamina = false;
+	global.phase_react = false;
 	// TF /*/
 	// unselect all cards
 	if (character_card.selected) character_card.selected = false;
@@ -28,6 +29,7 @@ if (e_deck.enemy_count > 0) {
 else {
 	// give player a choice to rest at a bonfire or draw back to 6 // WoL
 	// default for now to drawing 6
+	sout("phase 6 - WoL");
 	with (player.deck) if (alarm[0] == -1) alarm[0] = card_draw_frame_delay;
 	// toggle off phases // this is true at this point
 }

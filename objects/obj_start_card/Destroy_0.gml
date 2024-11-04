@@ -9,5 +9,5 @@ if (hand_position != -1) {
 		player.hand_card[_i].hand_position = player.hand_card[_i].hand_position-1;
 	}
 }
-if (player.action_pay_stamina && card_stats[0].type == "stamina") scr_start_card_stamina_unselect ();
+if (player.pay_stamina && card_stats[0].type == "stamina") scr_start_card_stamina_unselect ();
 else scr_start_card_unselect ();

@@ -9,10 +9,13 @@ if (global.phase_e_act) {
 				// activate enemy
 				_enemy.card_stats.play_script(_enemy.id);
 				obj_encounter.card_placement += 1;
+				// do not loop this method
+				/*
 				// stop loop if there is a valid reaction
 				if (!global.phase_react) {
-					obj_encounter.alarm[4] = card_draw_frame_delay; // continue loop
+					obj_encounter.alarm[4] = _enemy.attack_animation_speed; // continue loop
 				}
+				*/
 			}
 			else obj_encounter.card_placement += 1;
 		}

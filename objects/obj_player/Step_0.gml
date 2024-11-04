@@ -13,9 +13,18 @@ if (keyboard_check_pressed(4+48)) game_restart();
 // press [ enter ] // draw a card (TF)
 //if (keyboard_check_pressed(13)) with deck scr_start_card_draw();
 // press [ enter ] // end activation phase
-if (keyboard_check_pressed(13) && character_activation_phase && alarm[4] == -1) alarm[4] = 1;
+if (keyboard_check_pressed(13) && global.phase_c_act && obj_encounter.alarm[6] == -1) obj_encounter.alarm[6] = player.deck.card_draw_frame_delay;
 // phase check //
+/*
+
+// DO NOT REMOVE
+
+
+// THIS IS GOING TO BE MOVED INTO CHARACTER SO THAT AFTER RESOLVING DAMAGE
+// THE ACTIVATIONS OF ENEMYS WILL CONTINUE
 if (obj_enemy_deck.alarm[0] == -1 && obj_enemy_deck.alarm[1] == -1 && 
-alarm[3] == -1 && character_card.damage_taken == 0 && enemy_activation_phase) {
+	alarm[3] == -1 && character_card.damage_taken == 0 && global.phase_e_act
+) {
 	alarm[3] = 1;
 }
+*/

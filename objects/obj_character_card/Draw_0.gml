@@ -2,7 +2,7 @@
 // only draw inside the room
 if (card_stats != noone && x > -card_width/2 && x < room_width
  && y > -card_height/2 && y < room_height) {
-	if (action_ability) sprite_index = struct_get(card_stats,"image_sm_back");
+	if (act_ability) sprite_index = struct_get(card_stats,"image_sm_back");
 	else sprite_index = struct_get(card_stats,"image_sm_front");
 	draw_self();
 	if (selected) draw_sprite(spr_card_sm_selected,-1,x,y); // selected draw

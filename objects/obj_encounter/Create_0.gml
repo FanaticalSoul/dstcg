@@ -10,6 +10,8 @@ global.phase_e_place  = false; // enemy placement
 global.phase_e_act    = false; // enemy activation
 global.phase_react    = false; // character reaction // sub phase
 global.phase_c_act    = false; // character activation
+///sout("EVERYTHING WAS CREATED");
+sout("phase 1 - character placement");
 // testing varribles
 //global.souls = 20;
 player = obj_player;

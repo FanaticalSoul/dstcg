@@ -13,8 +13,11 @@ if (scr_mouse_over_card()) {
 	// press [ mouse left ]
 	if (mouse_check_button_pressed(mb_left)) {
 		// don't take mulligan
-		if (player.muligan_phase) {
-			with player if (alarm[2]==-1) alarm[2] = 1; // go to next phase of game
+		if (global.phase_mulligan) {
+			// go to next phase of game
+			with (obj_encounter) {
+				if (alarm[1] == -1) alarm[1] = 1;
+			}
 		}
 		// resolve damage //
 		else if (player.character_card.damage_taken > 0 && deck_size > 0) {

@@ -25,9 +25,8 @@ if (scr_mouse_over_card()) {
 	if (mouse_check_button_pressed(mb_left)) {
 		if (show_card && x == des_x && y == des_y) {
 			// card selection //
-			if (player.character_activation_phase || 
-			(player.enemy_activation_phase && player.reaction)) { // conditional to use card on enemy activation
-				if (player.action_pay_stamina) {
+			if (global.phase_c_act || (global.phase_e_act && global.phase_react)) {
+				if (player.pay_stamina) {
 					// if only selecting stamina
 					if (card_stats[0].type == "stamina") {
 						if (selected) scr_start_card_stamina_unselect ();
@@ -40,7 +39,7 @@ if (scr_mouse_over_card()) {
 					array_length(player.selection)==1) {
 						if (player.selection[0] == id) {
 							// if card selected was the equipment
-							player.action_pay_stamina = false;
+							player.pay_stamina = false;
 							with (player.selection[0]) scr_start_card_unselect ();
 						}
 					}

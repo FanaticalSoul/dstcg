@@ -11,16 +11,22 @@ if (mouse_y <= discard_reveal_y+card_height/2  && mouse_y >= discard_reveal_y-ca
 // mouse over discard
 if (scr_mouse_over_card()) {
 	// press [ mouse left ] // take mulligan
-	if (mouse_check_button_pressed(mb_left) && player.muligan_phase) {
-		with (player) {
-			scr_start_card_mulligan ();
-			if (alarm[2] == -1) alarm[2] = 1;
+	if (mouse_check_button_pressed(mb_left) && global.phase_mulligan) {
+		with (obj_encounter) {
+			with (player) scr_start_card_mulligan(); // take mulligan
+			if (alarm[1] == -1) {
+				if (player.deck.alarm[1] != -1) {
+					// wait for cards to be drawn
+					alarm[1] = player.deck.card_draw_frame_delay * hand_max;
+				}
+				else alarm[1] = 1;
+			}
 		}
 	}
 	// press [ mouse left ] // cycle selected cards
 	else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !deck.deck_reveal
-	&& array_length(player.selection) > 0 && !player.action_cycle
-	&& player.character_activation_phase && !player.action_pay_stamina
+	&& array_length(player.selection) > 0 && !player.act_cycle
+	&& global.phase_c_act && !player.pay_stamina
 	) {
 		// cycle selected cards
 		while (array_length(player.selection) > 0) {
@@ -28,7 +34,7 @@ if (scr_mouse_over_card()) {
 			cycle_size ++;
 		}
 		if (alarm[0] == -1) alarm[0] = 1;
-		player.action_cycle = true;
+		player.act_cycle = true;
 	}
 }
 // press [ w ] // toggle discard reveal area

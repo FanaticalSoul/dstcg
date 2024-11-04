@@ -49,20 +49,25 @@ function scr_enemy_card_basic_attack (_id,_attack,_attack_value) {
 			// WoL
 			// reaction currently causes too many issues, as I haven't
 			// programmed anything for it yet
-			reaction_flag = false; // TF // temp fix for reactions
+			//reaction_flag = false; // TF // temp fix for reactions
 			if (reaction_flag) {
 				// they can use an equipment to react
+				global.phase_react = true;
 				sout("the player can react to this attack");
+				// resolve damage on player
+				_target_character.damage_stack += _attack_value;
+				
 				// PLAYER REACTION CODE // WoL //
 				// take into account _attack_value
 				// create a value on character for incoming damage, thats applied instead ( after being revised )
 			}
 			else {
 				sout("the player can\'t react to this attack");
-				_target_character.player.reaction = false;
+				global.phase_react = false;
+				// resolve damage on player
+				_target_character.damage_taken += _attack_value;
 			}
-			// resolve damage on player
-			_target_character.damage_taken += _attack_value;
+			
 		}
 	}
 	return;

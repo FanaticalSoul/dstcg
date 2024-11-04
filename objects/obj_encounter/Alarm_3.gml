@@ -11,6 +11,7 @@ with (e_deck) {
 }
 // start enemy act phase
 global.phase_e_act = true;
+sout("phase 4 - enemy activation");
 if (global.phase_e_act && alarm[4] == -1) {
 	card_placement = 0;
 	alarm[4] = e_deck.card_draw_frame_delay;
