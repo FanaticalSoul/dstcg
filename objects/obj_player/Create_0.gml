@@ -1,29 +1,19 @@
 /// @description create character, deck, hand, and phases
 
 // create assossated deck
-deck = instance_create_depth(deck_cords[0], deck_cords[1], depth, obj_start_deck, {
-	player : id
-})
+if (deck == noone && alarm[0] == -1) alarm[0] = 1;
 // create assossated character
-scr_character_board_set (); // for character object
-character_card = instance_create_depth(deck.x-card_spacing-card_width, deck.y, depth, obj_character_card, {
-	character : character,
-	player : id
-});
+if (character == noone && alarm[1] == -1) alarm[1] = 1;
 // set hand
-hand_size = 0;
-for (var i = 0; i < hand_max; i++) {
-	hand[i] = "";
-	hand_card[i] = noone; // initalize cards in hand
-}
+if (array_length(hand_card) == 0 && array_length(hand) == 0 && alarm[3] == -1) alarm[3] = 1;
 // track selected cards
 selection = [];
 stamina_selection = [];
 // actions taken
-act_cycle = false; // cycled selected cards in hand
-act_use_equip = false; // equipment was used for a non-attack action
-act_attack = false; // attacked with equipment
+//act_cycle = false; // cycled selected cards in hand
+//act_use_equip = false; // equipment was used for a non-attack action
+//act_attack = false; // attacked with equipment
 // states // these are not phases as they are only for the individual player
 pay_stamina = false; 
-// test varible
-last_valid_num = -1; // last valid number pressed on keyboard
+// other varibles
+last_valid_num = -1; // last valid number pressed on keyboard for this player
