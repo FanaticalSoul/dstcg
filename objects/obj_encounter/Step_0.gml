@@ -30,6 +30,16 @@ if (instance_exists(player)) {
 	}
 }
 // TF
+if (instance_exists(e_deck)) {
+	if (keyboard_check_pressed(13)) {
+		with (obj_encounter) {
+			alarm[1] = 1;
+		}
+	}
+}
+
+
+// TF
 /*
 if (global.destroy_everything_test) {
 	layer_destroy_instances ("Instances");

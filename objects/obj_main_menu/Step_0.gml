@@ -1,9 +1,10 @@
 /// @description get selected option and handle keybinds
+
 // get step ( option selected )
 step = 0;
-for (var _i = 0; _i < 3; _i++) {
-	if (mouse_y+mouse_y_offset>11+_i*menu_spacing && mouse_y+mouse_y_offset<29+_i*menu_spacing) {
-		step = _i + 1;
+for (var i = 0; i < 3; i++) {
+	if (mouse_y+mouse_y_offset>11+i*menu_spacing && mouse_y+mouse_y_offset<29+i*menu_spacing) {
+		step = i + 1;
 		break;
 	}
 }
