@@ -1,6 +1,7 @@
 /// @description draw and drag the object
+
 // only draw inside the room
-if (card_stats != noone && x > -card_width/2 && x < room_width
+if (card_stats != {} && x > -card_width/2 && x < room_width
  && y > -card_height/2 && y < room_height) {
 	if (act_ability) sprite_index = struct_get(card_stats,"image_sm_back");
 	else sprite_index = struct_get(card_stats,"image_sm_front");

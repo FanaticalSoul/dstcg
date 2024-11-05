@@ -8,7 +8,7 @@ if (character == noone && alarm[1] == -1) alarm[1] = 1;
 if (array_length(hand_card) == 0 && array_length(hand) == 0 && alarm[3] == -1) alarm[3] = 1;
 // track selected cards
 selection = [];
-stamina_selection = [];
+selection_stamina = [];
 // states // these are not phases as they are only for the individual player
 pay_stamina = false; 
 // other varibles

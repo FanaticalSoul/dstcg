@@ -74,11 +74,13 @@ function get_csc (stamina_cost) {
 /// @description				unselect all of the player's cards
 
 function card_unselect(player_id = id) {
-	if (character.selected) character_card.selected = false;
-	while (array_length(stamina_selection) > 0) {
-		with (stamina_selection[0]) scr_start_card_stamina_unselect();
-	}
-	while (array_length(selection) > 0) {
-		with (selection[0]) scr_start_card_unselect();
+	with (player_id) {
+		if (character.selected) character.selected = false;
+		while (array_length(selection_stamina) > 0) {
+			with (selection_stamina[0]) scr_start_card_stamina_unselect();
+		}
+		while (array_length(selection) > 0) {
+			with (selection[0]) scr_start_card_unselect();
+		}
 	}
 }

@@ -1,7 +1,6 @@
 /// @description set varibles and stats
 
 // initalize varibles
-//card_stats = {};
 card_hq = obj_visual_spoiler;
 dragable = false;
 selected = false;

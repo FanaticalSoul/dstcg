@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_character_card_stats_set",
   "parent":{
-    "name":"Character Card Scripts",
-    "path":"folders/Scripts/Character Card Scripts.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

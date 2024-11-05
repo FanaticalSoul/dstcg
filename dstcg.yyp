@@ -26,7 +26,6 @@
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Save System","folderPath":"folders/Save System.yy","name":"Save System","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Character Card Scripts","folderPath":"folders/Scripts/Character Card Scripts.yy","name":"Character Card Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Encounter Card Scripts","folderPath":"folders/Scripts/Encounter Card Scripts.yy","name":"Encounter Card Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Enemy Card Scripts","folderPath":"folders/Scripts/Enemy Card Scripts.yy","name":"Enemy Card Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Start Card Scripts","folderPath":"folders/Scripts/Start Card Scripts.yy","name":"Start Card Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},

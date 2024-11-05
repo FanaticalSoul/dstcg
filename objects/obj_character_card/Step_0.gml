@@ -1,4 +1,5 @@
 /// @description step
+
 // move towards origin
 if (point_distance(x,y,des_x,des_y) > path_speed) move_towards_point(des_x,des_y,path_speed);
 else {
@@ -24,7 +25,7 @@ if (is_mouse_over_card()) {
 		// hold [ mouse right ] // visual spoiler
 		if (mouse_check_button(mb_right)) {
 			if (card_stats != {}) {
-				if (action_ability) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
+				if (act_ability) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
 				else card_hq.sprite_index = struct_get(card_stats,"image_hq_front");
 			}
 			card_hq.visible = true;
@@ -52,7 +53,7 @@ if (keyboard_check_pressed(37) || keyboard_check_pressed(38) || keyboard_check_p
 		// get player placement
 		var _character_placement = -1;
 		for (var i = 0; i < board_size; i++) {
-			if (player.board_card[i]==id) {
+			if (global.board_c_card[i]==id) {
 				_character_placement = i;
 				break;
 			}
@@ -63,13 +64,13 @@ if (keyboard_check_pressed(37) || keyboard_check_pressed(38) || keyboard_check_p
 			_character_placement >= 0
 		) {
 			// validate movement
-			if (player.board_card[_character_placement+_move_mod] == noone) {
+			if (global.board_c_card[_character_placement+_move_mod] == {}) {
 				// remove prior instance of object from field
-				player.board_card[_character_placement] = noone;
+				global.board_c_card[_character_placement] = {};
 				// do movement
-				player.board_card[_character_placement+_move_mod] = id;
-				des_x = player.board_cords[_character_placement+_move_mod][0];
-				des_y = player.board_cords[_character_placement+_move_mod][1];
+				global.board_c_card[_character_placement+_move_mod] = id;
+				des_x = global.board_c_cords[_character_placement+_move_mod][0];
+				des_y = global.board_c_cords[_character_placement+_move_mod][1];
 				// finish movement
 				act_move = true;
 			}
