@@ -14,8 +14,15 @@ if (global.phase_e_act) {
 				// activate enemy
 				_enemy.card_stats.play_script(_enemy.id);
 			}
-			// do not loop this method
-			obj_encounter.card_placement += 1;
+			with (obj_encounter) {
+				// do not loop this method
+				card_placement++;
+				// skip activations of non-existant enemies
+				while (card_placement < enemy_max) {
+					if (global.board_e_card[card_placement] == noone) card_placement++;
+					else break;
+				}
+			}
 		}
 		else if (obj_encounter.alarm[5] == -1) {
 			if (instance_exists(_prior_enemy)) {

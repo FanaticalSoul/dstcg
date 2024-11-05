@@ -64,9 +64,9 @@ if (keyboard_check_pressed(37) || keyboard_check_pressed(38) || keyboard_check_p
 			_character_placement >= 0
 		) {
 			// validate movement
-			if (array_length(global.board_c_card[_character_placement+_move_mod]) == 0) {
+			if (global.board_c_card[_character_placement+_move_mod] == noone) {
 				// remove prior instance of object from field
-				global.board_c_card[_character_placement] = {};
+				global.board_c_card[_character_placement] = noone;
 				// do movement
 				global.board_c_card[_character_placement+_move_mod] = id;
 				des_x = global.board_c_cords[_character_placement+_move_mod][0];

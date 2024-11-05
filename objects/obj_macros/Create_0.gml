@@ -32,7 +32,7 @@ for (var iy = 0; iy < board_rows; iy++) {
 			_cord_x+ix*(card_width +card_spacing),
 			_cord_y+iy*(card_height+card_spacing)
 		]
-		global.board_c_card[i] = {};
+		global.board_c_card[i] = noone;
 		i++;
 	}
 }
@@ -46,7 +46,7 @@ for (var iy = 0; iy < board_rows; iy++) {
 			_cord_x+ix*(card_width +card_spacing),
 			_cord_y+iy*(card_height+card_spacing)
 		];
-		global.board_e_card[i] = {}; // enemy card
+		global.board_e_card[i] = noone; // enemy card
 		i++;
 	}
 }

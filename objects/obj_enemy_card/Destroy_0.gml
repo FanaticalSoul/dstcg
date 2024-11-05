@@ -17,6 +17,6 @@ for (var i = 0; i < array_length(deck.enemy); i++) {
 }
 // TR /*/
 
-global.board_e_card[placement] = {};
+global.board_e_card[placement] = noone;
 //}
 // card_placements[enemy_placement] = enemy_placement; // update this after figuring our what's stored there
