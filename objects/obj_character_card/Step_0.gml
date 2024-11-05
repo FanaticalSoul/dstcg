@@ -7,7 +7,7 @@ else {
 	y = des_y;
 }
 // mouse over card
-if (scr_mouse_over_card()) {
+if (is_mouse_over_card()) {
 	// temporary fix to overlay // WoL
 	if (player.deck.deck_reveal == false) {
 		// press [ mouse left ] // make card dragable
@@ -23,7 +23,7 @@ if (scr_mouse_over_card()) {
 		}
 		// hold [ mouse right ] // visual spoiler
 		if (mouse_check_button(mb_right)) {
-			if (card_stats != noone) {
+			if (card_stats != {}) {
 				if (action_ability) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
 				else card_hq.sprite_index = struct_get(card_stats,"image_hq_front");
 			}

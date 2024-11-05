@@ -1,61 +1,84 @@
-function scr_sout_last_key () {
+/// @function					is_mouse_over_card();
+/// @description				check if the mouse is over this card
+/// @return						{bool}
+
+function is_mouse_over_card() {
+	if (mouse_x >= x-card_width/2 && mouse_x <= x+card_width/2 &&
+	mouse_y >= y-card_height/2 && mouse_y <= y+card_height/2) return true;
+	else return false;
+}
+
+/// @function					sout_last_key();
+/// @description				display the virtual key value of the last key pressed (TF)
+
+function sout_last_key() {
 	if (keyboard_lastkey != vk_nokey) {
 		show_debug_message(string(keyboard_lastkey));
 	    keyboard_lastkey = vk_nokey;
 	}
 }
 
-function scr_mouse_over_card () {
-	if (mouse_x >= x-card_width/2 && mouse_x <= x+card_width/2 &&
-	mouse_y >= y-card_height/2 && mouse_y <= y+card_height/2) return true;
-	else return false;
-}
+/// @function					sout(value, [spacing]);
+/// @param {any} value			value to output
+/// @param {string} spacing		string used to seperate an array's values
+/// @description				output the given value
 
-function sout (_str, _spacing = " | ") {
-	if (is_array(_str)) {
+function sout(value, spacing = " | ") {
+	if (is_array(value)) {
 		var _str_out = "";
-		for (var _i = 0; _i < array_length(_str); _i++) {
-			_str_out += string(_str[_i]);
-			if (_i+1 < array_length(_str)) _str_out += _spacing;
+		for (var i = 0; i < array_length(value); i++) {
+			_str_out += string(value[i]);
+			if (i+1 < array_length(value)) _str_out += spacing;
 		}
 		show_debug_message(_str_out);
 	}
-	else show_debug_message(string(_str));
+	else show_debug_message(string(value));
 }
 
+/// @function					card_get_stats(card_stats, card_name);
+/// @param {array<struct>}		card_stats	card stats that share their type with card_name
+/// @param {string} card_name	the name of the card
+/// @description				get the stats of named card
+/// @return						{struct}
 
-function scr_get_stats (_card_name, _card_stats, _states = true) {
-	for (var _i = 0; _i < array_length(_card_stats); _i++) {
-		if (_states) {
-			if (struct_get(_card_stats[_i][0],"name") == _card_name) {
-				return _card_stats[_i];
+function card_get_stats (card_stats, card_name) {
+	for (var i = 0; i < array_length(card_stats); i++) {
+		if (is_array(card_stats[i])) {
+			if (struct_get(card_stats[i][0],"name") == card_name) {
+				return card_stats[i];
 			}
 		}
-		else {
-			if (struct_get(_card_stats[_i],"name") == _card_name) {
-				return _card_stats[_i];
-			}
+		else if (struct_get(card_stats[i],"name") == card_name) {
+			return card_stats[i];
 		}
 	}
-	return undefined;
+	return {};
 }
 
-function scr_get_csc (_stamina_cost) {
-	// get converted stamina cost
-	var _csc = 0;
-	for (var i = 0; i < array_length(_stamina_cost); i++) {
-		_csc += _stamina_cost[i];
+/// @function					get_csc(stamina_cost);
+/// @param {real} stamina_cost	stamina cost of an action or effect
+/// @description				get converted stamina cost
+/// @return						{real}
+
+function get_csc (stamina_cost) {
+	var _converted_stamina_cost = 0;
+	for (var i = 0; i < array_length(stamina_cost); i++) {
+		_converted_stamina_cost += stamina_cost[i];
 	}
-	return _csc;
+	return int64(_converted_stamina_cost);
 }
 
-function scr_card_unselect () {
-	if (character_card.selected) character_card.selected = false;
+
+/// @function					card_unselect([player_id]);
+/// @param {id} player_id		id of player
+/// @description				unselect all of the player's cards
+
+function card_unselect(player_id = id) {
+	if (character.selected) character_card.selected = false;
 	while (array_length(stamina_selection) > 0) {
 		with (stamina_selection[0]) scr_start_card_stamina_unselect();
 	}
 	while (array_length(selection) > 0) {
 		with (selection[0]) scr_start_card_unselect();
 	}
-	return;
 }

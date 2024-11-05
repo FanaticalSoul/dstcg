@@ -9,10 +9,6 @@ if (array_length(hand_card) == 0 && array_length(hand) == 0 && alarm[3] == -1) a
 // track selected cards
 selection = [];
 stamina_selection = [];
-// actions taken
-//act_cycle = false; // cycled selected cards in hand
-//act_use_equip = false; // equipment was used for a non-attack action
-//act_attack = false; // attacked with equipment
 // states // these are not phases as they are only for the individual player
 pay_stamina = false; 
 // other varibles
