@@ -5,7 +5,7 @@ for (var i = 0; i < board_size; i++) {
 	var _tmp_y = global.board_c_cords[i][1];
 	if (x > _tmp_x-card_width/2 && x < _tmp_x+card_width/2 &&
 	y > _tmp_y-card_height/2 && y < _tmp_y+card_height/2) {
-		if (global.board_c_card[i] == {}) {
+		if (array_length(global.board_c_card[i]) == 0) {
 			if (global.phase_c_place || global.phase_c_act) {
 				// remove prior instance of object from field
 				for (var j = 0; j < board_size; j++) {

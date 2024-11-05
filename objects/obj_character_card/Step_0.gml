@@ -24,7 +24,7 @@ if (is_mouse_over_card()) {
 		}
 		// hold [ mouse right ] // visual spoiler
 		if (mouse_check_button(mb_right)) {
-			if (card_stats != {}) {
+			if (array_length(card_stats)>0) {
 				if (act_ability) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
 				else card_hq.sprite_index = struct_get(card_stats,"image_hq_front");
 			}
@@ -64,7 +64,7 @@ if (keyboard_check_pressed(37) || keyboard_check_pressed(38) || keyboard_check_p
 			_character_placement >= 0
 		) {
 			// validate movement
-			if (global.board_c_card[_character_placement+_move_mod] == {}) {
+			if (array_length(global.board_c_card[_character_placement+_move_mod]) == 0) {
 				// remove prior instance of object from field
 				global.board_c_card[_character_placement] = {};
 				// do movement

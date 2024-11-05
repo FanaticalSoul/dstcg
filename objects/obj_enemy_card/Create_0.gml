@@ -12,6 +12,6 @@ path_speed = card_speed;
 card_hq = obj_visual_spoiler;
 // set sprite
 if (card_stats == noone) card_stats = {};
-else if (card_stats != {}) sprite_index = card_stats.image;
+else if (array_length(card_stats) > 0) sprite_index = card_stats.image;
 // TF // WoL
 attack_animation = false;

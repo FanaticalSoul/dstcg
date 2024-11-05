@@ -27,4 +27,4 @@ if (!shuffled) {
 	deck = scr_deck_shuffle (deck, deck_size);
 	shuffled = true;
 }
-sout("made enemy deck");
+//sout("made enemy deck");

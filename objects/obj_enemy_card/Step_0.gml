@@ -3,7 +3,7 @@
 // mouse over card
 if (mouse_over_card()) {
 	// hold [ mouse right ] // visual spoiler
-	if (mouse_check_button(mb_right) && card_stats != {}) {
+	if (mouse_check_button(mb_right) && array_length(card_stats) > 0) {
 		card_hq.sprite_index = card_stats.image_hq;
 		card_hq.visible = true;
 	}

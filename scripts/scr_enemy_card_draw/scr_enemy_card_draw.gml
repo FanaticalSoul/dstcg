@@ -11,6 +11,7 @@ function enemy_card_draw (deck_id = id) {
 			sout("too many enemies on the board");
 			return;
 		}
+		sout("enemy card draw"); // output action
 		deck_size --;
 		// get enemy stats
 		enemy[enemy_count] = card_get_stats(enemy_card_stats, deck[deck_size]);
@@ -25,9 +26,11 @@ function enemy_card_draw (deck_id = id) {
 		}
 		*/
 		//while (card_placements[_enemy_placement] != noone) {
-		while (global.board_e_card[_enemy_placement] != {}) {
+		//sout(global.board_e_card[0] == {  });
+		while (array_length(global.board_e_card[_enemy_placement])!=0) {
 			// WoL // add a way to exit this loop
 			_enemy_placement = irandom_range(0,board_size-1); // TF
+			//sout("in loop");
 		}
 		//card_placements[enemy_placement] = enemy_placement;
 		//global.board_e_card[_enemy_placement] = _enemy_placement;
@@ -43,6 +46,7 @@ function enemy_card_draw (deck_id = id) {
 			card_stats : enemy[enemy_count]
 		});
 		*/
+		//sout(global.board_e_card);
 		global.board_e_card[_enemy_placement] = instance_create_depth(x,y,-enemy_count-1,obj_enemy_card,{
 			placement : _enemy_placement,
 			card_stats : enemy[enemy_count]
