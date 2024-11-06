@@ -122,12 +122,12 @@ function get_enemy_card_stats() {
 			attack : [
 				{
 					attack_location : 3,
-					inflict : ["frostbite"]
+					conditions : ["frostbite"]
 				}
 			],
 			spawn_location : 3,
 			play_script : function (id) {
-				return scr_enemy_card_irithyllian_beast_hound (id);
+				enemy_card_irithyllian_beast_hound(id);
 			}
 		},{
 			name : "ghru leaper",
@@ -142,12 +142,12 @@ function get_enemy_card_stats() {
 			attack : [
 				{
 					attack_location : 2,
-					inflict : ["poison"]
+					conditions : ["poison"]
 				}
 			],
 			spawn_location : 5,
 			play_script : function (id) {
-				return scr_enemy_card_ghru_leaper (id);
+				enemy_card_ghru_leaper(id);
 			}
 		},{
 			name : "winged corvian",
@@ -284,14 +284,15 @@ function get_enemy_card_stats() {
 		hit_points    : 1,
 		attack_value  : 0,
 		regenerate : false, // TF
-		weakness      : "none", // heavy, precise, magical, skilled, none
-		area_of_effect : false, // WoL
+		weakness : "none", // heavy, precise, magical, skilled, none
+		//area_of_effect : false, // WoL
 		attack : [
 			{
 				attack_location : 1,
-				push            : false, // false = 0 // N = 1 // E = 2 // ect...
+				push : false, // false = 0 // N = 1 // E = 2 // ect...
 				// inflict condition(s) // bleed, frostbite, poison, stagger
-				inflict         : false // an array if true
+				conditions : false, // an array if true
+				area_of_effect : false
 			}
 		],
 		spawn_location : 1

@@ -3,11 +3,11 @@
 if (global.phase_e_act) {
 	with (e_deck) {
 		// stop denoting prior enemy as attacking
-		var _prior_enemy = enemy_card[max(0,obj_encounter.card_placement-1)];
+		var _prior_enemy = global.board_e_card[max(0,obj_encounter.card_placement-1)];
 		if (instance_exists(_prior_enemy)) _prior_enemy.attack_animation = false;
 		// check if enemy is within bounds
 		if (obj_encounter.card_placement < enemy_max) {
-			var _enemy = enemy_card[obj_encounter.card_placement];
+			var _enemy = global.board_e_card[obj_encounter.card_placement];
 			if (instance_exists(_enemy)) {
 				_enemy.attack_animation = true;
 				// do attack animation

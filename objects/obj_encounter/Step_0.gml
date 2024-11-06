@@ -8,9 +8,12 @@ if (instance_exists(player)) {
 			if (global.phase_e_act && !global.phase_react && damage_taken == 0) {
 				with (obj_encounter) {
 					if (alarm[4] == -1) {
-						var _prior_enemy = global.board_e_card[card_placement-1];
-						if (instance_exists(_prior_enemy)) {
-							alarm[4] = _prior_enemy.attack_animation_speed;
+						if (card_placement-1 >= 0) {
+							var _prior_enemy = global.board_e_card[card_placement-1];
+							if (instance_exists(_prior_enemy)) {
+								alarm[4] = _prior_enemy.attack_animation_speed;
+							}
+							else alarm[4] = 1; // set this to the ripple effect speed // WoL
 						}
 						else alarm[4] = 1; // set this to the ripple effect speed // WoL
 					}
@@ -71,7 +74,7 @@ if (instance_exists(e_deck)) {
 			}
 		}
 		if (_flag && alarm[3] == -1) {
-			//alarm[3] = e_deck.card_draw_frame_delay;
+			alarm[3] = 1; // frames before enemy activations // WoL
 		}
 	}
 }
