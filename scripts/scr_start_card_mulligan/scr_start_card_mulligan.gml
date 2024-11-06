@@ -13,9 +13,12 @@ function start_card_mulligan(player_id = id) {
 				}
 			}
 			*/
-			if (hand[i][0].type == "equipment") {
+			sout("hand");
+			sout(hand);
+			//if (hand[i][0].type == "equipment") {
+			if (hand[i].card_stats[0].type == "equipment") {
 				// check if this is an invalid mulligan
-				if (hand[i][0].attack != "none") return;
+				if (hand[i].card_stats[0].attack != "none") return;
 			}
 		}
 		// take mulligan

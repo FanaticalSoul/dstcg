@@ -13,7 +13,8 @@ if (is_mouse_over_card()) {
 	// press [ mouse left ] // take mulligan
 	if (mouse_check_button_pressed(mb_left) && global.phase_mulligan) {
 		with (obj_encounter) {
-			with (player) scr_start_card_mulligan(); // take mulligan
+			//with (player) scr_start_card_mulligan(); // take mulligan
+			start_card_mulligan(player); // take mulligan
 			if (alarm[1] == -1) {
 				if (player.deck.alarm[1] != -1) {
 					// wait for cards to be drawn
@@ -30,7 +31,8 @@ if (is_mouse_over_card()) {
 	) {
 		// cycle selected cards
 		while (array_length(player.selection) > 0) {
-			scr_start_card_discard(player.selection[0]);
+			//scr_start_card_discard(player.selection[0]);
+			start_card_discard(id, player.selection[0]);
 			cycle_size ++;
 		}
 		if (alarm[0] == -1) alarm[0] = 1;
