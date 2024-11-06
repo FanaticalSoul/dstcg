@@ -31,6 +31,15 @@
 // set start card stats
 #macro start_card_stats get_start_card_stats()
 
+// set start card sprite array ( to help with frame rates )
+global.start_card_spr_sm = {};
+for (var i = 0; i < array_length(start_card_stats); i++) {
+	struct_set(global.start_card_spr_sm, start_card_stats[i][0].name, start_card_stats[i][0].image);
+}
+//#macro start_card_spr_sm _start_card_spr_sm
+sout(global.start_card_spr_sm);
+
+
 
 
 // set ripple particle effect animation delay ( in frames )

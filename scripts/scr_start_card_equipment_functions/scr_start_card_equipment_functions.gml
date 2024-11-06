@@ -2,9 +2,9 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 	with (_id) {
 		if (global.phase_c_act) {
 			if (!player.act_use_equip) {
-				with (player.deck) {
-					with (discard) scr_start_card_discard(_id);
-					scr_start_card_draw ();
+				with (player) {
+					start_card_discard(discard, _id);
+					start_card_draw(deck);
 				}
 				player.act_use_equip = true;
 			}

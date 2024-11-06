@@ -123,6 +123,7 @@
     {"id":{"name":"pth_start_deck_discard","path":"paths/pth_start_deck_discard/pth_start_deck_discard.yy",},},
     {"id":{"name":"pth_start_deck_draw","path":"paths/pth_start_deck_draw/pth_start_deck_draw.yy",},},
     {"id":{"name":"pth_start_deck_mill","path":"paths/pth_start_deck_mill/pth_start_deck_mill.yy",},},
+    {"id":{"name":"pth_start_deck_return","path":"paths/pth_start_deck_return/pth_start_deck_return.yy",},},
     {"id":{"name":"map_deck_builder","path":"rooms/map_deck_builder/map_deck_builder.yy",},},
     {"id":{"name":"map_encounter_old","path":"rooms/map_encounter_old/map_encounter_old.yy",},},
     {"id":{"name":"map_encounter","path":"rooms/map_encounter/map_encounter.yy",},},

@@ -18,7 +18,9 @@ function start_card_mulligan(player_id = id) {
 		if (_flag) {
 			// take mulligan
 			while (hand_size > 0) {
-				start_card_return(deck,hand[hand_size-1].id);
+				//sout(hand_size);
+				//sout(hand[hand_size-1].card_stats[0].name);
+				start_card_return(deck,hand[hand_size-1]);
 			}
 			with (deck) {
 				deck = scr_deck_shuffle (deck, deck_size, true);

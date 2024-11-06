@@ -76,3 +76,16 @@ if (instance_exists(e_deck)) {
 		}
 	}
 }
+// output fps (TF)
+if (fps < 10) sout("fps is bellow 10 "+string(fps));
+else if (fps < 20) sout("fps is bellow 20 "+string(fps));
+else if (fps < 30) sout("fps is bellow 30 "+string(fps));
+else if (fps < 40) sout("fps is bellow 40 "+string(fps));
+else if (fps < 50) sout("fps is bellow 50 "+string(fps));
+else if (fps < 60) sout("fps is bellow 60 "+string(fps));
+/*
+if (keyboard_check_pressed(70) || mouse_check_button_pressed(mb_left)) {
+	// check frame rate
+	sout(["FPS",fps]);
+}
+*/

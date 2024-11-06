@@ -27,7 +27,7 @@ if (global.phase_e_act) {
 		}
 		else if (obj_encounter.alarm[5] == -1) {
 			if (instance_exists(_prior_enemy)) {
-				obj_encounter.alarm[5] = _prior_enemy.attack_animation_speed;
+				obj_encounter.alarm[5] = _prior_enemy.ani_delay_attack;
 			}
 			else obj_encounter.alarm[5] = 1;
 		}
