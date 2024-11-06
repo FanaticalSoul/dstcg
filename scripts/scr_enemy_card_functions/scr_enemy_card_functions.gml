@@ -4,10 +4,7 @@
 /// @description				activate an enemy ghru leaper
 
 function enemy_card_ghru_leaper (struct_id = id) {
-	with (struct_id) {
-		sout(["checking values",attack,attack_value]);
-		enemy_card_basic_attack(attack,attack_value,struct_id);
-	}
+	enemy_card_basic_attack(attack,attack_value,struct_id);
 	//return;
 }
 
@@ -16,10 +13,8 @@ function enemy_card_ghru_leaper (struct_id = id) {
 /// @description				activate an enemy ghru leaper
 
 function enemy_card_irithyllian_beast_hound (struct_id = id) {
-	with (struct_id) {
-		sout(["checking values",attack,attack_value]);
-		enemy_card_basic_attack(attack,attack_value,struct_id);
-	}
+	//sout(attack);
+	enemy_card_basic_attack(attack,attack_value,struct_id);
 	//return;
 }
 
@@ -42,7 +37,7 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 				if (!instance_exists(_target_character)) {
 					//_row_start = int64((_attack[_i].attack_location-1)/board_cols)*board_cols;
 					_row_start = abs(int64((attack[i].attack_location-1)/board_cols)-j)*board_cols;
-					_target_character = character_taunt_check (_target_character, _row_start, obj_player.board_card);
+					_target_character = character_taunt_check (_target_character, _row_start);
 				}
 				else break;
 			}
@@ -85,17 +80,17 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 				//global.phase_react = true;
 				sout("the player can react to this attack");
 				// resolve damage on player
-				_target_character.damage_stack += _attack_value;
+				_target_character.damage_stack += attack_value;
 				
 				// PLAYER REACTION CODE // WoL //
-				// take into account _attack_value
+				// take into account attack_value
 				// create a value on character for incoming damage, thats applied instead ( after being revised )
 			}
 			else {
 				sout("the player can\'t react to this attack");
 				global.phase_react = false;
 				// resolve damage on player
-				_target_character.damage_taken += _attack_value;
+				_target_character.damage_taken += attack_value;
 			}
 			
 		}
@@ -110,24 +105,24 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 // @param {id} card_id				enemy card id
 // @description					carry out a basic enemy attack
 
-function character_taunt_check (target_character, _row_start, _character_board) {
+function character_taunt_check (target_character, row_start) {
 	var _target_characters = [];
-	for (var _k = _row_start; _k < _row_start+board_cols; _k++) {
+	for (var k = row_start; k < row_start+board_cols; k++) {
 		// for each column in the current row
-		if (_character_board[_k] != noone) {
+		if (instance_exists(global.board_c_card[k])) {
 			// add an existing character
-			array_push(_target_characters,_character_board[_k]);
+			array_push(_target_characters,global.board_c_card[k]);
 		}
 	}
 	// if possible targets were found in the same row
 	if (array_length(_target_characters) > 0) {
 		//_target_character = noone;
-		for (var _k = 0; _k < array_length(_target_characters); _k++) {
+		for (var k = 0; k < array_length(_target_characters); k++) {
 			// set the target if there is no target currently set
-			if (target_character == noone) target_character = _target_characters[_k];
+			if (!instance_exists(target_character)) target_character = _target_characters[k];
 			// replace the target character with a character in the same row that has a higher taunt value
-			else if (_target_characters[_k].card_stats.taunt_value > target_character.card_stats.taunt_value) {
-				target_character = _target_characters[_k];
+			else if (_target_characters[k].card_stats.taunt_value > target_character.card_stats.taunt_value) {
+				target_character = _target_characters[k];
 			}
 		}
 	}
