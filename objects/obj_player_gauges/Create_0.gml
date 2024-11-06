@@ -20,8 +20,11 @@ function increment_count (value, index, check_health = true, max_count = false) 
 	}
 	else {
 		var _split_str;
+		
 		if (is_array(value)) _split_str = string_split(value[0], " ", true, 1);
-		else _split_str = string_split(value, " ", true, 1);
+		else if (is_string(value)) _split_str = string_split(value, " ", true, 1);
+		else _split_str = string_split(value.card_stats[0].name, " ", true, 1);
+		
 		if (array_length(_split_str) > 1) {
 			if (_split_str[1] == "stamina") {
 				if (max_count) stamina_max ++;
@@ -43,3 +46,5 @@ function increment_health_count (value, index) {
 function increment_health_max (value, index) {
 	increment_count (value, index, true, true);
 }
+
+sout("created gauge");

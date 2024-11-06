@@ -14,3 +14,4 @@ tmp_depth = depth; // fixes bug with displaying over enemy cards
 discard_spacing = discard_spacing_width_in_pixels / max_deck;
 // set all discard cards to be empty
 for (var _i = 0; _i < max_deck; _i++) discard[_i] = "";
+sout("created discard");

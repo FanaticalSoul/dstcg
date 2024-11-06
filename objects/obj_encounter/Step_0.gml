@@ -54,7 +54,7 @@ if (global.destroy_everything_test) {
 }
 */
 
-
+// end enemy placement phase after all enemy cards are placed and flipped
 if (instance_exists(e_deck)) {
 	if (e_deck.deck_size == 0 && global.phase_e_place) {
 		var _flag = true;

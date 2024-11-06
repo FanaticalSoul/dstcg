@@ -33,6 +33,9 @@ discard = instance_create_depth(x,y+card_height+card_spacing,depth,obj_start_dis
 // shuffle deck on creation
 deck = scr_deck_shuffle (deck, deck_size, true);
 // create health bar // TF // WoL
+/*
 instance_create_depth(0,52,depth, obj_player_gauges, {
 	deck : id
 });
+*/
+sout("created start deck");
