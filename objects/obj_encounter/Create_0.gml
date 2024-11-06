@@ -13,8 +13,8 @@ global.phase_c_act    = false; // character activation
 ///sout("EVERYTHING WAS CREATED");
 sout("phase 1 - character placement");
 // testing varribles
-player = obj_player;
-e_deck = obj_enemy_deck;
+//player = obj_player;
+//e_deck = obj_enemy_deck;
 // other varibles
 //WoL//global.souls = 0;
 

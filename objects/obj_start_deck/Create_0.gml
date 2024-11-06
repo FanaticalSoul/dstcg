@@ -1,6 +1,5 @@
 /// @description set varibles
-// set start card stats
-start_card_stats = scr_start_card_stats_set();
+
 //deck_min = 28; // starting deck size
 // initalize varibles
 deck_reveal_offset = 0;
@@ -14,8 +13,8 @@ for (var _i = 0; _i < max_deck; _i++) {
 }
 // set cards in deck from save
 ini_open("start_deck.ini");
-for (var _i = 0; _i < deck_min; _i ++) {
-	deck[_i][0] = ini_read_string("deck",string(_i),"");
+for (var i = 0; i < deck_min; i++) {
+	deck[i][0] = ini_read_string("deck",string(i),"");
 }
 ini_close();
 deck_size = deck_min;
@@ -25,13 +24,15 @@ deck_spacing = deck_spacing_width_in_pixels / max_deck;
 deck_reveal_y = player.y-card_height-card_spacing*3/4;
 deck_reveal_x = player.x-card_width/2;
 // create assossiated discard // TF
+/*
 discard = instance_create_depth(x,y+card_height+card_spacing,depth,obj_start_discard, {
 	player : player,
 	deck : id
 });
+*/
 // shuffle deck on creation
 deck = scr_deck_shuffle (deck, deck_size, true);
 // create health bar // TF // WoL
-instance_create_depth(0,52,depth, obj_start_health, {
+instance_create_depth(0,52,depth, obj_player_gauges, {
 	deck : id
 });

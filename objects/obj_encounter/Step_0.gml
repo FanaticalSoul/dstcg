@@ -3,15 +3,17 @@
 // check if game is loading
 if (instance_exists(player)) {
 	// end damage phase
-	with (player.character_card) {
-		if (global.phase_e_act && !global.phase_react && damage_taken == 0) {
-			with (obj_encounter) {
-				if (alarm[4] == -1) {
-					var _prior_enemy = e_deck.enemy_card[card_placement-1];
-					if (instance_exists(_prior_enemy)) {
-						alarm[4] = _prior_enemy.attack_animation_speed;
+	if (instance_exists(player.character)) {
+		with (player.character) {
+			if (global.phase_e_act && !global.phase_react && damage_taken == 0) {
+				with (obj_encounter) {
+					if (alarm[4] == -1) {
+						var _prior_enemy = e_deck.enemy_card[card_placement-1];
+						if (instance_exists(_prior_enemy)) {
+							alarm[4] = _prior_enemy.attack_animation_speed;
+						}
+						else alarm[4] = 1;
 					}
-					else alarm[4] = 1;
 				}
 			}
 		}

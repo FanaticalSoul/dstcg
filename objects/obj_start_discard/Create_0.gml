@@ -1,6 +1,7 @@
 /// @description set varibles
+
 // set varibles from deck
-start_card_stats = deck.start_card_stats;
+//start_card_stats = deck.start_card_stats;
 discard_reveal_y = deck.deck_reveal_y;
 discard_reveal_x = deck.deck_reveal_x;
 // initalize varibles

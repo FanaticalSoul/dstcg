@@ -1,11 +1,18 @@
 /// @description create character, deck, hand, and phases
 
 // create assossated deck
-if (deck == noone && alarm[0] == -1) alarm[0] = 1;
+if (!instance_exists(deck) && alarm[0] == -1) alarm[0] = 1;
 // create assossated character
-if (character == noone && alarm[1] == -1) alarm[1] = 1;
+if (!instance_exists(character) && alarm[1] == -1) alarm[1] = 1;
+// set discard
+if (!instance_exists(discard) && alarm[2] == -1) alarm[2] = 1;
 // set hand
-if (array_length(hand_card) == 0 && array_length(hand) == 0 && alarm[3] == -1) alarm[3] = 1;
+//sout(array_length(hand_card))
+//sout(array_length(hand))
+// hand should contain the start card instance id
+if (array_length(hand) == 0 && alarm[3] == -1) alarm[3] = 1;
+// set guages
+if (!instance_exists(gauges) && alarm[4] == -1) alarm[4] = 1;
 // track selected cards
 selection = [];
 selection_stamina = [];

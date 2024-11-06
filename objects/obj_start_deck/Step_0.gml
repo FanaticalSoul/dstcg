@@ -9,7 +9,7 @@ mouse_x <= deck_reveal_x+card_spacing+deck_visable*(card_width+card_spacing)
 	if (mouse_wheel_down() && deck_reveal_offset>deck_visable-deck_size) deck_reveal_offset --;
 }
 // mouse over deck
-if (scr_mouse_over_card()) {
+if (is_mouse_over_card()) {
 	// press [ mouse left ]
 	if (mouse_check_button_pressed(mb_left)) {
 		// don't take mulligan
@@ -34,7 +34,7 @@ if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0) &&
 	deck_reveal = !deck_reveal; // toggle reveal state
 }
 // press [ down on d-pad ]
-if ((keyboard_check_pressed(40) && deck_reveal) || player.character_card.selected) {
+if ((keyboard_check_pressed(40) && deck_reveal) || player.character.selected) {
 	deck_reveal_offset = 0;
 	deck_reveal = false;
 }

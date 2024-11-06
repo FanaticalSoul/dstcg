@@ -1,4 +1,9 @@
-function scr_start_card_stats_set () {
+
+/// @function					get_start_card_stats();
+/// @description				get the stats for each start card
+/// @return						{array<array<struct>>}
+
+function get_start_card_stats () {
 	
 	/*/ WoL //
 	// Area Attacks ( AoE )
@@ -13,7 +18,7 @@ function scr_start_card_stats_set () {
 	// WoL */
 
 	// set actions for cards
-	start_card_stats = [
+	card_stats = [
 		 [{
 			name : "herald armour",
 			type : "equipment",
@@ -235,29 +240,29 @@ function scr_start_card_stats_set () {
 	};
 	// add default values // add name of item to all item actions //
 	var _test = false;
-	for (i = 0; i < array_length(start_card_stats); i++ ) {
-		var _tmp_card = start_card_stats[i][0];
+	for (i = 0; i < array_length(card_stats); i++) {
+		var _tmp_card = card_stats[i][0];
 		// set undefined varibles
-		if (struct_get(_tmp_card,"image") == undefined) struct_set(start_card_stats[i][0],"image",spr_start_card_sm_front);
-		if (struct_get(_tmp_card,"image_hq") == undefined) struct_set(start_card_stats[i][0],"image_hq",spr_start_card_hq_front);
-		if (struct_get(_tmp_card,"name") == undefined) struct_set(start_card_stats[i][0],"name","undefined");
-		if (struct_get(_tmp_card,"attack") == undefined) struct_set(start_card_stats[i][0],"attack","none");
+		if (struct_get(_tmp_card,"image") == undefined) struct_set(card_stats[i][0],"image",spr_start_card_sm_front);
+		if (struct_get(_tmp_card,"image_hq") == undefined) struct_set(card_stats[i][0],"image_hq",spr_start_card_hq_front);
+		if (struct_get(_tmp_card,"name") == undefined) struct_set(card_stats[i][0],"name","undefined");
+		if (struct_get(_tmp_card,"attack") == undefined) struct_set(card_stats[i][0],"attack","none");
 		// copy varibles across the array // this is a fix for the attack method
-		default_action.name = start_card_stats[i][0].name;
-		default_action.attack = start_card_stats[i][0].attack;
+		default_action.name = card_stats[i][0].name;
+		default_action.attack = card_stats[i][0].attack;
 		// go through default array and update missing information in the attack action structure
-		if (_test) show_debug_message("item : "+string(struct_get(start_card_stats[i][0],"name")));
-		for (j = 0; j < array_length(start_card_stats[i]); j++ ) {
-			if (struct_get(start_card_stats[i][0],"type") == "equipment"
-			 || struct_get(start_card_stats[i][0],"type") == "weapon") {
-				struct_foreach (default_action, function(_name, _value) {
-					if (struct_get(start_card_stats[i][j],string(_name)) == undefined) {
-						struct_set(start_card_stats[i][j],string(_name),_value);
+		if (_test) show_debug_message("item : "+string(struct_get(card_stats[i][0],"name")));
+		for (j = 0; j < array_length(card_stats[i]); j++) {
+			if (struct_get(card_stats[i][0],"type") == "equipment"
+			 || struct_get(card_stats[i][0],"type") == "weapon") {
+				struct_foreach (default_action, function(name, value) {
+					if (struct_get(card_stats[i][j],string(name)) == undefined) {
+						struct_set(card_stats[i][j],string(name),value);
 					}
 				});
 			}
-			if (_test) show_debug_message(string(start_card_stats[i][j]));
+			if (_test) show_debug_message(string(card_stats[i][j]));
 		}
 	}
-	return start_card_stats;
+	return card_stats;
 }

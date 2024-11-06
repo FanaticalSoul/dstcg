@@ -9,7 +9,7 @@ if (mouse_y <= discard_reveal_y+card_height/2  && mouse_y >= discard_reveal_y-ca
 	if (mouse_wheel_down() && discard_reveal_offset>discard_visable-discard_size) discard_reveal_offset --;
 }
 // mouse over discard
-if (scr_mouse_over_card()) {
+if (is_mouse_over_card()) {
 	// press [ mouse left ] // take mulligan
 	if (mouse_check_button_pressed(mb_left) && global.phase_mulligan) {
 		with (obj_encounter) {

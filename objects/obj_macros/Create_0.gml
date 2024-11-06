@@ -28,6 +28,8 @@
 //sout(card_stats_enemy);
 // set character card stats
 #macro character_card_stats get_character_card_stats()
+// set start card stats
+#macro start_card_stats get_start_card_stats()
 
 
 
@@ -75,3 +77,20 @@ for (var iy = 0; iy < board_rows; iy++) {
 		i++;
 	}
 }
+
+
+
+
+
+
+// placement macros
+
+#macro start_deck_cords [184, 208]
+
+//#macro character_cords [start_deck_cords[0]-card_spacing-card_width,start_deck_cords[0]]
+#macro character_cords [start_deck_cords[0], start_deck_cords[0]]
+
+#macro start_discard_cords [start_deck_cords[0],start_deck_cords[1]+card_height+card_spacing]
+
+
+#macro player_gauges_cords [8,52]
