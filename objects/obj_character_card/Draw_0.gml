@@ -1,7 +1,7 @@
 /// @description draw and drag the object
 
 // only draw inside the room
-if (array_length(card_stats) > 0 && x > -card_width/2 && x < room_width
+if (is_struct(card_stats) > 0 && x > -card_width/2 && x < room_width
  && y > -card_height/2 && y < room_height) {
 	if (act_ability) sprite_index = struct_get(card_stats,"image_sm_back");
 	else sprite_index = struct_get(card_stats,"image_sm_front");
@@ -10,7 +10,7 @@ if (array_length(card_stats) > 0 && x > -card_width/2 && x < room_width
 }
 // drag card
 if (dragable) {
-	depth = -player.hand_size-2;
+	depth = -hand_max-2;
 	speed = 0;
 	x = mouse_x;
 	y = mouse_y;

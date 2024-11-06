@@ -1,9 +1,14 @@
-function scr_character_card_stats_set() {
+
+/// @function					get_character_card_stats();
+/// @description				get the stats for each character card
+/// @return						{array<struct>}
+
+function get_character_card_stats() {
 	/* WoL //
 	Taunt Value
 	Heroic Ability
 	// WoL */
-	character_card_stats = [
+	card_stats = [
 		{
 			name : "assassin",
 			image_sm_front : spr_character_card_sm_assassin_front,
@@ -32,7 +37,7 @@ function scr_character_card_stats_set() {
 			taunt_value : 5
 		}
 	];
-	default_character = {
+	default_stats = {
 		name : "undefined",
 		image_sm_front : spr_start_card_sm_template,
 		image_sm_back  : spr_start_card_sm_template,
@@ -42,13 +47,12 @@ function scr_character_card_stats_set() {
 		reaction : false
 	};
 	// add default values // add name of item to all item actions //
-	var _test = false;
-	for (i = 0; i < array_length(character_card_stats); i++ ) {
-		struct_foreach (default_character, function(_name, _value) {
-			if (struct_get(character_card_stats[i],string(_name)) == undefined) {
-				struct_set(character_card_stats[i],string(_name),_value);
+	for (i = 0; i < array_length(card_stats); i++) {
+		struct_foreach (default_stats, function(name, value) {
+			if (struct_get(card_stats[i],string(name)) == undefined) {
+				struct_set(card_stats[i],string(name), value);
 			}
 		});
 	}
-	return character_card_stats;
+	return card_stats;
 }

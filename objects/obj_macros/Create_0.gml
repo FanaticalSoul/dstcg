@@ -20,6 +20,31 @@
 #macro deck_min 28 // starting deck size
 
 
+
+
+
+// set enemy card stats
+#macro enemy_card_stats get_enemy_card_stats()
+//sout(card_stats_enemy);
+// set character card stats
+#macro character_card_stats get_character_card_stats()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // intialize temp varibles
 var _cord_x, _cord_y, i;
 // set character board cords

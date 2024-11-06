@@ -1,4 +1,9 @@
-function scr_enemy_card_stats_set(){
+
+/// @function					set_card_enemy_stats();
+/// @description				get the stats for each enemy card
+/// @return						{array<struct>}
+
+function get_enemy_card_stats() {
 
 	/*/ WoL //
 	// Area Attacks ( AoE )
@@ -14,9 +19,7 @@ function scr_enemy_card_stats_set(){
 	
 	// WoL /*/
 	
-	
-	
-	enemy_card_stats = [{
+	card_stats = [{
 			name : "hollow manservant",
 			image : spr_enemy_card_sm_hollow_manservant,
 			image_hq : spr_enemy_card_hq_hollow_manservant,
@@ -294,23 +297,23 @@ function scr_enemy_card_stats_set(){
 		spawn_location : 1
 	};
 	// add default values //
-	var _test = false;
-	for (i = 0; i < array_length(enemy_card_stats); i++ ) {
-		if (_test) show_debug_message("enemy : "+string(struct_get(enemy_card_stats[i],"name")));
+	//var _test = false;
+	for (i = 0; i < array_length(card_stats); i++) {
+		//if (_test) show_debug_message("enemy : "+string(struct_get(card_stats[i],"name")));
 		struct_foreach (default_enemy, function(_name, _value) {
-			if (struct_get(enemy_card_stats[i],string(_name)) == undefined) {
-				struct_set(enemy_card_stats[i],string(_name),_value);
+			if (struct_get(card_stats[i],string(_name)) == undefined) {
+				struct_set(card_stats[i],string(_name),_value);
 			}
 			// for each attack
-			for (j = 0; j < array_length(struct_get(enemy_card_stats[i],"attack")); j++ ) {
+			for (j = 0; j < array_length(struct_get(card_stats[i],"attack")); j++) {
 				struct_foreach (struct_get(default_enemy,"attack")[0], function(_name_2, _value_2) {
-					if (struct_get(struct_get(enemy_card_stats[i],"attack")[j],string(_name_2)) == undefined) {
-						struct_set(struct_get(enemy_card_stats[i],"attack")[j],string(_name_2),_value_2);
+					if (struct_get(struct_get(card_stats[i],"attack")[j],string(_name_2)) == undefined) {
+						struct_set(struct_get(card_stats[i],"attack")[j],string(_name_2),_value_2);
 					}
 				});
 			}
 		});
-		if (_test) show_debug_message(string(enemy_card_stats[i]));
+		//if (_test) show_debug_message(string(card_stats[i]));
 	}
-	return enemy_card_stats;
+	return card_stats;
 }

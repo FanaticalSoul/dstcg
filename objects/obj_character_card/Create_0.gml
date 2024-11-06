@@ -12,4 +12,4 @@ inital_y = y;
 des_x = x;
 des_y = y;
 // set card stats
-card_stats = card_get_stats(scr_character_card_stats_set(), character);
+card_stats = card_get_stats(character_card_stats, character);

@@ -4,7 +4,7 @@
 deck_size = 0;
 enemy_count = 0; // enemy cards currently in play
 // set varibles
-enemy_card_stats = scr_enemy_card_stats_set(); // enemy card stats
+//enemy_card_stats = scr_enemy_card_stats_set(); // enemy card stats
 deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
 for (var i = 0; i < deck_max; i++) {

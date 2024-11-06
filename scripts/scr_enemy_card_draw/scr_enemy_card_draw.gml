@@ -15,10 +15,6 @@ function enemy_card_draw (deck_id = id) {
 		deck_size --;
 		// get enemy stats
 		var _card_stats = card_get_stats(enemy_card_stats, deck[deck_size]);
-		
-		
-		
-		
 		var _enemy_placement = struct_get(_card_stats,"spawn_location")-1;
 		deck[deck_size] = "";
 		// fix placement positions

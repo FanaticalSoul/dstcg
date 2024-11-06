@@ -10,7 +10,16 @@ else {
 // mouse over card
 if (is_mouse_over_card()) {
 	// temporary fix to overlay // WoL
-	if (player.deck.deck_reveal == false) {
+	var _overlay_fix = false;
+	if (instance_exists(player)) {
+		if (instance_exists(player.deck)) {
+			if (player.deck.deck_reveal == false) _overlay_fix = true;
+		}
+		else _overlay_fix = true;
+	}
+	else _overlay_fix = true;
+	// if deck is revealed or doesn't exist
+	if (_overlay_fix) {
 		// press [ mouse left ] // make card dragable
 		if (mouse_check_button_pressed(mb_left) && global.phase_c_place) {
 			if (x == des_x && y == des_y) dragable = true;
@@ -25,7 +34,7 @@ if (is_mouse_over_card()) {
 		// hold [ mouse right ] // visual spoiler
 		if (mouse_check_button(mb_right)) {
 			if (array_length(card_stats)>0) {
-				if (act_ability) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
+				if (card_stats) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
 				else card_hq.sprite_index = struct_get(card_stats,"image_hq_front");
 			}
 			card_hq.visible = true;
@@ -34,7 +43,7 @@ if (is_mouse_over_card()) {
 			card_hq.sprite_index = spr_card_hq;
 			card_hq.visible = false;
 		}
-	}
+	}	
 }
 // release [ mouse left ] // stop draging card
 if (mouse_check_button_released(mb_left) && dragable) dragable = false;
