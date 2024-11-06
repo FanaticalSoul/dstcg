@@ -99,11 +99,11 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 }
 
 
-/// @function						character_taunt_check(target_character, attack_value, [struct_id]);
-// @param {array<struct>} attack	a collection of attack locations and effects ( WoL to possibily seemlessly integerate AoE attacks )
-// @param {real} attack_value		attack value ( damage being dealt )
-// @param {id} card_id				enemy card id
-// @description					carry out a basic enemy attack
+/// @function						character_taunt_check(target_character, row_start);
+/// @param {id} target_character	the id of a character in the current row
+/// @param {real} row_start			start of the row
+/// @return							{id}
+/// @description					return a character with the highest taunt value in this row
 
 function character_taunt_check (target_character, row_start) {
 	var _target_characters = [];

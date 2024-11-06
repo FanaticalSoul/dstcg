@@ -16,6 +16,12 @@ if (!instance_exists(gauges) && alarm[4] == -1) alarm[4] = 1;
 // track selected cards
 selection = [];
 selection_stamina = [];
+/*
+for (var i = 0; i < hand_size; i++) {
+	selection[i] = noone;
+	selection_stamina[i] = noone;
+}
+*/
 // states // these are not phases as they are only for the individual player
 pay_stamina = false; 
 // other varibles

@@ -33,10 +33,11 @@ if (is_mouse_over_card()) {
 						if (selected) scr_start_card_stamina_unselect ();
 						else {
 							selected = true;
-							player.stamina_selection[array_length(player.stamina_selection)] = id;
+							sout(["stamina",player.selection_stamina]);
+							player.selection_stamina[array_length(player.selection_stamina)] = id;
 						}
 					}
-					else if (array_length(player.stamina_selection) == 0 && 
+					else if (array_length(player.selection_stamina) == 0 && 
 					array_length(player.selection)==1) {
 						if (player.selection[0] == id) {
 							// if card selected was the equipment
@@ -54,7 +55,10 @@ if (is_mouse_over_card()) {
 			}
 			// resolve damage //
 			else if (player.character.damage_taken > 0) {
-				scr_start_card_stamina_discard (id); // TF
+				
+				//scr_start_card_stamina_discard (id); // TF
+				start_card_discard (player.discard);
+				
 				player.character.damage_taken --;
 			}
 		}

@@ -32,7 +32,7 @@ function scr_basic_block (_id) {
 			if (player.pay_stamina) {
 				// successful payment
 				sout("do stamina payment");
-				if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
+				if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 					// effect
 					with (_id) scr_start_card_block(_block);
 					// post stamina code
@@ -57,7 +57,7 @@ function scr_basic_heal (_id) {
 			// pay for action 
 			if (player.pay_stamina) {
 				// successful payment
-				if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
+				if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 					// effect
 					scr_start_card_heal(_heal);
 					// post stamina code
@@ -74,7 +74,7 @@ function scr_basic_heal (_id) {
 }
 
 function scr_start_card_block (_block) {
-	var _character = player.character_card;
+	var _character = player.character;
 	_character.damage_taken = max(0,_character.damage_stack-_block);
 	_character.damage_stack = 0;
 	// unselect card
@@ -91,7 +91,7 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 		var _character_placement = undefined;
 		var _enemy_placement = undefined;
 		for (var _i = 0; _i < board_size; _i++) {
-			if (player.board_card[_i] == player.character_card.id) {
+			if (player.board_card[_i] == player.character.id) {
 				_character_placement = _i;
 				break;
 			}
@@ -129,7 +129,7 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 				// pay for attack 
 				if (player.pay_stamina) {
 					// successful payment
-					if (!(scr_stamina_cost (player.stamina_selection, _stamina) > 0)) {
+					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 						// show target
 						sout("targeting "+string(_target_enemy.card_stats.name));
 						// resolve basic attack
@@ -168,10 +168,10 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 }
 
 
-function scr_stamina_cost (_stamina_selection,_stamina_cost) {
+function scr_stamina_cost (_selection_stamina,_stamina_cost) {
 	var _total_stamina = [0,0,0,0];
-	for (var i = 0; i < array_length(_stamina_selection); i++) {
-		var _card_stats = _stamina_selection[i].card_stats;
+	for (var i = 0; i < array_length(_selection_stamina); i++) {
+		var _card_stats = _selection_stamina[i].card_stats;
 		for (var j = 0; j < array_length(_total_stamina); j++) {
 			_total_stamina[j] += _card_stats[1].stamina[j];
 			if (array_length(_card_stats) == 3) _total_stamina[j] += _card_stats[2].stamina[j];
@@ -203,19 +203,21 @@ function scr_stamina_cost (_stamina_selection,_stamina_cost) {
 	return _stamina_cost_remaining;
 }
 
-function scr_post_effect (_id, _standard_action) {
+function scr_post_effect (card_id, _standard_action) {
 	// discard equipment
 	if (_standard_action) {
 		//with player.deck.discard scr_start_card_discard(_id); // TR
-		scr_start_card_stamina_discard (_id); // TF
+		//start_card_stamina_discard (_id); // TF
+		start_card_discard (player.discard, card_id);
 	}
 	// discard stamina
-	while (array_length(player.stamina_selection)>0) {
-		scr_start_card_stamina_discard (player.stamina_selection[0]);
+	while (array_length(player.selection_stamina)>0) {
+		start_card_discard (player.discard, player.selection_stamina[0]);
+		//start_card_stamina_discard (player.selection_stamina[0]);
 	}
 	// TF
 	// unselect this equipment
-	with (_id) scr_start_card_unselect ();
+	with (card_id) scr_start_card_unselect ();
 	// exit payment state
 	return false;
 }
