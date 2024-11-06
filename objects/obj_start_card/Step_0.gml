@@ -1,8 +1,9 @@
 /// @description handle keybinds, animation state, and movement within hand
+
 // alarm on card draw
-if (card_to_hand && alarm[0] == -1) alarm[0] = 1;
+if (ani_act_draw && alarm[0] == -1) alarm[0] = 1;
 // position card within hand
-if (card_in_hand) {
+if (ani_fin_draw) {
 	// flip card over when hidden off screen
 	if (!show_card && path_position>=0.5) show_card = true;
 	// set des cords
@@ -20,7 +21,7 @@ if (card_in_hand) {
 	}
 }
 // mouse over card
-if (scr_mouse_over_card()) {
+if (is_mouse_over_card()) {
 	// press [ mouse left ] // select card
 	if (mouse_check_button_pressed(mb_left)) {
 		if (show_card && x == des_x && y == des_y) {
@@ -52,9 +53,9 @@ if (scr_mouse_over_card()) {
 				}
 			}
 			// resolve damage //
-			else if (player.character_card.damage_taken > 0) {
+			else if (player.character.damage_taken > 0) {
 				scr_start_card_stamina_discard (id); // TF
-				player.character_card.damage_taken --;
+				player.character.damage_taken --;
 			}
 		}
 	}

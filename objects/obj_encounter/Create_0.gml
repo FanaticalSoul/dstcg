@@ -20,3 +20,4 @@ sout("phase 1 - character placement");
 
 // TF
 //global.destroy_everything_test = false;
+//enemy_draw_flag = false; // use to mark if all enemy cards have been drawn

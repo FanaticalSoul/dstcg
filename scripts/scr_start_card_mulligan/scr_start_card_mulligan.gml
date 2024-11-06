@@ -1,20 +1,35 @@
-function scr_start_card_mulligan() {
-	for (var _i = 0; _i < hand_size; _i++) {
-		if (struct_get(hand_card[_i].card_stats[0],"type") == "equipment") {
-			if (struct_get(hand_card[_i].card_stats[0],"attack") != "none") {
-				return; // this is an invalid mulligan
+
+/// @function					start_card_mill([player_id]);
+/// @param {id} player_id		player id
+/// @description				try to mulligan this player's hand
+
+function start_card_mulligan(player_id = id) {
+	with (player_id) {
+		for (var i = 0; i < hand_size; i++) {
+			/*
+			if (struct_get(hand_card[i].card_stats[0],"type") == "equipment") {
+				if (struct_get(hand_card[i].card_stats[0],"attack") != "none") {
+					return; // this is an invalid mulligan
+				}
+			}
+			*/
+			if (hand[i][0].type == "equipment") {
+				// check if this is an invalid mulligan
+				if (hand[i][0].attack != "none") return;
 			}
 		}
-	}
-	// take mulligan
-	while (hand_size > 0) {
+		// take mulligan
+		while (hand_size > 0) {
+			start_card_return(deck,hand[hand_size-1].id);
+
+			//with (deck) {
+			//scr_start_card_return (player.hand_card[player.hand_size-1].id);
+			//}
+		}
 		with (deck) {
-			scr_start_card_return (player.hand_card[player.hand_size-1].id);
+			deck = scr_deck_shuffle (deck, deck_size, true);
+			if (alarm[0] == -1) alarm[0] = 1;
 		}
 	}
-	with (deck) {
-		deck = scr_deck_shuffle (deck, deck_size, true);
-		if (alarm[0] == -1) alarm[0] = 1;
-	}
-	return;
+	//return;
 }

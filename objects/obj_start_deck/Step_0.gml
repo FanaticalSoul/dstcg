@@ -20,16 +20,16 @@ if (is_mouse_over_card()) {
 			}
 		}
 		// resolve damage //
-		else if (player.character_card.damage_taken > 0 && deck_size > 0) {
+		else if (player.character.damage_taken > 0 && deck_size > 0) {
 			//scr_start_card_stamina_discard (id); // TF
-			scr_start_card_mill (); // mill card
-			player.character_card.damage_taken --;
+			start_card_mill (); // mill card
+			player.character.damage_taken --;
 		}
 	}
 }
 // press [ up on d-pad ] // toggle deck reveal area
 if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0) && 
- !discard.discard_reveal && !player.character_card.selected) {
+ !player.discard.discard_reveal && !player.character_card.selected) {
 	deck_reveal_offset = 0;
 	deck_reveal = !deck_reveal; // toggle reveal state
 }

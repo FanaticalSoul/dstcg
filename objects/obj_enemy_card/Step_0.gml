@@ -26,12 +26,15 @@ if (ani_act_flip) {
         if (flip_scale_x >= 1) {
             flip_scale_x = 1; // full-size card
             ani_act_flip = false; // flip finished
+			//sout("finished flip");
         }
     }
 }
 // if the card is not flipping and the enemy is on the board
-else if (ani_fin_board && !ani_fin_flip) {
-	// flip the card
+else if (
+	ani_fin_board && !ani_act_board && x == des_x && y == des_y && // on board
+	!ani_act_flip && !ani_fin_flip
+) {	// flip the card
 	if (!point_distance(x,y,des_x,des_y) && !ani_act_flip) ani_act_flip = true;
 }
 // alarm on card draw
