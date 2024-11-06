@@ -1,8 +1,31 @@
-/// @description end phases
+/// @description start and end phases
 
 // check if game is loading
 if (instance_exists(player)) {
 	if (instance_exists(player.character)) {
+		// check if no phase is currently active
+		if (!global.phase_c_place && !global.phase_mulligan && !global.phase_e_place && 
+		!global.phase_e_act && !global.phase_react && !global.phase_c_act) {
+			// start mulligan phase ( 2 )
+			if (instance_exists(e_deck)) {
+				if (e_deck.deck_size > 0 && e_deck.enemy_count == 0) {
+					// if no cards have been drawn from the enemy deck
+					if (player.hand_size == hand_max) {
+						var _flag = true;
+						for (var i = 0; i < player.hand_size; i++) {
+							with (player.hand[i]) if (!(x==des_x && y==des_y)) _flag = false;
+							if (!_flag) break;
+						}
+						if (_flag) {
+							global.phase_mulligan = true;
+							sout("phase 2 - mulligans");
+						}
+					}
+				}
+			}
+		}
+		
+		
 		// end damage phase
 		if (global.phase_e_act && !global.phase_react && player.character.damage_taken == 0) {
 			with (obj_encounter) {
