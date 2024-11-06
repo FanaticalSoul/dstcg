@@ -3,7 +3,7 @@
 // mouse over card
 if (is_mouse_over_card()) {
 	// hold [ mouse right ] // visual spoiler
-	if (mouse_check_button(mb_right) && array_length(card_stats) > 0) {
+	if (mouse_check_button(mb_right) && is_struct(card_stats)) {
 		card_hq.sprite_index = card_stats.image_hq;
 		card_hq.visible = true;
 	}
@@ -13,31 +13,31 @@ if (is_mouse_over_card()) {
 	}
 }
 // flip animation
-if (flip_active) {
+if (ani_act_flip) {
     // decrease scale_x to 0, then switch sprites and increase it back to 1
-    if (!flip_finished) {
+    if (!ani_fin_flip) {
         flip_scale_x -= flip_speed; // shrinking the card
         if (flip_scale_x <= 0) {
-            flip_finished = true; // mark as flipped
+            ani_fin_flip = true; // mark as flipped
             flip_scale_x = 0; // prevent negative scale
         }
     } else {
         flip_scale_x += flip_speed; // expanding the card
         if (flip_scale_x >= 1) {
             flip_scale_x = 1; // full-size card
-            flip_active = false; // flip finished
+            ani_act_flip = false; // flip finished
         }
     }
 }
 // if the card is not flipping and the enemy is on the board
-else if (enemy_on_board && !flip_finished) {
+else if (ani_fin_board && !ani_fin_flip) {
 	// flip the card
-	if (!point_distance(x,y,des_x,des_y) && !flip_active) flip_active = true;
+	if (!point_distance(x,y,des_x,des_y) && !ani_act_flip) ani_act_flip = true;
 }
 // alarm on card draw
-if (enemy_to_board && alarm[0] == -1) alarm[0] = 1;
+if (ani_act_board && alarm[0] == -1) alarm[0] = 1;
 // if the enemy is on the board
-if (enemy_on_board) {
+if (ani_fin_board) {
 	// change des cords
 	if (placement != -1) {
 		des_x = global.board_e_cords[placement][0];

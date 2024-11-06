@@ -11,7 +11,6 @@ flip_scale_x = 1; // x scale of the card // will change to simulate the flip
 path_speed = card_speed;
 card_hq = obj_visual_spoiler;
 // set sprite
-if (card_stats == noone) card_stats = {};
-else if (array_length(card_stats) > 0) sprite_index = card_stats.image;
+if (is_struct(card_stats)) sprite_index = card_stats.image;
 // TF // WoL
-attack_animation = false;
+ani_act_attack = false;

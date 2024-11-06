@@ -1,4 +1,5 @@
 /// @description enemy act phase
+
 if (global.phase_e_act) {
 	with (e_deck) {
 		// stop denoting prior enemy as attacking

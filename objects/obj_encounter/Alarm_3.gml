@@ -1,4 +1,5 @@
 /// @description start enemy act phase
+
 global.phase_e_place = false;
 // sort enemy array
 /*
@@ -22,5 +23,5 @@ if (global.phase_e_act && alarm[4] == -1) {
 		else break;
 	}
 	// activate card
-	alarm[4] = e_deck.card_draw_frame_delay;
+	//TR//alarm[4] = e_deck.card_draw_frame_delay;
 }

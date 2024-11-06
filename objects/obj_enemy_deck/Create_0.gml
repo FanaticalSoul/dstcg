@@ -16,11 +16,13 @@ for (i = 0; i < array_length(deck_load); i++) {
 }
 deck_size = i;
 // initalize varibles for enemies on board
+/*
 for (i = 0; i < board_size; i++) {
 	//enemy[i] = "";
 	enemy[i] = {}; // stores enemy stats
 	//TR//card_placements[i] = noone; // holds enemy position // fixes card stacking
 }
+*/
 //scr_enemy_board_set ();
 // shuffle deck on creation
 if (!shuffled) {
