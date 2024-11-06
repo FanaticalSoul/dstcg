@@ -11,6 +11,11 @@ flip_scale_x = 1; // x scale of the card // will change to simulate the flip
 path_speed = card_speed;
 card_hq = obj_visual_spoiler;
 // set sprite
-if (is_struct(card_stats)) sprite_index = card_stats.image;
+if (is_struct(card_stats)) {
+	sout("created an enemy card ( "+string(card_stats.name)+" )");
+	sprite_index = card_stats.image;
+}
+else sout("failed to create an enemy card");
 // TF // WoL
 ani_act_attack = false;
+

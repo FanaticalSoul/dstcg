@@ -1,28 +1,17 @@
-function scr_start_card_draw (){
+function start_card_draw (){
 	// milled out // WoL
 	if (deck_size - 1 < 0) {
 		// end the encounter as a loss // WoL
-		show_debug_message("play you died animation");
-		return; // do nothing // WoL
+		show_debug_message("play you died animation ( WoL )");
 	}
 	// if max hand size was reached or surpassed
-	else if (player.hand_size >= hand_max) return; // do nothing
+	else if (player.hand_size >= hand_max) {
+		sout("max hand size was reached or surpassed ( WoL )");
+		//return; // do nothing
+	}
 	else {
 		// reset offset
 		player.hand_offset = 0;
-		// get card stats
-		/*
-		var _card_stats = noone;
-		for (var _i = 0; _i < array_length(start_card_stats); _i++) {
-			if (struct_get(start_card_stats[_i][0],"name") == deck[deck_size-1][0]) {
-				_card_stats = start_card_stats[_i];
-				break;
-			}
-		}
-		*/
-		//var _card_stats = card_get_stats(start_card_stats, deck[deck_size-1][0]);
-		// add card to hand
-		//player.hand[player.hand_size] = deck[deck_size-1][0];
 		player.hand_size ++;
 		// get card reveal status
 		var _show_card = deck[deck_size-1][1];
@@ -42,6 +31,7 @@ function scr_start_card_draw (){
 			player : player,
 			show_card : _show_card
 		});
+		// log action
+		sout([player.character.character, "draws", deck[deck_size-1][0]], " ");
 	}
-	return;
 }

@@ -21,7 +21,7 @@ for (var i = 0; i < board_size; i++) {
 					// do particle magic
 					instance_create_depth(_tmp_x, _tmp_y, temp_depth+1, obj_particle_card_ripple);
 					// start mulligan phase
-					with (obj_encounter) if (alarm[0]==-1) alarm[0] = 1;
+					with (obj_encounter) if (alarm[0]==-1) alarm[0] = ani_delay_c_place;
 				}
 				break;
 			}

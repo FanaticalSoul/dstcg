@@ -1,4 +1,4 @@
-/// @description start mulligan phase
+/// @description start mulligan phase ( 2 )
 global.phase_c_place = false;
 with (player.deck) if (alarm[0] == -1) alarm[0] = 1;
 global.phase_mulligan = true;

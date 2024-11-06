@@ -33,8 +33,12 @@
 
 
 
-
-
+// set ripple particle effect animation delay ( in frames )
+#macro ani_delay_ripple 25
+// set character placement animation delay ( in frames )
+#macro ani_delay_c_place ani_delay_ripple
+// set card draw animation delay ( in frames )
+#macro ani_delay_card_draw 8
 
 
 

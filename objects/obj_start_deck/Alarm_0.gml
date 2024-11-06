@@ -1,5 +1,7 @@
 /// @description draw opening hand
+
 if (player.hand_size < hand_max) {
-	scr_start_card_draw();
-	alarm[0] = card_draw_frame_delay; // wait [card_draw_frame_delay] frames then draw again loop this again
+	start_card_draw();
+	// wait [ani_delay_card_draw] frames then draw again loop this again
+	alarm[0] = ani_delay_card_draw;
 }

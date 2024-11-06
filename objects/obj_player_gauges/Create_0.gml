@@ -20,10 +20,14 @@ function increment_count (value, index, check_health = true, max_count = false) 
 	}
 	else {
 		var _split_str;
-		
 		if (is_array(value)) _split_str = string_split(value[0], " ", true, 1);
 		else if (is_string(value)) _split_str = string_split(value, " ", true, 1);
-		else _split_str = string_split(value.card_stats[0].name, " ", true, 1);
+		else {
+			//sout(value.card_stats);
+			_split_str = string_split(value.card_stats[0].name, " ", true, 1);
+		}
+		/*
+		else _split_str = "stamina";*/ // TF
 		
 		if (array_length(_split_str) > 1) {
 			if (_split_str[1] == "stamina") {

@@ -5,33 +5,25 @@
 
 function start_card_mulligan(player_id = id) {
 	with (player_id) {
+		var _flag = true; // valid mulligan
 		for (var i = 0; i < hand_size; i++) {
-			/*
-			if (struct_get(hand_card[i].card_stats[0],"type") == "equipment") {
-				if (struct_get(hand_card[i].card_stats[0],"attack") != "none") {
-					return; // this is an invalid mulligan
-				}
-			}
-			*/
-			sout("hand");
-			sout(hand);
-			//if (hand[i][0].type == "equipment") {
 			if (hand[i].card_stats[0].type == "equipment") {
 				// check if this is an invalid mulligan
-				if (hand[i].card_stats[0].attack != "none") return;
+				if (hand[i].card_stats[0].attack != "none") {
+					_flag = false;
+					break;
+				}
 			}
 		}
-		// take mulligan
-		while (hand_size > 0) {
-			start_card_return(deck,hand[hand_size-1].id);
-
-			//with (deck) {
-			//scr_start_card_return (player.hand_card[player.hand_size-1].id);
-			//}
-		}
-		with (deck) {
-			deck = scr_deck_shuffle (deck, deck_size, true);
-			if (alarm[0] == -1) alarm[0] = 1;
+		if (_flag) {
+			// take mulligan
+			while (hand_size > 0) {
+				start_card_return(deck,hand[hand_size-1].id);
+			}
+			with (deck) {
+				deck = scr_deck_shuffle (deck, deck_size, true);
+				if (alarm[0] == -1) alarm[0] = 1;
+			}
 		}
 	}
 	//return;
