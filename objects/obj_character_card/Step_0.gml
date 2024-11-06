@@ -22,7 +22,7 @@ if (is_mouse_over_card()) {
 	if (_overlay_fix) {
 		// press [ mouse left ] // make card dragable
 		if (mouse_check_button_pressed(mb_left) && global.phase_c_place) {
-			if (x == des_x && y == des_y) dragable = true;
+			if (x == des_x && y == des_y && obj_encounter.alarm[0] == -1) dragable = true;
 		}
 		// press [ mouse left ] // toggle selection
 		if (mouse_check_button_pressed(mb_left) && (
