@@ -1,9 +1,7 @@
 /// @description draw object
 for (var i = 0; i < discard_size; i++) {
-	if (discard[i]!="") { // existing cards
+	if (discard[i] != "") { // existing cards
 		if (discard_reveal) {
-			/*
-			//////////////// DO NOT DELETE THIS // WORK ON LATER
 			depth = -hand_max-1; // fixes bug with displaying over enemy cards
 			draw_sprite(spr_reveal_board,-1,player.x-card_width/2,discard_reveal_y); // draw background
 			var _above_hand_x = player.x+card_spacing+discard_reveal_offset*(card_width+card_spacing); // offset cards
@@ -29,7 +27,6 @@ for (var i = 0; i < discard_size; i++) {
 					}
 				}
 			}
-			*/
 		}
 		else {
 			depth = tmp_depth; // fixes bug with displaying over enemy cards

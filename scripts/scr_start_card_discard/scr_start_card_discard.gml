@@ -9,6 +9,7 @@ function start_card_discard (discard_id, card_id = id) {
 		// add card name to discard
 		discard[discard_size] = player.hand[card_id.hand_position].card_stats[0].name;
 		discard_size ++;
+		player.hand_offset = 0;
 		instance_destroy(card_id);
 	}
 	//return;
