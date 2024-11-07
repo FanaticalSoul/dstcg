@@ -3,7 +3,7 @@ global.game_data = {
 	room_data : {}
 };
 
-function save_room() {
+function save_game() {
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
 	var _struct;
@@ -159,7 +159,6 @@ function save_room() {
 		array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
-	////////////////////////////
 	// save players ( should be the last thing save and load )
 	with (_player_id) {
 		_struct = {
@@ -205,6 +204,32 @@ function save_room() {
 				}
 			}
 			else _struct.hand[i] = noone;
+		}
+		array_push(_save_data, _struct);
+	}
+	// save each enemy deck
+	
+	var _e_deck_ids = []; // get e_decks
+	for (var i = 0; i < board_size; i++) {
+		if (instance_exists(_save_data[0].i_board_e_card[i])) {
+			array_push(_e_deck_ids, _save_data[0].i_board_e_card[i].deck.id);
+		}
+	}
+	var _e_deck_id = _e_deck_ids[0]; // only use one e_deck
+	// save e_deck
+	with (_e_deck_id) {
+		_struct = {
+			id : id,
+			object : object_get_name(object_index),
+			layer : layer,
+			depth : depth,
+			x : x,
+			y : y,
+			deck : deck,
+			shuffled : shuffled,
+			enemy_count : enemy_count,
+			deck_size : deck_size
+		};
 		array_push(_save_data, _struct);
 	}
 	// save all this information
@@ -214,6 +239,7 @@ function save_room() {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
+/*
 function scr_room_load () {
 	var _save_data = struct_get(global.game_data.room_data, room_get_name(room));
 	// a save save exists
@@ -235,10 +261,10 @@ function scr_room_load () {
 	}
 
 }
-
-
+*/
+/*
 function scr_game_save () {//_player_id = obj_player) {
-	/*
+	
 	var _save_data = [];
 	var _struct = {
 		phase_c_place : global.phase_c_place,
@@ -260,8 +286,8 @@ function scr_game_save () {//_player_id = obj_player) {
 		};
 		array_push(_save_data, _struct);
 	}
-	*/
-	scr_save_room()
+	
+	//scr_save_room()
 	//player = obj_player;
 	//e_deck = obj_enemy_deck;
 	
@@ -270,7 +296,7 @@ function scr_game_save () {//_player_id = obj_player) {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
-
+*/
 
 
 
@@ -298,7 +324,7 @@ ini_close();
 deck_size = deck_min;
 */
 
-function scr_game_load () {
+function load_game () {
 	if (file_exists("save_system_test.txt")) {
 		var _save_r = file_text_open_read("save_system_test.txt");
 		var _save_data_str = file_text_read_string(_save_r);
@@ -323,16 +349,12 @@ function scr_game_load () {
 			obj_enemy_deck,
 			obj_enemy_card,
 		];
-
-		*/
 		//instance_destroy (obj_encounter);
+		//*/
 		for (var i = 0; i < array_length(_save_data); i++) {
 			var _struct = _save_data[i];
 			instance_create_layer(_struct.x,_struct.y,"Encounter_System", asset_get_index(_struct.object), _struct);
 		}
-		//*/
-		
-		
 		file_text_close(_save_r);
 	}
 }

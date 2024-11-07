@@ -49,7 +49,10 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 #macro discard_visable 5
 #macro hand_visable 5
 // set deck and discard spacing
-deck_spacing_width_in_pixels = 4;
-discard_spacing_width_in_pixels = deck_spacing_width_in_pixels;
-#macro deck_spacing deck_spacing_width_in_pixels / max_deck
-#macro discard_spacing discard_spacing_width_in_pixels / max_deck
+//deck_spacing_width_in_pixels = 4;
+//discard_spacing_width_in_pixels = deck_spacing_width_in_pixels;
+#macro deck_spacing (4 / max_deck) // 4 pixels
+#macro discard_spacing deck_spacing
+// enemy deck set
+#macro e_deck_max 20
+#macro e_deck_spacing (6 / e_deck_max) // 6 pixels

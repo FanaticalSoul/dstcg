@@ -1,14 +1,16 @@
 /// @description set varibles
 
 // initalize varibles
-deck_size = 0;
-enemy_count = 0; // enemy cards currently in play
+//deck_size = 0;
+//enemy_count = 0; // enemy cards currently in play
 // set varibles
 //enemy_card_stats = scr_enemy_card_stats_set(); // enemy card stats
-deck_spacing = deck_spacing_width_in_pixels / deck_max;
+//deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
-for (var i = 0; i < deck_max; i++) {
-	deck[i] = "";
+for (var i = 0; i < e_deck_max; i++) {
+	if (is_undefined(deck[i])) {
+		deck[i] = "";
+	}
 }
 var i = 0;
 for (i = 0; i < array_length(deck_load); i++) {
