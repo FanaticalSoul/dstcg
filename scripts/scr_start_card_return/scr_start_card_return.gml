@@ -13,8 +13,10 @@ function start_card_return (deck_id, card_id = id) {
 		deck[deck_size][0] = card_id.card_stats[0].name;
 		deck[deck_size][1] = true;
 		deck_size ++;
-		// CiD
+		// CiD // WoL
 		instance_destroy(card_id);
+		
+		
 		/*
 		if (card_id.alarm[2] == -1) {
 			sout("start card returned");

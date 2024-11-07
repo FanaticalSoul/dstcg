@@ -29,16 +29,6 @@ for (var i = 0; i < deck_size; i++) {
 			depth = tmp_depth;
 			// show card in deck if revealed
 			if (deck[i][1] || deck_reveal_full) {
-				/*
-				var _sprite = spr_start_card_sm_back;
-				for (var j = 0; j < array_length(start_card_stats); j++) {
-					if (struct_get(start_card_stats[j][0],"name") == deck[i][0]) {
-						_sprite = struct_get(start_card_stats[j][0],"image");
-						break;
-					}
-				}
-				draw_sprite(_sprite,-1,x+i*deck_spacing,y-i*deck_spacing);
-				*/
 				draw_sprite(struct_get(global.start_card_spr_sm, discard[i]),-1,x+i*deck_spacing,y-i*deck_spacing);
 			}
 			// show card back if not revealed

@@ -2,7 +2,6 @@
 
 // only start updating when the game starts
 if (!(global.phase_c_place || global.phase_mulligan)) {
-	sout("stop it");
 	if (instance_exists(player)) {
 		if (
 			instance_exists(player.discard) &&
@@ -12,10 +11,6 @@ if (!(global.phase_c_place || global.phase_mulligan)) {
 			// update stamina count
 			health_count  = 0;
 			stamina_count = 0;
-			//sout("hand info");
-			//sout(["player exists",instance_exists(player)]);
-
-			//sout(player.hand_size);
 			var _card_zones = [
 				[player.deck.deck,player.deck.deck_size],
 				[player.hand,player.hand_size]

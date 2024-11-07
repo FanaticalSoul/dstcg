@@ -23,4 +23,8 @@ else scr_start_card_unselect ();
 //ani_act_draw = false;
 path_start(pth_start_deck_return,path_speed,path_action_stop,true);
 */
-instance_destroy(id);
+
+//instance_destroy(id);
+
+
+path_start(pth_start_deck_return,path_speed,path_action_stop,true);

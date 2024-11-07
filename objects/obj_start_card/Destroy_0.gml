@@ -1,10 +1,10 @@
 /// @description remove card from hand and unselect card
 
 sout("destroyed card");
+// create a remove from hand method
 if (hand_position != -1) {
 	// remove card from hand
 	array_delete(player.hand,hand_position,1);
-	//array_delete(player.hand_card,hand_position,1);
 	player.hand_size --;
 	// move all cards over in hand
 	for (var i = hand_position; i < player.hand_size; i++) {
