@@ -29,7 +29,7 @@ for (var i = 0; i < deck_size; i++) {
 			depth = tmp_depth;
 			// show card in deck if revealed
 			if (deck[i][1] || deck_reveal_full) {
-				draw_sprite(struct_get(global.start_card_spr_sm, discard[i]),-1,x+i*deck_spacing,y-i*deck_spacing);
+				draw_sprite(struct_get(global.start_card_spr_sm, deck[i][0]),-1,x+i*deck_spacing,y-i*deck_spacing);
 			}
 			// show card back if not revealed
 			else draw_sprite(spr_start_card_sm_back,-1,x+i*deck_spacing,y-i*deck_spacing);
