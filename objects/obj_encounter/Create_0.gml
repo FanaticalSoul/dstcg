@@ -67,3 +67,4 @@ for (var iy = 0; iy < board_rows; iy++) {
 }
 // log phase start
 if (i_phase_c_place) sout("phase 1 - character placement");
+sout(global.board_c_card);

@@ -10,14 +10,13 @@ function save_game() {
 	// set encounter and cards on board
 	with (obj_encounter) {
 		_struct = {
-			id : id,
+			//id : id,
 			object : object_get_name(object_index),
 			layer : layer,
 			depth : depth,
 			x : x,
 			y : y,
-			player : player,
-			i_phase_c_place : global.phase_c_place,
+			//player : player,
 			i_phase_c_place : global.phase_c_place,
 			i_phase_e_place : global.phase_e_place,
 			i_phase_e_act : global.phase_e_act,
@@ -30,12 +29,13 @@ function save_game() {
 		};
 		for (var i = 0; i < board_size; i++) {
 			// set character cards on board
-			if (instance_exists(global.board_c_card[i])) {
+			//if (instance_exists(global.board_c_card[i])) {
+			if (global.board_c_card[i] != noone) {
 				with (global.board_c_card[i]) {
 					// set structure of character card
 					var _struct_child = {
 						// information on a card
-						id : id,
+						id : player.character.id,
 						object : object_get_name(object_index),
 						layer : layer,
 						depth : depth,
@@ -58,7 +58,8 @@ function save_game() {
 			}
 			else _struct.i_board_c_card[i] = noone;
 			// set enemy cards on board
-			if (instance_exists(global.board_e_card[i])) {
+			//if (instance_exists(global.board_e_card[i])) {
+			if (global.board_e_card[i] != noone) {
 				with (global.board_e_card[i]) {
 					// set structure of enemy card
 					var _struct_child = {
@@ -95,7 +96,8 @@ function save_game() {
 	// get players
 	var _player_ids = [];
 	for (var i = 0; i < board_size; i++) {
-		if (instance_exists(_save_data[0].i_board_c_card[i])) {
+		//if (instance_exists(_save_data[0].i_board_c_card[i])) {
+		if (_save_data[0].i_board_c_card[i] != noone) {
 			array_push(_player_ids, _save_data[0].i_board_c_card[i].player.id);
 		}
 	}
@@ -122,7 +124,8 @@ function save_game() {
 	// get associated character card
 	for (var i = 0; i < board_size; i++) {
 		// could be a loop within a loop when multiple players are involved
-		if (instance_exists(_save_data[0].i_board_c_card[i])) {
+		//if (instance_exists(_save_data[0].i_board_c_card[i])) {
+		if (_save_data[0].i_board_c_card[i] != noone) {
 			if (_save_data[0].i_board_c_card[i].player.id == _player_id) {
 				array_push(_associated_ids, _save_data[0].i_board_c_card[i].id);
 			}
@@ -182,7 +185,8 @@ function save_game() {
 		// set hand cards
 		for (var i = 0; i < hand_size; i++) {
 			// set character cards on board
-			if (instance_exists(hand[i])) {
+			//if (instance_exists(hand[i])) {
+			if (hand[i] != noone) {
 				with (hand[i]) {
 					// set structure of start card
 					var _struct_child = {
@@ -236,6 +240,19 @@ function save_game() {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 function scr_room_load () {
 	var _save_data = struct_get(global.game_data.room_data, room_get_name(room));
@@ -348,10 +365,54 @@ function load_game () {
 		];
 		//instance_destroy (obj_encounter);
 		//*/
-		for (var i = 0; i < array_length(_save_data); i++) {
-			var _struct = _save_data[i];
-			instance_create_layer(_struct.x,_struct.y,"Encounter_System", asset_get_index(_struct.object), _struct);
+		
+		
+		// load globals
+		var _struct = _save_data[0];
+		var _i_board_c_card = [];
+		for (var i = 0; i < array_length(_struct.i_board_c_card); i++) {
+			if (is_struct(_struct.i_board_c_card[i])) {
+				// if character card exists
+				array_push(_i_board_c_card, _struct.i_board_c_card[i].id);
+			}
+			else array_push(_i_board_c_card, noone);
 		}
+		
+		var _i_board_e_card = [];
+		for (var i = 0; i < array_length(_struct.i_board_e_card); i++) {
+			if (is_struct(_struct.i_board_e_card[i])) {
+				// if enemy card exists
+				array_push(_i_board_e_card, _struct.i_board_e_card[i].id);
+			}
+			else array_push(_i_board_e_card, noone);
+		}
+		instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
+			//id : _struct.id,
+			depth : _struct.depth,
+			//player : _struct.player.id,
+			i_phase_c_place : _struct.i_phase_c_place,
+			i_phase_e_place : _struct.i_phase_e_place,
+			i_phase_e_act : _struct.i_phase_e_act,
+			i_phase_c_act :_struct.i_phase_c_act,
+			i_phase_mulligan : _struct.i_phase_mulligan,
+			i_phase_react : _struct.i_phase_react,
+			i_board_c_card : _i_board_c_card,
+			i_board_e_card : _i_board_e_card,
+			i_random_seed : _struct.i_random_seed
+		});
+		
+			
+		
+		/*
+		// DO NOT REMOVE //
+		for (var i = 0; i < array_length(_save_data); i++) {
+			sout("loading...");
+			var _struct = _save_data[i];
+			sout(_struct);
+			sout([_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object)]);
+			instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), _struct);
+		}
+		*/
 		file_text_close(_save_r);
 	}
 }
