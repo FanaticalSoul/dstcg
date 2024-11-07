@@ -68,19 +68,3 @@ function get_csc (stamina_cost) {
 	return int64(_converted_stamina_cost);
 }
 
-
-/// @function					card_unselect([player_id]);
-/// @param {id} player_id		id of player
-/// @description				unselect all of the player's cards
-
-function card_unselect(player_id = id) {
-	with (player_id) {
-		if (character.selected) character.selected = false;
-		while (array_length(selection_stamina) > 0) {
-			with (selection_stamina[0]) scr_start_card_stamina_unselect();
-		}
-		while (array_length(selection) > 0) {
-			with (selection[0]) scr_start_card_unselect();
-		}
-	}
-}

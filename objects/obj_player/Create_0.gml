@@ -1,6 +1,6 @@
 /// @description create character, deck, hand, and phases
 
-
+// (re)set offset
 hand_offset = 0;
 // create assossated deck
 if (!instance_exists(deck) && alarm[0] == -1) alarm[0] = 1;
