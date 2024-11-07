@@ -144,13 +144,13 @@ function save_game() {
 		array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
-	// save assossiated gauge
-	with (_player_id.gauge) {
+	// save assossiated gauges
+	with (_player_id.gauges) {
 		_struct = {
 			id : id,
 			object : object_get_name(object_index),
 			layer : layer,
-			depth : tmp_depth,
+			depth : depth,
 			x : x,
 			y : y,
 			player : _player_id,
@@ -208,14 +208,11 @@ function save_game() {
 		array_push(_save_data, _struct);
 	}
 	// save each enemy deck
-	
-	var _e_deck_ids = []; // get e_decks
-	for (var i = 0; i < board_size; i++) {
-		if (instance_exists(_save_data[0].i_board_e_card[i])) {
-			array_push(_e_deck_ids, _save_data[0].i_board_e_card[i].deck.id);
-		}
+	var _e_deck_ids = [];
+	for (var i = 0; i < instance_number(obj_enemy_deck); i++) {
+	    array_push(_e_deck_ids, instance_find(obj_enemy_deck, i));
 	}
-	var _e_deck_id = _e_deck_ids[0]; // only use one e_deck
+	var _e_deck_id = _e_deck_ids[0];
 	// save e_deck
 	with (_e_deck_id) {
 		_struct = {
