@@ -113,7 +113,7 @@ function save_game() {
 			y : y,
 			player : _player_id,
 			shuffled : shuffled,
-			deck : deck,
+			deck_load : deck_load,
 			deck_size : deck_size
 		};
 		array_push(_associated_ids, _struct);
@@ -138,7 +138,7 @@ function save_game() {
 			x : x,
 			y : y,
 			player : _player_id,
-			discard : discard,
+			discard_load : discard_load,
 			discard_size : discard_size
 		};
 		array_push(_associated_ids, _struct);
@@ -225,7 +225,7 @@ function save_game() {
 			depth : depth,
 			x : x,
 			y : y,
-			deck : deck,
+			deck_load : deck,
 			shuffled : shuffled,
 			enemy_count : enemy_count,
 			deck_size : deck_size

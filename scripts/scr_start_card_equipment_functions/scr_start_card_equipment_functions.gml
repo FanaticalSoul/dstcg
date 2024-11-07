@@ -217,7 +217,8 @@ function scr_post_effect (card_id, _standard_action) {
 	}
 	// TF
 	// unselect this equipment
-	with (card_id) scr_start_card_unselect ();
+	//with (card_id) scr_start_card_unselect ();
+	start_card_unselect(card_id);
 	// exit payment state
 	return false;
 }

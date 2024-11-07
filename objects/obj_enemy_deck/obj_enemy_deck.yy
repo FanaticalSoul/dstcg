@@ -27,7 +27,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"deck","filters":[],"listItems":[
+    {"$GMObjectProperty":"v1","%Name":"deck_load","filters":[],"listItems":[
         "\"ghru leaper\"",
         "\"irithyllian beast hound\"",
         "\"winged corvian\"",
@@ -36,7 +36,7 @@
         "\"ghru leaper\"",
         "\"crossbow grave warden\"",
         "\"grave warden\"",
-      ],"multiselect":true,"name":"deck","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"ghru leaper\", \"irithyllian beast hound\", \"ghru leaper\"","varType":6,},
+      ],"multiselect":true,"name":"deck_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"ghru leaper\", \"irithyllian beast hound\", \"ghru leaper\"","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"shuffled","filters":[],"listItems":[],"multiselect":false,"name":"shuffled","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"deck_size","filters":[],"listItems":[],"multiselect":false,"name":"deck_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"enemy_count","filters":[],"listItems":[],"multiselect":false,"name":"enemy_count","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},

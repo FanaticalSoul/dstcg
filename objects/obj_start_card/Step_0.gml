@@ -44,7 +44,8 @@ if (hand_position != -1) {
 							if (player.selection[0] == id) {
 								// if card selected was the equipment
 								player.pay_stamina = false;
-								with (player.selection[0]) scr_start_card_unselect ();
+								//with (player.selection[0]) start_card_unselect ();
+								start_card_unselect(player.selection[0]);
 							}
 						}
 					}
@@ -52,7 +53,7 @@ if (hand_position != -1) {
 						// select or unselect card
 						selected = !selected;
 						if (selected) player.selection[array_length(player.selection)] = id;
-						else scr_start_card_unselect ();
+						else start_card_unselect();
 					}
 				}
 				// resolve damage //

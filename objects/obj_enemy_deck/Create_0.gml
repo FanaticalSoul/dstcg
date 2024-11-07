@@ -7,15 +7,10 @@
 //enemy_card_stats = scr_enemy_card_stats_set(); // enemy card stats
 //deck_spacing = deck_spacing_width_in_pixels / deck_max;
 // prevent errors for decks smaller than the max size of deck
-for (var i = 0; i < e_deck_max; i++) {
-	if (is_undefined(deck[i])) {
-		deck[i] = "";
-	}
-}
+//sout(["edeck",deck]);
+for (var i = 0; i < e_deck_max; i++) deck[i] = "";
 var i = 0;
-for (i = 0; i < array_length(deck_load); i++) {
-	deck[i] = deck_load[i];
-}
+for (i = 0; i < array_length(deck_load); i++) deck[i] = deck_load[i];
 deck_size = i;
 // initalize varibles for enemies on board
 /*

@@ -31,7 +31,7 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"player","filters":[],"listItems":[],"multiselect":false,"name":"player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
     {"$GMObjectProperty":"v1","%Name":"discard_size","filters":[],"listItems":[],"multiselect":false,"name":"discard_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"discard","filters":[],"listItems":[],"multiselect":false,"name":"discard","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"discard_load","filters":[],"listItems":[],"multiselect":false,"name":"discard_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

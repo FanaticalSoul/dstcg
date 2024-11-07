@@ -31,10 +31,12 @@ for (var iy = 0; iy < board_rows; iy++) {
 	}
 }
 // set character board cards
+//sout(["ibc",i_board_c_card]);
 i = 0;
 for (var iy = 0; iy < board_rows; iy++) {
 	for (var ix = 0; ix < board_cols; ix++) {
-		if (is_undefined(i_board_c_card[i])) global.board_c_card[i] = noone;
+		if (i>=array_length(i_board_c_card)) global.board_c_card[i] = noone;
+		else if (is_undefined(i_board_c_card[i])) global.board_c_card[i] = noone;
 		else global.board_c_card[i] = i_board_c_card[i];
 		i++;
 	}
@@ -57,7 +59,8 @@ i = 0;
 for (var iy = 0; iy < board_rows; iy++) {
 	for (var ix = 0; ix < board_cols; ix++) {
 		// set non-existant enemy on board
-		if (is_undefined(i_board_e_card[i])) global.board_e_card[i] = noone;
+		if (i>=array_length(i_board_e_card)) global.board_e_card[i] = noone;
+		else if (is_undefined(i_board_e_card[i])) global.board_e_card[i] = noone;
 		else global.board_e_card[i] = i_board_e_card[i];
 		i++;
 	}

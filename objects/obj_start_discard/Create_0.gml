@@ -13,10 +13,9 @@ cycle_size = 0; // used to keep track of cards being cycled
 tmp_depth = depth; // fixes bug with displaying over enemy cards
 //discard_spacing = discard_spacing_width_in_pixels / max_deck;
 // set all discard cards to be empty
-for (var i = 0; i < max_deck; i++) {
-	if (is_undefined(discard[i])) {
-		discard[i] = "";
-	}
-}
+for (var i = 0; i < max_deck; i++) discard[i] = "";
+var i = 0;
+for (i = 0; i < array_length(discard_load); i++) discard[i] = discard_load[i];
+discard_size = i;
 // log creation
 sout("created discard");
