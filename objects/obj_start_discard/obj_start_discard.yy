@@ -29,10 +29,9 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"discard_spacing_width_in_pixels","filters":[],"listItems":[],"multiselect":false,"name":"discard_spacing_width_in_pixels","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"discard_visable","filters":[],"listItems":[],"multiselect":false,"name":"discard_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"player","filters":[],"listItems":[],"multiselect":false,"name":"player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
-    {"$GMObjectProperty":"v1","%Name":"deck","filters":[],"listItems":[],"multiselect":false,"name":"deck","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"discard_size","filters":[],"listItems":[],"multiselect":false,"name":"discard_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"discard","filters":[],"listItems":[],"multiselect":false,"name":"discard","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -22,10 +22,4 @@ if (mouse_check_button_released(mb_left)) {
 		}
 		else ini_close();
 	}
-	else if (step == 3) {
-	
-	}
-	else {
-		
-	}
 }

@@ -41,7 +41,6 @@
     {"$GMObjectProperty":"v1","%Name":"ani_act_flip","filters":[],"listItems":[],"multiselect":false,"name":"ani_act_flip","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"ani_fin_flip","filters":[],"listItems":[],"multiselect":false,"name":"ani_fin_flip","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"wounds","filters":[],"listItems":[],"multiselect":false,"name":"wounds","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"variable_name","filters":[],"listItems":[],"multiselect":false,"name":"variable_name","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"conditions","filters":[],"listItems":[
         "\"bleed\"",
         "\"frostbite\"",

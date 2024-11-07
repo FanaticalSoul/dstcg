@@ -17,6 +17,9 @@ if (instance_exists(player)) {
 							if (!_flag) break;
 						}
 						if (_flag) {
+							// save game
+							save_room(); // TF
+							// start mulligan phase
 							global.phase_mulligan = true;
 							sout("phase 2 - mulligans");
 						}

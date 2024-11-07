@@ -34,9 +34,10 @@
   ],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"deck_spacing_width_in_pixels","filters":[],"listItems":[],"multiselect":false,"name":"deck_spacing_width_in_pixels","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"deck_visable","filters":[],"listItems":[],"multiselect":false,"name":"deck_visable","rangeEnabled":false,"rangeMax":4.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"5","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"player","filters":[],"listItems":[],"multiselect":false,"name":"player","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"noone","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"deck","filters":[],"listItems":[],"multiselect":false,"name":"deck","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"shuffled","filters":[],"listItems":[],"multiselect":false,"name":"shuffled","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"deck_size","filters":[],"listItems":[],"multiselect":false,"name":"deck_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

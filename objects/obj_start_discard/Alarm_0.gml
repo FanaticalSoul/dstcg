@@ -1,6 +1,7 @@
 /// @description cycle draw
+
 if (cycle_size > 0) {
-	with (deck) start_card_draw();
+	start_card_draw(player.deck);
 	cycle_size --;
-	alarm[0] = deck.card_draw_frame_delay; // wait [card_draw_frame_delay] frames then draw again loop this again
+	alarm[0] = ani_delay_card_draw; // wait [ani_delay_card_draw] frames then draw again loop this again
 }
