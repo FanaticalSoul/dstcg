@@ -239,10 +239,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 			depth : depth,
 			x : x,
 			y : y,
-			deck : player_id.deck,
-			character : player_id.character,
-			discard : player_id.discard,
-			gauges : player_id.gauges,
+			deck_load : player_id.deck_load,
+			character_load : player_id.character_load,
+			discard_load : player_id.discard_load,
 			hand_size : hand_size,
 			hand : [],
 			act_cycle : act_use_equip,
@@ -320,6 +319,7 @@ function load_game () {
 		// load globals
 		var _struct = _save_data[0];
 		// character board
+		var _character_ids = [];
 		var _i_board_c_card = [];
 		for (var i = 0; i < array_length(_struct.i_board_c_card); i++) {
 			if (is_struct(_struct.i_board_c_card[i])) {
@@ -327,6 +327,7 @@ function load_game () {
 				// create character card and add it's id to the board
 				var _character_id = instance_create_struct(_struct.i_board_c_card[i]);
 				array_push(_i_board_c_card, _character_id);
+				array_push(_character_ids, _character_id);
 			}
 			else array_push(_i_board_c_card, noone);
 		}
@@ -391,7 +392,7 @@ function load_game () {
 		// create player
 		if (_player_save_index != -1) {
 			sout("made player");
-			var _player_id = player_create_struct(_save_data[_player_save_index], _tmp_struct);
+			var _player_id = player_create_struct(_save_data[_player_save_index], _tmp_struct, _character_ids);
 		}
 		
 		
@@ -430,7 +431,7 @@ function instance_create_struct (struct_id) {
 	//sout (struct_id);
 	return instance_create_layer(_x, _y, _layer_id, _object_id, struct_id);
 }
-function player_create_struct (struct_id_1, struct_id_2) {
+function player_create_struct (struct_id_1, struct_id_2, character_ids) {
 	var _x = struct_id_1.x;
 	var _y = struct_id_1.y;
 	var _layer_id = layer_get_id(struct_id_1.layer);
@@ -442,6 +443,15 @@ function player_create_struct (struct_id_1, struct_id_2) {
 	struct_set(struct_id_1, "deck", struct_id_2.start_deck);
 	struct_set(struct_id_1, "discard", struct_id_2.start_discard);
 	struct_set(struct_id_1, "gauges", struct_id_2.player_gauges);
+	var _character_id = undefined;
+	for (var i = 0; i < array_length(character_ids); i++) {
+		if (character_ids[i].character == struct_id_1.character_load) {
+			// if the character id matches the character the player picked
+			_character_id = character_ids[i];
+			break;
+		}
+	}
+	struct_set(struct_id_1, "character", _character_id);
 	// load each card in hand
 	
 	// save card id's to hand
@@ -469,6 +479,7 @@ function player_create_struct (struct_id_1, struct_id_2) {
 	struct_id_1.deck.player = _player_id;
 	struct_id_1.discard.player = _player_id;
 	struct_id_1.gauges.player = _player_id;
+	_character_id.player = _player_id;
 	for (var i = 0; i < array_length(_hand_array); i++) {
 		if (_hand_array[i] != noone) {
 			_hand_array[i].player = _player_id;
