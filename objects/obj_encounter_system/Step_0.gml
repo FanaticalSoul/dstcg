@@ -31,7 +31,7 @@ if (instance_exists(player)) {
 		
 		// end damage phase
 		if (global.phase_e_act && !global.phase_react && player.character.damage_taken == 0) {
-			with (obj_encounter) {
+			with (obj_encounter_system) {
 				if (alarm[4] == -1) {
 					if (card_placement-1 >= 0) {
 						var _prior_enemy = global.board_e_card[card_placement-1];

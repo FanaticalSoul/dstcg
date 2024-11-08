@@ -23,7 +23,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 		if (_overlay_fix) {
 			// press [ mouse left ] // make card dragable
 			if (mouse_check_button_pressed(mb_left) && global.phase_c_place) {
-				if (x == des_x && y == des_y && obj_encounter.alarm[0] == -1) dragable = true;
+				if (x == des_x && y == des_y && obj_encounter_system.alarm[0] == -1) dragable = true;
 			}
 			// press [ mouse left ] // toggle selection
 			if (mouse_check_button_pressed(mb_left) && (

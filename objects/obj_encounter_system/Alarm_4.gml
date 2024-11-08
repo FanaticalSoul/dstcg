@@ -3,11 +3,11 @@
 if (global.phase_e_act) {
 	with (e_deck) {
 		// stop denoting prior enemy as attacking
-		var _prior_enemy = global.board_e_card[max(0,obj_encounter.card_placement-1)];
+		var _prior_enemy = global.board_e_card[max(0,obj_encounter_system.card_placement-1)];
 		if (instance_exists(_prior_enemy)) _prior_enemy.attack_animation = false;
 		// check if enemy is within bounds
-		if (obj_encounter.card_placement < enemy_max) {
-			var _enemy = global.board_e_card[obj_encounter.card_placement];
+		if (obj_encounter_system.card_placement < enemy_max) {
+			var _enemy = global.board_e_card[obj_encounter_system.card_placement];
 			if (instance_exists(_enemy)) {
 				_enemy.attack_animation = true;
 				// do attack animation
@@ -15,7 +15,7 @@ if (global.phase_e_act) {
 				// activate enemy
 				_enemy.card_stats.play_script(_enemy.id);
 			}
-			with (obj_encounter) {
+			with (obj_encounter_system) {
 				// do not loop this method
 				card_placement++;
 				// skip activations of non-existant enemies
@@ -25,11 +25,11 @@ if (global.phase_e_act) {
 				}
 			}
 		}
-		else if (obj_encounter.alarm[5] == -1) {
+		else if (obj_encounter_system.alarm[5] == -1) {
 			if (instance_exists(_prior_enemy)) {
-				obj_encounter.alarm[5] = _prior_enemy.ani_delay_attack;
+				obj_encounter_system.alarm[5] = _prior_enemy.ani_delay_attack;
 			}
-			else obj_encounter.alarm[5] = 1;
+			else obj_encounter_system.alarm[5] = 1;
 		}
 	}
 }

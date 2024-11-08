@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
 // lives
 // inventory
 /*
@@ -20,3 +19,4 @@ global.large_struct = {
 	}
 }
 */
+sout("made save system");

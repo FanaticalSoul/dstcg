@@ -99,7 +99,7 @@
     {"id":{"name":"txt_sources","path":"notes/txt_sources/txt_sources.yy",},},
     {"id":{"name":"txt_tmp_documentation","path":"notes/txt_tmp_documentation/txt_tmp_documentation.yy",},},
     {"id":{"name":"obj_character_card","path":"objects/obj_character_card/obj_character_card.yy",},},
-    {"id":{"name":"obj_encounter","path":"objects/obj_encounter/obj_encounter.yy",},},
+    {"id":{"name":"obj_encounter_system","path":"objects/obj_encounter_system/obj_encounter_system.yy",},},
     {"id":{"name":"obj_enemy_card","path":"objects/obj_enemy_card/obj_enemy_card.yy",},},
     {"id":{"name":"obj_enemy_deck","path":"objects/obj_enemy_deck/obj_enemy_deck.yy",},},
     {"id":{"name":"obj_macros","path":"objects/obj_macros/obj_macros.yy",},},

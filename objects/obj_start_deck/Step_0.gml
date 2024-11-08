@@ -17,7 +17,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 			// don't take mulligan
 			if (global.phase_mulligan) {
 				// go to next phase of game
-				with (obj_encounter) {
+				with (obj_encounter_system) {
 					if (alarm[1] == -1) alarm[1] = 1;
 				}
 			}

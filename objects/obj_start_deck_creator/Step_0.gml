@@ -13,22 +13,19 @@ mouse_x >= x && mouse_x <= sprite_width) {
 		if (mouse_wheel_down() && selection_offset > -(filtered_selection_size-cards_visable)) selection_offset -= 1; // decrement hand view
 	}
 	// on mouse hover // display card in visual spoiler
-	for (var _i = 0; _i < cards_visable; _i++) {
+	for (var i = 0; i < cards_visable; i++) {
 		if (
-			mouse_x > card_spacing+_i*(card_width+card_spacing) && 
-			mouse_x <= card_width+card_spacing+_i*(card_width+card_spacing) && 
+			mouse_x > card_spacing+i*(card_width+card_spacing) && 
+			mouse_x <= card_width+card_spacing+i*(card_width+card_spacing) && 
 			mouse_y > card_spacing && 
 			mouse_y <= card_height+card_spacing
 		) {
 			// get the stats of the card being hovered over
 			var _over_card = undefined;
-			if (selection_filter = "") _over_card = selection[abs(selection_offset)+_i];
-			else _over_card = filtered_selection[abs(selection_offset)+_i];
+			if (selection_filter = "") _over_card = selection[abs(selection_offset)+i];
+			else _over_card = filtered_selection[abs(selection_offset)+i];
 			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
 			if (is_array(_over_card_stats)) {
-				sout("array");
-				sout(_over_card_stats);
-				
 				// set the visual spoiler to show the card being hovered over
 				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;

@@ -10,12 +10,36 @@ global.game_data = {
 /// @description				load the created deck and character, phases ect...
 ///								this will later be used to load the player into the map ( WoL )
 
-function start_new_game () {
+function start_new_game() {
+	sout("start new game");
+	// load deck information
+	ini_open("start_deck.ini");
+	var _deck_load = [];
+	var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
+	for (var i = 0; i < _deck_size; i++) {
+		var _start_card = ini_read_string("deck",string(i),"");
+		array_push(_deck_load, [_start_card, false]);
+	}
+	ini_close();
+	// load character information
+	var _character_load = "herald";
+	// create player
+	var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
+		character_load : _character_load,
+		deck_load : _deck_load
+	});
+	// generate encounter from drawn encounter card // WoL
 	
-	// load start deck
-	
-	// load character // WoL // default to herald for now ( use string only )
-	
+	_deck_load = [];
+	instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
+		deck_load : _deck_load,
+		deck_size :
+	});
+	// create encounter system //
+	instance_create_layer(0, 0, "Encounter_System", obj_encounter_system, {
+		player : _player_id
+	});
+	// save
 }
 
 /// @function					save_start_deck(start_deck,[deck_size]);
@@ -26,6 +50,7 @@ function save_start_deck (start_deck, deck_size = deck_min) {
 	for (var i = 0; i < deck_size; i++) {
 		ini_write_string("deck",string(i),start_deck[i]);
 	}
+	ini_write_string("deck_size", string(0), deck_size);
 	ini_close();
 }
 
@@ -35,11 +60,12 @@ function save_start_deck (start_deck, deck_size = deck_min) {
 
 
 function save_game () {
+	sout("save game");
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
 	var _struct;
 	// set encounter and cards on board
-	with (obj_encounter) {
+	with (obj_encounter_system) {
 		_struct = {
 			//id : id,
 			object : object_get_name(object_index),
@@ -273,6 +299,7 @@ function save_game () {
 }
 
 function load_game () {
+	sout("load game");
 	if (file_exists("save_system_test.txt")) {
 		var _save_r = file_text_open_read("save_system_test.txt");
 		var _save_data_str = file_text_read_string(_save_r);

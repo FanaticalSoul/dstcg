@@ -1,5 +1,8 @@
 /// @description create macros and globals
 
+
+global.new_game = false;
+
 // set card demensions
 #macro max_deck 40 // max deck size
 #macro card_width 32 // card width
@@ -41,6 +44,7 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 #macro start_discard_cords [start_deck_cords[0],start_deck_cords[1]+card_height+card_spacing]
 #macro start_player_cords [16,320]
 #macro player_gauges_cords [8,52]
+#macro e_deck_cords [144,264]
 // reveal zone placements
 #macro start_deck_reveal_cords [start_player_cords[0]-card_width/2,start_player_cords[1]-card_height-card_spacing*3/4]
 #macro start_discard_reveal_cords [start_deck_reveal_cords[0],start_deck_reveal_cords[1]]
@@ -55,4 +59,4 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 #macro discard_spacing deck_spacing
 // enemy deck set
 #macro e_deck_max 20
-#macro e_deck_spacing (6 / e_deck_max) // 6 pixels
+#macro e_deck_spacing (6 / e_deck_max)

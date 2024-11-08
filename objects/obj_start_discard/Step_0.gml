@@ -15,7 +15,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 		// press [ mouse left ] // take mulligan
 		if (mouse_check_button_pressed(mb_left) && global.phase_mulligan) {
 			start_card_mulligan(player); // take mulligan
-			with (obj_encounter) {
+			with (obj_encounter_system) {
 				// take mulligan
 				if (alarm[1] == -1) alarm[1] = 1;
 			}
