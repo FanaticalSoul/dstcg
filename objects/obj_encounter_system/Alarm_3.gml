@@ -13,5 +13,6 @@ if (global.phase_e_act && alarm[4] == -1) {
 	}
 	// activate card
 	sout("the next phase has been removed temporarily");
+	//global.phase_e_act = false;
 	//TR//alarm[4] = e_deck.card_draw_frame_delay;
 }

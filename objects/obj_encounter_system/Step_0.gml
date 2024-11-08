@@ -8,15 +8,16 @@ if (instance_exists(player)) {
 		!global.phase_e_act && !global.phase_react && !global.phase_c_act) {
 			// start mulligan phase ( 2 )
 			if (instance_exists(e_deck)) {
-				if (e_deck.deck_size > 0 && get_enemy_count() == 0) {
-					// if no cards have been drawn from the enemy deck
-					if (player.hand_size == hand_max) {
-						var _flag = true;
-						for (var i = 0; i < player.hand_size; i++) {
-							with (player.hand[i]) if (!(x==des_x && y==des_y)) _flag = false;
-							if (!_flag) break;
-						}
-						if (_flag) {
+				if (player.hand_size == hand_max) {
+					var _flag = true;
+					for (var i = 0; i < player.hand_size; i++) {
+						with (player.hand[i]) if (!(x==des_x && y==des_y)) _flag = false;
+						if (!_flag) break;
+					}
+					// if all cards in hand are correctly positioned
+					if (_flag) {
+						// if no cards have been drawn from the enemy deck
+						if (e_deck.deck_size > 0 && get_enemy_count() == 0) {
 							// start mulligan phase
 							global.phase_mulligan = true;
 							sout("phase 2 - mulligans");
@@ -33,6 +34,13 @@ if (instance_exists(player)) {
 								}
 							}
 						}
+						/*
+						else if (global.phase_e_act) {
+							// start player activation phase
+							sout("here");
+							
+						}
+						*/
 					}
 				}
 			}
@@ -51,6 +59,20 @@ if (instance_exists(player)) {
 						else alarm[4] = ani_delay_ripple; // set this to the ripple effect speed // WoL
 					}
 					else alarm[4] = ani_delay_ripple; // set this to the ripple effect speed // WoL
+					/*
+					// TF // WoL
+					if (player.hand_size == hand_max && global.phase_e_act && alarm[4] == -1) {
+						var _flag = true;
+						for (var i = 0; i < player.hand_size; i++) {
+							with (player.hand[i]) if (!(x==des_x && y==des_y)) _flag = false;
+							if (!_flag) break;
+						}
+						if (_flag) {
+							sout("here");
+							global.phase_e_act = false;
+						}
+					}
+					*/
 				}
 			}
 		}
