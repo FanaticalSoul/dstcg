@@ -43,6 +43,7 @@
     {"$GMObjectProperty":"v1","%Name":"act_attack","filters":[],"listItems":[],"multiselect":false,"name":"act_attack","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"v1","%Name":"deck_load","filters":[],"listItems":[],"multiselect":false,"name":"deck_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"character_load","filters":[],"listItems":[],"multiselect":false,"name":"character_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
+    {"$GMObjectProperty":"v1","%Name":"discard_load","filters":[],"listItems":[],"multiselect":false,"name":"discard_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

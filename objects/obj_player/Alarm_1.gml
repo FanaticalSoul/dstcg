@@ -1,6 +1,13 @@
 /// @description create associated character
 
-character = instance_create_depth(character_cords[0], character_cords[1], depth, obj_character_card, {
+var _x = character_cords[0];
+var _y = character_cords[1];
+
+//sout(character_load);
+
+character = instance_create_depth(_x, _y, depth, obj_character_card, {
 	character : character_load,
-	player : id
+	player : id,
+	inital_x : _x,
+	inital_y : _y
 });

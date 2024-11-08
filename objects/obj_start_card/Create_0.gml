@@ -33,3 +33,5 @@ function remove_from_hand (player_id, card_id = id) {
 		}
 	}
 }
+
+sout("created a start card ("+string(card_stats[0].name)+" )");

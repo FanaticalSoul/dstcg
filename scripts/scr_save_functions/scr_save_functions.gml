@@ -27,7 +27,8 @@ function start_new_game(save_system_id = id) {
 		// create player
 		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
 			character_load : _character_load,
-			deck_load : _deck_load
+			deck_load : _deck_load,
+			discard_load : []
 		});
 		// generate encounter from drawn encounter card // WoL
 	
@@ -100,6 +101,8 @@ function save_game (player_id) { // do single player saves for now // WoL
 						object : object_get_name(object_index),
 						layer : layer_get_name(player_id.layer),
 						depth : depth,
+						inital_x : inital_x,
+						inital_y : inital_y,
 						x : des_x, // WoL
 						y : des_y, // WoL
 						card_speed : card_speed,
@@ -257,8 +260,10 @@ function save_game (player_id) { // do single player saves for now // WoL
 					var _struct_child = {
 						// information on a card
 						//id : id,
+						x : x,
+						y : y,
 						object : object_get_name(object_index),
-						layer : layer,
+						layer : layer_get_name(player_id.layer),
 						depth : depth,
 						card_speed : card_speed,
 						card_stats : card_stats,
@@ -441,9 +446,22 @@ function player_create_struct (struct_id_1, struct_id_2) {
 	
 	// save card id's to hand
 	
-	
-	
-	
+	sout("player hand");
+	sout(struct_id_1.hand);
+	var _hand_array = [];
+	for (var i = 0; i < array_length(struct_id_1.hand); i++) {
+		if (struct_id_1.hand[i] != noone) {
+			//sout("making card");
+			var _sub_struct = struct_id_1.hand[i];
+			var _start_card = instance_create_struct(_sub_struct);
+			array_push(_hand_array, _start_card);
+		}
+		else {
+			//sout("skipping card");
+			array_push(_hand_array, noone);
+		}
+	}
+	struct_set(struct_id_1, "hand", _hand_array);
 	
 	// create player
 	var _player_id = instance_create_layer(_x, _y, _layer_id, _object_id, struct_id_1);
@@ -451,6 +469,11 @@ function player_create_struct (struct_id_1, struct_id_2) {
 	struct_id_1.deck.player = _player_id;
 	struct_id_1.discard.player = _player_id;
 	struct_id_1.gauges.player = _player_id;
+	for (var i = 0; i < array_length(_hand_array); i++) {
+		if (_hand_array[i] != noone) {
+			_hand_array[i].player = _player_id;
+		}
+	}
 	// create player
 	return 
 }

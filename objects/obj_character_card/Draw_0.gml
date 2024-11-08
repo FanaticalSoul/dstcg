@@ -4,8 +4,12 @@ if (instance_exists(player)) { // TF // only draw if player exists
 	// only draw inside the room
 	if (is_struct(card_stats) > 0 && x > -card_width/2 && x < room_width
 	 && y > -card_height/2 && y < room_height) {
+		//
 		if (act_ability) sprite_index = struct_get(card_stats,"image_sm_back");
-		else sprite_index = struct_get(card_stats,"image_sm_front");
+		else {
+			//sout(card_stats);
+			sprite_index = struct_get(card_stats,"image_sm_front");
+		}
 		draw_self();
 		if (selected) draw_sprite(spr_card_sm_selected,-1,x,y); // selected draw
 	}

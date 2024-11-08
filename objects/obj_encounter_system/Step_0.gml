@@ -18,10 +18,12 @@ if (instance_exists(player)) {
 						}
 						if (_flag) {
 							// save game
-							save_game(player); // TF
-							// start mulligan phase
-							global.phase_mulligan = true;
-							sout("phase 2 - mulligans");
+							if (global.new_game) {
+								save_game(player); // TF
+								// start mulligan phase
+								global.phase_mulligan = true;
+								sout("phase 2 - mulligans");
+							}
 						}
 					}
 				}
