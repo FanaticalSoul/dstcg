@@ -8,7 +8,7 @@ if (instance_exists(player)) {
 		!global.phase_e_act && !global.phase_react && !global.phase_c_act) {
 			// start mulligan phase ( 2 )
 			if (instance_exists(e_deck)) {
-				if (e_deck.deck_size > 0 && e_deck.enemy_count == 0) {
+				if (e_deck.deck_size > 0 && obj_enemy_deck.enemy_count(e_deck) == 0) {
 					// if no cards have been drawn from the enemy deck
 					if (player.hand_size == hand_max) {
 						var _flag = true;
@@ -18,7 +18,7 @@ if (instance_exists(player)) {
 						}
 						if (_flag) {
 							// save game
-							save_game(); // TF
+							save_game(player); // TF
 							// start mulligan phase
 							global.phase_mulligan = true;
 							sout("phase 2 - mulligans");

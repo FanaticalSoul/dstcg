@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"WoL",
-    "path":"folders/Objects/WoL.yy",
+    "path":"folders/WoL.yy",
   },
   "parentObjectId":null,
   "persistent":false,

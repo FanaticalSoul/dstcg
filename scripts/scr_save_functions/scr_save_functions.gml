@@ -10,36 +10,40 @@ global.game_data = {
 /// @description				load the created deck and character, phases ect...
 ///								this will later be used to load the player into the map ( WoL )
 
-function start_new_game() {
-	sout("start new game");
-	// load deck information
-	ini_open("start_deck.ini");
-	var _deck_load = [];
-	var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
-	for (var i = 0; i < _deck_size; i++) {
-		var _start_card = ini_read_string("deck",string(i),"");
-		array_push(_deck_load, [_start_card, false]);
-	}
-	ini_close();
-	// load character information
-	var _character_load = "herald";
-	// create player
-	var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
-		character_load : _character_load,
-		deck_load : _deck_load
-	});
-	// generate encounter from drawn encounter card // WoL
+function start_new_game(save_system_id = id) {
+	with (save_system_id) {
+		sout("start new game");
+		// load deck information
+		ini_open("start_deck.ini");
+		var _deck_load = [];
+		var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
+		for (var i = 0; i < _deck_size; i++) {
+			var _start_card = ini_read_string("deck",string(i),"");
+			array_push(_deck_load, [_start_card, false]);
+		}
+		ini_close();
+		// load character information
+		var _character_load = "herald";
+		// create player
+		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
+			character_load : _character_load,
+			deck_load : _deck_load
+		});
+		// generate encounter from drawn encounter card // WoL
 	
-	_deck_load = [];
-	instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
-		deck_load : _deck_load,
-		deck_size :
-	});
-	// create encounter system //
-	instance_create_layer(0, 0, "Encounter_System", obj_encounter_system, {
-		player : _player_id
-	});
-	// save
+		_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
+		var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
+			deck_load : _deck_load
+		});
+		// create encounter system //
+		instance_create_layer(0, 0, "Encounter_System", obj_encounter_system, {
+			player : _player_id,
+			e_deck : _e_deck_id
+		});
+		// save
+		//save_game(_player_id);
+		player_save_id = _player_id;
+	}
 }
 
 /// @function					save_start_deck(start_deck,[deck_size]);
@@ -59,7 +63,7 @@ function save_start_deck (start_deck, deck_size = deck_min) {
 
 
 
-function save_game () {
+function save_game (player_id) { // do single player saves for now // WoL
 	sout("save game");
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
@@ -73,7 +77,7 @@ function save_game () {
 			depth : depth,
 			x : x,
 			y : y,
-			//player : player,
+			player : player_id,
 			i_phase_c_place : global.phase_c_place,
 			i_phase_e_place : global.phase_e_place,
 			i_phase_e_act : global.phase_e_act,
@@ -92,7 +96,7 @@ function save_game () {
 					// set structure of character card
 					var _struct_child = {
 						// information on a card
-						id : player.character.id,
+						id : player_id.character.id,
 						object : object_get_name(object_index),
 						layer : layer,
 						depth : depth,
@@ -100,8 +104,8 @@ function save_game () {
 						y : des_y, // WoL
 						card_speed : card_speed,
 						character : character,
-						player : player.id, // TF // WoL
-						//player : noone, // TF // WoL
+						//player : player.id, // TF // WoL
+						player : player_id, // TF // WoL
 						act_ability : act_ability,
 						act_move : false,
 						conditions : conditions, // WoL
@@ -151,6 +155,7 @@ function save_game () {
 		array_push(_save_data, _struct);
 	}
 	// get players
+	/*
 	var _player_ids = [];
 	for (var i = 0; i < board_size; i++) {
 		//if (instance_exists(_save_data[0].i_board_c_card[i])) {
@@ -160,9 +165,10 @@ function save_game () {
 	}
 	// use only the first id // add a for loop later ( WoL )
 	var _player_id = _player_ids[0];
-	var _associated_ids = []; // 0 = D // 1 = Char // 2 = Disc // 3 = Gauge
+	*/
+	//var _associated_ids = []; // 0 = D // 1 = Char // 2 = Disc // 3 = Gauge
 	// save assossiated deck
-	with (_player_id.deck) {
+	with (player_id.deck) {
 		_struct = {
 			id : id,
 			object : object_get_name(object_index),
@@ -170,26 +176,28 @@ function save_game () {
 			depth : depth,
 			x : x,
 			y : y,
-			player : _player_id,
+			player : player_id,
 			shuffled : shuffled,
 			deck_load : deck_load,
 			deck_size : deck_size
 		};
-		array_push(_associated_ids, _struct);
+		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
 	// get associated character card
+	/*
 	for (var i = 0; i < board_size; i++) {
 		// could be a loop within a loop when multiple players are involved
 		//if (instance_exists(_save_data[0].i_board_c_card[i])) {
 		if (_save_data[0].i_board_c_card[i] != noone) {
-			if (_save_data[0].i_board_c_card[i].player.id == _player_id) {
+			if (_save_data[0].i_board_c_card[i].player.id == player_id) {
 				array_push(_associated_ids, _save_data[0].i_board_c_card[i].id);
 			}
 		}
 	}
+	*/
 	// save assossiated discard
-	with (_player_id.discard) {
+	with (player_id.discard) {
 		_struct = {
 			id : id,
 			object : object_get_name(object_index),
@@ -197,15 +205,15 @@ function save_game () {
 			depth : tmp_depth,
 			x : x,
 			y : y,
-			player : _player_id,
+			player : player_id,
 			discard_load : discard_load,
 			discard_size : discard_size
 		};
-		array_push(_associated_ids, _struct);
+		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
 	// save assossiated gauges
-	with (_player_id.gauges) {
+	with (player_id.gauges) {
 		_struct = {
 			id : id,
 			object : object_get_name(object_index),
@@ -213,14 +221,16 @@ function save_game () {
 			depth : depth,
 			x : x,
 			y : y,
-			player : _player_id,
+			player : player_id,
 			ending_sprite_width : ending_sprite_width
 		};
-		array_push(_associated_ids, _struct);
+		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
+	//sout("ids");
+	//sout(_associated_ids);
 	// save players ( should be the last thing save and load )
-	with (_player_id) {
+	with (player_id) {
 		_struct = {
 			id : id,
 			object : object_get_name(object_index),
@@ -228,10 +238,10 @@ function save_game () {
 			depth : depth,
 			x : x,
 			y : y,
-			deck : _associated_ids[0],
-			character : _associated_ids[1],
-			discard : _associated_ids[2],
-			gauges : _associated_ids[3],
+			deck : player_id.deck,
+			character : player_id.character,
+			discard : player_id.discard,
+			gauges : player_id.gauges,
 			hand_size : hand_size,
 			hand : [],
 			act_cycle : act_use_equip,
@@ -255,7 +265,7 @@ function save_game () {
 						card_speed : card_speed,
 						card_stats : card_stats,
 						hand_position : hand_position,
-						player : _player_id,
+						player : player_id,
 						show_card : show_card,
 						ani_act_draw : ani_act_draw,
 						ani_fin_draw : ani_fin_draw
@@ -284,9 +294,7 @@ function save_game () {
 			x : x,
 			y : y,
 			deck_load : deck,
-			shuffled : shuffled,
-			enemy_count : enemy_count,
-			deck_size : deck_size
+			shuffled : shuffled
 		};
 		array_push(_save_data, _struct);
 	}
@@ -312,11 +320,21 @@ function load_game () {
 		for (var i = 0; i < array_length(_struct.i_board_c_card); i++) {
 			if (is_struct(_struct.i_board_c_card[i])) {
 				// if character card exists
-				array_push(_i_board_c_card, _struct.i_board_c_card[i].id);
+				
+				// create character card and add it's id to the thing
+				var _sub_struct = _struct.i_board_c_card[i];
+				
+				
+				
+				//TR//
+				
+				var _character_id = instance_create_layer(_sub_struct.x, _sub_struct.y, _sub_struct.layer, asset_get_index(_sub_struct.object), _sub_struct);
+				array_push(_i_board_c_card, _character_id.id);
 			}
 			else array_push(_i_board_c_card, noone);
 		}
-		
+		var _i_board_e_card = [noone,noone,noone,noone,noone,noone]; // TF
+		/*
 		var _i_board_e_card = [];
 		for (var i = 0; i < array_length(_struct.i_board_e_card); i++) {
 			if (is_struct(_struct.i_board_e_card[i])) {
@@ -325,6 +343,7 @@ function load_game () {
 			}
 			else array_push(_i_board_e_card, noone);
 		}
+		*/
 		instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
 			//id : _struct.id,
 			depth : _struct.depth,
@@ -339,7 +358,7 @@ function load_game () {
 			i_board_e_card : _i_board_e_card,
 			i_random_seed : _struct.i_random_seed
 		});
-		
+
 			
 		
 		/*

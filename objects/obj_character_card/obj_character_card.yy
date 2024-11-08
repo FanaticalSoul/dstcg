@@ -11,8 +11,8 @@
   "name":"obj_character_card",
   "overriddenProperties":[],
   "parent":{
-    "name":"Character Cards",
-    "path":"folders/Objects/Character Cards.yy",
+    "name":"Start Cards",
+    "path":"folders/Objects/Start Cards.yy",
   },
   "parentObjectId":null,
   "persistent":false,

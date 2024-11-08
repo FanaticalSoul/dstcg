@@ -36,7 +36,7 @@
         "\"ghru leaper\"",
         "\"crossbow grave warden\"",
         "\"grave warden\"",
-      ],"multiselect":true,"name":"deck_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"ghru leaper\", \"irithyllian beast hound\", \"ghru leaper\"","varType":6,},
+      ],"multiselect":true,"name":"deck_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"ghru leaper\", \"irithyllian beast hound\"","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"shuffled","filters":[],"listItems":[],"multiselect":false,"name":"shuffled","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
   ],
   "resourceType":"GMObject",
