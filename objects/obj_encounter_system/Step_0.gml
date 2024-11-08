@@ -19,7 +19,15 @@ if (instance_exists(player)) {
 						if (_flag) {
 							// save game
 							if (global.new_game) {
-								save_game(player); // TF
+								with (player) {
+									if (
+									instance_exists(discard) &&
+									instance_exists(deck) &&
+									instance_exists(gauges) &&
+									instance_exists(character)) {
+										save_game(id); // TF
+									}
+								}
 								// start mulligan phase
 								global.phase_mulligan = true;
 								sout("phase 2 - mulligans");
