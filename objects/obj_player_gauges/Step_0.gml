@@ -1,7 +1,7 @@
 /// @description scale health bar width
 
 // only start updating when the game starts
-if (!(global.phase_c_place || global.phase_mulligan)) {
+if (global.phase_c_act || global.phase_react || global.phase_e_act) {
 	if (instance_exists(player)) {
 		if (
 			instance_exists(player.discard) &&

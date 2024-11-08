@@ -73,7 +73,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 		_struct = {
 			//id : id,
 			object : object_get_name(object_index),
-			layer : layer,
+			layer : "Encounter_System",
 			depth : depth,
 			x : x,
 			y : y,
@@ -96,9 +96,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 					// set structure of character card
 					var _struct_child = {
 						// information on a card
-						id : player_id.character.id,
+						//id : player_id.character.id,
 						object : object_get_name(object_index),
-						layer : layer,
+						layer : layer_get_name(player_id.layer),
 						depth : depth,
 						x : des_x, // WoL
 						y : des_y, // WoL
@@ -125,9 +125,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 					// set structure of enemy card
 					var _struct_child = {
 						// information on a card
-						id : id,
+						//id : id,
 						object : object_get_name(object_index),
-						layer : layer,
+						layer : layer_get_name(player_id.layer),
 						depth : tmp_depth,
 						x : des_x, // WoL
 						y : des_y, // WoL
@@ -170,9 +170,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save assossiated deck
 	with (player_id.deck) {
 		_struct = {
-			id : id,
+			//id : id,
 			object : object_get_name(object_index),
-			layer : layer,
+			layer : layer_get_name(player_id.layer),
 			depth : depth,
 			x : x,
 			y : y,
@@ -199,9 +199,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save assossiated discard
 	with (player_id.discard) {
 		_struct = {
-			id : id,
+			//id : id,
 			object : object_get_name(object_index),
-			layer : layer,
+			layer : layer_get_name(player_id.layer),
 			depth : tmp_depth,
 			x : x,
 			y : y,
@@ -215,9 +215,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save assossiated gauges
 	with (player_id.gauges) {
 		_struct = {
-			id : id,
+			//id : id,
 			object : object_get_name(object_index),
-			layer : layer,
+			layer : layer_get_name(player_id.layer),
 			depth : depth,
 			x : x,
 			y : y,
@@ -232,7 +232,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save players ( should be the last thing save and load )
 	with (player_id) {
 		_struct = {
-			id : id,
+			//id : id,
 			object : object_get_name(object_index),
 			layer : layer,
 			depth : depth,
@@ -258,7 +258,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 					// set structure of start card
 					var _struct_child = {
 						// information on a card
-						id : id,
+						//id : id,
 						object : object_get_name(object_index),
 						layer : layer,
 						depth : depth,
@@ -287,9 +287,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save e_deck
 	with (_e_deck_id) {
 		_struct = {
-			id : id,
+			//id : id,
 			object : object_get_name(object_index),
-			layer : layer,
+			layer : layer_get_name(player_id.layer),
 			depth : depth,
 			x : x,
 			y : y,
@@ -316,35 +316,30 @@ function load_game () {
 		
 		// load globals
 		var _struct = _save_data[0];
+		// character board
 		var _i_board_c_card = [];
 		for (var i = 0; i < array_length(_struct.i_board_c_card); i++) {
 			if (is_struct(_struct.i_board_c_card[i])) {
 				// if character card exists
-				
-				// create character card and add it's id to the thing
-				var _sub_struct = _struct.i_board_c_card[i];
-				
-				
-				
-				//TR//
-				
-				var _character_id = instance_create_layer(_sub_struct.x, _sub_struct.y, _sub_struct.layer, asset_get_index(_sub_struct.object), _sub_struct);
-				array_push(_i_board_c_card, _character_id.id);
+				// create character card and add it's id to the board
+				var _character_id = instance_create_struct(_struct.i_board_c_card[i]);
+				array_push(_i_board_c_card, _character_id);
 			}
 			else array_push(_i_board_c_card, noone);
 		}
-		var _i_board_e_card = [noone,noone,noone,noone,noone,noone]; // TF
-		/*
+		// enemy board
 		var _i_board_e_card = [];
 		for (var i = 0; i < array_length(_struct.i_board_e_card); i++) {
 			if (is_struct(_struct.i_board_e_card[i])) {
-				// if enemy card exists
-				array_push(_i_board_e_card, _struct.i_board_e_card[i].id);
+				// if character card exists
+				// create character card and add it's id to the board
+				var _enemy_id = instance_create_struct(_struct.i_board_e_card[i]);
+				array_push(_i_board_e_card, _enemy_id);
 			}
 			else array_push(_i_board_e_card, noone);
 		}
-		*/
-		instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
+		// set encounter system
+		var _encounter_system_id = instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
 			//id : _struct.id,
 			depth : _struct.depth,
 			//player : _struct.player.id,
@@ -358,8 +353,22 @@ function load_game () {
 			i_board_e_card : _i_board_e_card,
 			i_random_seed : _struct.i_random_seed
 		});
+		// set player
+		for (var i = 1; i < array_length(_save_data); i++) {
+			sout("loading...");
+			_struct = _save_data[i];
+			sout(_struct);
+			//sout([_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object)]);
+			//instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), _struct);
+			instance_create_struct(_struct);
+		}
 
-			
+		
+		// set _character_id.player 
+		// set _encounter_system_id.player 
+		// set _i_board_e_card.deck 
+		
+		
 		
 		/*
 		// DO NOT REMOVE //
@@ -373,4 +382,18 @@ function load_game () {
 		*/
 		file_text_close(_save_r);
 	}
+}
+
+// create an instance from a structure
+function instance_create_struct (struct_id) {
+	var _x = struct_id.x;
+	var _y = struct_id.y;
+	var _layer_id = layer_get_id(struct_id.layer);
+	var _object_id = asset_get_index(struct_id.object);
+	struct_remove(struct_id, "object");
+	struct_remove(struct_id, "x");
+	struct_remove(struct_id, "y");
+	struct_remove(struct_id, "layer");
+	//sout (struct_id);
+	return instance_create_layer(_x, _y, _layer_id, _object_id, struct_id);
 }
