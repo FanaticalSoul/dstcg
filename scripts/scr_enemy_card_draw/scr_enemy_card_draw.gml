@@ -24,7 +24,7 @@ function enemy_card_draw (deck_id = id) {
 			// create enemy
 			global.board_e_card[_enemy_placement] = instance_create_depth(x,y,-get_enemy_count()-1,obj_enemy_card,{
 				placement : _enemy_placement,
-				card_stats : _card_stats,
+				card_name : _card_stats.name,
 				deck : deck_id
 			});
 		}

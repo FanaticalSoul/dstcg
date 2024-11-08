@@ -135,7 +135,8 @@ function save_game (player_id) { // do single player saves for now // WoL
 						x : des_x, // WoL
 						y : des_y, // WoL
 						placement : placement,
-						card_stats : card_stats,
+						//card_stats : card_stats,
+						card_name : card_name,
 						card_speed : card_speed,
 						flip_speed : flip_speed,
 						wound_spacing : wound_spacing,
@@ -265,7 +266,8 @@ function save_game (player_id) { // do single player saves for now // WoL
 						layer : layer_get_name(player_id.layer),
 						depth : depth,
 						card_speed : card_speed,
-						card_stats : card_stats,
+						//card_stats : card_stats,
+						card_name : card_name,
 						hand_position : hand_position,
 						//player : player_id,
 						show_card : show_card,

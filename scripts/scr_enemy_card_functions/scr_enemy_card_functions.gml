@@ -25,7 +25,7 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 	for (var i = 0; i < array_length(attack); i++) {
 		// check target position for player
 		var _target_character = global.board_c_card[attack[i].attack_location-1];
-		sout(global.board_c_card);
+		//sout(global.board_c_card);
 		if (!attack[i].area_of_effect) {
 			// if attack is not an AoE
 			var _row_start = 0;
@@ -44,7 +44,7 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 			//sout(_target_character.character);
 			//sout(_target_character.card_stats);
 			var _target_card_stats = card_get_stats(character_card_stats, _target_character.character);
-			sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name);
+			
 			// check if any cards in hand or on field can react
 			if (_target_card_stats.reaction && !_target_character.ability_used) {
 				// player can use their characters reaction ability
@@ -67,13 +67,15 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 			}
 			// check if reaction phase is active
 			if (global.phase_react) {
+				sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 1 )");
 				// player can use an equipment to react
-				sout("the player can react to this attack");
+				//sout(_target_card_stats.name+" can react to this attack");
 				// resolve damage on player
 				_target_character.damage_stack += attack_value;
 			}
 			else {
-				sout("the player can\'t react to this attack");
+				sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 0 )");
+				//sout(_target_card_stats.name+" can\'t react to this attack");
 				global.phase_react = false;
 				// resolve damage on player
 				_target_character.damage_taken += attack_value;

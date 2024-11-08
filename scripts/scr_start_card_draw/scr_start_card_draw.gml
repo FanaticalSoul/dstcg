@@ -16,6 +16,7 @@ function start_card_draw (deck_id = id) {
 			player.hand_offset = 0;
 			player.hand_size ++;
 			// get card reveal status
+			var _card_name = deck[deck_size-1][0];
 			var _show_card = deck[deck_size-1][1];
 			// remove card from deck
 			deck[deck_size-1][0] = "";
@@ -27,7 +28,7 @@ function start_card_draw (deck_id = id) {
 			// create card object
 			player.hand[player.hand_size-1] = instance_create_depth(_tmp_x,_tmp_y,-player.hand_size-1, obj_start_card, {
 				//card_stats : _card_stats,
-				card_stats : card_get_stats(start_card_stats, deck[deck_size-1][0]),
+				card_name : _card_name,
 				hand_position : player.hand_size-1,
 				player : player,
 				show_card : _show_card

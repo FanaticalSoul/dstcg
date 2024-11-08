@@ -1,5 +1,6 @@
 /// @description set varibles
 
+card_stats = card_get_stats(enemy_card_stats,card_name);
 // set destination
 des_x = x;
 des_y = y;

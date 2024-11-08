@@ -7,6 +7,10 @@ des_y = y;
 // set varibles
 path_speed = card_speed;
 card_hq = obj_visual_spoiler;
+
+card_stats = card_get_stats(start_card_stats, card_name);
+//sout(card_name);
+//sout(card_stats);
 // show_card // hide card for draw animation
 
 /// @function					remove_from_hand(player_id, [card_id]);

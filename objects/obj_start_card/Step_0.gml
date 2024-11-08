@@ -83,6 +83,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 			if (card_stats[0].type == "equipment") {
 				for (var i = 1; i <= 3; i++) {
 					if (keyboard_check_pressed(i+48) || (keyboard_check_pressed(32) && player.last_valid_num==i)) {
+						//sout(card_stats);
 						if (array_length(card_stats)-1 >= i) {
 							card_stats[i].play_script(id);
 							// allow space bar to be used when an action is selected
