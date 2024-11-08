@@ -3,7 +3,38 @@ global.game_data = {
 	room_data : {}
 };
 
-function save_game() {
+
+
+
+/// @function					start_new_game();
+/// @description				load the created deck and character, phases ect...
+///								this will later be used to load the player into the map ( WoL )
+
+function start_new_game () {
+	
+	// load start deck
+	
+	// load character // WoL // default to herald for now ( use string only )
+	
+}
+
+/// @function					save_start_deck(start_deck,[deck_size]);
+/// @description				save the deck made for a new game
+
+function save_start_deck (start_deck, deck_size = deck_min) {
+	ini_open("start_deck.ini");
+	for (var i = 0; i < deck_size; i++) {
+		ini_write_string("deck",string(i),start_deck[i]);
+	}
+	ini_close();
+}
+
+
+
+
+
+
+function save_game () {
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
 	var _struct;
@@ -67,7 +98,7 @@ function save_game() {
 						id : id,
 						object : object_get_name(object_index),
 						layer : layer,
-						depth : depth,
+						depth : tmp_depth,
 						x : des_x, // WoL
 						y : des_y, // WoL
 						placement : placement,
@@ -241,130 +272,11 @@ function save_game() {
 	file_text_close(_save_w);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function scr_room_load () {
-	var _save_data = struct_get(global.game_data.room_data, room_get_name(room));
-	// a save save exists
-	if (_save_data != undefined) {
-		// destroy everything
-		
-		// create player
-		
-		// create player deck
-		
-		// create player deck discard
-		
-		// create player cards
-		
-		// create enemy deck
-		
-		// create enemy cards
-		
-	}
-
-}
-*/
-/*
-function scr_game_save () {//_player_id = obj_player) {
-	
-	var _save_data = [];
-	var _struct = {
-		phase_c_place : global.phase_c_place,
-		phase_e_place : global.phase_e_place,
-		phase_e_act : global.phase_e_act,
-		phase_c_act : global.phase_c_act,
-		random_seed : global.random_seed
-		// TR //phase_mulligan : global.phase_mulligan, // sub phase
-		// TR //phase_react : global.phase_react // sub phase
-	};
-	array_push(_save_data, _struct);
-	// set deck
-	with (obj_player.deck) {
-		_struct = {
-			object : object_get_name(object_index),
-			x : x,
-			y : y,
-			player : player
-		};
-		array_push(_save_data, _struct);
-	}
-	
-	//scr_save_room()
-	//player = obj_player;
-	//e_deck = obj_enemy_deck;
-	
-	var _save_w = file_text_open_write("save_system_test.txt");
-	var _save_data_str = json_stringify(global.game_data);
-	file_text_write_string(_save_w, _save_data_str);
-	file_text_close(_save_w);
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// set cards in deck from save
-
-
-/*
-ini_open("start_deck.ini");
-for (var i = 0; i < deck_min; i++) {
-	deck[i][0] = ini_read_string("deck",string(i),"");
-}
-ini_close();
-deck_size = deck_min;
-*/
-
 function load_game () {
 	if (file_exists("save_system_test.txt")) {
 		var _save_r = file_text_open_read("save_system_test.txt");
 		var _save_data_str = file_text_read_string(_save_r);
 		var _save_data = json_parse(_save_data_str);
-		
-		/*
-		// set global varibles
-		global.phase_c_place = _save_data[0].phase_c_place;
-		global.phase_e_place = _save_data[0].phase_e_place;
-		global.phase_e_act = _save_data[0].phase_e_act;
-		global.phase_c_act = _save_data[0].phase_c_act;
-		global.random_seed = _save_data[0].random_seed;
-		var _object_array = [
-			// start cards
-			obj_player,
-			obj_start_deck,
-			obj_start_card,
-			obj_start_discard,
-			// character cards
-			obj_character_card,
-			// enemies
-			obj_enemy_deck,
-			obj_enemy_card,
-		];
-		//instance_destroy (obj_encounter);
-		//*/
 		
 		
 		// load globals
