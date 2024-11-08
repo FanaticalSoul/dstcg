@@ -342,8 +342,9 @@ function load_game () {
 			}
 			else array_push(_i_board_e_card, noone);
 		}
-		/*
+
 		// set encounter system
+		/*
 		var _encounter_system_id = instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
 			//id : _struct.id,
 			depth : _struct.depth,
@@ -372,7 +373,7 @@ function load_game () {
 			var _tmp_obj = string(_struct.object);
 			//sout(_tmp_obj);
 			if (_tmp_obj == "obj_player") _player_save_index = i;
-			else {
+			else if (_tmp_obj != "obj_encounter_system") { // don't load encounter system
 				sout("didn't make a player "+_tmp_obj);
 				var _tmp_id = instance_create_struct(_struct);
 				if (_tmp_obj == "obj_start_deck") {
@@ -385,8 +386,11 @@ function load_game () {
 					struct_set(_tmp_struct, "start_discard", _tmp_id);
 				}
 				else {
-					// encounter and e_deck // WoL
+					// load e_deck // WoL
 				}
+			}
+			else if (_tmp_obj == "obj_encounter_system") {
+				var _tmp_id = encounter_system_create(_struct,_i_board_c_card,_i_board_e_card);
 			}
 		}
 		// create player
@@ -431,6 +435,24 @@ function instance_create_struct (struct_id) {
 	//sout (struct_id);
 	return instance_create_layer(_x, _y, _layer_id, _object_id, struct_id);
 }
+
+
+
+function encounter_system_create (struct_id, c_board, e_board) {
+	var _x = struct_id.x;
+	var _y = struct_id.y;
+	var _layer_id = layer_get_id(struct_id.layer);
+	var _object_id = asset_get_index(struct_id.object);
+	struct_remove(struct_id, "object");
+	struct_remove(struct_id, "x");
+	struct_remove(struct_id, "y");
+	struct_remove(struct_id, "layer");
+	struct_set(struct_id, "i_board_c_card", c_board);
+	struct_set(struct_id, "i_board_e_card", e_board);
+	return instance_create_layer(_x, _y, _layer_id, _object_id, struct_id);
+}
+
+
 function player_create_struct (struct_id_1, struct_id_2, character_ids) {
 	var _x = struct_id_1.x;
 	var _y = struct_id_1.y;
@@ -486,5 +508,5 @@ function player_create_struct (struct_id_1, struct_id_2, character_ids) {
 		}
 	}
 	// create player
-	return 
+	return _player_id;
 }

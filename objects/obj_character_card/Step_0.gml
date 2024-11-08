@@ -87,4 +87,5 @@ if (instance_exists(player)) { // TF // only step if player exists
 			} 
 		}
 	}
+	//sout(player.character_load);
 }

@@ -17,6 +17,9 @@ if (instance_exists(player)) {
 							if (!_flag) break;
 						}
 						if (_flag) {
+							// start mulligan phase
+							global.phase_mulligan = true;
+							sout("phase 2 - mulligans");
 							// save game
 							if (global.new_game) {
 								with (player) {
@@ -28,9 +31,6 @@ if (instance_exists(player)) {
 										save_game(id); // TF
 									}
 								}
-								// start mulligan phase
-								global.phase_mulligan = true;
-								sout("phase 2 - mulligans");
 							}
 						}
 					}
