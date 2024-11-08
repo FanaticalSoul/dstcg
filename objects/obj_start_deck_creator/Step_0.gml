@@ -24,8 +24,11 @@ mouse_x >= x && mouse_x <= sprite_width) {
 			var _over_card = undefined;
 			if (selection_filter = "") _over_card = selection[abs(selection_offset)+_i];
 			else _over_card = filtered_selection[abs(selection_offset)+_i];
-			var _over_card_stats = scr_get_stats(_over_card,card_stats);
-			if (_over_card_stats != undefined) {
+			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
+			if (is_array(_over_card_stats)) {
+				sout("array");
+				sout(_over_card_stats);
+				
 				// set the visual spoiler to show the card being hovered over
 				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
@@ -50,17 +53,17 @@ mouse_x >= x && mouse_x <= sprite_width) {
 	}
 	// on mouse hover // display card in visual spoiler
 	//scr_sout("in zone 2");
-	for (var _i = 0; _i < cards_visable; _i++) {
+	for (var i = 0; i < cards_visable; i++) {
 		if (
-			mouse_x > card_spacing+_i*(card_width+card_spacing) && 
-			mouse_x <= card_width+card_spacing+_i*(card_width+card_spacing) && 
+			mouse_x > card_spacing+i*(card_width+card_spacing) && 
+			mouse_x <= card_width+card_spacing+i*(card_width+card_spacing) && 
 			mouse_y > card_spacing+sprite_height+view_spacing && 
 			mouse_y <= card_height+card_spacing+sprite_height+view_spacing
 		) {
 			// get the stats of the card being hovered over
-			var _over_card = deck[abs(deck_offset)+_i];
-			var _over_card_stats = scr_get_stats(_over_card,card_stats);
-			if (_over_card_stats != undefined) {
+			var _over_card = deck[abs(deck_offset)+i];
+			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
+			if (is_array(_over_card_stats)) {
 				// set the visual spoiler to show the card being hovered over
 				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
