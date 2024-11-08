@@ -90,9 +90,12 @@ if (instance_exists(e_deck)) {
 	}
 }
 // output fps (TF) // if low
-if (fps < 10) sout("fps is bellow 10 "+string(fps));
-else if (fps < 20) sout("fps is bellow 20 "+string(fps));
-else if (fps < 30) sout("fps is bellow 30 "+string(fps));
-else if (fps < 40) sout("fps is bellow 40 "+string(fps));
-else if (fps < 50) sout("fps is bellow 50 "+string(fps));
-else if (fps < 55) sout("fps is bellow 55 "+string(fps));
+if (fps < 55 && fps != last_fps_update) {
+	if (fps < 10) sout("fps < 10 ( "+string(fps)+" )");
+	else if (fps < 20) sout("fps < 20 ( "+string(fps)+" )");
+	else if (fps < 30) sout("fps < 30 ( "+string(fps)+" )");
+	else if (fps < 40) sout("fps < 40 ( "+string(fps)+" )");
+	else if (fps < 50) sout("fps < 50 ( "+string(fps)+" )");
+	else if (fps < 55) sout("fps < 55 ( "+string(fps)+" )");
+	last_fps_update = fps;
+}

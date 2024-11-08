@@ -20,4 +20,4 @@ global.large_struct = {
 }
 */
 save_game_flag = false;
-sout("made save system");
+sout("created save system");

@@ -12,7 +12,7 @@ global.game_data = {
 
 function start_new_game(save_system_id = id) {
 	with (save_system_id) {
-		sout("start new game");
+		sout("starting a new game");
 		// load deck information
 		ini_open("start_deck.ini");
 		var _deck_load = [];
@@ -65,7 +65,7 @@ function save_start_deck (start_deck, deck_size = deck_min) {
 
 
 function save_game (player_id) { // do single player saves for now // WoL
-	sout("save game");
+	sout("saving game");
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
 	var _struct;
@@ -309,7 +309,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 }
 
 function load_game () {
-	sout("load game");
+	sout("loading game");
 	if (file_exists("save_system_test.txt")) {
 		var _save_r = file_text_open_read("save_system_test.txt");
 		var _save_data_str = file_text_read_string(_save_r);
@@ -369,12 +369,12 @@ function load_game () {
 		};
 		for (var i = 0; i < array_length(_save_data); i++) {
 			_struct = _save_data[i];
-			sout("loading... "+string(i));
+			//sout("loading... "+string(i));
 			var _tmp_obj = string(_struct.object);
 			//sout(_tmp_obj);
 			if (_tmp_obj == "obj_player") _player_save_index = i;
 			else if (_tmp_obj != "obj_encounter_system") { // don't load encounter system
-				sout("didn't make a player "+_tmp_obj);
+				//sout("didn't make a player "+_tmp_obj);
 				var _tmp_id = instance_create_struct(_struct);
 				if (_tmp_obj == "obj_start_deck") {
 					struct_set(_tmp_struct, "start_deck", _tmp_id);
@@ -395,29 +395,9 @@ function load_game () {
 		}
 		// create player
 		if (_player_save_index != -1) {
-			sout("made player");
+			//sout("made player");
 			var _player_id = player_create_struct(_save_data[_player_save_index], _tmp_struct, _character_ids);
 		}
-		
-		
-
-		
-		// set _character_id.player 
-		// set _encounter_system_id.player 
-		// set _i_board_e_card.deck 
-		
-		
-		
-		/*
-		// DO NOT REMOVE //
-		for (var i = 0; i < array_length(_save_data); i++) {
-			sout("loading...");
-			var _struct = _save_data[i];
-			sout(_struct);
-			sout([_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object)]);
-			instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), _struct);
-		}
-		*/
 		file_text_close(_save_r);
 	}
 }
@@ -478,8 +458,8 @@ function player_create_struct (struct_id_1, struct_id_2, character_ids) {
 	
 	// save card id's to hand
 	
-	sout("player hand");
-	sout(struct_id_1.hand);
+	//sout("player hand");
+	//sout(struct_id_1.hand);
 	var _hand_array = [];
 	for (var i = 0; i < array_length(struct_id_1.hand); i++) {
 		if (struct_id_1.hand[i] != noone) {

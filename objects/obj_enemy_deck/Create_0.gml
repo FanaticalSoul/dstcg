@@ -17,4 +17,4 @@ if (!shuffled) {
 	shuffled = true;
 }
 // log creation
-sout("made enemy deck");
+sout("created enemy deck");
