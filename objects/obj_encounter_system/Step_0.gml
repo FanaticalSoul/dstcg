@@ -8,7 +8,7 @@ if (instance_exists(player)) {
 		!global.phase_e_act && !global.phase_react && !global.phase_c_act) {
 			// start mulligan phase ( 2 )
 			if (instance_exists(e_deck)) {
-				if (e_deck.deck_size > 0 && obj_enemy_deck.enemy_count(e_deck) == 0) {
+				if (e_deck.deck_size > 0 && get_enemy_count() == 0) {
 					// if no cards have been drawn from the enemy deck
 					if (player.hand_size == hand_max) {
 						var _flag = true;
@@ -46,7 +46,7 @@ if (instance_exists(player)) {
 		}
 		// press [ enter ] // end reaction phase
 		if (global.phase_react && keyboard_check_pressed(13)) {
-			card_unselect(player);
+			card_unselect_all(player);
 			with (player.character) {
 				damage_taken = damage_stack;
 				damage_stack = 0;

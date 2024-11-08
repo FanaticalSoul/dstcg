@@ -12,13 +12,3 @@ if (!shuffled) {
 }
 // log creation
 sout("made enemy deck");
-
-function enemy_count (e_deck_id = id) {
-	var _enemy_count = 0;
-	for (var i = 0; i < board_size; i++) {
-		if (instance_exists(global.board_e_card[i])) {
-			if (global.board_e_card[i].deck == e_deck_id) _enemy_count++;
-		}
-	}
-	return _enemy_count;
-}

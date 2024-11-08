@@ -101,6 +101,7 @@
     {"id":{"name":"obj_encounter_system","path":"objects/obj_encounter_system/obj_encounter_system.yy",},},
     {"id":{"name":"obj_enemy_card","path":"objects/obj_enemy_card/obj_enemy_card.yy",},},
     {"id":{"name":"obj_enemy_deck","path":"objects/obj_enemy_deck/obj_enemy_deck.yy",},},
+    {"id":{"name":"obj_macros_encounter","path":"objects/obj_macros_encounter/obj_macros_encounter.yy",},},
     {"id":{"name":"obj_macros","path":"objects/obj_macros/obj_macros.yy",},},
     {"id":{"name":"obj_main_menu","path":"objects/obj_main_menu/obj_main_menu.yy",},},
     {"id":{"name":"obj_map_1_map_test","path":"objects/obj_map_1_map_test/obj_map_1_map_test.yy",},},

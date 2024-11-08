@@ -68,3 +68,12 @@ function get_csc (stamina_cost) {
 	return int64(_converted_stamina_cost);
 }
 
+
+//function get_enemy_count (e_deck_id = id) {
+function get_enemy_count () {
+	var _enemy_count = 0;
+	for (var i = 0; i < board_size; i++) {
+		if (instance_exists(global.board_e_card[i])) _enemy_count++;
+	}
+	return _enemy_count;
+}

@@ -7,7 +7,7 @@ function enemy_card_draw (deck_id = id) {
 	sout("enemy_card_draw was called");
 	with (deck_id) {
 		// above max enemies on the field
-		if (enemy_count > enemy_max || enemy_max > board_size) {
+		if (get_enemy_count() > enemy_max || enemy_max > board_size) {
 			sout("too many enemies on the board ( WoL )");
 		}
 		else {
@@ -22,11 +22,11 @@ function enemy_card_draw (deck_id = id) {
 				_enemy_placement = irandom_range(0,board_size-1);
 			}
 			// create enemy
-			global.board_e_card[_enemy_placement] = instance_create_depth(x,y,-enemy_count-1,obj_enemy_card,{
+			global.board_e_card[_enemy_placement] = instance_create_depth(x,y,-get_enemy_count()-1,obj_enemy_card,{
 				placement : _enemy_placement,
-				card_stats : _card_stats
+				card_stats : _card_stats,
+				deck : deck_id
 			});
-			enemy_count ++;
 		}
 	}
 	sout("enemy_card_draw was finished");

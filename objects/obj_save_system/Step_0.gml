@@ -1,6 +1,4 @@
 /// @description Insert description here
-// You can write your code in this editor
-
 
 while (!save_game_flag) {
 	if (!instance_exists(obj_enemy_deck)) break;
