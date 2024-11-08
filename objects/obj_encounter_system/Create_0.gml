@@ -65,6 +65,7 @@ for (var iy = 0; iy < board_rows; iy++) {
 		i++;
 	}
 }
+sout("created encounter system");
 // log phase start
 if (i_phase_c_place) sout("phase 1 - character placement");
-sout(global.board_c_card);
+//sout(global.board_c_card);

@@ -77,7 +77,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 			depth : depth,
 			x : x,
 			y : y,
-			player : player_id,
+			//player : obj_player,
 			i_phase_c_place : global.phase_c_place,
 			i_phase_e_place : global.phase_e_place,
 			i_phase_e_act : global.phase_e_act,
@@ -105,7 +105,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 						card_speed : card_speed,
 						character : character,
 						//player : player.id, // TF // WoL
-						player : player_id, // TF // WoL
+						//player : player_id, // TF // WoL
 						act_ability : act_ability,
 						act_move : false,
 						conditions : conditions, // WoL
@@ -176,7 +176,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 			depth : depth,
 			x : x,
 			y : y,
-			player : player_id,
+			//player : player_id,
 			shuffled : shuffled,
 			deck_load : deck_load,
 			deck_size : deck_size
@@ -199,17 +199,15 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save assossiated discard
 	with (player_id.discard) {
 		_struct = {
-			//id : id,
 			object : object_get_name(object_index),
 			layer : layer_get_name(player_id.layer),
 			depth : tmp_depth,
 			x : x,
 			y : y,
-			player : player_id,
+			//player : undefined,
 			discard_load : discard_load,
 			discard_size : discard_size
 		};
-		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
 	// save assossiated gauges
@@ -221,7 +219,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 			depth : depth,
 			x : x,
 			y : y,
-			player : player_id,
+			//player : player_id,
 			ending_sprite_width : ending_sprite_width
 		};
 		//array_push(_associated_ids, _struct);
@@ -234,7 +232,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 		_struct = {
 			//id : id,
 			object : object_get_name(object_index),
-			layer : layer,
+			layer : layer_get_name(layer),
 			depth : depth,
 			x : x,
 			y : y,
@@ -265,7 +263,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 						card_speed : card_speed,
 						card_stats : card_stats,
 						hand_position : hand_position,
-						player : player_id,
+						//player : player_id,
 						show_card : show_card,
 						ani_act_draw : ani_act_draw,
 						ani_fin_draw : ani_fin_draw
@@ -338,6 +336,7 @@ function load_game () {
 			}
 			else array_push(_i_board_e_card, noone);
 		}
+		/*
 		// set encounter system
 		var _encounter_system_id = instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
 			//id : _struct.id,
@@ -353,15 +352,44 @@ function load_game () {
 			i_board_e_card : _i_board_e_card,
 			i_random_seed : _struct.i_random_seed
 		});
+		*/
 		// set player
-		for (var i = 1; i < array_length(_save_data); i++) {
-			sout("loading...");
+		var _player_save_index = -1;
+		var _tmp_struct = {
+			start_deck : noone,
+			start_discard : noone,
+			player_gauges : noone
+		};
+		for (var i = 0; i < array_length(_save_data); i++) {
 			_struct = _save_data[i];
-			sout(_struct);
-			//sout([_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object)]);
-			//instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), _struct);
-			instance_create_struct(_struct);
+			sout("loading... "+string(i));
+			var _tmp_obj = string(_struct.object);
+			//sout(_tmp_obj);
+			if (_tmp_obj == "obj_player") _player_save_index = i;
+			else {
+				sout("didn't make a player "+_tmp_obj);
+				var _tmp_id = instance_create_struct(_struct);
+				if (_tmp_obj == "obj_start_deck") {
+					struct_set(_tmp_struct, "start_deck", _tmp_id);
+				}
+				else if (_tmp_obj == "obj_player_gauges") {
+					struct_set(_tmp_struct, "player_gauges", _tmp_id);
+				}
+				else if (_tmp_obj == "obj_start_discard") {
+					struct_set(_tmp_struct, "start_discard", _tmp_id);
+				}
+				else {
+					// encounter and e_deck // WoL
+				}
+			}
 		}
+		// create player
+		if (_player_save_index != -1) {
+			sout("made player");
+			var _player_id = player_create_struct(_save_data[_player_save_index], _tmp_struct);
+		}
+		
+		
 
 		
 		// set _character_id.player 
@@ -396,4 +424,33 @@ function instance_create_struct (struct_id) {
 	struct_remove(struct_id, "layer");
 	//sout (struct_id);
 	return instance_create_layer(_x, _y, _layer_id, _object_id, struct_id);
+}
+function player_create_struct (struct_id_1, struct_id_2) {
+	var _x = struct_id_1.x;
+	var _y = struct_id_1.y;
+	var _layer_id = layer_get_id(struct_id_1.layer);
+	var _object_id = asset_get_index(struct_id_1.object);
+	struct_remove(struct_id_1, "object");
+	struct_remove(struct_id_1, "x");
+	struct_remove(struct_id_1, "y");
+	struct_remove(struct_id_1, "layer");
+	struct_set(struct_id_1, "deck", struct_id_2.start_deck);
+	struct_set(struct_id_1, "discard", struct_id_2.start_discard);
+	struct_set(struct_id_1, "gauges", struct_id_2.player_gauges);
+	// load each card in hand
+	
+	// save card id's to hand
+	
+	
+	
+	
+	
+	// create player
+	var _player_id = instance_create_layer(_x, _y, _layer_id, _object_id, struct_id_1);
+	// update player id's
+	struct_id_1.deck.player = _player_id;
+	struct_id_1.discard.player = _player_id;
+	struct_id_1.gauges.player = _player_id;
+	// create player
+	return 
 }
