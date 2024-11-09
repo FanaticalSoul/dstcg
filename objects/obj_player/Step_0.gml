@@ -8,5 +8,5 @@ if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 && hand_size > han
 }
 // press [ 4 ] // restart game (TF)
 if (keyboard_check_pressed(4+48)) game_restart();
-// press [ enter ] // end activation phase
-if (keyboard_check_pressed(13) && global.phase_c_act && obj_encounter_system.alarm[6] == -1) obj_encounter_system.alarm[6] = 1; // no delay
+// press [ space ] // end activation phase
+if (keyboard_check_pressed(32) && global.phase_c_act && obj_encounter_system.alarm[6] == -1) obj_encounter_system.alarm[6] = 1; // no delay

@@ -54,11 +54,27 @@ if (instance_exists(player)) {
 					if (card_placement-1 >= 0) {
 						var _prior_enemy = global.board_e_card[card_placement-1];
 						if (instance_exists(_prior_enemy)) {
-							alarm[4] = _prior_enemy.ani_delay_attack;
+							if (card_placement >= enemy_max && alarm[5] == -1) {
+								// player activation
+								sout("alarm!");
+								alarm[5] = _prior_enemy.ani_delay_attack;
+							}
+							else alarm[4] = _prior_enemy.ani_delay_attack;
+						}
+						else if (card_placement >= enemy_max && alarm[5] == -1) {
+							// player activation
+							sout("alarm!");
+							alarm[5] = ani_delay_ripple; 
 						}
 						else alarm[4] = ani_delay_ripple; // set this to the ripple effect speed // WoL
 					}
 					else alarm[4] = ani_delay_ripple; // set this to the ripple effect speed // WoL
+					/*
+					// TF
+					if (card_placement >= enemy_max) {
+						sout("all cards have attacked");
+						if (alarm[5] == -1) alarm[4] = ani_delay_ripple;
+					}
 					/*
 					// TF // WoL
 					if (player.hand_size == hand_max && global.phase_e_act && alarm[4] == -1) {
@@ -76,8 +92,8 @@ if (instance_exists(player)) {
 				}
 			}
 		}
-		// press [ enter ] // end reaction phase
-		if (global.phase_react && keyboard_check_pressed(13)) {
+		// press [ space ] // end reaction phase
+		if (global.phase_react && keyboard_check_pressed(32)) {
 			card_unselect_all(player);
 			with (player.character) {
 				damage_taken = damage_stack;
