@@ -91,7 +91,7 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 		var _character_placement = undefined;
 		var _enemy_placement = undefined;
 		for (var _i = 0; _i < board_size; _i++) {
-			if (player.board_card[_i] == player.character.id) {
+			if (global.board_c_card[_i] == player.character.id) {
 				_character_placement = _i;
 				break;
 			}
@@ -99,7 +99,7 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 		if (_character_placement != undefined) {
 			// check if character is blocking view
 			if (_character_placement+board_cols<board_size) {
-				if (player.board_card[_character_placement+board_cols] != noone) {
+				if (instance_exists(global.board_c_card[_character_placement+board_cols])) {
 					// there is a character blocking the view
 					_flag = false;
 				}
@@ -108,9 +108,9 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 			// this validation needs to take into account invisiblity
 			// get enemies in the same column as the character
 			var _column_enemies = [noone, noone];
-			for (var i = 0; i < array_length(obj_enemy_deck.enemy_card); i++) {
+			for (var i = 0; i < array_length(global.board_e_card); i++) {
 				// this is messed up because of the sort method
-				var _enemy = obj_enemy_deck.enemy_card[i];
+				var _enemy = global.board_e_card[i];
 				//sout("placements");
 				if (instance_exists(_enemy)) {
 					if (_enemy.placement%board_cols == _character_placement%board_cols) {
@@ -122,10 +122,10 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 			// TF
 			var _target_enemy = noone;
 			// Figure out what enemy in the column is a legal target // WoL
-			if (_column_enemies[0] != noone) _target_enemy = _column_enemies[0];
-			else if (_column_enemies[1] != noone) _target_enemy = _column_enemies[1];
+			if		(instance_exists(_column_enemies[0])) _target_enemy = _column_enemies[0];
+			else if (instance_exists(_column_enemies[1])) _target_enemy = _column_enemies[1];
 			// if valid attack ( so far )
-			if (_target_enemy != noone && _flag) {
+			if (instance_exists(_target_enemy) && _flag) {
 				// pay for attack 
 				if (player.pay_stamina) {
 					// successful payment

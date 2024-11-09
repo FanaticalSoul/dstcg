@@ -16,23 +16,31 @@ if (instance_exists(player)) {
 					}
 					// if all cards in hand are correctly positioned
 					if (_flag) {
+						//
+						
 						// if no cards have been drawn from the enemy deck
 						if (e_deck.deck_size > 0 && get_enemy_count() == 0) {
 							// start mulligan phase
 							global.phase_mulligan = true;
 							sout("phase 2 - mulligans");
 							// save game
-							if (global.new_game) {
-								with (player) {
-									if (
-									instance_exists(discard) &&
-									instance_exists(deck) &&
-									instance_exists(gauges) &&
-									instance_exists(character)) {
-										save_game(id); // TF
-									}
+							//TR//if (global.new_game) {
+							with (player) {
+								if (
+								instance_exists(discard) &&
+								instance_exists(deck) &&
+								instance_exists(gauges) &&
+								instance_exists(character)) {
+									save_game(id); // TF
 								}
 							}
+							//TR//}
+						}
+						else if (e_deck.deck_size == 0 && get_enemy_count() > 0) {
+							// start character activation phase
+							global.phase_c_act = true;
+							sout("phase 5 - character activation");
+							save_game(player);
 						}
 						/*
 						else if (global.phase_e_act) {

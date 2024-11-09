@@ -335,12 +335,14 @@ function load_game () {
 		}
 		// enemy board
 		var _i_board_e_card = [];
+		var _enemy_ids = [];
 		for (var i = 0; i < array_length(_struct.i_board_e_card); i++) {
 			if (is_struct(_struct.i_board_e_card[i])) {
 				// if character card exists
 				// create character card and add it's id to the board
 				var _enemy_id = instance_create_struct(_struct.i_board_e_card[i]);
 				array_push(_i_board_e_card, _enemy_id);
+				array_push(_enemy_ids, _enemy_id);
 			}
 			else array_push(_i_board_e_card, noone);
 		}
@@ -389,17 +391,28 @@ function load_game () {
 				}
 				else {
 					// load e_deck // WoL
+					// update enemy cards
+					for (var j = 0; j < array_length(_enemy_ids); j++) {
+						var _enemy_id = _enemy_ids[j];
+						// WoL // connect enemy to difficulty deck
+						_enemy_id.deck = _tmp_id;
+					}
 				}
 			}
 			else if (_tmp_obj == "obj_encounter_system") {
 				var _tmp_id = encounter_system_create(_struct,_i_board_c_card,_i_board_e_card);
 			}
 		}
+		
 		// create player
 		if (_player_save_index != -1) {
 			//sout("made player");
 			var _player_id = player_create_struct(_save_data[_player_save_index], _tmp_struct, _character_ids);
 		}
+
+		
+		
+		
 		file_text_close(_save_r);
 	}
 }
