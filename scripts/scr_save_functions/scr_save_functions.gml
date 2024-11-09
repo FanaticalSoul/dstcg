@@ -22,7 +22,7 @@ function start_new_game(save_system_id = id) {
 			array_push(_deck_load, [_start_card, false]);
 		}
 		ini_close();
-		// load character information
+		// load character information // WoL
 		var _character_load = "herald";
 		// create player
 		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
@@ -42,8 +42,7 @@ function start_new_game(save_system_id = id) {
 			e_deck : _e_deck_id
 		});
 		// save
-		//save_game(_player_id);
-		player_save_id = _player_id;
+		//player_save_id = _player_id;
 	}
 }
 
@@ -187,22 +186,10 @@ function save_game (player_id) { // do single player saves for now // WoL
 		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
-	// get associated character card
-	/*
-	for (var i = 0; i < board_size; i++) {
-		// could be a loop within a loop when multiple players are involved
-		//if (instance_exists(_save_data[0].i_board_c_card[i])) {
-		if (_save_data[0].i_board_c_card[i] != noone) {
-			if (_save_data[0].i_board_c_card[i].player.id == player_id) {
-				array_push(_associated_ids, _save_data[0].i_board_c_card[i].id);
-			}
-		}
-	}
-	*/
+	// get associated character card // WoL
+	
 	// save assossiated discard
 	with (player_id.discard) {
-		//sout("discard");
-		//sout(discard);
 		_struct = {
 			object : object_get_name(object_index),
 			layer : layer_get_name(player_id.layer),
@@ -230,12 +217,9 @@ function save_game (player_id) { // do single player saves for now // WoL
 		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
-	//sout("ids");
-	//sout(_associated_ids);
 	// save players ( should be the last thing save and load )
 	with (player_id) {
 		_struct = {
-			//id : id,
 			object : object_get_name(object_index),
 			layer : layer_get_name(layer),
 			depth : depth,
@@ -254,8 +238,8 @@ function save_game (player_id) { // do single player saves for now // WoL
 		// set hand cards
 		for (var i = 0; i < hand_size; i++) {
 			// set character cards on board
-			//if (instance_exists(hand[i])) {
-			if (hand[i] != noone) {
+			if (instance_exists(hand[i])) {
+			//if (hand[i] != noone) {
 				with (hand[i]) {
 					// set structure of start card
 					var _struct_child = {
@@ -292,7 +276,6 @@ function save_game (player_id) { // do single player saves for now // WoL
 	// save e_deck
 	with (_e_deck_id) {
 		_struct = {
-			//id : id,
 			object : object_get_name(object_index),
 			layer : layer_get_name(player_id.layer),
 			depth : depth,

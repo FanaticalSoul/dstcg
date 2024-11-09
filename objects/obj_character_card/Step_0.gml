@@ -34,11 +34,11 @@ if (instance_exists(player)) { // TF // only step if player exists
 			}
 			// hold [ mouse right ] // visual spoiler
 			if (mouse_check_button(mb_right)) {
-				if (array_length(card_stats)>0) {
-					if (card_stats) card_hq.sprite_index = struct_get(card_stats,"image_hq_back");
-					else card_hq.sprite_index = struct_get(card_stats,"image_hq_front");
+				if (card_stats != {}) {
+					if (act_ability) card_hq.sprite_index = card_stats.image_hq_back;
+					else card_hq.sprite_index = card_stats.image_hq_front;
+					card_hq.visible = true;
 				}
-				card_hq.visible = true;
 			}
 			else {
 				card_hq.sprite_index = spr_card_hq;

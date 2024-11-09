@@ -1,11 +1,14 @@
-/// @function					is_mouse_over_card();
+/// @function					is_mouse_over_card([card_id]);
+/// @param {id} card_id			card being hovered over
 /// @description				check if the mouse is over this card
 /// @return						{bool}
 
-function is_mouse_over_card() {
-	if (mouse_x >= x-card_width/2 && mouse_x <= x+card_width/2 &&
-	mouse_y >= y-card_height/2 && mouse_y <= y+card_height/2) return true;
-	else return false;
+function is_mouse_over_card(card_id = id) {
+	with (card_id) {
+		if (mouse_x >= x-card_width/2 && mouse_x <= x+card_width/2 &&
+		mouse_y >= y-card_height/2 && mouse_y <= y+card_height/2) return true;
+		else return false;
+	}
 }
 
 /// @function					sout_last_key();

@@ -15,7 +15,7 @@ if (selection_filter == "") {
 		if (0 < _tmp_x && _tmp_x < sprite_width) {
 			if (selection[i] != "") {
 				var _card_stats = card_get_stats(start_card_stats, selection[i]);
-				if (is_array(_card_stats)) _sprite = _card_stats[0].image;
+				if (_card_stats != {}) _sprite = _card_stats[0].image;
 			}
 			draw_sprite(_sprite,-1,_tmp_x,y);
 		}
@@ -31,6 +31,7 @@ else {
 	for (var i = 0; i < selection_size; i++) {
 		if (selection[i] != "") {
 			var _card_stats = card_get_stats(start_card_stats, selection[i]);
+			//sout(card_get_stats(start_card_stats, selection[i]));
 			if (is_array(_card_stats)) {
 				if ( _card_stats[0].type == "equipment") {
 					if (selection_filter == "equipment") {
@@ -58,10 +59,11 @@ else {
 		var _tmp_x = card_spacing+card_width/2+x+(i+selection_offset)*(card_spacing+card_width);
 		if (0 < _tmp_x && _tmp_x < sprite_width) {
 			if (filtered_selection[i] != "") {
-				var _card_stats = card_get_stats(filtered_selection[i], card_stats);
-				if (is_array(_card_stats)) _sprite = _card_stats[0].image;
+				var _card_stats = card_get_stats(start_card_stats, filtered_selection[i]);
+				if (_card_stats != {}) _sprite = _card_stats[0].image;
 			}
 			draw_sprite(_sprite,-1,_tmp_x,y);
+			//draw_sprite(spr_card_sm_selected,-1,_tmp_x,y);
 		}
 	}
 }
@@ -76,7 +78,7 @@ for (var i = 0; i < deck_size; i++) {
 	if (0 < _tmp_x && _tmp_x < sprite_width) {
 		if (deck[i] != "") {
 			var _card_stats = card_get_stats(start_card_stats, deck[i]);
-			if (is_array(_card_stats)) _sprite = _card_stats[0].image;
+			if (_card_stats != {}) _sprite = _card_stats[0].image;
 		}
 		//draw_sprite(_sprite,-1,_tmp_x,_tmp_y);
 		draw_sprite(_sprite,-1,_tmp_x,_tmp_y);

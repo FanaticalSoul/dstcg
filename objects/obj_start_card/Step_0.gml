@@ -68,13 +68,9 @@ if (instance_exists(player)) { // TF // only step if player exists
 				}
 			}
 			// hold [ mouse right ] // visual spoiler
-			if (mouse_check_button(mb_right)) {
-				if (card_stats != noone) card_hq.sprite_index = struct_get(card_stats[0],"image_hq");
+			if (mouse_check_button(mb_right) && card_stats != noone) {
+				card_hq.sprite_index = card_stats[0].image_hq;
 				card_hq.visible = true;
-			}
-			else {
-				card_hq.sprite_index = spr_card_hq;
-				card_hq.visible = false;
 			}
 		}
 		// if this card is the only card selected // keep out of hover over card area

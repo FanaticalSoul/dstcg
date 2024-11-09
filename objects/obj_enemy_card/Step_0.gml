@@ -4,13 +4,9 @@ if (instance_exists(deck)) { // TF // only step if deck exists
 	// mouse over card
 	if (is_mouse_over_card()) {
 		// hold [ mouse right ] // visual spoiler
-		if (mouse_check_button(mb_right) && is_struct(card_stats)) {
+		if (mouse_check_button(mb_right) && card_stats != {}) {
 			card_hq.sprite_index = card_stats.image_hq;
 			card_hq.visible = true;
-		}
-		else {
-			card_hq.sprite_index = spr_card_hq;
-			card_hq.visible = false;
 		}
 	}
 	// flip animation
@@ -25,9 +21,9 @@ if (instance_exists(deck)) { // TF // only step if deck exists
 	    } else {
 	        flip_scale_x += flip_speed; // expanding the card
 	        if (flip_scale_x >= 1) {
+				// finish flip
 	            flip_scale_x = 1; // full-size card
 	            ani_act_flip = false; // flip finished
-				//sout("finished flip");
 	        }
 	    }
 	}

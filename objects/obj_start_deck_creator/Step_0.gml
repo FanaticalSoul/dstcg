@@ -14,12 +14,7 @@ mouse_x >= x && mouse_x <= sprite_width) {
 	}
 	// on mouse hover // display card in visual spoiler
 	for (var i = 0; i < cards_visable; i++) {
-		if (
-			mouse_x > card_spacing+i*(card_width+card_spacing) && 
-			mouse_x <= card_width+card_spacing+i*(card_width+card_spacing) && 
-			mouse_y > card_spacing && 
-			mouse_y <= card_height+card_spacing
-		) {
+		if (is_mouse_over_display_card(i)) {
 			// get the stats of the card being hovered over
 			var _over_card = undefined;
 			if (selection_filter = "") _over_card = selection[abs(selection_offset)+i];
@@ -37,26 +32,17 @@ mouse_x >= x && mouse_x <= sprite_width) {
 	}
 }
 // if mouse is within deck boundaries
-else if (mouse_y <= (y+sprite_height+view_spacing)+card_height/2 && 
-mouse_y >= (y+sprite_height+view_spacing)-card_height/2 && 
-mouse_x >= x && mouse_x <= sprite_width) {
+else if (is_mouse_over_display_deck()) {
 	// sort deck
 	array_sort(deck,false);
-
 	// on [ mouse scroll ] // hand view navigation
 	if (deck_size > cards_visable) {
 		if (mouse_wheel_up() && deck_offset < 0) deck_offset += 1; // increment hand view
 		if (mouse_wheel_down() && deck_offset > -(deck_size-cards_visable)) deck_offset -= 1; // decrement hand view
 	}
 	// on mouse hover // display card in visual spoiler
-	//scr_sout("in zone 2");
 	for (var i = 0; i < cards_visable; i++) {
-		if (
-			mouse_x > card_spacing+i*(card_width+card_spacing) && 
-			mouse_x <= card_width+card_spacing+i*(card_width+card_spacing) && 
-			mouse_y > card_spacing+sprite_height+view_spacing && 
-			mouse_y <= card_height+card_spacing+sprite_height+view_spacing
-		) {
+		if (is_mouse_over_display_card(i, 0, sprite_height+view_spacing)) {
 			// get the stats of the card being hovered over
 			var _over_card = deck[abs(deck_offset)+i];
 			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
