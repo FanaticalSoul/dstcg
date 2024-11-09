@@ -13,6 +13,7 @@
     {"name":"inst_2DFD07E6","path":"rooms/map_deck_builder/map_deck_builder.yy",},
     {"name":"inst_77EBA241","path":"rooms/map_deck_builder/map_deck_builder.yy",},
     {"name":"inst_57533FBF","path":"rooms/map_deck_builder/map_deck_builder.yy",},
+    {"name":"inst_4142C8E3","path":"rooms/map_deck_builder/map_deck_builder.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -31,6 +32,7 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_start_deck_creator_filter","path":"objects/obj_start_deck_creator_filter/obj_start_deck_creator_filter.yy",},"propertyId":{"name":"filter","path":"objects/obj_start_deck_creator_filter/obj_start_deck_creator_filter.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"equipment\"",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":26.0,"y":64.0,},
         {"$GMRInstance":"","%Name":"inst_57533FBF","colour":4294967295,"frozen":true,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_57533FBF","objectId":{"name":"obj_start_deck_creator_cancel","path":"objects/obj_start_deck_creator_cancel/obj_start_deck_creator_cancel.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":156.0,"y":88.0,},
+        {"$GMRInstance":"","%Name":"inst_4142C8E3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4142C8E3","objectId":{"name":"obj_sdc_selection_character","path":"objects/obj_sdc_selection_character/obj_sdc_selection_character.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":21.0,"y":202.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Backgrounds","animationFPS":0.0,"animationSpeedType":0,"colour":0,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[
         {"$GMRBackgroundLayer":"","%Name":"Board","animationFPS":0.0,"animationSpeedType":0,"colour":4294967295,"depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Board","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_reveal_board_vertical","path":"sprites/spr_reveal_board_vertical/spr_reveal_board_vertical.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":170,},

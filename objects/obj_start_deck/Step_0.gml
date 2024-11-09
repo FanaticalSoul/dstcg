@@ -2,13 +2,11 @@
 
 if (instance_exists(player)) { // TF // only step if player exists
 	// on [ mouse scroll ] // deck view navigation
-	if (mouse_y <= deck_reveal_y+card_height/2 && mouse_y >= deck_reveal_y-card_height/2 && 
-	mouse_x <= deck_reveal_x+card_spacing+deck_visable*(card_width+card_spacing)
-	&& mouse_x >= deck_reveal_x && deck_reveal) {
+	if (is_mouse_over_reveal(start_deck_reveal_cords[0], start_deck_reveal_cords[1]) && deck_reveal) {
 		// increment through deck view
-		if (mouse_wheel_up() && deck_reveal_offset<0) deck_reveal_offset ++;
+		if (mouse_wheel_up() && deck_reveal_offset<0) deck_reveal_offset++;
 		// decrement through deck view
-		if (mouse_wheel_down() && deck_reveal_offset>deck_visable-deck_size) deck_reveal_offset --;
+		if (mouse_wheel_down() && deck_reveal_offset>deck_visable-deck_size) deck_reveal_offset--;
 	}
 	// mouse over deck
 	if (is_mouse_over_card()) {

@@ -3,6 +3,15 @@ global.game_data = {
 	room_data : {}
 };
 
+/// @function					save_game_delete(file_name);
+/// @param {string} file_name	save file name
+/// @description				delete save data
+
+function save_game_delete (file_name = file_data) {
+	if (file_exists(file_name)) {
+		file_delete(file_name);
+	}
+}
 
 
 
@@ -10,11 +19,11 @@ global.game_data = {
 /// @description				load the created deck and character, phases ect...
 ///								this will later be used to load the player into the map ( WoL )
 
-function start_new_game(save_system_id = id) {
+function start_new_game(save_system_id = id, deck_file = file_deck) {
 	with (save_system_id) {
 		sout("starting a new game");
 		// load deck information
-		ini_open("start_deck.ini");
+		ini_open(deck_file);
 		var _deck_load = [];
 		var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
 		for (var i = 0; i < _deck_size; i++) {
@@ -23,6 +32,7 @@ function start_new_game(save_system_id = id) {
 		}
 		ini_close();
 		// load character information // WoL
+		//////////////////////////////////////////////////
 		var _character_load = "herald";
 		// create player
 		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
@@ -49,8 +59,8 @@ function start_new_game(save_system_id = id) {
 /// @function					save_start_deck(start_deck,[deck_size]);
 /// @description				save the deck made for a new game
 
-function save_start_deck (start_deck, deck_size = deck_min) {
-	ini_open("start_deck.ini");
+function save_start_deck (start_deck, deck_size = deck_min, deck_file = file_deck) {
+	ini_open(deck_file);
 	for (var i = 0; i < deck_size; i++) {
 		ini_write_string("deck",string(i),start_deck[i]);
 	}
@@ -63,7 +73,7 @@ function save_start_deck (start_deck, deck_size = deck_min) {
 
 
 
-function save_game (player_id) { // do single player saves for now // WoL
+function save_game (player_id, file_name = file_data) { // do single player saves for now // WoL
 	sout("saving game");
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
@@ -156,19 +166,8 @@ function save_game (player_id) { // do single player saves for now // WoL
 		}
 		array_push(_save_data, _struct);
 	}
-	// get players
-	/*
-	var _player_ids = [];
-	for (var i = 0; i < board_size; i++) {
-		//if (instance_exists(_save_data[0].i_board_c_card[i])) {
-		if (_save_data[0].i_board_c_card[i] != noone) {
-			array_push(_player_ids, _save_data[0].i_board_c_card[i].player.id);
-		}
-	}
-	// use only the first id // add a for loop later ( WoL )
-	var _player_id = _player_ids[0];
-	*/
-	//var _associated_ids = []; // 0 = D // 1 = Char // 2 = Disc // 3 = Gauge
+	// get players ( and their assossated stuff )
+	// WoL
 	// save assossiated deck
 	with (player_id.deck) {
 		_struct = {
@@ -239,22 +238,18 @@ function save_game (player_id) { // do single player saves for now // WoL
 		for (var i = 0; i < hand_size; i++) {
 			// set character cards on board
 			if (instance_exists(hand[i])) {
-			//if (hand[i] != noone) {
 				with (hand[i]) {
 					// set structure of start card
 					var _struct_child = {
-						// information on a card
-						//id : id,
+						// information on a start card
 						x : x,
 						y : y,
 						object : object_get_name(object_index),
 						layer : layer_get_name(player_id.layer),
 						depth : depth,
 						card_speed : card_speed,
-						//card_stats : card_stats,
 						card_name : card_name,
 						hand_position : hand_position,
-						//player : player_id,
 						show_card : show_card,
 						ani_act_draw : ani_act_draw,
 						ani_fin_draw : ani_fin_draw
@@ -288,16 +283,16 @@ function save_game (player_id) { // do single player saves for now // WoL
 	}
 	// save all this information
 	struct_set(global.game_data.room_data, room_get_name(room), _save_data);
-	var _save_w = file_text_open_write("save_system_test.txt");
+	var _save_w = file_text_open_write(file_name);
 	var _save_data_str = json_stringify(_save_data);
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
 
-function load_game () {
+function load_game (file_name = file_data) {
 	sout("loading game");
-	if (file_exists("save_system_test.txt")) {
-		var _save_r = file_text_open_read("save_system_test.txt");
+	if (file_exists(file_name)) {
+		var _save_r = file_text_open_read(file_name);
 		var _save_data_str = file_text_read_string(_save_r);
 		var _save_data = json_parse(_save_data_str);
 		
@@ -330,24 +325,6 @@ function load_game () {
 			}
 			else array_push(_i_board_e_card, noone);
 		}
-
-		// set encounter system
-		/*
-		var _encounter_system_id = instance_create_layer(_struct.x,_struct.y,_struct.layer, asset_get_index(_struct.object), {
-			//id : _struct.id,
-			depth : _struct.depth,
-			//player : _struct.player.id,
-			i_phase_c_place : _struct.i_phase_c_place,
-			i_phase_e_place : _struct.i_phase_e_place,
-			i_phase_e_act : _struct.i_phase_e_act,
-			i_phase_c_act :_struct.i_phase_c_act,
-			i_phase_mulligan : _struct.i_phase_mulligan,
-			i_phase_react : _struct.i_phase_react,
-			i_board_c_card : _i_board_c_card,
-			i_board_e_card : _i_board_e_card,
-			i_random_seed : _struct.i_random_seed
-		});
-		*/
 		// set player
 		var _player_save_index = -1;
 		var _tmp_struct = {

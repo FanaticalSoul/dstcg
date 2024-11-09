@@ -16,7 +16,7 @@
 // set card draw animation delay ( in frames )
 #macro ani_delay_card_draw 8
 // set deck and discard spacing
-#macro deck_spacing (4 / max_deck) // 4 pixels
+#macro deck_spacing (4 / deck_max) // 4 pixels
 #macro discard_spacing deck_spacing
 #macro e_deck_spacing (6 / e_deck_max)
 // set placement macros

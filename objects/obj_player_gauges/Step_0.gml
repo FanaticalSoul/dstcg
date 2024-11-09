@@ -28,10 +28,10 @@ if (global.phase_c_act || global.phase_react || global.phase_e_act) {
 				array_foreach(_card_zones[i][0],increment_stamina_max,0,_card_zones[i][1]);
 			}
 			// scale images
-			health_xscale      = health_count  / (max_deck * 1) * ending_sprite_width/sprite_width;
-			health_xscale_max  = health_max    / (max_deck * 1) * ending_sprite_width/sprite_width;
-			stamina_xscale     = stamina_count / (max_deck * 2) * ending_sprite_width/sprite_width;
-			stamina_xscale_max = stamina_max   / (max_deck * 2) * ending_sprite_width/sprite_width;
+			health_xscale      = health_count  / (deck_max * 1) * ending_sprite_width/sprite_width;
+			health_xscale_max  = health_max    / (deck_max * 1) * ending_sprite_width/sprite_width;
+			stamina_xscale     = stamina_count / (deck_max * 2) * ending_sprite_width/sprite_width;
+			stamina_xscale_max = stamina_max   / (deck_max * 2) * ending_sprite_width/sprite_width;
 		}
 	}
 }

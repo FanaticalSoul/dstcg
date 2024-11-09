@@ -42,7 +42,7 @@ selection_size = i;
 //card_stats = start_card_stats;
 //selection_size = 9; // humanity, stamina, 4 equipments
 
-for (i = 0; i < max_deck; i++) deck[i] = "";
+for (i = 0; i < deck_max; i++) deck[i] = "";
 
 //y_view = 700;
 // have deck act as a psuedo-hand
@@ -81,7 +81,7 @@ function scr_handle_deck_edit (_over_card,_over_card_stats) {
 		}
 		if (_removed_card_index != -1) {
 			deck[_removed_card_index] = ""; // don't worry about this because of sorting
-			deck_size --;
+			deck_size--;
 			deck_offset = min(0,deck_offset+1); // decrement offset
 		}		
 	}

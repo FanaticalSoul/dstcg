@@ -7,7 +7,7 @@ deck_reveal_full = false; // reveal all cards in deck // TF
 tmp_depth = depth; // fixes bug with displaying over enemy cards
 var i = 0;
 // prevent errors for decks smaller than the max size of deck
-for (i = 0; i < max_deck; i++) {
+for (i = 0; i < deck_max; i++) {
 	deck[i][0] = ""; // card name
 	deck[i][1] = false; // revealed
 }
@@ -22,11 +22,9 @@ for (i = 0; i < _trim_size; i++) {
 	deck[i][1] = deck_load[i][1]; // revealed
 }
 deck_size = i;
-// custom adjustments
-//deck_spacing = deck_spacing_width_in_pixels / max_deck;
 // deck cord varibles
-deck_reveal_x = start_deck_reveal_cords[0];
-deck_reveal_y = start_deck_reveal_cords[1];
+//deck_reveal_x = start_deck_reveal_cords[0];
+//deck_reveal_y = start_deck_reveal_cords[1];
 // shuffle deck on creation
 if (!shuffled) {
 	deck = scr_deck_shuffle (deck, deck_size, true);
@@ -34,3 +32,9 @@ if (!shuffled) {
 }
 // log creation
 sout("created start deck");
+
+
+
+
+	
+	

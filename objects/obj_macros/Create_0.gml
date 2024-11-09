@@ -1,16 +1,16 @@
 /// @description create macros and globals
 
 // new game // TF
-global.new_game = false;
+//global.new_game = false;
 // set card demensions
-#macro max_deck 40 // max deck size
+#macro deck_max 40 // max deck size
 #macro card_width 32 // card width
 #macro card_height 48 // card height
 // set visual spoiler demensions
 //#macro HQCARDSIZEX 208 // visual spoiler card width
 //#macro HQCARDSIZEY 296 // visual spoiler card height
 // set card limits
-#macro hand_max  6 // maxium cards allowed in a players hand
+#macro hand_max 6 // maxium cards allowed in a players hand
 // set spacing demensions
 #macro card_spacing 8 // number of pixels between cards
 #macro deck_min 28 // starting deck size
@@ -28,3 +28,6 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 }
 // enemy deck set
 #macro e_deck_max 20
+// set files
+#macro file_deck "start_deck.ini"
+#macro file_data "save_data.txt"

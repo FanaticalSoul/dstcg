@@ -80,3 +80,19 @@ function get_enemy_count () {
 	}
 	return _enemy_count;
 }
+
+
+
+
+
+
+
+
+
+function is_mouse_over_reveal (deck_reveal_x, deck_reveal_y) {
+	if (mouse_y <= deck_reveal_y+card_height/2 && 
+	mouse_y >= deck_reveal_y-card_height/2 && 
+	mouse_x <= deck_reveal_x+card_spacing+deck_visable*(card_width+card_spacing)
+	&& mouse_x >= deck_reveal_x) return true;
+	else return false;
+}
