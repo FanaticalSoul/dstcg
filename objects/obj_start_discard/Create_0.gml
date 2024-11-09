@@ -18,7 +18,7 @@ for (i = 0; i < array_length(discard_load); i++) {
 	if (discard_load[i] != "") _trim_size++;
 }
 // load discard
-for (i = 0; i < array_length(_trim_size); i++) discard[i] = discard_load[i];
+for (i = 0; i < _trim_size; i++) discard[i] = discard_load[i];
 discard_size = i;
 // log creation
 sout("created discard");

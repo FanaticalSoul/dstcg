@@ -100,7 +100,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 						//id : player_id.character.id,
 						object : object_get_name(object_index),
 						layer : layer_get_name(player_id.layer),
-						depth : depth,
+						depth : temp_depth,
 						inital_x : inital_x,
 						inital_y : inital_y,
 						x : des_x, // WoL
@@ -112,7 +112,6 @@ function save_game (player_id) { // do single player saves for now // WoL
 						act_ability : act_ability,
 						act_move : false,
 						conditions : conditions, // WoL
-						temp_depth : temp_depth,
 						damage_taken : 0,
 						damage_stack : 0
 					};
@@ -182,7 +181,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 			y : y,
 			//player : player_id,
 			shuffled : shuffled,
-			deck_load : deck_load,
+			deck_load : deck,
 			deck_size : deck_size
 		};
 		//array_push(_associated_ids, _struct);
@@ -202,6 +201,8 @@ function save_game (player_id) { // do single player saves for now // WoL
 	*/
 	// save assossiated discard
 	with (player_id.discard) {
+		//sout("discard");
+		//sout(discard);
 		_struct = {
 			object : object_get_name(object_index),
 			layer : layer_get_name(player_id.layer),
@@ -209,7 +210,7 @@ function save_game (player_id) { // do single player saves for now // WoL
 			x : x,
 			y : y,
 			//player : undefined,
-			discard_load : discard_load,
+			discard_load : discard,
 			discard_size : discard_size
 		};
 		array_push(_save_data, _struct);
