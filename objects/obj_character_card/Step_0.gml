@@ -26,30 +26,47 @@ if (instance_exists(player)) { // TF // only step if player exists
 				if (global.phase_c_place) {
 					if (x == des_x && y == des_y && obj_encounter_system.alarm[0] == -1) dragable = true;
 				}
-				// press [ mouse left ] // toggle selection
-				else if (card_stats != {} && x == des_x && y == des_y) {
-					if (global.phase_e_act && global.phase_react && card_stats.reaction && !act_ability) {
+				// press [ mouse left ] // toggle selection ( if not targeting )
+				else if (card_stats != {} && x == des_x && y == des_y && !act_ability_target) {
+					
+					
+					if ((global.phase_e_act && global.phase_react && card_stats.reaction && !act_ability) || (global.phase_c_act && (!act_ability || !act_move))){
 						selected = !selected;
-						if (selected) card_unselect_hand(player); // unselect cards in hand
-					}
-					else if (global.phase_c_act && (!act_ability || !act_move)) {
-						selected = !selected;
+						// don't allow selection if a revealed zone is active
+						if (instance_exists(player.deck) && selected) {
+							if (player.deck.deck_reveal) selected = false;
+						}
+						if (instance_exists(player.discard) && selected) {
+							if (player.discard.discard_reveal) selected = false;
+						}
 						if (selected) card_unselect_hand(player); // unselect cards in hand
 					}
 				}
 			}
 			// press [ mouse right ] // toggle ability
 			else if (selected && mouse_check_button(mb_right)) {
-				if (card_stats != {}) {
-					if (!act_ability) {
-						// activate ability
-						if ((global.phase_c_act && !card_stats.reaction) || (global.phase_e_act && card_stats.reaction)) {
-							// activate ability
-							//player.
-							card_stats.play_script(id);
-						}
-						//card_hq.sprite_index = card_stats.image_hq_back;
+				if (card_stats != {} && !act_ability) {
+					if (card_stats.target && !act_ability_target) {
+						// seek target
+						act_ability_target = true;
 					}
+					/*
+					if (card_stats.target && !act_ability_target) {
+						if (instance_exists(act_ability_target_id)) {
+							// do script
+							card_stats.play_script(act_ability_target_id, id);
+						}
+						// seek target
+						else act_ability_target = true;
+					}
+					*/
+					// activate ability
+					else if (!act_ability_target && ((global.phase_c_act && !card_stats.reaction) || (global.phase_e_act && card_stats.reaction))) {
+						// activate ability
+						//player.
+						card_stats.play_script(id);
+					}
+					//card_hq.sprite_index = card_stats.image_hq_back;
 				}
 			}
 			// hold [ mouse right ] // visual spoiler
@@ -108,4 +125,15 @@ if (instance_exists(player)) { // TF // only step if player exists
 		}
 	}
 	//sout(player.character_load);
+}
+
+// check for target on left click
+if (mouse_check_button_pressed(mb_left) && act_ability_target && card_stats != {}) {
+	if (card_stats.target) card_stats.target_script(id);
+}
+if (card_stats.target && !act_ability_target && card_stats != {}) {
+	if (instance_exists(act_ability_target_id)) {
+		// do script
+		card_stats.play_script(act_ability_target_id, id);
+	}
 }

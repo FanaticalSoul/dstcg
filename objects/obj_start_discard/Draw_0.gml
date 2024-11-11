@@ -3,6 +3,11 @@
 if (instance_exists(player)) { // TF // only draw if player exists
 	for (var i = 0; i < discard_size; i++) {
 		if (discard[i] != "") { // existing cards
+			// toggle reveal off if character is selected
+			if (discard_reveal && instance_exists(player.character)) {
+				if (player.character.selected) discard_reveal = false;
+			}
+			// display cards
 			if (discard_reveal) {
 				depth = -hand_max-1; // fixes bug with displaying over enemy cards
 				draw_sprite(spr_reveal_board,-1,player.x-card_width/2,start_discard_reveal_cords[1]); // draw background

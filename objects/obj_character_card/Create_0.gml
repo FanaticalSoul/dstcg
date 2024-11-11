@@ -15,4 +15,5 @@ des_y = y;
 sout("created "+string(character)+" card");
 card_stats = card_get_stats(character_card_stats, character);
 //sout(card_stats);
+act_ability_target_id = noone;
 act_ability_target = false;

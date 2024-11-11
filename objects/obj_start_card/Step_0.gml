@@ -55,10 +55,20 @@ if (instance_exists(player)) { // TF // only step if player exists
 						else {
 							// select or unselect card
 							selected = !selected;
-							if (selected) {
-								// unselect character card
-								if (instance_exists(player.character)) player.character.selected = false;
+							if (instance_exists(player.character)) {
+								//sout("pre-unselected");
+								// don't allow card selection while using targeting ability
+								if (player.character.act_ability_target) {
+									//sout("unselected");
+									selected = false;
+								}
+								else if (selected) {
+									// unselect character card
+									player.character.selected = false;
+								}
 							}
+							
+
 							if (selected) player.selection[array_length(player.selection)] = id;
 							else start_card_unselect();
 						}

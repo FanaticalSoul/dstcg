@@ -56,7 +56,7 @@ function scr_basic_heal (_id) {
 				// successful payment
 				if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 					// effect
-					scr_start_card_heal(_heal);
+					scr_start_card_heal(_heal, player);
 					// post stamina code
 					player.pay_stamina = scr_post_effect(_id, _standard_action);
 					player.act_use_equip = true;

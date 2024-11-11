@@ -7,6 +7,7 @@ with (player) {
 	act_use_equip = false;
 	act_attack = false;
 	character.act_move = false;
+	character.act_ability_target = false;
 	//* TF // I do not believe these needed to be changed but I changed them just in case
 	pay_stamina = false;
 	global.phase_react = false;

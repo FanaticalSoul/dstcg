@@ -11,7 +11,10 @@ if (instance_exists(player)) { // TF // only draw if player exists
 			sprite_index = struct_get(card_stats,"image_sm_front");
 		}
 		draw_self();
-		if (selected) draw_sprite(spr_card_sm_selected,-1,x,y); // selected draw
+		if (selected) {
+			if (act_ability_target) draw_sprite(spr_card_sm_selected_alt,-1,x,y); // selected draw
+			else draw_sprite(spr_card_sm_selected,-1,x,y); // selected draw
+		}
 	}
 	// drag card
 	if (dragable) {
