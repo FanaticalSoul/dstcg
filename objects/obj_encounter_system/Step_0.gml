@@ -3,8 +3,14 @@
 // check if game is loading
 if (instance_exists(player)) {
 	if (instance_exists(player.character)) {
+		// if main phase is active with damage
+		if (global.phase_c_act) {
+			if (player.character.damage_taken > 0) {
+				card_unselect_all(player);
+			}
+		}
 		// check if no phase is currently active
-		if (!global.phase_c_place && !global.phase_mulligan && !global.phase_e_place && 
+		else if (!global.phase_c_place && !global.phase_mulligan && !global.phase_e_place && 
 		!global.phase_e_act && !global.phase_react && !global.phase_c_act) {
 			// start mulligan phase ( 2 )
 			if (instance_exists(e_deck)) {

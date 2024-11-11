@@ -1,4 +1,12 @@
 
+function character_unselect (character_id = id) {
+	with (character_id) {
+		// unselect card
+		selected = false;
+		act_ability_target_id = noone;
+		act_ability_target = false;
+	}
+}
 /// @function					start_card_unselect([card_id]);
 /// @param {id} card_id			id of the card
 /// @description				unselect start card
@@ -56,7 +64,7 @@ function card_unselect_hand (player_id = id) {
 
 function card_unselect_all (player_id = id) {
 	with (player_id) {
-		if (character.selected) character.selected = false;
+		character_unselect(character);
 		card_unselect_hand();
 	}
 }

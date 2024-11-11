@@ -27,16 +27,11 @@ if (instance_exists(player)) { // TF // only step if player exists
 			}
 		}
 	}
-	// press [ up on d-pad ] // toggle deck reveal area
-	if (keyboard_check_pressed(38) && (deck_reveal || deck_size > 0) && 
+	// press [ Q ] // toggle deck reveal area
+	if (keyboard_check_pressed(81) && (deck_reveal || deck_size > 0) && 
 	 !player.discard.discard_reveal && !player.character.selected) {
 		deck_reveal_offset = 0;
 		deck_reveal = !deck_reveal; // toggle reveal state
-	}
-	// press [ down on d-pad ]
-	if ((keyboard_check_pressed(40) && deck_reveal) || player.character.selected) {
-		deck_reveal_offset = 0;
-		deck_reveal = false;
 	}
 	// press [ alt ] // reveal all cards in deck // (TF)
 	if (keyboard_check_pressed(164) || keyboard_check_pressed(165)) deck_reveal_full = !deck_reveal_full;

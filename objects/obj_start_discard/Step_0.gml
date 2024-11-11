@@ -33,14 +33,9 @@ if (instance_exists(player)) { // TF // only step if player exists
 			player.act_cycle = true;
 		}
 	}
-	// press [ w ] // toggle discard reveal area
-	if (keyboard_check_pressed(87) && (discard_reveal || discard_size > 0) && !player.deck.deck_reveal) {
+	// press [ E ] // toggle discard reveal area
+	if (keyboard_check_pressed(69) && (discard_reveal || discard_size > 0) && !player.deck.deck_reveal) {
 		discard_reveal_offset = 0;
 		discard_reveal = !discard_reveal; // toggle reveal state
-	}
-	// press [ d ] // toggle discard reveal area off
-	if (keyboard_check_pressed(83) && discard_reveal) {
-		discard_reveal_offset = 0;
-		discard_reveal = false;
 	}
 }

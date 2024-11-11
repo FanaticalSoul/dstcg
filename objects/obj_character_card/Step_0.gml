@@ -120,6 +120,14 @@ if (instance_exists(player)) { // TF // only step if player exists
 					des_y = global.board_c_cords[_character_placement+_move_mod][1];
 					// finish movement
 					act_move = true;
+					// apply frost
+					for (var i = 0; i < array_length(conditions); i++) {
+						if (conditions[i] == "frostbite") {
+							damage_taken += 1;
+							array_delete(conditions, i, 1);
+							break;
+						}
+					}
 				}
 			} 
 		}
@@ -137,9 +145,6 @@ if (card_stats.target && !act_ability_target && card_stats != {}) {
 		card_stats.play_script(act_ability_target_id, id);
 	}
 }
-
-
-
 
 //sout("stak "+string(condition_stack));
 //sout("cons "+string(conditions));

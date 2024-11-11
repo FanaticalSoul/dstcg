@@ -16,15 +16,6 @@ with (player) {
 	// TF /*/
 	// unselect all cards
 	card_unselect_all(id);
-	/*
-	if (character_card.selected) character_card.selected = false;
-	while (array_length(stamina_selection) > 0) {
-		with (stamina_selection[0]) scr_start_card_stamina_unselect();
-	}
-	while (array_length(selection) > 0) {
-		with (selection[0]) scr_start_card_unselect();
-	}
-	*/
 }
 // end turn
 if (get_enemy_count() > 0) {
