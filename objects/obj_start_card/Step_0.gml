@@ -33,7 +33,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 						if (player.pay_stamina) {
 							// if only selecting stamina
 							if (card_stats[0].type == "stamina") {
-								if (selected) scr_start_card_stamina_unselect ();
+								if (selected) start_card_stamina_unselect();
 								else {
 									selected = true;
 									// unselect character card

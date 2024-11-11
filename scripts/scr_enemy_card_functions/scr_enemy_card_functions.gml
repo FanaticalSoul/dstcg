@@ -46,7 +46,7 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 			var _target_card_stats = card_get_stats(character_card_stats, _target_character.character);
 			
 			// check if any cards in hand or on field can react
-			if (_target_card_stats.reaction && !_target_character.ability_used) {
+			if (_target_card_stats.reaction && !_target_character.act_ability) {
 				// player can use their characters reaction ability
 				global.phase_react = true;
 			}

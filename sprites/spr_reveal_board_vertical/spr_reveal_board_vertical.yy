@@ -23,7 +23,7 @@
   ],
   "name":"spr_reveal_board_vertical",
   "nineSlice":null,
-  "origin":4,
+  "origin":1,
   "parent":{
     "name":"Boards",
     "path":"folders/Sprites/Boards.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":21,
-    "yorigin":88,
+    "yorigin":0,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

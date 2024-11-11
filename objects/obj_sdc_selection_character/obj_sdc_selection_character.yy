@@ -29,13 +29,19 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"cards_visable","filters":[],"listItems":[],"multiselect":false,"name":"cards_visable","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"3","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"card_selection","filters":[],"listItems":[
+        "\"herald\"",
+        "\"knight\"",
+        "\"assassin\"",
+        "\"sorcerer\"",
+      ],"multiselect":true,"name":"card_selection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\", \"knight\", \"assassin\", \"sorcerer\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_character_card_sm_herald_front",
-    "path":"sprites/spr_character_card_sm_herald_front/spr_character_card_sm_herald_front.yy",
+    "name":"spr_reveal_board_vertical",
+    "path":"sprites/spr_reveal_board_vertical/spr_reveal_board_vertical.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -41,9 +41,7 @@ function get_start_card_stats () {
 			standard_action : true,
 			block : 2,
 			reaction : true,
-			play_script : function (id) {
-				return scr_basic_block(id);
-			}
+			play_script : function (id) {scr_basic_block(id);}
 		}],[{
 			name : "spear",
 			type : "equipment",
@@ -59,9 +57,7 @@ function get_start_card_stats () {
 				1, // faith
 				1  // generic
 			],
-			play_script : function (id) {
-				return scr_basic_attack(id);
-			}
+			play_script : function (id) {scr_basic_attack(id);}
 		}, {
 			standard_action : true,
 			damage : 2,
@@ -72,9 +68,7 @@ function get_start_card_stats () {
 				1, // faith
 				0  // generic
 			],
-			play_script : function (id) {
-				return scr_basic_attack(id);
-			}
+			play_script : function (id) {scr_basic_attack(id);}
 		}, {
 			standard_action : true,
 			damage : 3,
@@ -85,9 +79,7 @@ function get_start_card_stats () {
 				1, // faith
 				2  // generic
 			],
-			play_script : function (id) {
-				return scr_basic_attack(id);
-			}
+			play_script : function (id) {scr_basic_attack(id);}
 		}],[{
 			name : "kite shield",
 			type : "equipment",
@@ -104,9 +96,7 @@ function get_start_card_stats () {
 				0  // generic
 			],
 			reaction : true,
-			play_script : function (id) {
-				return scr_basic_block(id);
-			}
+			play_script : function (id) {scr_basic_block(id);}
 		},{
 			standard_action : true,
 			damage : 2,
@@ -117,9 +107,7 @@ function get_start_card_stats () {
 				1, // faith
 				0  // generic
 			],
-			play_script : function (id) {
-				return scr_basic_attack(id);
-			}
+			play_script : function (id) {scr_basic_attack(id);}
 		}],[{
 			name : "talisman",
 			type : "equipment",
@@ -148,10 +136,120 @@ function get_start_card_stats () {
 				0, // faith
 				1  // generic
 			],
-			play_script : function (id) {
-				return scr_basic_heal (id);
-			}
-		}],[{
+			play_script : function (id) {scr_basic_heal(id);}
+		}],
+		// Knight Class
+		[{ // knight armour
+			name : "knight armour",
+			type : "equipment"
+		},{
+			block  : 3, reaction : true,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				0, // faith
+				0  // generic
+			],
+			play_script : function (id) {scr_basic_block(id);}
+		},{
+			standard_action : true,
+			block : 4, reaction : true,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				0, // faith
+				0  // generic
+			],
+			play_script : function (id) {scr_basic_block(id);}
+		}],
+		[{ // knight shield
+			name : "knight shield",
+			type : "equipment",
+			attack : "heavy"
+		},{
+			damage : 3,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				0, // faith
+				1  // generic
+			],
+			play_script : function (id) {scr_basic_attack(id);}
+		},{
+			standard_action : true,
+			block : 3, reaction : true,
+			play_script : function (id) {scr_basic_block(id);}
+		}],
+		
+		[{ //long sword
+			name : "long sword",
+			type : "equipment",
+			attack : "heavy"
+		},{
+			damage : 2,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				1, // faith
+				1  // generic
+			],
+			play_script : function (id) {scr_basic_attack(id);}
+		},{
+			standard_action : true,
+			damage : 2,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				0, // faith
+				0  // generic
+			],
+			play_script : function (id) {scr_basic_attack(id);}
+		},{
+			standard_action : true,
+			damage : 3,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				2, // strength
+				0, // faith
+				2  // generic
+			],
+			play_script : function (id) {scr_basic_attack(id);}
+		}],
+		
+		[{ //short sword
+			name : "short sword",
+			type : "equipment",
+			attack : "skilled"
+		},{
+			damage : 1,
+			stamina : [
+				1, // dexerity
+				0, // intelligence
+				1, // strength
+				0, // faith
+				0  // generic
+			],
+			play_script : function (id) {scr_basic_attack(id);}
+		},{
+			standard_action : true,
+			damage : 2,
+			stamina : [
+				0, // dexerity
+				0, // intelligence
+				1, // strength
+				0, // faith
+				0  // generic
+			],
+			play_script : function (id) {scr_basic_attack(id);}
+		}],
+		// Stamina
+		[{
 			name : "str stamina",
 			type : "stamina",
 			image : spr_start_card_sm_stamina_str,
@@ -210,7 +308,7 @@ function get_start_card_stats () {
 			image_hq : spr_start_card_hq_remant_of_humanity
 		},{
 			play_script : function (id) {
-				return scr_equipment_remant_of_humanity_1 (id);
+				scr_equipment_remant_of_humanity_1 (id);
 			}
 		}]
 	];

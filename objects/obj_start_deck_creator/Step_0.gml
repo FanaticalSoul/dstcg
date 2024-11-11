@@ -58,6 +58,10 @@ else if (is_mouse_over_display_deck()) {
 	}
 }
 // hide visual spoiler if not in deck customizer areas
-else if (visual_spoiler.visible) visual_spoiler.visible = false;
-
+else if (visual_spoiler.visible) {
+	with (obj_sdc_selection_character) {
+		if (!(y+card_spacing <= mouse_y && mouse_y <= y+sprite_height-card_spacing &&
+		x-card_width/2 <= mouse_x && mouse_x <= x+card_width/2)) visual_spoiler.visible = false;
+	}
+}
 // limit equipment cards allowed in a deck to 4 per card

@@ -26,14 +26,12 @@ function start_new_game(save_system_id = id, deck_file = file_deck) {
 		ini_open(deck_file);
 		var _deck_load = [];
 		var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
+		var _character_load = ini_read_string("character", string(0), string("herald"));
 		for (var i = 0; i < _deck_size; i++) {
 			var _start_card = ini_read_string("deck",string(i),"");
 			array_push(_deck_load, [_start_card, false]);
 		}
 		ini_close();
-		// load character information // WoL
-		//////////////////////////////////////////////////
-		var _character_load = "herald";
 		// create player
 		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
 			character_load : _character_load,
@@ -56,14 +54,15 @@ function start_new_game(save_system_id = id, deck_file = file_deck) {
 	}
 }
 
-/// @function					save_start_deck(start_deck,[deck_size]);
+/// @function					save_start_deck(start_deck, start_character, [deck_size], [deck_file]);
 /// @description				save the deck made for a new game
 
-function save_start_deck (start_deck, deck_size = deck_min, deck_file = file_deck) {
+function save_start_deck (start_deck, start_character, deck_size = deck_min, deck_file = file_deck) {
 	ini_open(deck_file);
 	for (var i = 0; i < deck_size; i++) {
 		ini_write_string("deck",string(i),start_deck[i]);
 	}
+	ini_write_string("character", string(0), start_character);
 	ini_write_string("deck_size", string(0), deck_size);
 	ini_close();
 }

@@ -28,65 +28,73 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 			if (characters[step] == "herald") {
 				with (obj_start_deck_creator) {
 					deck_size = 0;
-					var _i = 0;
-					for (var _j = 0; _j < 11; _j++) deck[_i++] = "fth stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "int stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "str stamina";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "herald armour";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "talisman";
-					for (var _j = 0; _j <  3; _j++) deck[_i++] = "spear";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "kite shield";
-					deck_size = _i;
+					var i = 0;
+					for (var j = 0; j < 11; j++) deck[i++] = "fth stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "int stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "str stamina";
+					for (var j = 0; j <  2; j++) deck[i++] = "herald armour";
+					for (var j = 0; j <  2; j++) deck[i++] = "talisman";
+					for (var j = 0; j <  3; j++) deck[i++] = "spear";
+					for (var j = 0; j <  2; j++) deck[i++] = "kite shield";
+					deck_size = i;
 					array_sort(deck,false);
 					deck_offset = 0;
+					// set character card
+					obj_sdc_selection_character.selected = "herald";
 				}
 			}
 			else if (characters[step] == "assassin") {
 				with (obj_start_deck_creator) {
 					deck_size = 0;
-					var _i = 0;
-					for (var _j = 0; _j < 11; _j++) deck[_i++] = "dex stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "int stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "str stamina";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "assassin armour";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "kukris";
-					for (var _j = 0; _j <  3; _j++) deck[_i++] = "estoc"; // 3 copies
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "target shield";
-					deck_size = _i;
+					var i = 0;
+					for (var j = 0; j < 11; j++) deck[i++] = "dex stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "int stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "str stamina";
+					for (var j = 0; j <  2; j++) deck[i++] = "assassin armour";
+					for (var j = 0; j <  2; j++) deck[i++] = "kukris";
+					for (var j = 0; j <  3; j++) deck[i++] = "estoc"; // 3 copies
+					for (var j = 0; j <  2; j++) deck[i++] = "target shield";
+					deck_size = i;
 					array_sort(deck,false);
 					deck_offset = 0;
+					// set character card
+					obj_sdc_selection_character.selected = "assassin";
 				}
 			}
 			else if (characters[step] == "sorcerer") {
 				with (obj_start_deck_creator) {
 					deck_size = 0;
-					var _i = 0;
-					for (var _j = 0; _j < 11; _j++) deck[_i++] = "int stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "dex stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "fth stamina";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "sorcerer robes";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "mail breaker";
-					for (var _j = 0; _j <  3; _j++) deck[_i++] = "soul arrow"; // 3 copies
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "leather shield";
-					deck_size = _i;
+					var i = 0;
+					for (var j = 0; j < 11; j++) deck[i++] = "int stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "dex stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "fth stamina";
+					for (var j = 0; j <  2; j++) deck[i++] = "sorcerer robes";
+					for (var j = 0; j <  2; j++) deck[i++] = "mail breaker";
+					for (var j = 0; j <  3; j++) deck[i++] = "soul arrow"; // 3 copies
+					for (var j = 0; j <  2; j++) deck[i++] = "leather shield";
+					deck_size = i;
 					array_sort(deck,false);
 					deck_offset = 0;
+					// set character card
+					obj_sdc_selection_character.selected = "sorcerer";
 				}
 			}
 			else if (characters[step] == "knight") {
 				with (obj_start_deck_creator) {
 					deck_size = 0;
-					var _i = 0;
-					for (var _j = 0; _j < 11; _j++) deck[_i++] = "str stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "fth stamina";
-					for (var _j = 0; _j <  4; _j++) deck[_i++] = "dex stamina";
-					for (var _j = 0; _j <  3; _j++) deck[_i++] = "knight armour" // 3 copies
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "long sword";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "short sword";
-					for (var _j = 0; _j <  2; _j++) deck[_i++] = "knight shield";
-					deck_size = _i;
+					var i = 0;
+					for (var j = 0; j < 11; j++) deck[i++] = "str stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "fth stamina";
+					for (var j = 0; j <  4; j++) deck[i++] = "dex stamina";
+					for (var j = 0; j <  3; j++) deck[i++] = "knight armour" // 3 copies
+					for (var j = 0; j <  2; j++) deck[i++] = "long sword";
+					for (var j = 0; j <  2; j++) deck[i++] = "short sword";
+					for (var j = 0; j <  2; j++) deck[i++] = "knight shield";
+					deck_size = i;
 					array_sort(deck,false);
 					deck_offset = 0;
+					// set character card
+					obj_sdc_selection_character.selected = "knight";
 				}
 			}
 		}
@@ -94,7 +102,7 @@ mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
 			// cancel button
 			if (obj_start_deck_creator.deck_size > 0) {
 				with (obj_start_deck_creator) {
-					for (var _i = 0; _i < deck_size; _i ++) deck[_i] = "";
+					for (var i = 0; i < deck_size; i++) deck[i] = "";
 					deck_size = 0;
 					deck_offset = 0;
 				}
