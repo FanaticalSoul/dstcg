@@ -106,6 +106,14 @@ if (instance_exists(player)) {
 			with (player.character) {
 				damage_taken = damage_stack;
 				damage_stack = 0;
+				// resolve conditions on player
+				for (var i = 0; i < array_length(condition_stack); i++) {
+					var _condition = condition_stack[i];
+					if (!array_contains(conditions, _condition)) {
+						array_push(conditions, _condition);
+					}
+				}
+				condition_stack = [];
 			}
 			global.phase_react = false;
 		}

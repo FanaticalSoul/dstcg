@@ -1,6 +1,8 @@
 /// @description end character activation phase
+
+
 global.phase_c_act = false;
-// toggle off character activations and activation phase
+
 with (player) {
 	// get actions back
 	act_cycle = false;

@@ -1,4 +1,5 @@
 /// @description start enemy placement phase ( 3 )
+
 global.phase_mulligan = false;
 global.phase_e_place = true;
 sout("phase 3 - enemy placement");

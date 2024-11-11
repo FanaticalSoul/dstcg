@@ -17,3 +17,5 @@ card_stats = card_get_stats(character_card_stats, character);
 //sout(card_stats);
 act_ability_target_id = noone;
 act_ability_target = false;
+condition_stack = []; // TF
+end_c_act_phase = false;

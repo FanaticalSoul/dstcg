@@ -28,8 +28,16 @@ if (instance_exists(player)) { // TF // only step if player exists
 			// press [ mouse left ] // select card
 			if (mouse_check_button_pressed(mb_left)) {
 				if (show_card && x == des_x && y == des_y) {
+					// resolve damage //
+					if (player.character.damage_taken > 0) {
+				
+						//scr_start_card_stamina_discard (id); // TF
+						start_card_discard (player.discard);
+				
+						player.character.damage_taken --;
+					}
 					// card selection //
-					if (global.phase_c_act || (global.phase_e_act && global.phase_react)) {
+					else if (global.phase_c_act || (global.phase_e_act && global.phase_react)) {
 						if (player.pay_stamina) {
 							// if only selecting stamina
 							if (card_stats[0].type == "stamina") {
@@ -73,14 +81,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 							else start_card_unselect();
 						}
 					}
-					// resolve damage //
-					else if (player.character.damage_taken > 0) {
-				
-						//scr_start_card_stamina_discard (id); // TF
-						start_card_discard (player.discard);
-				
-						player.character.damage_taken --;
-					}
+					
 				}
 			}
 			// hold [ mouse right ] // visual spoiler

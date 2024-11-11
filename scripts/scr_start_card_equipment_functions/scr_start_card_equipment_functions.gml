@@ -74,6 +74,15 @@ function scr_start_card_block (_block) {
 	var _character = player.character;
 	_character.damage_taken = max(0,_character.damage_stack-_block);
 	_character.damage_stack = 0;
+	
+	// resolve conditions on player
+	for (var i = 0; i < array_length(_character.condition_stack); i++) {
+		var _condition = _character.condition_stack[i];
+		if (!array_contains(_character.conditions, _condition)) {
+			array_push(_character.conditions, _condition);
+		}
+	}
+	_character.condition_stack = [];
 	// unselect card
 	//scr_start_card_unselect();
 }

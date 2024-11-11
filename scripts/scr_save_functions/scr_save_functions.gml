@@ -121,7 +121,8 @@ function save_game (player_id, file_name = file_data) { // do single player save
 						act_move : false,
 						conditions : conditions, // WoL
 						damage_taken : 0,
-						damage_stack : 0
+						damage_stack : 0//,
+						//condition_stack : []
 					};
 					// add information to inital character board
 					_struct.i_board_c_card[i] = _struct_child;

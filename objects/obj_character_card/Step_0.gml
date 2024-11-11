@@ -137,3 +137,36 @@ if (card_stats.target && !act_ability_target && card_stats != {}) {
 		card_stats.play_script(act_ability_target_id, id);
 	}
 }
+
+
+
+
+//sout("stak "+string(condition_stack));
+//sout("cons "+string(conditions));
+// press [ space ] // end activation phase
+if ((keyboard_check_pressed(32) || end_c_act_phase) && global.phase_c_act && obj_encounter_system.alarm[6] == -1 && damage_taken == 0) {
+	// apply poison
+	for (var i = 0; i < array_length(conditions); i++) {
+		if (conditions[i] == "poison") {
+			damage_taken += 1;
+			array_delete(conditions, i, 1);
+			break;
+		}
+	}
+	// check for poison damage
+	var _flag = true; // move to next phase
+	for (var i = 0; i < board_size; i++) {
+		if (instance_exists(global.board_c_card[i])) {
+			with (global.board_c_card[i]) {
+				if (damage_taken > 0) _flag = false;
+			}
+			if (!_flag) break;
+		}
+	}
+	if (_flag) {
+		// no poison damage
+		end_c_act_phase = false;
+		obj_encounter_system.alarm[6] = 1; // no delay
+	}
+	else end_c_act_phase = true;
+}
