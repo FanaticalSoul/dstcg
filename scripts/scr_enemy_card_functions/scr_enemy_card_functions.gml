@@ -40,6 +40,16 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 		}
 		// if target is valid
 		if (instance_exists(_target_character)) {
+			// apply bleed
+			with (_target_character) {
+				for (var j = 0; j < array_length(conditions); j++) {
+					if (conditions[j] == "bleed") {
+						attack_value += 1; // increase incoming damage
+						array_delete(conditions, i, 1);
+						break;
+					}
+				}
+			}
 			// do each basic attack listed
 			//sout(_target_character.character);
 			//sout(_target_character.card_stats);
@@ -81,7 +91,7 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 							array_push(condition_stack, _condition);
 							sout("applying "+string(_condition));
 						}
-						sout(condition_stack);
+						//sout(condition_stack);
 					}
 				}
 				
@@ -101,7 +111,7 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 							array_push(conditions, _condition);
 							sout("applying "+string(_condition));
 						}
-						sout(conditions);
+						//sout(conditions);
 					}
 				}
 			}

@@ -34,7 +34,8 @@ function start_card_draw (deck_id = id) {
 				show_card : _show_card
 			});
 			// log action
-			sout([player.character.character, "draws", deck[deck_size-1][0]], " ");
+			if (deck_size-1<0) sout(player.character.character+" draws nothing");
+			else sout([player.character.character, "draws", deck[deck_size-1][0]], " ");
 		}
 	}
 }
