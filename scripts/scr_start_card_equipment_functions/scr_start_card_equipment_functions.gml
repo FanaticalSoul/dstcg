@@ -40,12 +40,9 @@ function scr_basic_block (_id) {
 					global.phase_react = false;
 				}
 			}
-			else {
-				player.pay_stamina = true;
-			}
+			else player.pay_stamina = true;
 		}
 	}
-	return;
 }
 
 function scr_basic_heal (_id) {
@@ -79,7 +76,6 @@ function scr_start_card_block (_block) {
 	_character.damage_stack = 0;
 	// unselect card
 	//scr_start_card_unselect();
-	return;
 }
 
 // non-ranged attack

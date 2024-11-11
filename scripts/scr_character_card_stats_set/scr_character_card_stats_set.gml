@@ -28,7 +28,8 @@ function get_character_card_stats() {
 			image_sm_front : spr_character_card_sm_knight_front,
 			image_sm_back  : spr_character_card_sm_knight_back ,
 			taunt_value : 10,
-			reaction : true
+			reaction : true,
+			play_script : function (character_id) {scr_character_ability_knight(character_id);}
 		},
 		{
 			name : "sorcerer",
@@ -56,4 +57,15 @@ function get_character_card_stats() {
 		}
 	}
 	return _card_stats;
+}
+
+
+
+function scr_character_ability_knight (character_id = id) {
+	with (character_id) {
+		scr_start_card_block(3);
+		selected = false;
+		act_ability = true;
+		global.phase_react = false;
+	}
 }

@@ -34,7 +34,7 @@
         "\"knight\"",
         "\"assassin\"",
         "\"sorcerer\"",
-      ],"multiselect":true,"name":"card_selection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\", \"knight\", \"assassin\", \"sorcerer\"","varType":6,},
+      ],"multiselect":true,"name":"card_selection","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\", \"knight\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

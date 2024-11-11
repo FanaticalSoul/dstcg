@@ -27,11 +27,28 @@ if (instance_exists(player)) { // TF // only step if player exists
 					if (x == des_x && y == des_y && obj_encounter_system.alarm[0] == -1) dragable = true;
 				}
 				// press [ mouse left ] // toggle selection
-				else if ((global.phase_e_act && global.phase_react) || 
-				(global.phase_c_act && (!act_ability || !act_move))) {
-					if (x == des_x && y == des_y) {
+				else if (card_stats != {} && x == des_x && y == des_y) {
+					if (global.phase_e_act && global.phase_react && card_stats.reaction && !act_ability) {
 						selected = !selected;
 						if (selected) card_unselect_hand(player); // unselect cards in hand
+					}
+					else if (global.phase_c_act && (!act_ability || !act_move)) {
+						selected = !selected;
+						if (selected) card_unselect_hand(player); // unselect cards in hand
+					}
+				}
+			}
+			// press [ mouse right ] // toggle ability
+			else if (selected && mouse_check_button(mb_right)) {
+				if (card_stats != {}) {
+					if (!act_ability) {
+						// activate ability
+						if ((global.phase_c_act && !card_stats.reaction) || (global.phase_e_act && card_stats.reaction)) {
+							// activate ability
+							//player.
+							card_stats.play_script(id);
+						}
+						//card_hq.sprite_index = card_stats.image_hq_back;
 					}
 				}
 			}
