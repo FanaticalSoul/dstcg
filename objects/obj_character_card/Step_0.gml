@@ -88,13 +88,16 @@ if (instance_exists(player)) { // TF // only step if player exists
 	// reset depth upon returning to start
 	if (!dragable && depth != temp_depth && x == des_x && y == des_y) depth = temp_depth;
 	// move character
-	if (keyboard_check_pressed(37) || keyboard_check_pressed(38) || keyboard_check_pressed(39) || keyboard_check_pressed(40)) {
+	if (
+	keyboard_check_pressed(65) || keyboard_check_pressed(87) || keyboard_check_pressed(68) || keyboard_check_pressed(83) ||
+	keyboard_check_pressed(37) || keyboard_check_pressed(38) || keyboard_check_pressed(39) || keyboard_check_pressed(40)
+	) {
 		// set modifiers
 		var _move_mod = 0;
-		if (keyboard_check_pressed(38)) _move_mod = -board_cols;
-		else if (keyboard_check_pressed(39)) _move_mod = 1;
-		else if (keyboard_check_pressed(40)) _move_mod = board_cols;
-		else if (keyboard_check_pressed(37)) _move_mod = -1;
+		if (keyboard_check_pressed(38) || keyboard_check_pressed(87)) _move_mod = -board_cols;
+		else if (keyboard_check_pressed(39) || keyboard_check_pressed(68)) _move_mod = 1;
+		else if (keyboard_check_pressed(40) || keyboard_check_pressed(83)) _move_mod = board_cols;
+		else if (keyboard_check_pressed(37) || keyboard_check_pressed(65)) _move_mod = -1;
 		// check if movement conditions are met
 		if (selected && !act_move && global.phase_c_act && _move_mod != 0) {
 			// get player placement

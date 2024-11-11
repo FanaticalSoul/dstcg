@@ -55,6 +55,8 @@ function card_unselect_hand (player_id = id) {
 		while (array_length(selection) > 0) {
 			with (selection[0]) start_card_unselect();
 		}
+		pay_stamina = false; // toggle off pay stamina
+		last_valid_num = -1; // reset last key
 	}
 }
 
