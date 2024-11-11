@@ -35,6 +35,21 @@ function start_card_stamina_unselect (card_id = id) {
 	}
 }
 
+/// @function					card_unselect_hand([player_id]);
+/// @param {id} player_id		id of player
+/// @description				unselect all of the player's cards in hand
+
+function card_unselect_hand (player_id = id) {
+	with (player_id) {
+		while (array_length(selection_stamina) > 0) {
+			with (selection_stamina[0]) start_card_stamina_unselect();
+		}
+		while (array_length(selection) > 0) {
+			with (selection[0]) start_card_unselect();
+		}
+	}
+}
+
 /// @function					card_unselect_all([player_id]);
 /// @param {id} player_id		id of player
 /// @description				unselect all of the player's cards
@@ -42,11 +57,6 @@ function start_card_stamina_unselect (card_id = id) {
 function card_unselect_all (player_id = id) {
 	with (player_id) {
 		if (character.selected) character.selected = false;
-		while (array_length(selection_stamina) > 0) {
-			with (selection_stamina[0]) start_card_stamina_unselect();
-		}
-		while (array_length(selection) > 0) {
-			with (selection[0]) start_card_unselect();
-		}
+		card_unselect_hand();
 	}
 }

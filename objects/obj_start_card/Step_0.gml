@@ -36,7 +36,9 @@ if (instance_exists(player)) { // TF // only step if player exists
 								if (selected) scr_start_card_stamina_unselect ();
 								else {
 									selected = true;
-									sout(["stamina",player.selection_stamina]);
+									// unselect character card
+									if (instance_exists(player.character)) player.character.selected = false;
+									//sout(["stamina",player.selection_stamina]);
 									player.selection_stamina[array_length(player.selection_stamina)] = id;
 								}
 							}
@@ -53,6 +55,10 @@ if (instance_exists(player)) { // TF // only step if player exists
 						else {
 							// select or unselect card
 							selected = !selected;
+							if (selected) {
+								// unselect character card
+								if (instance_exists(player.character)) player.character.selected = false;
+							}
 							if (selected) player.selection[array_length(player.selection)] = id;
 							else start_card_unselect();
 						}
@@ -68,7 +74,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 				}
 			}
 			// hold [ mouse right ] // visual spoiler
-			if (mouse_check_button(mb_right) && card_stats != noone) {
+			else if (mouse_check_button(mb_right) && card_stats != noone) {
 				card_hq.sprite_index = card_stats[0].image_hq;
 				card_hq.visible = true;
 			}

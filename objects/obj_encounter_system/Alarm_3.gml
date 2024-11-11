@@ -1,6 +1,7 @@
 /// @description start enemy act phase ( 4 )
 
 global.phase_e_place = false;
+global.phase_c_act = false; // end player activation
 // start enemy act phase
 global.phase_e_act = true;
 sout("phase 4 - enemy activation");

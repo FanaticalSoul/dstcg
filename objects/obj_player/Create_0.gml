@@ -15,6 +15,8 @@ if (!instance_exists(discard) && alarm[2] == -1) alarm[2] = 1;
 if (array_length(hand) == 0 && alarm[3] == -1) alarm[3] = 1;
 // set guages
 if (!instance_exists(gauges) && alarm[4] == -1) alarm[4] = 1;
+// set ui
+if (alarm[5] == -1) alarm[5] = 1;
 // track selected cards
 selection = [];
 selection_stamina = [];

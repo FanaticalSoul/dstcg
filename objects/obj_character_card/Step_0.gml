@@ -21,19 +21,22 @@ if (instance_exists(player)) { // TF // only step if player exists
 		else _overlay_fix = true;
 		// if deck is revealed or doesn't exist
 		if (_overlay_fix) {
-			// press [ mouse left ] // make card dragable
-			if (mouse_check_button_pressed(mb_left) && global.phase_c_place) {
-				if (x == des_x && y == des_y && obj_encounter_system.alarm[0] == -1) dragable = true;
-			}
-			// press [ mouse left ] // toggle selection
-			if (mouse_check_button_pressed(mb_left) && (
-				(global.phase_e_act && global.phase_react) || 
-				(global.phase_c_act && (!act_ability || !act_move))
-			)) {
-				if (x == des_x && y == des_y) selected = !selected;
+			if (mouse_check_button_pressed(mb_left)) {
+				// press [ mouse left ] // make card dragable
+				if (global.phase_c_place) {
+					if (x == des_x && y == des_y && obj_encounter_system.alarm[0] == -1) dragable = true;
+				}
+				// press [ mouse left ] // toggle selection
+				else if ((global.phase_e_act && global.phase_react) || 
+				(global.phase_c_act && (!act_ability || !act_move))) {
+					if (x == des_x && y == des_y) {
+						selected = !selected;
+						if (selected) card_unselect_hand(player); // unselect cards in hand
+					}
+				}
 			}
 			// hold [ mouse right ] // visual spoiler
-			if (mouse_check_button(mb_right)) {
+			else if (mouse_check_button(mb_right)) {
 				if (card_stats != {}) {
 					if (act_ability) card_hq.sprite_index = card_stats.image_hq_back;
 					else card_hq.sprite_index = card_stats.image_hq_front;
