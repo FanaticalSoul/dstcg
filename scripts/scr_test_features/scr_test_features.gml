@@ -120,13 +120,35 @@ function character_apply_conditions (apply_conditions, character_id = id) {
 				// initalize varibles
 				var _character_placement = get_character_placement();
 				var _valid_push = [];
-				
-				if (_push[1] == "n") {
-					
+				var _move_mod = 0;
+				var _against_wall = false;
+				if (_push[1] == "n" || _push[1] == "s") {
+					var _loc = _character_placement;
+					if (_push[1] == "n") {
+						// works
+						_move_mod = -board_cols;
+						_loc += _move_mod;
+						_against_wall = (int64(_character_placement/board_cols)==0);
+					}
+					if (_push[1] == "s") {
+						_move_mod = +board_cols;
+						_against_wall = (int64(_character_placement/board_cols)==board_rows-1);
+					}
+					if (!_against_wall) {
+						// get the range for the push
+						for (var j = max(_loc-1,0); j <= min(_loc+1,board_cols-1); j++) {
+							var _offset = j;
+							if (_push[1] == "s") _offset += _move_mod;
+							if (0<=_offset&&_offset<board_size) {
+								if (global.board_c_card[_offset] == noone) {
+									array_push(_valid_push, _offset);
+								}
+							}
+						}
+					}
+					else sout("against wall");
 				}
 				else if (_push[1] == "e" || _push[1] == "w") {
-					var _move_mod = 0;
-					var _against_wall = false;
 					if (_push[1] == "e") {
 						_move_mod = +1;
 						_against_wall = ((_character_placement+1)%board_cols==0&&_character_placement!=0);
@@ -149,9 +171,6 @@ function character_apply_conditions (apply_conditions, character_id = id) {
 						}
 					}
 					else sout("against wall");
-				}
-				else if (_push[1] == "s") {
-				
 				}
 				// placements
 				var _new_placement = -1;

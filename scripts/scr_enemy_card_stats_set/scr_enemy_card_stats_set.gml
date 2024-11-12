@@ -159,12 +159,13 @@ function get_enemy_card_stats() {
 			souls : 3,
 			defense_value : 1,
 			hit_points : 1,
-			attack_value : 2,
+			attack_value : 0,
 			weakness : "skilled",
 			attack : [
 				{
 					attack_location : 2,
-					conditions : ["poison", "stagger", "frostbite", "bleed", "push w"]
+					//conditions : ["poison", "stagger", "frostbite", "bleed", "push w"]
+					conditions : ["push s"]
 				}
 			],
 			spawn_location : 5,
