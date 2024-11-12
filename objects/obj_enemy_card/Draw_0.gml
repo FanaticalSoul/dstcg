@@ -5,8 +5,11 @@ if (instance_exists(deck)) { // TF // only draw if deck exists
 		des_x = global.board_e_cords[placement][0];
 		des_y = global.board_e_cords[placement][1];
 	}
+	var _spr_card_sm = sprite_index;
+	// draw card as invisible if invisible and check is active
+	if (is_invisible()) _spr_card_sm = spr_card_sm_invisible;
 	// draw either side of the card or the card in the process of flipping
-	draw_sprite_ext(ani_fin_flip ? sprite_index : spr_enemy_card_sm_back_1, 0, x, y, flip_scale_x, 1, 0, c_white, 1);
+	draw_sprite_ext(ani_fin_flip ? _spr_card_sm : spr_enemy_card_sm_back_1, 0, x, y, flip_scale_x, 1, 0, c_white, 1);
 	// show card attacking or at least denote it as attacking ( WoL )
 	if (ani_fin_flip && ani_act_attack) {
 		draw_sprite(spr_card_sm_selected_alt,-1,x,y);

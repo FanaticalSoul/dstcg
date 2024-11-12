@@ -93,9 +93,9 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 		// get character card placement
 		var _character_placement = undefined;
 		var _enemy_placement = undefined;
-		for (var _i = 0; _i < board_size; _i++) {
-			if (global.board_c_card[_i] == player.character.id) {
-				_character_placement = _i;
+		for (var i = 0; i < board_size; i++) {
+			if (global.board_c_card[i] == player.character.id) {
+				_character_placement = i;
 				break;
 			}
 		}
@@ -107,21 +107,8 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 					_flag = false;
 				}
 			}
-			// check if enemy is in the same collumn and is valid
-			// this validation needs to take into account invisiblity
 			// get enemies in the same column as the character
-			var _column_enemies = [noone, noone];
-			for (var i = 0; i < array_length(global.board_e_card); i++) {
-				// this is messed up because of the sort method
-				var _enemy = global.board_e_card[i];
-				//sout("placements");
-				if (instance_exists(_enemy)) {
-					if (_enemy.placement%board_cols == _character_placement%board_cols) {
-						if (_enemy.placement<board_cols) _column_enemies[0] = _enemy;
-						else _column_enemies[1] = _enemy;
-					}
-				}
-			}
+			var _column_enemies = get_enemy_cards_in_col(_character_placement);
 			// TF
 			var _target_enemy = noone;
 			// Figure out what enemy in the column is a legal target // WoL
@@ -216,6 +203,35 @@ function scr_post_effect (card_id, _standard_action) {
 	// exit payment state
 	return false;
 }
+
+
+
+
+
+
+
+
+function get_enemy_cards_in_col (character_placement) {
+	// check if enemy is in the same collumn and is valid
+	var _column_enemies = [noone, noone];
+	for (var i = 0; i < array_length(global.board_e_card); i++) {
+		if (instance_exists(global.board_e_card[i])) {
+			with (global.board_e_card[i]) {
+				// do visibility check
+				if (!is_invisible()) {
+					if (placement%board_cols == character_placement%board_cols) {
+						if (placement<board_cols) _column_enemies[0] = id;
+						else _column_enemies[1] = id;
+					}
+				}
+			}
+		}
+	}
+	return _column_enemies;
+}
+
+
+
 
 
 /*

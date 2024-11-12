@@ -3,10 +3,12 @@
 if (instance_exists(deck)) { // TF // only step if deck exists
 	// mouse over card
 	if (is_mouse_over_card()) {
-		// hold [ mouse right ] // visual spoiler
+		// hold [ mouse right ] // visual spoiler // take into account invisibility
 		if (mouse_check_button(mb_right) && card_stats != {}) {
-			card_hq.sprite_index = card_stats.image_hq;
-			card_hq.visible = true;
+			if (!is_invisible()) {
+				card_hq.sprite_index = card_stats.image_hq;
+				card_hq.visible = true;
+			}
 		}
 	}
 	// flip animation

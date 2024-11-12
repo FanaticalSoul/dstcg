@@ -19,3 +19,31 @@ else sout("failed to create an enemy card");
 // TF // WoL
 ani_act_attack = false;
 attack_count = 0;
+
+
+
+
+
+function get_invisibility_status () {
+	// only check invisiblity if a non invisible enemy exists
+	var _insibility_check = false; 
+	for (var i = 0; i < array_length(global.board_e_card); i++) {
+		if (instance_exists(global.board_e_card[i])) {
+			with (global.board_e_card[i]) {
+				// do check if a card is visible
+				if (!array_contains(card_stats.abilities, "invisibility")) _insibility_check = true; 
+			}
+		}
+		if (_insibility_check) break;
+	}
+	return _insibility_check;
+}
+
+
+function is_invisible (card_id = id) {
+	with (card_id) {
+		var _invisible = (array_contains(card_stats.abilities, "invisibility"));
+		_invisible = (get_invisibility_status() && _invisible);
+		return _invisible;
+	}
+}

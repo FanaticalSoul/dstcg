@@ -78,7 +78,6 @@ function get_enemy_card_stats() {
 			attack : [
 				{
 					attack_location : 5,
-					//push : 1
 					conditions : ["push n"]
 				}
 			],
@@ -91,11 +90,7 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 3,
 			weakness : "none",
-			attack : [
-				{
-					attack_location : 5
-				}
-			],
+			attack : [{attack_location : 5}],
 			spawn_location : 2
 		},{
 			name : "cage spider",
@@ -105,11 +100,7 @@ function get_enemy_card_stats() {
 			hit_points : 4,
 			attack_value : 1,
 			weakness : "skilled",
-			attack : [
-				{
-					attack_location : 6
-				}
-			],
+			attack : [{attack_location : 6}],
 			spawn_location : 3
 		},{
 			name : "irithyllian beast hound",
@@ -121,12 +112,10 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 2,
 			weakness : "magical",
-			attack : [
-				{
-					attack_location : 3,
-					conditions : ["frostbite"]
-				}
-			],
+			attack : [{
+				attack_location : 3,
+				conditions : ["frostbite"]
+			}],
 			spawn_location : 3,
 			play_script : function (id) {
 				enemy_card_irithyllian_beast_hound(id);
@@ -141,12 +130,10 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 3,
 			weakness : "heavy",
-			attack : [
-				{
-					attack_location : 2,
-					conditions : ["poison"]
-				}
-			],
+			attack : [{
+				attack_location : 2,
+				conditions : ["poison"]
+			}],
 			spawn_location : 5,
 			play_script : function (id) {
 				enemy_card_ghru_leaper(id);
@@ -183,11 +170,7 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 3,
 			weakness : "magical",
-			attack : [
-				{
-					attack_location : 5
-				}
-			],
+			attack : [{attack_location : 5}],
 			spawn_location : 5
 		},{
 			name : "silver knight greatbowman",
@@ -197,11 +180,7 @@ function get_enemy_card_stats() {
 			hit_points : 2,
 			attack_value : 2,
 			weakness : "heavy",
-			attack : [
-				{
-					attack_location : 2
-				}
-			],
+			attack : [{attack_location : 2}],
 			spawn_location : 5
 		},{
 			name : "silver knight spearman",
@@ -213,16 +192,13 @@ function get_enemy_card_stats() {
 			hit_points : 2,
 			attack_value : 4,
 			weakness : "precise",
-			attack : [
-				{
-					attack_location : 2,
-					area_of_effect : true
-				},
-				{
-					attack_location : 5,
-					area_of_effect : true
-				}
-			],
+			attack : [{
+				attack_location : 2,
+				area_of_effect : true
+			},{
+				attack_location : 5,
+				area_of_effect : true
+			}],
 			play_script : function (id) {
 				enemy_card_silver_knight_spearman(id);
 			},
@@ -237,11 +213,7 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 3,
 			weakness : "magical",
-			attack : [
-				{
-					attack_location : 1
-				}
-			],
+			attack : [{attack_location : 1}],
 			spawn_location : 6
 		},{
 			name : "grave warden",
@@ -253,11 +225,7 @@ function get_enemy_card_stats() {
 			hit_points : 2,
 			attack_value : 2,
 			weakness : "heavy",
-			attack : [
-				{
-					attack_location : 4
-				}
-			],
+			attack : [{attack_location : 4}],
 			spawn_location : 4
 		},{
 			name : "hollow assassin",
@@ -267,13 +235,25 @@ function get_enemy_card_stats() {
 			hit_points : 2,
 			attack_value : 4,
 			weakness : "none",
-			attack : [
-				{
-					attack_location : 2
-				}
-			],
+			attack : [{attack_location : 2}],
 			spawn_location : 2
 		},{
+			name : "irithyllian slave warrior",
+			image : spr_enemy_card_sm_irithyllian_slave_warrior,
+			image_hq : spr_enemy_card_hq_irithyllian_slave_warrior,
+			enemy_level : 1,
+			souls : 2,
+			defense_value : 1,
+			hit_points : 2,
+			attack_value : 2,
+			weakness : "skilled",
+			abilities : ["invisibility"],
+			attack : [{attack_location : 6}],
+			spawn_location : 6
+		},
+		
+		
+		{
 			name : "crossbow hollow",
 			enemy_level : 1,
 			souls : 2,
