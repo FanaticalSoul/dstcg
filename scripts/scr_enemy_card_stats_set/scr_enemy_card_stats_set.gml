@@ -150,6 +150,27 @@ function get_enemy_card_stats() {
 				enemy_card_ghru_leaper(id);
 			}
 		},{
+			name : "test",
+			image : spr_enemy_card_sm_ghru_leaper,
+			image_hq : spr_enemy_card_hq_ghru_leaper,
+			enemy_level : 1,
+			souls : 3,
+			defense_value : 1,
+			hit_points : 1,
+			attack_value : 3,
+			weakness : "skilled",
+			attack : [
+				{
+					attack_location : 2,
+					conditions : ["poison", "stagger", "frostbite", "bleed"],
+					push : 3
+				}
+			],
+			spawn_location : 5,
+			play_script : function (id) {
+				enemy_card_ghru_leaper(id);
+			}
+		},{
 			name : "winged corvian",
 			image : spr_enemy_card_sm_winged_corvian,
 			image_hq : spr_enemy_card_hq_winged_corvian,

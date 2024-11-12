@@ -163,6 +163,16 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 						// post effect
 						player.pay_stamina = scr_post_effect (id, _standard_action);
 						player.act_attack = true;
+						// apply stagger
+						with (player.character) {
+							for (var j = 0; j < array_length(conditions); j++) {
+								if (conditions[j] == "stagger") {
+									damage_taken += 1;
+									array_delete(conditions, j, 1);
+									break;
+								}
+							}
+						}
 					}
 				}
 				else player.pay_stamina = true;
