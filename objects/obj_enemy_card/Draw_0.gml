@@ -37,4 +37,6 @@ if (instance_exists(deck)) { // TF // only draw if deck exists
 			_counters ++;
 		}
 	}
+	// draw condition counters
+	draw_card_conditions();
 }

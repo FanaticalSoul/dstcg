@@ -201,6 +201,21 @@ function character_apply_conditions (apply_conditions, character_id = id) {
 	}
 }
 
+function enemy_apply_conditions (apply_conditions, card_id = id) {
+	for (var i = 0; i < array_length(apply_conditions); i++) {
+		var _condition = apply_conditions[i];
+		with (card_id) {
+			// if condition doesn't exist
+			if (!array_contains(conditions, _condition)) {
+				array_push(conditions, _condition);
+				sout("applying "+string(_condition)+" to "+card_name);
+			}
+		}
+	}
+}
+
+
+
 function character_apply_damage (apply_damage, character_id = id) {
 	with (character_id) damage_taken += apply_damage;
 }
@@ -223,4 +238,18 @@ function character_stack_damage (apply_damage, character_id = id) {
 	with (character_id) damage_stack += apply_damage;
 }
 
-
+function draw_card_conditions (card_id = id) {
+	with (card_id) {
+		for (var j = 0; j < array_length(conditions); j++) {
+			var _condition_counter = noone;
+			if (conditions[j] == "poison"   ) _condition_counter = spr_counter_sm_poison;
+			if (conditions[j] == "bleed"    ) _condition_counter = spr_counter_sm_bleed;
+			if (conditions[j] == "frostbite") _condition_counter = spr_counter_sm_frostbite;
+			if (conditions[j] == "stagger"  ) _condition_counter = spr_counter_sm_stagger;
+			if (_condition_counter != noone) {
+				var _increment_x = card_width/4*j;
+				draw_sprite(_condition_counter, -1, x-card_width/2+4+_increment_x, y+card_height/8);
+			}
+		}
+	}
+}

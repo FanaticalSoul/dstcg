@@ -45,16 +45,5 @@ if (instance_exists(player)) { // TF // only draw if player exists
 		}
 	}
 	// draw condition counters
-	for (var j = 0; j < array_length(conditions); j++) {
-		//sout(conditions[j]);
-		var _condition_counter = noone;
-		if (conditions[j] == "poison"   ) _condition_counter = spr_counter_sm_poison;
-		if (conditions[j] == "bleed"    ) _condition_counter = spr_counter_sm_bleed;
-		if (conditions[j] == "frostbite") _condition_counter = spr_counter_sm_frostbite;
-		if (conditions[j] == "stagger"  ) _condition_counter = spr_counter_sm_stagger;
-		if (_condition_counter != noone) {
-			var _increment_x = card_width/4*j;
-			draw_sprite(_condition_counter, -1, x-card_width/2+4+_increment_x, y+card_height/8);
-		}
-	}
+	draw_card_conditions();
 }

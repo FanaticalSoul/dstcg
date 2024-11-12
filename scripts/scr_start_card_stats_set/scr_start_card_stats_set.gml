@@ -26,13 +26,7 @@ function get_start_card_stats () {
 			image_hq : spr_start_card_hq_herald_armour,
 		},{
 			block : 3,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				1, // faith
-				0  // generic
-			],
+			stamina : [0,0,0,1,0],
 			reaction : true,
 			play_script : function (id) {
 				return scr_basic_block(id);
@@ -48,39 +42,31 @@ function get_start_card_stats () {
 			image : spr_start_card_sm_spear,
 			image_hq : spr_start_card_hq_spear,
 			attack : "heavy"
+		},{ play_script : function (card_id = id) {scr_basic_attack(1, card_id);},
+			damage : 0,
+			stamina : [0,0,0,0,0],
+			inflict : ["poison"]
+		}],/*[{
+			name : "spear",
+			type : "equipment",
+			image : spr_start_card_sm_spear,
+			image_hq : spr_start_card_hq_spear,
+			attack : "heavy"
 		},{
 			damage : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				1, // faith
-				1  // generic
-			],
+			stamina : [0,0,1,1,1],
 			play_script : function (id) {scr_basic_attack(id);}
 		}, {
 			standard_action : true,
 			damage : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				1, // faith
-				0  // generic
-			],
+			stamina : [0,0,0,1,0],
 			play_script : function (id) {scr_basic_attack(id);}
 		}, {
 			standard_action : true,
 			damage : 3,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				1, // faith
-				2  // generic
-			],
+			stamina : [0,0,1,1,2],
 			play_script : function (id) {scr_basic_attack(id);}
-		}],[{
+		}],*/[{
 			name : "kite shield",
 			type : "equipment",
 			attack : "heavy",
@@ -88,25 +74,13 @@ function get_start_card_stats () {
 			image_hq : spr_start_card_hq_kite_shield,
 		},{
 			block  : 3,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				1, // faith
-				0  // generic
-			],
+			stamina : [0,0,1,1,0],
 			reaction : true,
 			play_script : function (id) {scr_basic_block(id);}
 		},{
 			standard_action : true,
 			damage : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				1, // faith
-				0  // generic
-			],
+			stamina : [0,0,0,1,0],
 			play_script : function (id) {scr_basic_attack(id);}
 		}],[{
 			name : "talisman",
@@ -115,13 +89,7 @@ function get_start_card_stats () {
 			image_hq : spr_start_card_hq_talisman
 		},{
 			block  : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				1, // faith
-				0  // generic
-			],
+			stamina : [0,0,0,1,0],
 			reaction : true,
 			play_script : function (id) {
 				return scr_basic_block (id);
@@ -129,13 +97,7 @@ function get_start_card_stats () {
 		},{
 			standard_action : true,
 			heal : 5,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				0, // faith
-				1  // generic
-			],
+			stamina : [0,0,0,0,1],
 			play_script : function (id) {scr_basic_heal(id);}
 		}],
 		// Knight Class
@@ -144,24 +106,12 @@ function get_start_card_stats () {
 			type : "equipment"
 		},{
 			block  : 3, reaction : true,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				0, // faith
-				0  // generic
-			],
+			stamina : [0,0,1,0,0],
 			play_script : function (id) {scr_basic_block(id);}
 		},{
 			standard_action : true,
 			block : 4, reaction : true,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				0, // faith
-				0  // generic
-			],
+			stamina : [0,0,1,0,0],
 			play_script : function (id) {scr_basic_block(id);}
 		}],
 		[{ // knight shield
@@ -170,13 +120,7 @@ function get_start_card_stats () {
 			attack : "heavy"
 		},{
 			damage : 3,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				0, // faith
-				1  // generic
-			],
+			stamina : [0,0,1,0,1],
 			play_script : function (id) {scr_basic_attack(id);}
 		},{
 			standard_action : true,
@@ -190,35 +134,17 @@ function get_start_card_stats () {
 			attack : "heavy"
 		},{
 			damage : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				1, // faith
-				1  // generic
-			],
+			stamina : [0,0,1,1,1],
 			play_script : function (id) {scr_basic_attack(id);}
 		},{
 			standard_action : true,
 			damage : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				0, // faith
-				0  // generic
-			],
+			stamina : [0,0,1,0,0],
 			play_script : function (id) {scr_basic_attack(id);}
 		},{
 			standard_action : true,
 			damage : 3,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				2, // strength
-				0, // faith
-				2  // generic
-			],
+			stamina : [0,0,2,0,2],
 			play_script : function (id) {scr_basic_attack(id);}
 		}],
 		
@@ -228,24 +154,12 @@ function get_start_card_stats () {
 			attack : "skilled"
 		},{
 			damage : 1,
-			stamina : [
-				1, // dexerity
-				0, // intelligence
-				1, // strength
-				0, // faith
-				0  // generic
-			],
+			stamina : [1,0,1,0,0],
 			play_script : function (id) {scr_basic_attack(id);}
 		},{
 			standard_action : true,
 			damage : 2,
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				0, // faith
-				0  // generic
-			],
+			stamina : [0,0,1,0,0],
 			play_script : function (id) {scr_basic_attack(id);}
 		}],
 		// Stamina
@@ -268,40 +182,19 @@ function get_start_card_stats () {
 			image : spr_start_card_sm_stamina_int,
 			image_hq : spr_start_card_hq_stamina_int
 			// options for stamina are bellow
-		}, {
-			stamina : [
-				0, // dexerity
-				1, // intelligence
-				0, // strength
-				0  // faith
-			]
-		}],[{
+		}, {stamina : [0,1,0,0]}],[{
 			name : "fth stamina",
 			type : "stamina",
 			image : spr_start_card_sm_stamina_fth,
 			image_hq : spr_start_card_hq_stamina_fth
 			// options for stamina are bellow
-		}, {
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				0, // strength
-				1  // faith
-			]
-		}],[{
+		}, {stamina : [0,0,0,1]}],[{
 			name : "dex stamina",
 			type : "stamina",
 			image : spr_start_card_sm_stamina_dex,
 			image_hq : spr_start_card_hq_stamina_dex
 			// options for stamina are bellow
-		}, {
-			stamina : [
-				1, // dexerity
-				0, // intelligence
-				0, // strength
-				0  // faith
-			]
-		}],[{
+		}, {stamina : [1,0,0,0]}],[{
 			name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
@@ -319,14 +212,13 @@ function get_start_card_stats () {
 		block  : 0,
 		damage : 0,
 		heal : 0,
-		search : 0,
-		shift  : 0,
-		push   : false, // false = 0 // N = 1 // E = 2 // ect...
+		//search : 0, // WoL
+		//shift  : 0, // WoL
 		ranged : false,
 		dodge  : false,
 		area_of_effect : false,
 		attack : "none", // heavy, precise, magical, skilled, none
-		inflict : false, // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
+		inflict : [], // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
 		stamina : [
 			0, // dexerity
 			0, // intelligence

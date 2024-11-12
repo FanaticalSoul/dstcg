@@ -127,7 +127,6 @@
     {"id":{"name":"pth_start_deck_mill","path":"paths/pth_start_deck_mill/pth_start_deck_mill.yy",},},
     {"id":{"name":"pth_start_deck_return","path":"paths/pth_start_deck_return/pth_start_deck_return.yy",},},
     {"id":{"name":"map_deck_builder","path":"rooms/map_deck_builder/map_deck_builder.yy",},},
-    {"id":{"name":"map_encounter_old","path":"rooms/map_encounter_old/map_encounter_old.yy",},},
     {"id":{"name":"map_encounter","path":"rooms/map_encounter/map_encounter.yy",},},
     {"id":{"name":"map_main_menu","path":"rooms/map_main_menu/map_main_menu.yy",},},
     {"id":{"name":"map_map_view","path":"rooms/map_map_view/map_map_view.yy",},},
@@ -366,7 +365,6 @@
     {"roomId":{"name":"map_deck_builder","path":"rooms/map_deck_builder/map_deck_builder.yy",},},
     {"roomId":{"name":"map_encounter","path":"rooms/map_encounter/map_encounter.yy",},},
     {"roomId":{"name":"map_map_view","path":"rooms/map_map_view/map_map_view.yy",},},
-    {"roomId":{"name":"map_encounter_old","path":"rooms/map_encounter_old/map_encounter_old.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

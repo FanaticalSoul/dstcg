@@ -12,10 +12,12 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 	}
 }
 
-function scr_basic_attack (_id) {
+function scr_basic_attack (act_num = 1, card_id = id) {
 	// do basic attack
-	if (global.phase_c_act && !_id.player.act_attack) {
-		scr_resolve_attack(_id,name,standard_action,damage,shift,push,attack,inflict,stamina);
+	with (card_id) {
+		if (global.phase_c_act && !player.act_attack) {
+			scr_resolve_attack(act_num, card_id);
+		}
 	}
 }
 
@@ -86,8 +88,8 @@ function scr_start_card_block (_block) {
 }
 
 // non-ranged attack
-function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_attack,_inflict,_stamina) {
-	with (_id) {
+function scr_resolve_attack (act_num, card_id) {
+	with (card_id) {
 		// valid target
 		var _flag = true;
 		// get character card placement
@@ -118,6 +120,11 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 			if (instance_exists(_target_enemy) && _flag) {
 				// pay for attack 
 				if (player.pay_stamina) {
+					var _stamina = card_stats[act_num].stamina;
+					var _damage = card_stats[act_num].damage;
+					var _attack = card_stats[0].attack;
+					var _standard_action = card_stats[act_num].standard_action;
+					var _inflict = card_stats[act_num].inflict;
 					// successful payment
 					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 						// show target
@@ -131,6 +138,9 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 						else {
 							_damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
 						}
+						// inflict conditions
+						enemy_apply_conditions(_inflict, _target_enemy);
+						// inflict wounds
 						_target_enemy.wounds += _damage_dealt;
 						// trigger wound / death check
 						if (_target_enemy.alarm[1] == -1) _target_enemy.alarm[1] = 1;
@@ -149,7 +159,7 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 }
 
 
-function scr_stamina_cost (_selection_stamina,_stamina_cost) {
+function scr_stamina_cost (_selection_stamina, _stamina_cost) {
 	var _total_stamina = [0,0,0,0];
 	for (var i = 0; i < array_length(_selection_stamina); i++) {
 		var _card_stats = _selection_stamina[i].card_stats;
@@ -187,29 +197,18 @@ function scr_stamina_cost (_selection_stamina,_stamina_cost) {
 function scr_post_effect (card_id, _standard_action) {
 	// discard equipment
 	if (_standard_action) {
-		//with player.deck.discard scr_start_card_discard(_id); // TR
-		//start_card_stamina_discard (_id); // TF
 		start_card_discard (player.discard, card_id);
 	}
 	// discard stamina
 	while (array_length(player.selection_stamina)>0) {
 		start_card_discard (player.discard, player.selection_stamina[0]);
-		//start_card_stamina_discard (player.selection_stamina[0]);
 	}
 	// TF
 	// unselect this equipment
-	//with (card_id) scr_start_card_unselect ();
 	start_card_unselect(card_id);
 	// exit payment state
 	return false;
 }
-
-
-
-
-
-
-
 
 function get_enemy_cards_in_col (character_placement) {
 	// check if enemy is in the same collumn and is valid
