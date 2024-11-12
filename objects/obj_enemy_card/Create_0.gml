@@ -18,3 +18,4 @@ if (is_struct(card_stats)) {
 else sout("failed to create an enemy card");
 // TF // WoL
 ani_act_attack = false;
+attack_count = 0;

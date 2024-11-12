@@ -4,7 +4,7 @@
 /// @description				activate an enemy ghru leaper
 
 function enemy_card_ghru_leaper (struct_id = id) {
-	enemy_card_basic_attack(attack,attack_value,struct_id);
+	enemy_card_basic_attack(attack,attack_value,abilities,struct_id);
 }
 
 /// @function					enemy_card_ghru_leaper([struct_id]);
@@ -12,95 +12,108 @@ function enemy_card_ghru_leaper (struct_id = id) {
 /// @description				activate an enemy ghru leaper
 
 function enemy_card_irithyllian_beast_hound (struct_id = id) {
-	enemy_card_basic_attack(attack,attack_value,struct_id);
+	enemy_card_basic_attack(attack,attack_value,abilities,struct_id);
 }
 
 function enemy_card_silver_knight_spearman (struct_id = id) {
-	enemy_card_basic_attack(attack,attack_value,struct_id);
+	enemy_card_basic_attack(attack,attack_value,abilities,struct_id);
 }
 
 
 
 
-/// @function						enemy_card_basic_attack(attack, attack_value, [struct_id]);
+/// @function						enemy_card_basic_attack(attack, attack_value, abilities, [struct_id]);
 /// @param {array<struct>} attack	a collection of attack locations and effects ( WoL to possibily seemlessly integerate AoE attacks )
 /// @param {real} attack_value		attack value ( damage being dealt )
+/// @param {array} abilities		abilities
 /// @param {id} card_id				enemy card id
 /// @description					carry out a basic enemy attack
 
-function enemy_card_basic_attack (attack, attack_value, card_id = id) {
-	for (var i = 0; i < array_length(attack); i++) {
-		// check target position for player
-		var _target_character = global.board_c_card[attack[i].attack_location-1];
-		//sout(global.board_c_card);
-		if (!attack[i].area_of_effect) {
-			// if attack is not an AoE
-			var _row_start = 0;
-			// check row for character with highest taunt value
-			for (var j = 0; j < board_rows; j++) {
-				if (!instance_exists(_target_character)) {
-					_row_start = abs(int64((attack[i].attack_location-1)/board_cols)-j)*board_cols;
-					_target_character = character_taunt_check (_target_character, _row_start);
+function enemy_card_basic_attack (attack, attack_value, abilities, card_id = id) {
+	/*
+	var _attacks = 1;
+	if (array_contains(abilities, "double strike")) {
+		sout("has double strike");
+		_attacks = 2;
+	}
+	*/
+	with (card_id) {
+		//for (var k = 0; k < _attacks; k++) {
+		//sout("attack");
+		for (var i = 0; i < array_length(attack); i++) {
+			// check target position for player
+			var _target_character = global.board_c_card[attack[i].attack_location-1];
+			//sout(global.board_c_card);
+			if (!attack[i].area_of_effect) {
+				// if attack is not an AoE
+				var _row_start = 0;
+				// check row for character with highest taunt value
+				for (var j = 0; j < board_rows; j++) {
+					if (!instance_exists(_target_character)) {
+						_row_start = abs(int64((attack[i].attack_location-1)/board_cols)-j)*board_cols;
+						_target_character = character_taunt_check (_target_character, _row_start);
+					}
+					else break;
 				}
-				else break;
 			}
-		}
-		// if target is valid
-		if (instance_exists(_target_character)) {
-			// apply bleed
-			with (_target_character) {
-				for (var j = 0; j < array_length(conditions); j++) {
-					if (conditions[j] == "bleed") {
-						attack_value += 1; // increase incoming damage
-						array_delete(conditions, i, 1);
-						break;
+			// if target is valid
+			if (instance_exists(_target_character)) {
+				// apply bleed
+				with (_target_character) {
+					for (var j = 0; j < array_length(conditions); j++) {
+						if (conditions[j] == "bleed") {
+							attack_value += 1; // increase incoming damage
+							array_delete(conditions, i, 1);
+							break;
+						}
 					}
 				}
-			}
-			// do each basic attack listed
-			//sout(_target_character.character);
-			//sout(_target_character.card_stats);
-			var _target_card_stats = card_get_stats(character_card_stats, _target_character.character);
+				// do each basic attack listed
+				//sout(_target_character.character);
+				//sout(_target_character.card_stats);
+				var _target_card_stats = card_get_stats(character_card_stats, _target_character.character);
 			
-			// check if any cards in hand or on field can react
-			if (_target_card_stats.reaction && !_target_character.act_ability) {
-				// player can use their characters reaction ability
-				global.phase_react = true;
-			}
-			// 
-			else {
-				var _hand = _target_character.player.hand;
-				// check equipment cards in hand for reaction cards
-				for (var j = 0; j < _target_character.player.hand_size; j++) {
-					for (var k = 0; k < array_length(_hand[j].card_stats); k++) {
-						if (_hand[j].card_stats[0].type = "equipment") {
-							if (_hand[j].card_stats[k].reaction) {
-								global.phase_react = true;
-								break;
+				// check if any cards in hand or on field can react
+				if (_target_card_stats.reaction && !_target_character.act_ability) {
+					// player can use their characters reaction ability
+					global.phase_react = true;
+				}
+				// 
+				else {
+					var _hand = _target_character.player.hand;
+					// check equipment cards in hand for reaction cards
+					for (var j = 0; j < _target_character.player.hand_size; j++) {
+						for (var k = 0; k < array_length(_hand[j].card_stats); k++) {
+							if (_hand[j].card_stats[0].type = "equipment") {
+								if (_hand[j].card_stats[k].reaction) {
+									global.phase_react = true;
+									break;
+								}
 							}
 						}
 					}
 				}
-			}
-			// check if reaction phase is active
-			if (global.phase_react) {
-				// make it clear that target player can react to this attack
-				sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 1 )");
-				// resolve damage on player
-				character_stack_damage(attack_value, _target_character);
-				 // resolve conditions on player
-				character_stack_conditions(attack[i].conditions, _target_character);
-			}
-			else {
-				// make it clear that target player can not react to this attack
-				sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 0 )");
-				global.phase_react = false;
-				// resolve damage on player
-				character_apply_damage(attack_value, _target_character);
-				// resolve conditions on player
-				character_apply_conditions(attack[i].conditions, _target_character);
+				// check if reaction phase is active
+				if (global.phase_react) {
+					// make it clear that target player can react to this attack
+					sout(card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 1 )");
+					// resolve damage on player
+					character_stack_damage(attack_value, _target_character);
+						// resolve conditions on player
+					character_stack_conditions(attack[i].conditions, _target_character);
+				}
+				else {
+					// make it clear that target player can not react to this attack
+					sout(card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 0 )");
+					global.phase_react = false;
+					// resolve damage on player
+					character_apply_damage(attack_value, _target_character);
+					// resolve conditions on player
+					character_apply_conditions(attack[i].conditions, _target_character);
+				}
 			}
 		}
+		//}
 	}
 }
 

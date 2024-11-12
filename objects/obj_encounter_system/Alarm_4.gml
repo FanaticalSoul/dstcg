@@ -14,14 +14,21 @@ if (global.phase_e_act) {
 				instance_create_depth(_enemy.x, _enemy.y, _enemy.depth+1, obj_particle_card_ripple);
 				// activate enemy
 				_enemy.card_stats.play_script(_enemy.id);
+				_enemy.attack_count = _enemy.attack_count+1;
 			}
-			with (obj_encounter_system) {
-				// do not loop this method
-				card_placement++;
-				// skip activations of non-existant enemies
-				while (card_placement < enemy_max) {
-					if (global.board_e_card[card_placement] == noone) card_placement++;
-					else break;
+			// check if this enemy has double strike
+			var _has_double_strike = array_contains(_enemy.card_stats.abilities, "double strike");
+			if (!(_enemy.attack_count==1 && _has_double_strike)) {
+				_enemy.attack_count = 0;
+				// end this enemy activation
+				with (obj_encounter_system) {
+					// do not loop this method
+					card_placement++;
+					// skip activations of non-existant enemies
+					while (card_placement < enemy_max) {
+						if (global.board_e_card[card_placement] == noone) card_placement++;
+						else break;
+					}
 				}
 			}
 		}

@@ -159,8 +159,9 @@ function get_enemy_card_stats() {
 			souls : 3,
 			defense_value : 1,
 			hit_points : 1,
-			attack_value : 0,
+			attack_value : 2,
 			weakness : "skilled",
+			abilities : ["double strike"],
 			attack : [
 				{
 					attack_location : 2,
@@ -330,8 +331,9 @@ function get_enemy_card_stats() {
 		defense_value : 0,
 		hit_points    : 1,
 		attack_value  : 0,
-		regenerate : false, // TF
-		invisibility : false, // TF
+		abilities : [],
+		//regenerate : false, // TF
+		//invisibility : false, // TF
 		weakness : "none", // heavy, precise, magical, skilled, none
 		//area_of_effect : false, // WoL
 		attack : [
