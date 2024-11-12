@@ -201,6 +201,30 @@ function get_enemy_card_stats() {
 			],
 			spawn_location : 5
 		},{
+			name : "silver knight spearman",
+			image : spr_enemy_card_sm_silver_knight_spearman,
+			image_hq : spr_enemy_card_hq_silver_knight_spearman,
+			enemy_level : 1,
+			souls : 3,
+			defense_value : 1,
+			hit_points : 2,
+			attack_value : 4,
+			weakness : "precise",
+			attack : [
+				{
+					attack_location : 2,
+					area_of_effect : true
+				},
+				{
+					attack_location : 5,
+					area_of_effect : true
+				}
+			],
+			play_script : function (id) {
+				enemy_card_silver_knight_spearman(id);
+			},
+			spawn_location : 2
+		},{
 			name : "crossbow grave warden",
 			image : spr_enemy_card_sm_crossbow_grave_warden,
 			image_hq : spr_enemy_card_hq_crossbow_grave_warden,
@@ -305,6 +329,7 @@ function get_enemy_card_stats() {
 		hit_points    : 1,
 		attack_value  : 0,
 		regenerate : false, // TF
+		invisibility : false, // TF
 		weakness : "none", // heavy, precise, magical, skilled, none
 		//area_of_effect : false, // WoL
 		attack : [

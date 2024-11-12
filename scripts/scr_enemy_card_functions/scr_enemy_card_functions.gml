@@ -15,6 +15,13 @@ function enemy_card_irithyllian_beast_hound (struct_id = id) {
 	enemy_card_basic_attack(attack,attack_value,struct_id);
 }
 
+function enemy_card_silver_knight_spearman (struct_id = id) {
+	enemy_card_basic_attack(attack,attack_value,struct_id);
+}
+
+
+
+
 /// @function						enemy_card_basic_attack(attack, attack_value, [struct_id]);
 /// @param {array<struct>} attack	a collection of attack locations and effects ( WoL to possibily seemlessly integerate AoE attacks )
 /// @param {real} attack_value		attack value ( damage being dealt )
