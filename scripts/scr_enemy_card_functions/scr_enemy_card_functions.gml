@@ -84,43 +84,21 @@ function enemy_card_basic_attack (attack, attack_value, card_id = id) {
 			}
 			// check if reaction phase is active
 			if (global.phase_react) {
+				// make it clear that target player can react to this attack
 				sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 1 )");
-				// player can use an equipment to react
-				//sout(_target_card_stats.name+" can react to this attack");
 				// resolve damage on player
-				with (_target_character) damage_stack += attack_value;
-				//sout(attack[i].conditions[0]);
+				character_stack_damage(attack_value, _target_character);
 				 // resolve conditions on player
-				for (var j = 0; j < array_length(attack[i].conditions); j++) {
-					var _condition = attack[i].conditions[j];
-					with (_target_character.id) {
-						if (!array_contains(conditions, _condition) && !array_contains(condition_stack, _condition)) {
-							array_push(condition_stack, _condition);
-							sout("applying "+string(_condition));
-						}
-						//sout(condition_stack);
-					}
-				}
-				
+				character_stack_conditions(attack[i].conditions, _target_character);
 			}
 			else {
+				// make it clear that target player can not react to this attack
 				sout(card_id.card_stats.name+" is targeting "+_target_card_stats.name+" ( reaction = 0 )");
-				//sout(_target_card_stats.name+" can\'t react to this attack");
 				global.phase_react = false;
 				// resolve damage on player
-				with (_target_character) damage_taken += attack_value;
+				character_apply_damage(attack_value, _target_character);
 				// resolve conditions on player
-				//sout("applying "+string(attack[i].conditions));
-				for (var j = 0; j < array_length(attack[i].conditions); j++) {
-					var _condition = attack[i].conditions[j];
-					with (_target_character.id) {
-						if (!array_contains(conditions, _condition)) {
-							array_push(conditions, _condition);
-							sout("applying "+string(_condition));
-						}
-						//sout(conditions);
-					}
-				}
+				character_apply_conditions(attack[i].conditions, _target_character);
 			}
 		}
 	}

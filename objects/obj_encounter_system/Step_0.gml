@@ -110,15 +110,19 @@ if (instance_exists(player)) {
 		if (global.phase_react && keyboard_check_pressed(32)) {
 			card_unselect_all(player);
 			with (player.character) {
-				damage_taken = damage_stack;
+				//damage_taken = damage_stack;
+				character_apply_damage(damage_stack);
 				damage_stack = 0;
 				// resolve conditions on player
+				character_apply_conditions(condition_stack);
+				/*
 				for (var i = 0; i < array_length(condition_stack); i++) {
 					var _condition = condition_stack[i];
 					if (!array_contains(conditions, _condition)) {
 						array_push(conditions, _condition);
 					}
 				}
+				*/
 				condition_stack = [];
 			}
 			global.phase_react = false;

@@ -96,3 +96,119 @@ function is_mouse_over_reveal (deck_reveal_x, deck_reveal_y) {
 	&& mouse_x >= deck_reveal_x) return true;
 	else return false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function character_apply_conditions (apply_conditions, character_id = id) {
+	for (var i = 0; i < array_length(apply_conditions); i++) {
+		var _condition = apply_conditions[i];
+		with (character_id) {
+			// apply push effect
+			var _push = string_split(_condition, " ", true, 1);
+			if (array_length(_push) == 2 && _push[0] == "push") {
+				sout("push "+_push[1]);
+				// initalize varibles
+				var _character_placement = get_character_placement();
+				var _valid_push = [];
+				
+				if (_push[1] == "n") {
+					
+				}
+				else if (_push[1] == "e" || _push[1] == "w") {
+					var _move_mod = 0;
+					var _against_wall = false;
+					if (_push[1] == "e") {
+						_move_mod = +1;
+						_against_wall = ((_character_placement+1)%board_cols==0&&_character_placement!=0);
+					}
+					if (_push[1] == "w") {
+						_move_mod = -1;
+						_against_wall = (_character_placement%board_cols==0);
+					}
+					// check for valid locations
+					if (!_against_wall) {
+						// get the range for the push
+						var _row = int64(_character_placement/board_cols);
+						for (var j = _row-1; j <= _row+1; j++) {
+							var _offset = _character_placement+board_cols*j+_move_mod;
+							if (0<=_offset&&_offset<board_size) {
+								if (global.board_c_card[_offset] == noone) {
+									array_push(_valid_push, _offset);
+								}
+							}
+						}
+					}
+					else sout("against wall");
+				}
+				else if (_push[1] == "s") {
+				
+				}
+				// placements
+				var _new_placement = -1;
+				if (array_length(_valid_push)>1) {
+					// pick random push
+					var _rand = irandom(array_length(_valid_push)-1);
+					_new_placement = _valid_push[_rand];
+				}
+				else if (array_length(_valid_push)==1) _new_placement = _valid_push[0];
+				// validate movement
+				if (_new_placement != -1) {
+					// remove prior instance of object from field
+					global.board_c_card[_character_placement] = noone;
+					// do movement
+					global.board_c_card[_new_placement] = id;
+					des_x = global.board_c_cords[_new_placement][0];
+					des_y = global.board_c_cords[_new_placement][1];
+				}
+			}
+			else {
+				// if condition doesn't exist
+				if (!array_contains(conditions, _condition)) {
+					array_push(conditions, _condition);
+					sout("applying "+string(_condition)+" to "+character);
+				}
+			}
+		}
+	}
+}
+
+function character_apply_damage (apply_damage, character_id = id) {
+	with (character_id) damage_taken += apply_damage;
+}
+
+
+function character_stack_conditions (apply_conditions, character_id = id) {
+	for (var i = 0; i < array_length(apply_conditions); i++) {
+		var _condition = apply_conditions[i];
+		with (character_id) {
+			/*
+			// apply push effect
+			var _push = string_split(_condition, " ", true, 1);
+			if (array_length(_push) == 2 && _push[0] == "push") {
+				sout("push "+_push[1]);
+			}
+			*/
+			// if condition doesn't exist // also stack push effects
+			if (!array_contains(conditions, _condition) && !array_contains(condition_stack, _condition)) {
+				array_push(condition_stack, _condition);
+				sout("stacking "+string(_condition)+" to "+character);
+			}
+		}
+	}
+}
+
+function character_stack_damage (apply_damage, character_id = id) {
+	with (character_id) damage_stack += apply_damage;
+}
+
+

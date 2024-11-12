@@ -32,7 +32,8 @@ function get_enemy_card_stats() {
 			attack : [
 				{
 					attack_location : 4,
-					push : 1
+					//push : 1
+					conditions : ["push n"]
 				}
 			],
 			spawn_location : 1
@@ -77,7 +78,8 @@ function get_enemy_card_stats() {
 			attack : [
 				{
 					attack_location : 5,
-					push : 1
+					//push : 1
+					conditions : ["push n"]
 				}
 			],
 			spawn_location : 2
@@ -157,13 +159,12 @@ function get_enemy_card_stats() {
 			souls : 3,
 			defense_value : 1,
 			hit_points : 1,
-			attack_value : 3,
+			attack_value : 2,
 			weakness : "skilled",
 			attack : [
 				{
 					attack_location : 2,
-					conditions : ["poison", "stagger", "frostbite", "bleed"],
-					push : 3
+					conditions : ["poison", "stagger", "frostbite", "bleed", "push w"]
 				}
 			],
 			spawn_location : 5,
@@ -311,7 +312,7 @@ function get_enemy_card_stats() {
 			attack : [
 				{
 					attack_location : 0,
-					push : false, // false = 0 // N = 1 // E = 2 // ect...
+					//push : false, // false = 0 // N = 1 // E = 2 // ect...
 					inflict : false // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
 				}
 			],
@@ -335,7 +336,7 @@ function get_enemy_card_stats() {
 		attack : [
 			{
 				attack_location : 1,
-				push : false, // false = 0 // N = 1 // E = 2 // ect...
+				//push : false, // false = 0 // N = 1 // E = 2 // ect...
 				// inflict condition(s) // bleed, frostbite, poison, stagger
 				conditions : false, // an array if true
 				area_of_effect : false

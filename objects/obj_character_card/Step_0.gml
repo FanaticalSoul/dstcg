@@ -101,13 +101,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 		// check if movement conditions are met
 		if (selected && !act_move && global.phase_c_act && _move_mod != 0) {
 			// get player placement
-			var _character_placement = -1;
-			for (var i = 0; i < board_size; i++) {
-				if (global.board_c_card[i]==id) {
-					_character_placement = i;
-					break;
-				}
-			}
+			var _character_placement = get_character_placement();
 			if (
 				_character_placement+_move_mod >= 0 && 
 				_character_placement+_move_mod < board_size &&
@@ -124,13 +118,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 					// finish movement
 					act_move = true;
 					// apply frost
-					for (var i = 0; i < array_length(conditions); i++) {
-						if (conditions[i] == "frostbite") {
-							damage_taken += 1;
-							array_delete(conditions, i, 1);
-							break;
-						}
-					}
+					character_apply_condition_damage("frostbite");
 				}
 			} 
 		}
@@ -154,13 +142,7 @@ if (card_stats.target && !act_ability_target && card_stats != {}) {
 // press [ space ] // end activation phase
 if ((keyboard_check_pressed(32) || end_c_act_phase) && global.phase_c_act && obj_encounter_system.alarm[6] == -1 && damage_taken == 0) {
 	// apply poison
-	for (var i = 0; i < array_length(conditions); i++) {
-		if (conditions[i] == "poison") {
-			damage_taken += 1;
-			array_delete(conditions, i, 1);
-			break;
-		}
-	}
+	character_apply_condition_damage("poison");
 	// check for poison damage
 	var _flag = true; // move to next phase
 	for (var i = 0; i < board_size; i++) {
