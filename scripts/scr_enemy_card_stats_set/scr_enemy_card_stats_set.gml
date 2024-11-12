@@ -199,8 +199,8 @@ function get_enemy_card_stats() {
 				attack_location : 5,
 				area_of_effect : true
 			}],
-			play_script : function (id) {
-				enemy_card_silver_knight_spearman(id);
+			play_script : function (struct_id = id) {
+				enemy_card_basic_attack(attack, attack_value, abilities, struct_id);
 			},
 			spawn_location : 2
 		},{
@@ -249,7 +249,10 @@ function get_enemy_card_stats() {
 			weakness : "skilled",
 			abilities : ["invisibility"],
 			attack : [{attack_location : 6}],
-			spawn_location : 6
+			spawn_location : 6,
+			play_script : function (struct_id = id) {
+				enemy_card_basic_attack(attack, attack_value, abilities, struct_id);
+			}
 		},
 		
 		
