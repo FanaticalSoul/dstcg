@@ -161,7 +161,7 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 2,
 			weakness : "skilled",
-			abilities : ["double strike"],
+			abilities : ["double strike", "reanimate"],
 			attack : [
 				{
 					attack_location : 2,

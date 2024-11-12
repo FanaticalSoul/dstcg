@@ -10,7 +10,6 @@ function scr_equipment_remant_of_humanity_1 (_id) {
 			}
 		}
 	}
-	return;
 }
 
 function scr_basic_attack (_id) {
@@ -18,7 +17,6 @@ function scr_basic_attack (_id) {
 	if (global.phase_c_act && !_id.player.act_attack) {
 		scr_resolve_attack(_id,name,standard_action,damage,shift,push,attack,inflict,stamina);
 	}
-	return;
 }
 
 function scr_basic_block (_id) {
@@ -147,32 +145,13 @@ function scr_resolve_attack (_id,_name,_standard_action,_damage,_shift,_push,_at
 							_damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
 						}
 						_target_enemy.wounds += _damage_dealt;
-						//sout(_target_enemy.wounds);
-						if (_target_enemy.wounds >= _target_enemy.card_stats.hit_points) {
-							if (_target_enemy.card_stats.regenerate) {
-								_target_enemy.wounds = 0;
-								_target_enemy.card_stats.regenerate = false; // fix // WoL
-								// remove status conditions
-								_target_enemy.conditions = []; // remove all conditions
-								// fix this as maybe in the future encountering a new instance of this card
-								// might cause the card to have no regeneration
-							}
-							// destroy the card ( use the destroy method to handle this )
-							else instance_destroy(_target_enemy);
-						}
+						// trigger wound / death check
+						if (_target_enemy.alarm[1] == -1) _target_enemy.alarm[1] = 1;
 						// post effect
-						player.pay_stamina = scr_post_effect (id, _standard_action);
+						player.pay_stamina = scr_post_effect(id, _standard_action);
 						player.act_attack = true;
 						// apply stagger
-						with (player.character) {
-							for (var j = 0; j < array_length(conditions); j++) {
-								if (conditions[j] == "stagger") {
-									damage_taken += 1;
-									array_delete(conditions, j, 1);
-									break;
-								}
-							}
-						}
+						with (player.character) character_apply_condition_damage("stagger");
 					}
 				}
 				else player.pay_stamina = true;

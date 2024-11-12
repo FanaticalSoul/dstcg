@@ -156,7 +156,8 @@ function save_game (player_id, file_name = file_data) { // do single player save
 						ani_fin_flip : ani_fin_flip,
 						wounds : wounds,
 						conditions : conditions, // WoL
-						deck : deck.id // TF // WoL
+						reanimated : reanimated
+						//deck : deck.id // TF // WoL
 						//deck : noone // TF // WoL
 					};
 					// add information to inital enemy board

@@ -210,13 +210,6 @@ function character_stack_conditions (apply_conditions, character_id = id) {
 	for (var i = 0; i < array_length(apply_conditions); i++) {
 		var _condition = apply_conditions[i];
 		with (character_id) {
-			/*
-			// apply push effect
-			var _push = string_split(_condition, " ", true, 1);
-			if (array_length(_push) == 2 && _push[0] == "push") {
-				sout("push "+_push[1]);
-			}
-			*/
 			// if condition doesn't exist // also stack push effects
 			if (!array_contains(conditions, _condition) && !array_contains(condition_stack, _condition)) {
 				array_push(condition_stack, _condition);
