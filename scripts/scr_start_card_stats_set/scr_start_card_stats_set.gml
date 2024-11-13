@@ -157,40 +157,53 @@ function get_start_card_stats () {
 			damage : 2,
 			stamina : [0,0,1,0,0],
 			play_script : function (card_id = id) {scr_basic_attack(2, card_id);}
-		}],
+		}
 		// Stamina
-		[{
-			name : "str stamina",
-			type : "stamina",
-			image : spr_start_card_sm_stamina_str,
-			image_hq : spr_start_card_hq_stamina_str
-			// options for stamina are bellow
-		}, {
-			stamina : [
-				0, // dexerity
-				0, // intelligence
-				1, // strength
-				0  // faith
-			]
-		}],[{
-			name : "int stamina",
-			type : "stamina",
-			image : spr_start_card_sm_stamina_int,
-			image_hq : spr_start_card_hq_stamina_int
-			// options for stamina are bellow
-		}, {stamina : [0,1,0,0]}],[{
-			name : "fth stamina",
-			type : "stamina",
-			image : spr_start_card_sm_stamina_fth,
-			image_hq : spr_start_card_hq_stamina_fth
-			// options for stamina are bellow
-		}, {stamina : [0,0,0,1]}],[{
-			name : "dex stamina",
+		],[{name : "dex stamina",
 			type : "stamina",
 			image : spr_start_card_sm_stamina_dex,
 			image_hq : spr_start_card_hq_stamina_dex
-			// options for stamina are bellow
-		}, {stamina : [1,0,0,0]}],[{
+		}, {stamina : [1,0,0,0]}
+		],[{name : "int stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_int,
+			image_hq : spr_start_card_hq_stamina_int
+		}, {stamina : [0,1,0,0]}
+		],[{name : "str stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_str,
+			image_hq : spr_start_card_hq_stamina_str
+		}, {stamina : [0,0,1,0]}
+		],[{name : "fth stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_fth,
+			image_hq : spr_start_card_hq_stamina_fth
+		}, {stamina : [0,0,0,1]}
+		],[{name : "int+fth stamina",
+			type : "stamina"
+		}, {stamina : [0,1,0,1]}
+		],[{name : "dex+int stamina",
+			type : "stamina"
+		}, {stamina : [1,1,0,0]}
+		],[{name : "str+fth stamina",
+			type : "stamina"
+		}, {stamina : [0,0,1,1]}
+		],[{name : "str+dex stamina",
+			type : "stamina"
+		}, {stamina : [1,0,1,0]}
+		],[{name : "int/fth stamina",
+			type : "stamina"
+		}, {stamina : [0,1,0,0]}, {stamina : [0,0,0,1]}
+		],[{name : "dex/int stamina",
+			type : "stamina"
+		}, {stamina : [1,0,0,0]}, {stamina : [0,1,0,0]}
+		],[{name : "str/fth stamina",
+			type : "stamina"
+		}, {stamina : [0,0,1,0]}, {stamina : [0,0,0,1]}
+		],[{name : "str/dex stamina",
+			type : "stamina"
+		}, {stamina : [1,0,0,0]}, {stamina : [0,0,1,0]}
+		],[{
 			name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
