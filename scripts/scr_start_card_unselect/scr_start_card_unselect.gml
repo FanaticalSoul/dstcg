@@ -57,6 +57,9 @@ function card_unselect_hand (player_id = id) {
 		}
 		pay_stamina = false; // toggle off pay stamina
 		last_valid_num = -1; // reset last key
+		// stop targeting // WoL
+		act_equip_target = false;
+		act_equip_target_id = noone;
 	}
 }
 

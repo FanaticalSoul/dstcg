@@ -42,7 +42,7 @@ function get_start_card_stats () {
 			attack : "heavy"
 		},{ play_script : function (card_id = id) {scr_basic_attack(1, card_id);},
 			damage : 3,
-			stamina : [0,0,0,0,0],
+			stamina : [0,0,0,1,0],
 			ranged : true
 		}],/*[{
 			name : "spear",

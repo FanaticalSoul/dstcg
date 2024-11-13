@@ -92,7 +92,9 @@ if (instance_exists(player)) { // TF // only step if player exists
 			// press [ number ] // do script
 			if (card_stats[0].type == "equipment") {
 				for (var i = 1; i <= 3; i++) {
-					if (keyboard_check_pressed(i+48) || (keyboard_check_pressed(32) && player.last_valid_num==i)) {
+					var _target_select = (player.act_equip_target && mouse_check_button_pressed(mb_left));
+					var _space_bar = (keyboard_check_pressed(32) && player.last_valid_num==i);
+					if (keyboard_check_pressed(i+48) || _space_bar || _target_select) {
 						//sout(card_stats);
 						if (array_length(card_stats)-1 >= i) {
 							card_stats[i].play_script(id);
