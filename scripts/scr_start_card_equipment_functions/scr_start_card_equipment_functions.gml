@@ -87,10 +87,70 @@ function scr_start_card_block (_block) {
 	//scr_start_card_unselect();
 }
 
-// non-ranged attack
-function scr_resolve_attack (act_num, card_id) {
+
+
+
+
+
+// character area of effect attack
+function c_attack_area_of_effect (act_num, card_id = id) {
 	with (card_id) {
-		// valid target
+		// do payment
+		var _standard_action = card_stats[act_num].standard_action;
+		var _stamina = card_stats[act_num].stamina;
+		var _attack = card_stats[act_num].attack;
+		if (player.pay_stamina) {
+			// if payment successful
+			if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
+				var _attacks = card_stats[act_num].area_of_effect;
+				for (var i = 0; i < array_length(_attacks); i++) {
+					var _target_enemy = global.board_e_card[_attacks[i].attack_location-1];
+					if (instance_exists(_target_enemy)) {
+						// log if enemy exists at location
+						var _character_name = string(player.character.character);
+						sout(_character_name+" AoE hits "+string(_target_enemy.card_name));
+						// set damage here ( so bleed can be added without stacking )
+						var _damage = card_stats[act_num].damage;
+						var _inflict = _attacks[i].inflict;
+						// resolve aoe
+						with (_target_enemy) {
+							// resolve bleed
+							for (var j = 0; j < array_length(conditions); j++) {
+								if (conditions[j] == "bleed") {
+									_damage += 1; // increase damage
+									array_delete(conditions, i, 1);
+									break;
+								}
+							}
+							// resolve basic attack
+							var _damage_dealt = 0;
+							// get around the defence of the enemy
+							if (card_stats.weakness == _attack) _damage_dealt = _damage;
+							else _damage_dealt = max(_damage-card_stats.defense_value,0);
+							// inflict conditions
+							enemy_apply_conditions(_inflict);
+							// inflict wounds
+							sout(_character_name+" deals "+string(_damage_dealt)+" damage to "+string(card_name));
+							_target_enemy.wounds += _damage_dealt;
+							// trigger wound / death check
+							if (_target_enemy.alarm[1] == -1) _target_enemy.alarm[1] = 1;
+						}
+					}
+				}
+				// post effect
+				player.pay_stamina = scr_post_effect(id, _standard_action);
+				player.act_attack = true;
+				// apply stagger ( this takes place here due to how damage works )
+				with (player.character) character_apply_condition_damage("stagger");
+			}
+		}
+		else player.pay_stamina = true;
+	}
+}
+
+function c_attack_standard (act_num, card_id = id) {
+	with (card_id) {
+		// validate target
 		var _flag = true;
 		// get character card placement
 		var _character_placement = undefined;
@@ -116,15 +176,16 @@ function scr_resolve_attack (act_num, card_id) {
 			// Figure out what enemy in the column is a legal target // WoL
 			if		(instance_exists(_column_enemies[0])) _target_enemy = _column_enemies[0];
 			else if (instance_exists(_column_enemies[1])) _target_enemy = _column_enemies[1];
+			// set varibles
+			var _stamina = card_stats[act_num].stamina;
+			var _damage = card_stats[act_num].damage;
+			var _attack = card_stats[0].attack;
+			var _standard_action = card_stats[act_num].standard_action;
+			var _inflict = card_stats[act_num].inflict;
 			// if valid attack ( so far )
 			if (instance_exists(_target_enemy) && _flag) {
 				// pay for attack 
 				if (player.pay_stamina) {
-					var _stamina = card_stats[act_num].stamina;
-					var _damage = card_stats[act_num].damage;
-					var _attack = card_stats[0].attack;
-					var _standard_action = card_stats[act_num].standard_action;
-					var _inflict = card_stats[act_num].inflict;
 					// successful payment
 					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 						// show target
@@ -141,13 +202,9 @@ function scr_resolve_attack (act_num, card_id) {
 						}
 						// resolve basic attack
 						var _damage_dealt = 0;
-						if (_target_enemy.card_stats.weakness == _attack) {
-							// get around the defence of the enemy
-							_damage_dealt = _damage;
-						}
-						else {
-							_damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
-						}
+						// get around the defence of the enemy
+						if (_target_enemy.card_stats.weakness == _attack) _damage_dealt = _damage;
+						else _damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
 						// inflict conditions
 						enemy_apply_conditions(_inflict, _target_enemy);
 						// inflict wounds
@@ -166,7 +223,29 @@ function scr_resolve_attack (act_num, card_id) {
 			}
 		}
 	}
-	return;
+}
+
+
+function c_attack_ranged (act_num, card_id = id) {
+	with (card_id) {
+		sout("ranged attack");
+	}
+}
+
+
+// non-ranged attack
+function scr_resolve_attack (act_num, card_id) {
+	with (card_id) {
+		// if AoE
+		if (array_length(card_stats[act_num].area_of_effect)>0) {
+			c_attack_area_of_effect(act_num);
+		}
+		else if (card_stats[act_num].ranged) {
+			c_attack_ranged(act_num);
+		}
+		// if not AoE
+		else c_attack_standard(act_num);
+	}
 }
 
 

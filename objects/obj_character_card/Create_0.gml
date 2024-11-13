@@ -18,6 +18,7 @@ card_stats = card_get_stats(character_card_stats, character);
 act_ability_target_id = noone;
 act_ability_target = false;
 condition_stack = []; // TF
+damage_stack = 0;
 end_c_act_phase = false;
 
 function character_apply_condition_damage (condition, character_id = id) {

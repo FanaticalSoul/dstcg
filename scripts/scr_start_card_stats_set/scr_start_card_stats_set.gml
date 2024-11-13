@@ -41,9 +41,21 @@ function get_start_card_stats () {
 			image_hq : spr_start_card_hq_spear,
 			attack : "heavy"
 		},{ play_script : function (card_id = id) {scr_basic_attack(1, card_id);},
-			damage : 1,
+			damage : 3,
 			stamina : [0,0,0,0,0],
-			inflict : ["bleed"]
+			//inflict : ["bleed"],
+			area_of_effect : [
+				{
+					attack_location : 4,
+					inflict : ["bleed"]
+				},
+				{
+					attack_location : 5
+				},
+				{
+					attack_location : 6
+				}
+			],
 		}],/*[{
 			name : "spear",
 			type : "equipment",
@@ -212,7 +224,7 @@ function get_start_card_stats () {
 		//shift  : 0, // WoL
 		ranged : false,
 		dodge  : false,
-		area_of_effect : false,
+		//area_of_effect : false,
 		attack : "none", // heavy, precise, magical, skilled, none
 		inflict : [], // an array if true // inflict condition(s) // bleed, frostbite, poison, stagger
 		stamina : [
@@ -222,6 +234,7 @@ function get_start_card_stats () {
 			0, // faith
 			0  // generic
 		],
+		area_of_effect : [], // used for AoE
 		reaction : false // can be used in response to an enemy attack
 	};
 	// add default values // add name of item to all item actions //
@@ -244,6 +257,17 @@ function get_start_card_stats () {
 				struct_foreach (default_action, function(name, value) {
 					if (struct_get(card_stats[i][j],string(name)) == undefined) {
 						struct_set(card_stats[i][j],string(name),value);
+					}
+					// set each effect in area_of_effect
+					if (string(name) == "area_of_effect") {
+						var _aoe = card_stats[i][j].area_of_effect;
+						if (array_length(_aoe)>0) {
+							for (var k = 0; k < array_length(_aoe); k++) {
+								if (struct_get(_aoe[k],"inflict") == undefined) {
+									struct_set(_aoe[k],"inflict",[]);
+								}
+							}
+						}
 					}
 				});
 			}

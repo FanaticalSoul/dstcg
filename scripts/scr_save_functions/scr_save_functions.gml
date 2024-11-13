@@ -42,7 +42,7 @@ function start_new_game(save_system_id = id, deck_file = file_deck) {
 	
 		//_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
 		//_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
-		_deck_load = ["test"];//,"silver knight spearman"];
+		_deck_load = ["test","test","test","test","test","test"];//,"silver knight spearman"];
 		var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
 			deck_load : _deck_load
 		});
@@ -82,13 +82,11 @@ function save_game (player_id, file_name = file_data) { // do single player save
 	// set encounter and cards on board
 	with (obj_encounter_system) {
 		_struct = {
-			//id : id,
 			object : object_get_name(object_index),
 			layer : "Encounter_System",
 			depth : depth,
 			x : x,
 			y : y,
-			//player : obj_player,
 			i_phase_c_place : global.phase_c_place,
 			i_phase_e_place : global.phase_e_place,
 			i_phase_e_act : global.phase_e_act,
@@ -117,13 +115,11 @@ function save_game (player_id, file_name = file_data) { // do single player save
 						y : des_y, // WoL
 						card_speed : card_speed,
 						character : character,
-						//player : player.id, // TF // WoL
-						//player : player_id, // TF // WoL
 						act_ability : act_ability,
 						act_move : false,
 						conditions : conditions, // WoL
-						damage_taken : 0,
-						damage_stack : 0//,
+						damage_taken : 0//,
+						//damage_stack : 0,
 						//condition_stack : []
 					};
 					// add information to inital character board
