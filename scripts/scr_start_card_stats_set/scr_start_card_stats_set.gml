@@ -28,14 +28,12 @@ function get_start_card_stats () {
 			block : 3,
 			stamina : [0,0,0,1,0],
 			reaction : true,
-			play_script : function (id) {
-				return scr_basic_block(id);
-			}
+			play_script :  function (card_id = id) {scr_basic_block(1, card_id);}
 		},{
 			standard_action : true,
 			block : 2,
 			reaction : true,
-			play_script : function (id) {scr_basic_block(id);}
+			play_script :  function (card_id = id) {scr_basic_block(2, card_id);}
 		}],[{
 			name : "spear",
 			type : "equipment",
@@ -55,17 +53,17 @@ function get_start_card_stats () {
 		},{
 			damage : 2,
 			stamina : [0,0,1,1,1],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		}, {
 			standard_action : true,
 			damage : 2,
 			stamina : [0,0,0,1,0],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		}, {
 			standard_action : true,
 			damage : 3,
 			stamina : [0,0,1,1,2],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		}],*/[{
 			name : "kite shield",
 			type : "equipment",
@@ -76,12 +74,12 @@ function get_start_card_stats () {
 			block  : 3,
 			stamina : [0,0,1,1,0],
 			reaction : true,
-			play_script : function (id) {scr_basic_block(id);}
+			play_script : function (card_id = id) {scr_basic_block (1, card_id);}
 		},{
 			standard_action : true,
 			damage : 2,
 			stamina : [0,0,0,1,0],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(2, card_id);}
 		}],[{
 			name : "talisman",
 			type : "equipment",
@@ -91,9 +89,7 @@ function get_start_card_stats () {
 			block  : 2,
 			stamina : [0,0,0,1,0],
 			reaction : true,
-			play_script : function (id) {
-				return scr_basic_block (id);
-			}
+			play_script : function (card_id = id) {scr_basic_block (1, card_id);}
 		},{
 			standard_action : true,
 			heal : 5,
@@ -107,12 +103,12 @@ function get_start_card_stats () {
 		},{
 			block  : 3, reaction : true,
 			stamina : [0,0,1,0,0],
-			play_script : function (id) {scr_basic_block(id);}
+			play_script : function (card_id = id) {scr_basic_block (1, card_id);}
 		},{
 			standard_action : true,
 			block : 4, reaction : true,
 			stamina : [0,0,1,0,0],
-			play_script : function (id) {scr_basic_block(id);}
+			play_script : function (card_id = id) {scr_basic_block (2, card_id);}
 		}],
 		[{ // knight shield
 			name : "knight shield",
@@ -121,11 +117,11 @@ function get_start_card_stats () {
 		},{
 			damage : 3,
 			stamina : [0,0,1,0,1],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		},{
 			standard_action : true,
 			block : 3, reaction : true,
-			play_script : function (id) {scr_basic_block(id);}
+			play_script : function (card_id = id) {scr_basic_block (2, card_id);}
 		}],
 		
 		[{ //long sword
@@ -135,17 +131,17 @@ function get_start_card_stats () {
 		},{
 			damage : 2,
 			stamina : [0,0,1,1,1],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		},{
 			standard_action : true,
 			damage : 2,
 			stamina : [0,0,1,0,0],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(2, card_id);}
 		},{
 			standard_action : true,
 			damage : 3,
 			stamina : [0,0,2,0,2],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(3, card_id);}
 		}],
 		
 		[{ //short sword
@@ -155,12 +151,12 @@ function get_start_card_stats () {
 		},{
 			damage : 1,
 			stamina : [1,0,1,0,0],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		},{
 			standard_action : true,
 			damage : 2,
 			stamina : [0,0,1,0,0],
-			play_script : function (id) {scr_basic_attack(id);}
+			play_script : function (card_id = id) {scr_basic_attack(2, card_id);}
 		}],
 		// Stamina
 		[{

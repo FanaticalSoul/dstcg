@@ -14,12 +14,12 @@ function get_enemy_card_stats() {
 			hit_points : 1,
 			attack_value : 2,
 			weakness : "skilled",
-			abilities : ["double strike", "reanimate"],
+			abilities : ["reanimate"],
 			attack : [
 				{
 					attack_location : 2,
 					//conditions : ["poison", "stagger", "frostbite", "bleed", "push w"]
-					conditions : ["push s"]
+					conditions : ["stagger"]
 				}
 			],
 			spawn_location : 5

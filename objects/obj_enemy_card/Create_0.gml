@@ -47,3 +47,18 @@ function is_invisible (card_id = id) {
 		return _invisible;
 	}
 }
+
+
+function enemy_apply_condition_damage (condition, card_id = id) {
+	with (card_id) {
+		for (var i = 0; i < array_length(conditions); i++) {
+			if (conditions[i] == condition) {
+				wounds += 1;
+				array_delete(conditions, i, 1);
+				break;
+			}
+		}
+		// trigger wound / death check
+		if (alarm[1] == -1) alarm[1] = 1;
+	}
+}

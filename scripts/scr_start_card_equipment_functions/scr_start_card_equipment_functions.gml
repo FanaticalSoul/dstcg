@@ -21,26 +21,27 @@ function scr_basic_attack (act_num = 1, card_id = id) {
 	}
 }
 
-function scr_basic_block (_id) {
-	var _block = block;
-	var _standard_action = standard_action;
-	var _stamina = stamina;
-	if (global.phase_react) {
-		with (_id.player.deck) {
-			// pay for action 
-			//if (scr_get_csc(_stamina) == 0 || player.pay_stamina) {
-			if (player.pay_stamina) {
-				// successful payment
-				sout("do stamina payment");
-				if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
-					// effect
-					with (_id) scr_start_card_block(_block);
-					// post stamina code
-					player.pay_stamina = scr_post_effect (_id, _standard_action);
-					global.phase_react = false;
+function scr_basic_block (act_num = 1, card_id = id) {
+	with (card_id) {
+		var _block = card_stats[act_num].block;
+		var _standard_action = card_stats[act_num].standard_action;
+		var _stamina = card_stats[act_num].stamina;
+		if (global.phase_react) {
+			with (player.deck) {
+				// pay for action 
+				if (player.pay_stamina) {
+					// successful payment
+					sout("do stamina payment");
+					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
+						// effect
+						scr_start_card_block(_block);
+						// post stamina code
+						player.pay_stamina = scr_post_effect (_id, _standard_action);
+						global.phase_react = false;
+					}
 				}
+				else player.pay_stamina = true;
 			}
-			else player.pay_stamina = true;
 		}
 	}
 }
@@ -147,7 +148,7 @@ function scr_resolve_attack (act_num, card_id) {
 						// post effect
 						player.pay_stamina = scr_post_effect(id, _standard_action);
 						player.act_attack = true;
-						// apply stagger
+						// apply stagger ( this takes place here due to how damage works )
 						with (player.character) character_apply_condition_damage("stagger");
 					}
 				}

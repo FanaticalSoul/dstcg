@@ -20,7 +20,8 @@ if (global.phase_e_act) {
 			var _has_double_strike = array_contains(_enemy.card_stats.abilities, "double strike");
 			if (!(_enemy.attack_count==1 && _has_double_strike)) {
 				_enemy.attack_count = 0;
-				// end this enemy activation
+				// end this enemy activation ( and apply poison damage
+				_enemy.enemy_apply_condition_damage("poison", _enemy);
 				with (obj_encounter_system) {
 					// do not loop this method
 					card_placement++;

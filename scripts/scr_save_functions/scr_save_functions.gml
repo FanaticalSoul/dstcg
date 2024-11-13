@@ -41,7 +41,8 @@ function start_new_game(save_system_id = id, deck_file = file_deck) {
 		// generate encounter from drawn encounter card // WoL
 	
 		//_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
-		_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
+		//_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
+		_deck_load = ["test"];//,"silver knight spearman"];
 		var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
 			deck_load : _deck_load
 		});
