@@ -34,16 +34,16 @@ function get_start_card_stats () {
 			block : 2,
 			reaction : true,
 			play_script :  function (card_id = id) {scr_basic_block(2, card_id);}
-		}],[{ // Test
+		}],[{ // test
 			name : "spear",
 			type : "equipment",
 			image : spr_start_card_sm_spear,
 			image_hq : spr_start_card_hq_spear,
 			attack : "heavy"
 		},{ play_script : function (card_id = id) {scr_basic_attack(1, card_id);},
-			damage : 0,
+			damage : 1,
 			stamina : [0,0,0,0,0],
-			inflict : ["stagger"]
+			inflict : ["bleed"]
 		}],/*[{
 			name : "spear",
 			type : "equipment",

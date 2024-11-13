@@ -11,15 +11,15 @@ function get_enemy_card_stats() {
 			enemy_level : 1,
 			souls : 3,
 			defense_value : 1,
-			hit_points : 1,
-			attack_value : 2,
+			hit_points : 10,
+			attack_value : 0,
 			weakness : "skilled",
 			abilities : ["reanimate"],
 			attack : [
 				{
 					attack_location : 2,
 					//conditions : ["poison", "stagger", "frostbite", "bleed", "push w"]
-					conditions : ["stagger"]
+					conditions : []
 				}
 			],
 			spawn_location : 5

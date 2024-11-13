@@ -29,10 +29,7 @@ function enemy_card_silver_knight_spearman (struct_id = id) {
 function enemy_card_basic_attack (card_id = id) {
 	with (card_id) {
 		// an enemy should always be able to have a target when attacking
-		// as such, apply stagger here
-		
-		// CiD //
-		enemy_apply_condition_damage("stagger");
+		enemy_apply_condition_damage("stagger"); // apply stagger here
 		// get attack value ( damage being dealt )
 		var _attack_value = card_id.card_stats.attack_value;
 		var _attacks = card_id.card_stats.attack;

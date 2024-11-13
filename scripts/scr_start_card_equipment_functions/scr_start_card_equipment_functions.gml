@@ -69,32 +69,6 @@ function scr_basic_heal (act_num, card_id) {
 		}
 	}
 }
-/*
-function scr_basic_heal (_id) {
-	var _heal = heal;
-	var _standard_action = standard_action;
-	var _stamina = stamina;
-	if (global.phase_c_act && !_id.player.act_use_equip) {
-		with (_id.player.deck) {
-			// pay for action 
-			if (player.pay_stamina) {
-				// successful payment
-				if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
-					// effect
-					scr_start_card_heal(_heal, player);
-					// post stamina code
-					player.pay_stamina = scr_post_effect(_id, _standard_action);
-					player.act_use_equip = true;
-				}
-			}
-			else player.pay_stamina = true;
-		}
-	}
-	// unselect card
-	//scr_start_card_unselect();
-	return;
-}
-*/
 
 function scr_start_card_block (_block) {
 	var _character = player.character;
@@ -154,7 +128,17 @@ function scr_resolve_attack (act_num, card_id) {
 					// successful payment
 					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
 						// show target
-						sout("targeting "+string(_target_enemy.card_stats.name));
+						sout(string(player.character.character)+" targets "+string(_target_enemy.card_name));
+						// resolve bleed damage
+						with (_target_enemy) {
+							for (var i = 0; i < array_length(conditions); i++) {
+								if (conditions[i] == "bleed") {
+									_damage += 1; // increase damage
+									array_delete(conditions, i, 1);
+									break;
+								}
+							}
+						}
 						// resolve basic attack
 						var _damage_dealt = 0;
 						if (_target_enemy.card_stats.weakness == _attack) {
@@ -167,6 +151,7 @@ function scr_resolve_attack (act_num, card_id) {
 						// inflict conditions
 						enemy_apply_conditions(_inflict, _target_enemy);
 						// inflict wounds
+						sout(string(player.character.character)+" deals "+string(_damage_dealt)+" damage to "+string(_target_enemy.card_name));
 						_target_enemy.wounds += _damage_dealt;
 						// trigger wound / death check
 						if (_target_enemy.alarm[1] == -1) _target_enemy.alarm[1] = 1;

@@ -44,33 +44,25 @@ if (instance_exists(player)) { // TF // only step if player exists
 				}
 			}
 			// press [ mouse right ] // toggle ability
-			else if (selected && mouse_check_button(mb_right)) {
+			else if (selected && mouse_check_button_pressed(mb_right)) {
 				if (card_stats != {} && !act_ability) {
 					if (card_stats.target && !act_ability_target) {
+						//sout("opt 1");
 						// seek target
 						act_ability_target = true;
 					}
-					/*
-					if (card_stats.target && !act_ability_target) {
-						if (instance_exists(act_ability_target_id)) {
-							// do script
-							card_stats.play_script(act_ability_target_id, id);
-						}
-						// seek target
-						else act_ability_target = true;
-					}
-					*/
 					// activate ability
 					else if (!act_ability_target && ((global.phase_c_act && !card_stats.reaction) || (global.phase_e_act && card_stats.reaction))) {
+						//sout("opt 2");
 						// activate ability
-						//player.
 						card_stats.play_script(id);
 					}
-					//card_hq.sprite_index = card_stats.image_hq_back;
+					// toggle off targeting
+					else if (act_ability_target) character_unselect();
 				}
 			}
 			// hold [ mouse right ] // visual spoiler
-			else if (mouse_check_button(mb_right)) {
+			else if (mouse_check_button(mb_right) && !act_ability_target) {
 				if (card_stats != {}) {
 					if (act_ability) card_hq.sprite_index = card_stats.image_hq_back;
 					else card_hq.sprite_index = card_stats.image_hq_front;
@@ -137,8 +129,6 @@ if (card_stats.target && !act_ability_target && card_stats != {}) {
 	}
 }
 
-//sout("stak "+string(condition_stack));
-//sout("cons "+string(conditions));
 // press [ space ] // end activation phase
 if ((keyboard_check_pressed(32) || end_c_act_phase) && global.phase_c_act && obj_encounter_system.alarm[6] == -1 && damage_taken == 0) {
 	// apply poison
