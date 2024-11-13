@@ -20,12 +20,9 @@ if (alarm[5] == -1) alarm[5] = 1;
 // track selected cards
 selection = [];
 selection_stamina = [];
-/*
-for (var i = 0; i < hand_size; i++) {
-	selection[i] = noone;
-	selection_stamina[i] = noone;
-}
-*/
+// set target varibles for unique equipment and ranged attacks
+act_equip_target = false;
+act_equip_target_id = noone;
 // states // these are not phases as they are only for the individual player
 pay_stamina = false; 
 // other varibles

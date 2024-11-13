@@ -45,3 +45,15 @@ function get_character_placement (character_id = id) {
 	}
 	return _character_placement;
 }
+
+function set_reveal_zones (flag, player_id = id) {
+	with (player_id) {
+		// hide revealed zones
+		if (instance_exists(deck) && flag) {
+			with (deck) if (deck_reveal) deck_reveal = false;
+		}
+		if (instance_exists(discard) && flag) {
+			with (discard) if (discard_reveal) discard_reveal = false;
+		}
+	}
+}

@@ -13,8 +13,6 @@ function save_game_delete (file_name = file_data) {
 	}
 }
 
-
-
 /// @function					start_new_game();
 /// @description				load the created deck and character, phases ect...
 ///								this will later be used to load the player into the map ( WoL )
@@ -68,10 +66,6 @@ function save_start_deck (start_deck, start_character, deck_size = deck_min, dec
 	ini_write_string("deck_size", string(0), deck_size);
 	ini_close();
 }
-
-
-
-
 
 
 function save_game (player_id, file_name = file_data) { // do single player saves for now // WoL
@@ -228,10 +222,9 @@ function save_game (player_id, file_name = file_data) { // do single player save
 			discard_load : player_id.discard_load,
 			hand_size : hand_size,
 			hand : [],
-			act_cycle : act_use_equip,
+			act_equip_use : act_equip_use,
 			act_cycle : act_cycle,
-			act_attack : act_attack,
-			act_cycle : act_cycle
+			act_attack : act_attack
 		};
 		// set hand cards
 		for (var i = 0; i < hand_size; i++) {

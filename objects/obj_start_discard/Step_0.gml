@@ -21,7 +21,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 		// press [ mouse left ] // cycle selected cards
 		else if (mouse_check_button_pressed(mb_left) && !discard_reveal && !player.deck.deck_reveal
 		&& array_length(player.selection) > 0 && !player.act_cycle
-		&& global.phase_c_act && !player.pay_stamina
+		&& global.phase_c_act && !player.pay_stamina && !player.act_equip_target
 		) {
 			// cycle selected cards
 			while (array_length(player.selection) > 0) {
@@ -33,8 +33,13 @@ if (instance_exists(player)) { // TF // only step if player exists
 			player.act_cycle = true;
 		}
 	}
+	// toggle reveal off if targeting
+	if (player.act_equip_target || player.character.act_ability_target) {
+		discard_reveal_offset = 0;
+		discard_reveal = false; // toggle off reveal state
+	}
 	// press [ E ] // toggle discard reveal area
-	if (keyboard_check_pressed(69) && (discard_reveal || discard_size > 0) && !player.deck.deck_reveal) {
+	else if (keyboard_check_pressed(69) && (discard_reveal || discard_size > 0) && !player.deck.deck_reveal) {
 		discard_reveal_offset = 0;
 		discard_reveal = !discard_reveal; // toggle reveal state
 	}

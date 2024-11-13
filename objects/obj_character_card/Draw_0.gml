@@ -12,7 +12,7 @@ if (instance_exists(player)) { // TF // only draw if player exists
 		}
 		draw_self();
 		if (selected) {
-			if (act_ability_target) draw_sprite(spr_card_sm_selected_alt,-1,x,y); // selected draw
+			if (act_ability_target) draw_sprite(spr_card_sm_selected_alt_2,-1,x,y); // selected draw
 			else draw_sprite(spr_card_sm_selected,-1,x,y); // selected draw
 		}
 	}

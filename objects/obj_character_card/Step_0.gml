@@ -25,21 +25,17 @@ if (instance_exists(player)) { // TF // only step if player exists
 				// press [ mouse left ] // make card dragable
 				if (global.phase_c_place) {
 					if (x == des_x && y == des_y && obj_encounter_system.alarm[0] == -1) dragable = true;
+					// toggle reveal zones
+					set_reveal_zones(dragable, player);
 				}
 				// press [ mouse left ] // toggle selection ( if not targeting )
-				else if (card_stats != {} && x == des_x && y == des_y && !act_ability_target) {
-					
-					
+				else if (!player.act_equip_target && card_stats != {} && x == des_x && y == des_y && !act_ability_target) {
 					if ((global.phase_e_act && global.phase_react && card_stats.reaction && !act_ability) || (global.phase_c_act && (!act_ability || !act_move))){
 						selected = !selected;
-						// don't allow selection if a revealed zone is active
-						if (instance_exists(player.deck) && selected) {
-							if (player.deck.deck_reveal) selected = false;
-						}
-						if (instance_exists(player.discard) && selected) {
-							if (player.discard.discard_reveal) selected = false;
-						}
-						if (selected) card_unselect_hand(player); // unselect cards in hand
+						// toggle reveal zones
+						set_reveal_zones(selected, player);
+						// unselect cards in hand
+						if (selected) card_unselect_hand(player);
 					}
 				}
 			}
@@ -58,11 +54,15 @@ if (instance_exists(player)) { // TF // only step if player exists
 						card_stats.play_script(id);
 					}
 					// toggle off targeting
-					else if (act_ability_target) character_unselect();
+					else if (act_ability_target) {
+						character_unselect();
+						// prevent card from being on the visual spoiler
+						selected = true;
+					}
 				}
 			}
-			// hold [ mouse right ] // visual spoiler
-			else if (mouse_check_button(mb_right) && !act_ability_target) {
+			// hold [ mouse right ] // visual spoiler // pnly if card isn't selected
+			else if (mouse_check_button(mb_right) && !act_ability_target && !selected) {
 				if (card_stats != {}) {
 					if (act_ability) card_hq.sprite_index = card_stats.image_hq_back;
 					else card_hq.sprite_index = card_stats.image_hq_front;

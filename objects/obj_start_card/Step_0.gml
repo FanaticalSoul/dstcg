@@ -37,7 +37,7 @@ if (instance_exists(player)) { // TF // only step if player exists
 						player.character.damage_taken --;
 					}
 					// card selection //
-					else if (global.phase_c_act || (global.phase_e_act && global.phase_react)) {
+					else if ((global.phase_c_act||(global.phase_e_act&&global.phase_react))&&!player.act_equip_target) {
 						if (player.pay_stamina) {
 							// if only selecting stamina
 							if (card_stats[0].type == "stamina") {
@@ -55,7 +55,6 @@ if (instance_exists(player)) { // TF // only step if player exists
 								if (player.selection[0] == id) {
 									// if card selected was the equipment
 									player.pay_stamina = false;
-									//with (player.selection[0]) start_card_unselect ();
 									start_card_unselect(player.selection[0]);
 								}
 							}
@@ -75,8 +74,6 @@ if (instance_exists(player)) { // TF // only step if player exists
 									player.character.selected = false;
 								}
 							}
-							
-
 							if (selected) player.selection[array_length(player.selection)] = id;
 							else start_card_unselect();
 						}

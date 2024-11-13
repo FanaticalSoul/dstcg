@@ -27,8 +27,13 @@ if (instance_exists(player)) { // TF // only step if player exists
 			}
 		}
 	}
+	// toggle reveal off if targeting
+	if (player.act_equip_target || player.character.act_ability_target) {
+		deck_reveal_offset = 0;
+		deck_reveal = false; // toggle off reveal state
+	}
 	// press [ Q ] // toggle deck reveal area
-	if (keyboard_check_pressed(81) && (deck_reveal || deck_size > 0) && 
+	else if (keyboard_check_pressed(81) && (deck_reveal || deck_size > 0) && 
 	 !player.discard.discard_reveal && !player.character.selected) {
 		deck_reveal_offset = 0;
 		deck_reveal = !deck_reveal; // toggle reveal state

@@ -43,19 +43,7 @@ function get_start_card_stats () {
 		},{ play_script : function (card_id = id) {scr_basic_attack(1, card_id);},
 			damage : 3,
 			stamina : [0,0,0,0,0],
-			//inflict : ["bleed"],
-			area_of_effect : [
-				{
-					attack_location : 4,
-					inflict : ["bleed"]
-				},
-				{
-					attack_location : 5
-				},
-				{
-					attack_location : 6
-				}
-			],
+			ranged : true
 		}],/*[{
 			name : "spear",
 			type : "equipment",

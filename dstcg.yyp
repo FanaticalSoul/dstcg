@@ -152,6 +152,7 @@
     {"id":{"name":"spr_banner_death","path":"sprites/spr_banner_death/spr_banner_death.yy",},},
     {"id":{"name":"spr_card_hq","path":"sprites/spr_card_hq/spr_card_hq.yy",},},
     {"id":{"name":"spr_card_sm_invisible","path":"sprites/spr_card_sm_invisible/spr_card_sm_invisible.yy",},},
+    {"id":{"name":"spr_card_sm_selected_alt_2","path":"sprites/spr_card_sm_selected_alt_2/spr_card_sm_selected_alt_2.yy",},},
     {"id":{"name":"spr_card_sm_selected_alt","path":"sprites/spr_card_sm_selected_alt/spr_card_sm_selected_alt.yy",},},
     {"id":{"name":"spr_card_sm_selected","path":"sprites/spr_card_sm_selected/spr_card_sm_selected.yy",},},
     {"id":{"name":"spr_card_zone_deck","path":"sprites/spr_card_zone_deck/spr_card_zone_deck.yy",},},
