@@ -36,7 +36,7 @@ function scr_basic_block (act_num = 1, card_id = id) {
 						// effect
 						scr_start_card_block(_block);
 						// post stamina code
-						player.pay_stamina = scr_post_effect (_id, _standard_action);
+						player.pay_stamina = scr_post_effect(card_id, _standard_action);
 						global.phase_react = false;
 					}
 				}
@@ -46,6 +46,30 @@ function scr_basic_block (act_num = 1, card_id = id) {
 	}
 }
 
+function scr_basic_heal (act_num, card_id) {
+	with (card_id) {
+		var _heal = card_stats[act_num].heal;
+		var _standard_action = card_stats[act_num].standard_action;
+		var _stamina = card_stats[act_num].stamina;
+		if (global.phase_c_act && !player.act_use_equip) {
+			with (player.deck) {
+				// pay for action 
+				if (player.pay_stamina) {
+					// successful payment
+					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
+						// effect
+						scr_start_card_heal(_heal, player);
+						// post stamina code
+						player.pay_stamina = scr_post_effect(card_id, _standard_action);
+						player.act_use_equip = true;
+					}
+				}
+				else player.pay_stamina = true;
+			}
+		}
+	}
+}
+/*
 function scr_basic_heal (_id) {
 	var _heal = heal;
 	var _standard_action = standard_action;
@@ -70,6 +94,7 @@ function scr_basic_heal (_id) {
 	//scr_start_card_unselect();
 	return;
 }
+*/
 
 function scr_start_card_block (_block) {
 	var _character = player.character;

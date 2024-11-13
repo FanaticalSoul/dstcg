@@ -34,7 +34,7 @@ function get_start_card_stats () {
 			block : 2,
 			reaction : true,
 			play_script :  function (card_id = id) {scr_basic_block(2, card_id);}
-		}],[{
+		}],[{ // Test
 			name : "spear",
 			type : "equipment",
 			image : spr_start_card_sm_spear,
@@ -43,7 +43,7 @@ function get_start_card_stats () {
 		},{ play_script : function (card_id = id) {scr_basic_attack(1, card_id);},
 			damage : 0,
 			stamina : [0,0,0,0,0],
-			inflict : ["poison"]
+			inflict : ["stagger"]
 		}],/*[{
 			name : "spear",
 			type : "equipment",
@@ -94,7 +94,7 @@ function get_start_card_stats () {
 			standard_action : true,
 			heal : 5,
 			stamina : [0,0,0,0,1],
-			play_script : function (id) {scr_basic_heal(id);}
+			play_script : function (card_id = id) {scr_basic_heal  (2, card_id);}
 		}],
 		// Knight Class
 		[{ // knight armour

@@ -32,7 +32,7 @@ function enemy_card_basic_attack (card_id = id) {
 		// as such, apply stagger here
 		
 		// CiD //
-		
+		enemy_apply_condition_damage("stagger");
 		// get attack value ( damage being dealt )
 		var _attack_value = card_id.card_stats.attack_value;
 		var _attacks = card_id.card_stats.attack;

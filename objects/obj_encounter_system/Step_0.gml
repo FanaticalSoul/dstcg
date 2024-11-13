@@ -29,18 +29,10 @@ if (instance_exists(player)) {
 							// start mulligan phase
 							global.phase_mulligan = true;
 							sout("phase 2 - mulligans");
-							// save game
-							//TR//if (global.new_game) {
+							// save game // TF
 							with (player) {
-								if (
-								instance_exists(discard) &&
-								instance_exists(deck) &&
-								instance_exists(gauges) &&
-								instance_exists(character)) {
-									save_game(id); // TF
-								}
+								if (associated_instances_exist()) save_game(id);
 							}
-							//TR//}
 						}
 						else if (e_deck.deck_size == 0 && get_enemy_count() > 0) {
 							// start character activation phase
@@ -48,19 +40,10 @@ if (instance_exists(player)) {
 							sout("phase 5 - character activation");
 							save_game(player);
 						}
-						/*
-						else if (global.phase_e_act) {
-							// start player activation phase
-							sout("here");
-							
-						}
-						*/
 					}
 				}
 			}
 		}
-		
-		
 		// end damage phase
 		if (global.phase_e_act && !global.phase_react && player.character.damage_taken == 0) {
 			with (obj_encounter_system) {
@@ -69,40 +52,16 @@ if (instance_exists(player)) {
 						var _prior_enemy = global.board_e_card[card_placement-1];
 						if (instance_exists(_prior_enemy)) {
 							if (card_placement >= enemy_max && alarm[5] == -1) {
-								// player activation
-								sout("alarm!");
-								alarm[5] = _prior_enemy.ani_delay_attack;
+								alarm[5] = _prior_enemy.ani_delay_attack; // player activation
 							}
 							else alarm[4] = _prior_enemy.ani_delay_attack;
 						}
 						else if (card_placement >= enemy_max && alarm[5] == -1) {
-							// player activation
-							sout("alarm!");
-							alarm[5] = ani_delay_ripple; 
+							alarm[5] = ani_delay_ripple; // player activation
 						}
 						else alarm[4] = ani_delay_ripple; // set this to the ripple effect speed // WoL
 					}
 					else alarm[4] = ani_delay_ripple; // set this to the ripple effect speed // WoL
-					/*
-					// TF
-					if (card_placement >= enemy_max) {
-						sout("all cards have attacked");
-						if (alarm[5] == -1) alarm[4] = ani_delay_ripple;
-					}
-					/*
-					// TF // WoL
-					if (player.hand_size == hand_max && global.phase_e_act && alarm[4] == -1) {
-						var _flag = true;
-						for (var i = 0; i < player.hand_size; i++) {
-							with (player.hand[i]) if (!(x==des_x && y==des_y)) _flag = false;
-							if (!_flag) break;
-						}
-						if (_flag) {
-							sout("here");
-							global.phase_e_act = false;
-						}
-					}
-					*/
 				}
 			}
 		}
@@ -115,14 +74,6 @@ if (instance_exists(player)) {
 				damage_stack = 0;
 				// resolve conditions on player
 				character_apply_conditions(condition_stack);
-				/*
-				for (var i = 0; i < array_length(condition_stack); i++) {
-					var _condition = condition_stack[i];
-					if (!array_contains(conditions, _condition)) {
-						array_push(conditions, _condition);
-					}
-				}
-				*/
 				condition_stack = [];
 			}
 			global.phase_react = false;
