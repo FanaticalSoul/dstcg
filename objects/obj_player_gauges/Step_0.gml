@@ -34,8 +34,6 @@ if (global.phase_c_act || global.phase_react || global.phase_e_act) {
 				array_foreach(_card_zones[i][0],increment_health_max ,0,_card_zones[i][1]);
 				array_foreach(_card_zones[i][0],increment_stamina_max,0,_card_zones[i][1]);
 			}
-			sout(["H",health_min,health_mid,health_max]);
-			sout(["S",stamina_min,stamina_mid,stamina_max]);
 			// scale images
 			health_xscale_min  = health_min  / (deck_max * 1) * ending_sprite_width/sprite_width;
 			health_xscale_mid  = health_mid  / (deck_max * 1) * ending_sprite_width/sprite_width;

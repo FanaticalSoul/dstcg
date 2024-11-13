@@ -34,7 +34,7 @@ function get_start_card_stats () {
 			block : 2,
 			reaction : true,
 			play_script :  function (card_id = id) {scr_basic_block(2, card_id);}
-		}],[{ // test
+		}],/*[{ // test
 			name : "spear",
 			type : "equipment",
 			image : spr_start_card_sm_spear,
@@ -44,7 +44,7 @@ function get_start_card_stats () {
 			damage : 3,
 			stamina : [0,0,0,1,0],
 			ranged : true
-		}],/*[{
+		}],*/[{
 			name : "spear",
 			type : "equipment",
 			image : spr_start_card_sm_spear,
@@ -64,7 +64,7 @@ function get_start_card_stats () {
 			damage : 3,
 			stamina : [0,0,1,1,2],
 			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
-		}],*/[{
+		}],[{
 			name : "kite shield",
 			type : "equipment",
 			attack : "heavy",
@@ -122,10 +122,9 @@ function get_start_card_stats () {
 			standard_action : true,
 			block : 3, reaction : true,
 			play_script : function (card_id = id) {scr_basic_block (2, card_id);}
-		}],
-		
-		[{ //long sword
-			name : "long sword",
+		}
+		// long sword
+		],[{name : "long sword",
 			type : "equipment",
 			attack : "heavy"
 		},{
@@ -142,10 +141,9 @@ function get_start_card_stats () {
 			damage : 3,
 			stamina : [0,0,2,0,2],
 			play_script : function (card_id = id) {scr_basic_attack(3, card_id);}
-		}],
-		
-		[{ //short sword
-			name : "short sword",
+		}
+		// short sword
+		],[{name : "short sword",
 			type : "equipment",
 			attack : "skilled"
 		},{
@@ -197,22 +195,22 @@ function get_start_card_stats () {
 		],[{name : "dex/int stamina",
 			type : "stamina"
 		}, {stamina : [1,0,0,0]}, {stamina : [0,1,0,0]}
+		// str/fth stamina
 		],[{name : "str/fth stamina",
 			type : "stamina"
 		}, {stamina : [0,0,1,0]}, {stamina : [0,0,0,1]}
+		// str/dex stamina
 		],[{name : "str/dex stamina",
 			type : "stamina"
 		}, {stamina : [1,0,0,0]}, {stamina : [0,0,1,0]}
-		],[{
-			name : "remant of humanity",
+		// remant of humanity
+		],[{name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
 			image_hq : spr_start_card_hq_remant_of_humanity
-		},{
-			play_script : function (id) {
-				scr_equipment_remant_of_humanity_1 (id);
-			}
-		}]
+		},{ play_script : function (id) {
+			scr_equipment_remant_of_humanity_1 (id);
+		}}]
 	];
 	// set default action
 	default_action = {
