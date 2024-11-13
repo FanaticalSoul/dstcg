@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_map_player",
+  "%Name":"obj_encounter_card",
   "eventList":[],
   "managed":true,
-  "name":"obj_map_player",
+  "name":"obj_encounter_card",
   "overriddenProperties":[],
   "parent":{
-    "name":"WoL",
-    "path":"folders/WoL.yy",
+    "name":"Map",
+    "path":"folders/Save System/Map.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -23,15 +23,16 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"card_name","filters":[],"listItems":[],"multiselect":false,"name":"card_name","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_card_sm_selected",
+    "path":"sprites/spr_card_sm_selected/spr_card_sm_selected.yy",
+  },
   "spriteMaskId":null,
-  "tags":[
-    "map",
-    "work on later",
-  ],
   "visible":true,
 }

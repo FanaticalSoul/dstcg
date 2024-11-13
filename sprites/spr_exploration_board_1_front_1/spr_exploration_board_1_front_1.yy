@@ -27,7 +27,7 @@
   ],
   "name":"spr_exploration_board_1_front_1",
   "nineSlice":null,
-  "origin":3,
+  "origin":4,
   "parent":{
     "name":"Exploration Boards",
     "path":"folders/Sprites/Archive/Exploration Boards.yy",
@@ -54,7 +54,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":false,
+    "lockOrigin":true,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -79,7 +79,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
+    "xorigin":86,
     "yorigin":60,
   },
   "swatchColours":null,
