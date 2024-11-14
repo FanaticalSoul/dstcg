@@ -19,11 +19,12 @@
   "height":48,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"c73f90ac-a624-483c-8247-45fe9c81bfe0","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"c73f90ac-a624-483c-8247-45fe9c81bfe0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","blendMode":0,"displayName":"default","isLocked":false,"name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_encounter_card_sm_back_1",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"Small Images",
     "path":"folders/Sprites/Encounter Cards/Small Images.yy",
@@ -50,7 +51,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":false,
+    "lockOrigin":true,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -75,8 +76,8 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":570,
-    "yorigin":273,
+    "xorigin":16,
+    "yorigin":24,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

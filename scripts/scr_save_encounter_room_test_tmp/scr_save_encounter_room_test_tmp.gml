@@ -1,56 +1,60 @@
 function start_new_game_test (save_system_id = id, deck_file = file_deck) {
+	var _encounter_card;
 	with (save_system_id) {
-		sout("testing");
-		global.board_e_cords = [
-			[3,72,33],
-			[2,136,33],
-			[2,104-8-32,89],
-			[1,104,89],
-			[1,104+8+32,89]
-		];
+		//sout("testing");
+		
 		// set inital random seed
-		
-		// place inital encounter cards
-		instance_create_layer(board_e_cords[0][1], board_e_cords[0][2], "Encounters", obj_encounter_card, {card_name : ""});
-		instance_create_layer(board_e_cords[0][1], board_e_cords[0][2], "Encounters", obj_encounter_card, {card_name : ""});
-		instance_create_layer(board_e_cords[0][1], board_e_cords[0][2], "Encounters", obj_encounter_card, {card_name : ""});
-		instance_create_layer(board_e_cords[0][1], board_e_cords[0][2], "Encounters", obj_encounter_card, {card_name : ""});
-		instance_create_layer(board_e_cords[0][1], board_e_cords[0][2], "Encounters", obj_encounter_card, {card_name : ""});
-		
-		
-		/*
-		sout("starting a new game");
-		// load deck information
-		ini_open(deck_file);
-		var _deck_load = [];
-		var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
-		var _character_load = ini_read_string("character", string(0), string("herald"));
-		for (var i = 0; i < _deck_size; i++) {
-			var _start_card = ini_read_string("deck",string(i),"");
-			array_push(_deck_load, [_start_card, false]);
+		randomize();
+		var _rand_seed = random_get_seed();
+		// set random decks
+		var _encounters_1 = [];
+		var _encounters_2 = [];
+		var _encounters_3 = [];
+		for (var i = 1; i <= 3; i++) {
+			for (var j = 0; j < array_length(encounter_card_stats); j++) {
+				if (i == encounter_card_stats[j].encounter_level) {
+					if (i == 1) array_push(_encounters_1, encounter_card_stats[j]);
+					if (i == 2) array_push(_encounters_2, encounter_card_stats[j]);
+					if (i == 3) array_push(_encounters_3, encounter_card_stats[j]);
+				}
+			}
 		}
-		ini_close();
-		// create player
-		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
-			character_load : _character_load,
-			deck_load : _deck_load,
-			discard_load : []
-		});
-		// generate encounter from drawn encounter card // WoL
-	
-		//_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
-		//_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
-		_deck_load = ["test","test","test","test","test","test"];//,"silver knight spearman"];
-		var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
-			deck_load : _deck_load
-		});
-		// create encounter system //
-		instance_create_layer(0, 0, "Encounter_System", obj_encounter_system, {
-			player : _player_id,
-			e_deck : _e_deck_id
-		});
-		// save
-		//player_save_id = _player_id;
-		*/
+		_encounters_1 = array_shuffle(_encounters_1);
+		_encounters_2 = array_shuffle(_encounters_2);
+		_encounters_3 = array_shuffle(_encounters_3);
+		// place inital encounter cards
+		for (var i = 0; i < board_m_size; i++) {
+			var _lvl = global.board_m_cords[i][0];
+			var _x = global.board_m_cords[i][1];
+			var _y = global.board_m_cords[i][2];
+			if (_lvl == 1 && array_length(_encounters_1) > 0) {
+				_encounter_card = _encounters_1[array_length(_encounters_1)-1];
+				instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
+					card_name  : _encounter_card.name,
+					sprite_index_back : spr_encounter_card_sm_back_1
+				});
+				global.board_m_card[i] = _encounter_card;
+				array_pop(_encounters_1);
+			}
+			else if (_lvl == 2 && array_length(_encounters_2) > 0) {
+				_encounter_card = _encounters_2[array_length(_encounters_2)-1];
+				instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
+					card_name  : _encounter_card.name,
+					sprite_index_back : spr_encounter_card_sm_back_2
+				});
+				global.board_m_card[i] = _encounter_card;
+				array_pop(_encounters_2);
+			}
+			else if (_lvl == 3 && array_length(_encounters_3) > 0) {
+				_encounter_card = _encounters_3[array_length(_encounters_3)-1]
+				instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
+					card_name  : _encounter_card.name,
+					sprite_index_back : spr_encounter_card_sm_back_3
+				});
+				global.board_m_card[i] = _encounter_card;
+				array_pop(_encounters_3);
+			}
+			else global.board_m_card[i] = noone;
+		}
 	}
 }

@@ -23,7 +23,7 @@
   ],
   "name":"spr_encounter_card_hq_high_wall_of_lothric",
   "nineSlice":null,
-  "origin":9,
+  "origin":4,
   "parent":{
     "name":"High Quality Images",
     "path":"folders/Sprites/Encounter Cards/High Quality Images.yy",
@@ -50,7 +50,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":false,
+    "lockOrigin":true,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -75,8 +75,8 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":572,
-    "yorigin":271,
+    "xorigin":104,
+    "yorigin":148,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

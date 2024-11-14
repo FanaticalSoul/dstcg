@@ -19,6 +19,7 @@
   "height":48,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"03740418-3df8-4892-b50b-ea0af2ffc043","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"03740418-3df8-4892-b50b-ea0af2ffc043","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","blendMode":0,"displayName":"default","isLocked":false,"name":"ff23c9ec-b8f4-4210-a0fe-6fab99e25a00","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_encounter_card_sm_back_3",
@@ -50,7 +51,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":false,
+    "lockOrigin":true,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
