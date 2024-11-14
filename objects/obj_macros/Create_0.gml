@@ -35,3 +35,7 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 
 
 global.room_index = -1;
+
+
+// test varibles
+global.tmp_e_cards = [];

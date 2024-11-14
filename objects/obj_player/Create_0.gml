@@ -27,6 +27,9 @@ act_equip_target_id = noone;
 pay_stamina = false; 
 // other varibles
 last_valid_num = -1; // last valid number pressed on keyboard for this player
+//inital_save = false;
+
+
 
 function associated_instances_exist (player_id = id) {
 	with (player_id) {

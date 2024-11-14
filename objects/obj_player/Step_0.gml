@@ -8,3 +8,11 @@ if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 && hand_size > han
 }
 // press [ 4 ] // restart game (TF)
 if (keyboard_check_pressed(4+48)) game_restart();
+
+/*
+if (associated_instances_exist() && !inital_save) {
+	sout("save");
+	save_game(id);
+	inital_save = true;
+}
+*/
