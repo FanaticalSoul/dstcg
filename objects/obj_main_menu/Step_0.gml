@@ -20,7 +20,8 @@ if (mouse_check_button_released(mb_left)) {
 		if (ini_section_exists("deck")) {
 			ini_close();
 			//room_goto(3);
-			room_goto(2);
+			global.room_index = 2;
+			room_goto(global.room_index);
 		}
 		else ini_close();
 	}

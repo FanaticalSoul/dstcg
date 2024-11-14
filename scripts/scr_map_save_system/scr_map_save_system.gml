@@ -203,3 +203,42 @@ if (i == board_m_size-1) {
 	_sub_struct.encounter_paths = [global.board_m_card[1],global.board_m_card[3]];
 }
 */
+
+
+
+
+
+function start_new_encounter(e_deck_load = [], deck_file = file_deck) {
+	sout("starting a new encounter");
+	// load deck information
+	ini_open(deck_file);
+	var _deck_load = [];
+	var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
+	var _character_load = ini_read_string("character", string(0), string("herald"));
+	for (var i = 0; i < _deck_size; i++) {
+		var _start_card = ini_read_string("deck",string(i),"");
+		array_push(_deck_load, [_start_card, false]);
+	}
+	ini_close();
+	// create player
+	var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
+		character_load : _character_load,
+		deck_load : _deck_load,
+		discard_load : []
+	});
+	// generate encounter from drawn encounter card // WoL
+	
+	//_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
+	//_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
+	//_deck_load = ["test","test","test","test","test","test"];//,"silver knight spearman"];
+	var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
+		deck_load : e_deck_load
+	});
+	// create encounter system //
+	instance_create_layer(0, 0, "Encounter_System", obj_encounter_system, {
+		player : _player_id,
+		e_deck : _e_deck_id
+	});
+	// save
+	//player_save_id = _player_id;
+}

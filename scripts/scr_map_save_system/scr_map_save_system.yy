@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_save_encounter_room_test_tmp",
+  "%Name":"scr_map_save_system",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_save_encounter_room_test_tmp",
+  "name":"scr_map_save_system",
   "parent":{
     "name":"Map",
     "path":"folders/Save System/Map.yy",

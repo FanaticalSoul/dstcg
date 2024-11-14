@@ -139,7 +139,7 @@
     {"id":{"name":"scr_enemy_card_draw","path":"scripts/scr_enemy_card_draw/scr_enemy_card_draw.yy",},},
     {"id":{"name":"scr_enemy_card_functions","path":"scripts/scr_enemy_card_functions/scr_enemy_card_functions.yy",},},
     {"id":{"name":"scr_enemy_card_stats_set","path":"scripts/scr_enemy_card_stats_set/scr_enemy_card_stats_set.yy",},},
-    {"id":{"name":"scr_save_encounter_room_test_tmp","path":"scripts/scr_save_encounter_room_test_tmp/scr_save_encounter_room_test_tmp.yy",},},
+    {"id":{"name":"scr_map_save_system","path":"scripts/scr_map_save_system/scr_map_save_system.yy",},},
     {"id":{"name":"scr_save_functions","path":"scripts/scr_save_functions/scr_save_functions.yy",},},
     {"id":{"name":"scr_start_card_discard","path":"scripts/scr_start_card_discard/scr_start_card_discard.yy",},},
     {"id":{"name":"scr_start_card_draw","path":"scripts/scr_start_card_draw/scr_start_card_draw.yy",},},

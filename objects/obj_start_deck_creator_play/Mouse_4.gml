@@ -7,6 +7,8 @@ with (obj_start_deck_creator) {
 		save_game_delete(file_data);
 		save_game_delete(file_map);
 		//room_goto(3);
-		room_goto(2);
+		// update room
+		global.room_index = 2;
+		room_goto(global.room_index);
 	}
 }
