@@ -13,11 +13,13 @@ if (mouse_check_button_released(mb_left)) {
 	if (step == 1) {
 		room_goto(1);
 	}
-	else if (step == 2 && file_exists(file_data)) {
+	//else if (step == 2 && file_exists(file_data)) {
+	else if (step == 2 && file_exists(file_map)) {
 		ini_open(file_deck);
 		// only load game if a saved deck exists
 		if (ini_section_exists("deck")) {
 			ini_close();
+			//room_goto(3);
 			room_goto(2);
 		}
 		else ini_close();

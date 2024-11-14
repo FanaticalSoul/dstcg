@@ -1,11 +1,9 @@
 function start_new_game_test (save_system_id = id, deck_file = file_deck) {
+	sout("starting game (from map)");
 	var _encounter_card;
 	with (save_system_id) {
-		//sout("testing");
-		
-		// set inital random seed
-		randomize();
-		var _rand_seed = random_get_seed();
+		// create map system
+		instance_create_layer(0, 0, "Map_System", obj_map_system);
 		// set random decks
 		var _encounters_1 = [];
 		var _encounters_2 = [];
@@ -29,32 +27,179 @@ function start_new_game_test (save_system_id = id, deck_file = file_deck) {
 			var _y = global.board_m_cords[i][2];
 			if (_lvl == 1 && array_length(_encounters_1) > 0) {
 				_encounter_card = _encounters_1[array_length(_encounters_1)-1];
-				instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
+				global.board_m_card[i] = instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
 					card_name  : _encounter_card.name,
-					sprite_index_back : spr_encounter_card_sm_back_1
+					sprite_index_back : spr_encounter_card_sm_back_1,
+					encounter_paths : []
 				});
-				global.board_m_card[i] = _encounter_card;
 				array_pop(_encounters_1);
 			}
 			else if (_lvl == 2 && array_length(_encounters_2) > 0) {
 				_encounter_card = _encounters_2[array_length(_encounters_2)-1];
-				instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
+				global.board_m_card[i] = instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
 					card_name  : _encounter_card.name,
-					sprite_index_back : spr_encounter_card_sm_back_2
+					sprite_index_back : spr_encounter_card_sm_back_2,
+					encounter_paths : []
 				});
-				global.board_m_card[i] = _encounter_card;
 				array_pop(_encounters_2);
 			}
 			else if (_lvl == 3 && array_length(_encounters_3) > 0) {
 				_encounter_card = _encounters_3[array_length(_encounters_3)-1]
-				instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
+				global.board_m_card[i] = instance_create_layer(_x, _y, "Encounters", obj_encounter_card, {
 					card_name  : _encounter_card.name,
-					sprite_index_back : spr_encounter_card_sm_back_3
+					sprite_index_back : spr_encounter_card_sm_back_3,
+					encounter_paths : []
 				});
-				global.board_m_card[i] = _encounter_card;
 				array_pop(_encounters_3);
 			}
 			else global.board_m_card[i] = noone;
 		}
+		// connect paths
+		global.board_m_card[4].encounter_paths = [
+			global.board_m_card[1].id, 
+			global.board_m_card[3].id
+		];
 	}
 }
+
+
+function save_game_test (file_name = file_map) {
+	sout("saving map");
+	var _save_data = [];
+	var _struct;
+	var _i_board_m_cards = [];
+	// add information on encounter cards
+	_struct = [];
+	for (var i = 0; i < board_m_size; i++) {
+		var _sub_struct = {};
+		if (instance_exists(global.board_m_card[i])) {
+			with (global.board_m_card[i]) {
+				_sub_struct = {
+					object : object_get_name(object_index),
+					layer : "Encounters",
+					depth : depth,
+					x : x,
+					y : y,
+					card_name : card_name,
+					ani_act_flip : ani_act_flip,
+					ani_fin_flip : ani_fin_flip,
+					flip_speed : flip_speed,
+					sprite_index_back : sprite_index_back,
+					encounter_paths : [], // WoL
+					cleared : cleared,
+					active : active
+				};
+				array_push(_i_board_m_cards, card_name);
+			}
+		}
+		else array_push(_i_board_m_cards, "");
+		array_push(_struct, _sub_struct); // noone are replaced by {}
+	}
+	array_push(_save_data, _struct);
+	// add information on system
+	_struct = {};
+	with (obj_map_system) {
+		_struct = {
+			object : object_get_name(object_index),
+			layer : "Map_System",
+			depth : depth,
+			x : x,
+			y : y,
+			i_board_m_cards : _i_board_m_cards, // WoL // put names here to load later
+			i_board_m_cords : global.board_m_cords,
+			i_random_seed   : global.random_seed
+		};
+	}
+	array_push(_save_data, _struct);
+	// save all this information
+	var _save_w = file_text_open_write(file_name);
+	var _save_data_str = json_stringify(_save_data);
+	file_text_write_string(_save_w, _save_data_str);
+	file_text_close(_save_w);
+}
+function load_game_test (file_name = file_map) {
+	if (file_exists(file_name)) {
+		sout("loading map");
+		var _save_r = file_text_open_read(file_name);
+		var _save_data_str = file_text_read_string(_save_r);
+		var _save_data = json_parse(_save_data_str);
+		/*
+		for (var i = 0; i < board_m_size; i++) {
+			var _sub_struct = {};
+			if (instance_exists(global.board_m_card[i])) {
+				with (global.board_m_card[i]) {
+					_sub_struct = {
+						object : object_get_name(object_index),
+						layer : "Encounters",
+						depth : depth,
+						x : x,
+						y : y,
+						card_name : card_name,
+						ani_act_flip : ani_act_flip,
+						ani_fin_flip : ani_fin_flip,
+						flip_speed : flip_speed,
+						sprite_index_back : sprite_index_back,
+						encounter_paths : [], // WoL
+						cleared : cleared,
+						active : active
+					};
+					array_push(_i_board_m_cards, card_name);
+				}
+			}
+		else array_push(_i_board_m_cards, "");
+		*/
+		var _struct = _save_data[0];
+		global.board_m_card = [];
+		for (var i = 0; i < board_m_size; i++) {
+			// create an encounter
+			var _card = _struct[i];
+			if (struct_exists(_card, "card_name")) {
+				array_push(global.board_m_card, instance_create_struct(_card));
+			}
+			else array_push(global.board_m_card, noone);
+		}
+		// connect paths
+		global.board_m_card[4].encounter_paths = [
+			global.board_m_card[1].id, 
+			global.board_m_card[3].id
+		];
+		// create map system
+		_struct = _save_data[1];
+		
+		//sout(_save_data[1]);
+		// get map cards
+		var _i_board_m_cards = [];
+		with (_struct) {
+			for (var i = 0; i < board_m_size; i++) {
+				if (i_board_m_cards[i]=="") array_push(_i_board_m_cards, noone);
+				else {
+					for (var j = 0; j < board_m_size; j++) {
+						if (global.board_m_card[j] != noone) {
+							if (i_board_m_cards[i]==global.board_m_card[j].card_name) {
+								array_push(_i_board_m_cards, global.board_m_card[j]);
+								break;
+							}
+						}
+					}
+				}
+			}
+		}
+		_struct.i_board_m_cards = _i_board_m_cards;
+		// create map system
+		instance_create_struct(_struct);
+		//sout(_struct);
+		
+		
+		
+		
+		file_text_close(_save_r);
+	}
+	else sout("failed to load map");
+}
+
+// fix encounter paths on load // WoL
+/*
+if (i == board_m_size-1) {
+	_sub_struct.encounter_paths = [global.board_m_card[1],global.board_m_card[3]];
+}
+*/

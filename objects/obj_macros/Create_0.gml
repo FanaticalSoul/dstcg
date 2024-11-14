@@ -31,3 +31,4 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 // set files
 #macro file_deck "start_deck.ini"
 #macro file_data "save_data.txt"
+#macro file_map "save_data_map.txt"

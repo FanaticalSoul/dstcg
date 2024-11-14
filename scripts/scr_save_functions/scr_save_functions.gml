@@ -1,7 +1,9 @@
+/*TR//
 global.game_data = {
 	//souls : 0,
 	room_data : {}
 };
+//TR*/
 
 /// @function					save_game_delete(file_name);
 /// @param {string} file_name	save file name
@@ -274,7 +276,7 @@ function save_game (player_id, file_name = file_data) { // do single player save
 		array_push(_save_data, _struct);
 	}
 	// save all this information
-	struct_set(global.game_data.room_data, room_get_name(room), _save_data);
+	//TR//struct_set(global.game_data.room_data, room_get_name(room), _save_data);
 	var _save_w = file_text_open_write(file_name);
 	var _save_data_str = json_stringify(_save_data);
 	file_text_write_string(_save_w, _save_data_str);

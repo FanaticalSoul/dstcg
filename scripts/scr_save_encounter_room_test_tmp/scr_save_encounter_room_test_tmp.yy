@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_save_encounter_room_test_tmp",
   "parent":{
-    "name":"Save System",
-    "path":"folders/Save System.yy",
+    "name":"Map",
+    "path":"folders/Save System/Map.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
