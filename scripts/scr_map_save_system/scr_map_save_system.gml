@@ -1,5 +1,5 @@
 //function start_new_game_test (save_system_id = id, deck_file = file_deck) {
-function start_new_game_test () {//(deck_file = file_deck) {
+function start_new_game () {//(deck_file = file_deck) {
 	sout("starting game (from map)");
 	var _encounter_card;
 	//with (save_system_id) {
@@ -61,11 +61,11 @@ function start_new_game_test () {//(deck_file = file_deck) {
 		global.board_m_card[3].id
 	];
 	//}
-	save_game_test();
+	save_game_map();
 }
 
 
-function save_game_test (file_name = file_map) {
+function save_game_map (file_name = file_map) {
 	sout("saving map");
 	var _save_data = [];
 	var _struct;
@@ -118,12 +118,14 @@ function save_game_test (file_name = file_map) {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
-function load_game_test (file_name = file_map) {
+function load_game_map (file_name = file_map) {
 	if (file_exists(file_name)) {
 		sout("loading map");
 		var _save_r = file_text_open_read(file_name);
 		var _save_data_str = file_text_read_string(_save_r);
 		var _save_data = json_parse(_save_data_str);
+		sout("encounter info");
+		sout(_save_data[0]);
 		/*
 		for (var i = 0; i < board_m_size; i++) {
 			var _sub_struct = {};
@@ -204,28 +206,14 @@ if (i == board_m_size-1) {
 
 
 
-function start_new_encounter(e_deck_load = [], file_name = file_deck) {
+function start_new_encounter (e_deck_load = [], file_name = file_deck) {
 	sout("starting a new encounter");
 	// load deck information
 	var _save_r = file_text_open_read(file_name);
 	var _save_data_str = file_text_read_string(_save_r);
 	var _save_data = json_parse(_save_data_str);
-	sout(_save_data);
 	var _deck_load = _save_data[0].deck;
 	var _character_load = _save_data[0].character;
-
-	
-	
-	/*
-	ini_open(deck_file);
-	var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
-	var _character_load = ini_read_string("character", string(0), string("herald"));
-	for (var i = 0; i < _deck_size; i++) {
-		var _start_card = ini_read_string("deck",string(i),"");
-		array_push(_deck_load, [_start_card, false]);
-	}
-	ini_close();
-	*/
 	// create player
 	var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
 		character_load : _character_load,
@@ -233,10 +221,6 @@ function start_new_encounter(e_deck_load = [], file_name = file_deck) {
 		discard_load : []
 	});
 	// generate encounter from drawn encounter card // WoL
-	
-	//_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
-	//_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
-	//_deck_load = ["test","test","test","test","test","test"];//,"silver knight spearman"];
 	var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
 		deck_load : e_deck_load
 	});

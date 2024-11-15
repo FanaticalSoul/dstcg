@@ -40,6 +40,10 @@ if (instance_exists(player)) {
 							sout("phase 5 - character activation");
 							save_game(player);
 						}
+						// if there are no enemies left ( game won )
+						else if (e_deck.deck_size == 0 && get_enemy_count() == 0 && alarm[7] == -1) {
+							alarm[7] = 1;
+						}
 					}
 				}
 				// if no cards in hand

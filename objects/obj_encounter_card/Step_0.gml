@@ -57,7 +57,8 @@ if (ani_act_flip) {
 	}
 }
 
-if (alarm[0] == -1 && ani_fin_flip && !active) {
+if (alarm[0] == -1 && ani_fin_flip && !active && !cleared) {
+	// check if all paths leading to encounter are cleared
 	var _flag = false;
 	if (array_length(encounter_paths) > 0) {
 		for (var i = 0; i < array_length(encounter_paths); i++) {

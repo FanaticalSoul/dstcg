@@ -2,8 +2,8 @@
 
 sout("test alarm");
 // save room state
-save_game_test();
-// get random cards from decks
+save_game_map();
+// get random cards from decks // WoL
 
 
 

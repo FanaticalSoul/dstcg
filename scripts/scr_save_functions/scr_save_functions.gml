@@ -13,50 +13,6 @@ function save_game_delete (file_name) {
 	if (file_exists(file_name)) file_delete(file_name);
 }
 
-
-/*
-/// @function					start_new_game();
-/// @description				load the created deck and character, phases ect...
-///								this will later be used to load the player into the map ( WoL )
-
-function start_new_game(save_system_id = id, deck_file = file_deck) {
-	with (save_system_id) {
-		sout("starting a new game");
-		// load deck information
-		ini_open(deck_file);
-		var _deck_load = [];
-		var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
-		var _character_load = ini_read_string("character", string(0), string("herald"));
-		for (var i = 0; i < _deck_size; i++) {
-			var _start_card = ini_read_string("deck",string(i),"");
-			array_push(_deck_load, [_start_card, false]);
-		}
-		ini_close();
-		// create player
-		var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
-			character_load : _character_load,
-			deck_load : _deck_load,
-			discard_load : []
-		});
-		// generate encounter from drawn encounter card // WoL
-	
-		//_deck_load = ["ghru leaper","irithyllian beast hound","ghru leaper"];
-		//_deck_load = ["silver knight spearman","irithyllian slave warrior"];//,"silver knight spearman"];
-		_deck_load = ["test","test","test","test","test","test"];//,"silver knight spearman"];
-		var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {
-			deck_load : _deck_load
-		});
-		// create encounter system //
-		instance_create_layer(0, 0, "Encounter_System", obj_encounter_system, {
-			player : _player_id,
-			e_deck : _e_deck_id
-		});
-		// save
-		//player_save_id = _player_id;
-	}
-}
-*/
-
 function save_game (player_id, file_name = file_encounter) { // do single player saves for now // WoL
 	sout("saving game");
 	// for now, save room will only be called at the start of each major phase // WoL
@@ -270,7 +226,7 @@ function save_game (player_id, file_name = file_encounter) { // do single player
 	file_text_close(_save_w);
 }
 
-function load_game (file_name = file_encounter) {
+function load_game_encounter (file_name = file_encounter) {
 	sout("loading game");
 	if (file_exists(file_name)) {
 		var _save_r = file_text_open_read(file_name);

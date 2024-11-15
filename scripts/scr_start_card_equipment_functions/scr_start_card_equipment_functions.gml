@@ -180,52 +180,6 @@ function c_attack_standard (act_num, card_id = id) {
 			else if (instance_exists(_column_enemies[1])) _target_enemy = _column_enemies[1];
 			// set varibles
 			if (instance_exists(_target_enemy) && _flag) c_attack(act_num, _target_enemy, card_id);
-			/*
-			var _stamina = card_stats[act_num].stamina;
-			var _damage = card_stats[act_num].damage;
-			var _attack = card_stats[0].attack;
-			var _standard_action = card_stats[act_num].standard_action;
-			var _inflict = card_stats[act_num].inflict;
-			// if valid attack ( so far )
-			if (instance_exists(_target_enemy) && _flag) {
-				// pay for attack 
-				if (player.pay_stamina) {
-					// successful payment
-					if (!(scr_stamina_cost (player.selection_stamina, _stamina) > 0)) {
-						// show target
-						sout(string(player.character.character)+" targets "+string(_target_enemy.card_name));
-						// resolve bleed damage
-						with (_target_enemy) {
-							for (var i = 0; i < array_length(conditions); i++) {
-								if (conditions[i] == "bleed") {
-									_damage += 1; // increase damage
-									array_delete(conditions, i, 1);
-									break;
-								}
-							}
-						}
-						// resolve basic attack
-						var _damage_dealt = 0;
-						// get around the defence of the enemy
-						if (_target_enemy.card_stats.weakness == _attack) _damage_dealt = _damage;
-						else _damage_dealt = max(_damage-_target_enemy.card_stats.defense_value,0);
-						// inflict conditions
-						enemy_apply_conditions(_inflict, _target_enemy);
-						// inflict wounds
-						sout(string(player.character.character)+" deals "+string(_damage_dealt)+" damage to "+string(_target_enemy.card_name));
-						_target_enemy.wounds += _damage_dealt;
-						// trigger wound / death check
-						if (_target_enemy.alarm[1] == -1) _target_enemy.alarm[1] = 1;
-						// post effect
-						player.pay_stamina = scr_post_effect(id, _standard_action);
-						player.act_attack = true;
-						// apply stagger ( this takes place here due to how damage works )
-						with (player.character) character_apply_condition_damage("stagger");
-					}
-				}
-				else player.pay_stamina = true;
-			}
-			*/
 		}
 	}
 }
@@ -276,10 +230,8 @@ function c_attack_ranged (act_num, card_id = id) {
 
 
 function c_attack (act_num, target_enemy, card_id = id) {
-	sout(target_enemy.card_stats);
-	sout(card_id.card_stats[act_num]);
-	
-	
+	//sout(target_enemy.card_stats);
+	//sout(card_id.card_stats[act_num]);
 	with (card_id) {
 		// set varibles
 		var _stamina = card_stats[act_num].stamina;
@@ -403,23 +355,6 @@ function c_attack_post (act_num, card_id = id) {
 		start_card_unselect();
 	}
 }
-/*
-function scr_post_effect (card_id, _standard_action) {
-	// discard equipment
-	if (_standard_action) {
-		start_card_discard (player.discard, card_id);
-	}
-	// discard stamina
-	while (array_length(player.selection_stamina)>0) {
-		start_card_discard (player.discard, player.selection_stamina[0]);
-	}
-	// TF
-	// unselect this equipment
-	start_card_unselect(card_id);
-	// exit payment state
-	return false;
-}
-*/
 
 function get_enemy_cards_in_col (character_placement) {
 	// check if enemy is in the same collumn and is valid
