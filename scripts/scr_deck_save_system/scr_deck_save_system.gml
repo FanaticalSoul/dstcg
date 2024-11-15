@@ -2,18 +2,26 @@
 
 
 function save_data_deck (player = noone, file_name = file_deck) {
+	sout("save_data_deck");
 	var _save_data = [];
 	var _struct;
 	// set encounter and cards on board
 	_struct = noone;
 	if (instance_exists(player)) {
 		with (player) {
+			var _hand_str = [];
+			for (var i = 0; i < array_length(hand); i++) _hand_str[i] = hand[i].card_name;
+			
 			_struct = {
 				deck : deck.deck,
-				hand : hand,
+				hand : _hand_str,
+				//hand : hand,
 				discard : discard.discard,
 				character : character.character,
-				act_ability : character.act_ability
+				act_ability : character.act_ability,
+				deck_size : deck.deck_size,
+				discard_size : discard.discard_size,
+				shuffled : deck.shuffled
 			};
 		}
 	}
@@ -28,6 +36,7 @@ function save_data_deck (player = noone, file_name = file_deck) {
 }
 
 function save_data_deck_start (deck, character, file_name = file_deck) {
+	sout("save_data_deck_start");
 	var _save_data = [];
 	var _struct;
 	// update deck
@@ -44,9 +53,11 @@ function save_data_deck_start (deck, character, file_name = file_deck) {
 	_struct = {
 		deck : _start_deck,
 		hand : [],
+		deck_size : array_length(_start_deck),
 		discard : [],
 		character : character,
-		act_ability : false
+		act_ability : false,
+		shuffled : false
 	};
 	array_push(_save_data, _struct);
 	//

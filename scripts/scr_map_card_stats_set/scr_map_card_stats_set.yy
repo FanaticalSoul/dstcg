@@ -1,12 +1,12 @@
 {
   "$GMScript":"",
-  "%Name":"scr_encounter_card_stats_set",
+  "%Name":"scr_map_card_stats_set",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_encounter_card_stats_set",
+  "name":"scr_map_card_stats_set",
   "parent":{
     "name":"Map",
-    "path":"folders/Save System/Map.yy",
+    "path":"folders/Objects/Map.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

@@ -8,8 +8,8 @@
   "name":"obj_macros",
   "overriddenProperties":[],
   "parent":{
-    "name":"Other",
-    "path":"folders/Objects/Other.yy",
+    "name":"Macros",
+    "path":"folders/Objects/Macros.yy",
   },
   "parentObjectId":null,
   "persistent":true,

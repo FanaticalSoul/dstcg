@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Map",
-    "path":"folders/Save System/Map.yy",
+    "path":"folders/Objects/Map.yy",
   },
   "parentObjectId":null,
   "persistent":false,

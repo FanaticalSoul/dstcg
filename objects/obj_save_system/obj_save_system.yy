@@ -13,7 +13,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Save System",
-    "path":"folders/Save System.yy",
+    "path":"folders/Objects/Save System.yy",
   },
   "parentObjectId":null,
   "persistent":false,

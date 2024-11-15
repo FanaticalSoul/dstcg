@@ -10,7 +10,6 @@ sout("game won");
 // update file
 save_data_deck(player);
 // update encounter status
-
 var _file_name = file_map;
 var _save_data_str;
 if (file_exists(_file_name)) {
@@ -36,18 +35,8 @@ if (file_exists(_file_name)) {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
-
-
-	/*
-
-	*/
-
-
+// delete encounter information
+save_game_delete(file_encounter);
 // exit encounter
-
-
-
-
-// update room
 global.room_index = 2;
 room_goto(global.room_index);

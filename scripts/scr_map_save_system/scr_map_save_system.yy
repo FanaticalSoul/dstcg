@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_map_save_system",
   "parent":{
-    "name":"Map",
-    "path":"folders/Save System/Map.yy",
+    "name":"Save System",
+    "path":"folders/Objects/Save System.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

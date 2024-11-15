@@ -1,6 +1,6 @@
 //function start_new_game_test (save_system_id = id, deck_file = file_deck) {
 function start_new_game () {//(deck_file = file_deck) {
-	sout("starting game (from map)");
+	sout("start_new_game");
 	var _encounter_card;
 	//with (save_system_id) {
 	// create map system
@@ -66,7 +66,7 @@ function start_new_game () {//(deck_file = file_deck) {
 
 
 function save_game_map (file_name = file_map) {
-	sout("saving map");
+	sout("save_game_map");
 	var _save_data = [];
 	var _struct;
 	var _i_board_m_cards = [];
@@ -119,8 +119,8 @@ function save_game_map (file_name = file_map) {
 	file_text_close(_save_w);
 }
 function load_game_map (file_name = file_map) {
+	sout("load_game_map");
 	if (file_exists(file_name)) {
-		sout("loading map");
 		var _save_r = file_text_open_read(file_name);
 		var _save_data_str = file_text_read_string(_save_r);
 		var _save_data = json_parse(_save_data_str);
@@ -207,18 +207,49 @@ if (i == board_m_size-1) {
 
 
 function start_new_encounter (e_deck_load = [], file_name = file_deck) {
-	sout("starting a new encounter");
+	sout("start_new_encounter");
 	// load deck information
 	var _save_r = file_text_open_read(file_name);
 	var _save_data_str = file_text_read_string(_save_r);
 	var _save_data = json_parse(_save_data_str);
+	
+	
+	
+	
+	var _deck_size = _save_data[0].deck_size;
 	var _deck_load = _save_data[0].deck;
-	var _character_load = _save_data[0].character;
+	var _hand_load = _save_data[0].hand;
+	sout("</");
+	sout(_save_data[0]);
+	sout("/>");	
+	/*
+	sout("</");
+	sout(_hand_load);
+	sout(_deck_load);
+	sout("/>");
+	*/
+	// add cards to top of deck
+	while (array_length(_hand_load)>0) {
+		_deck_load[_deck_size][0] = _hand_load[array_length(_hand_load)-1];
+		_deck_load[_deck_size][1] = true;
+		array_pop(_hand_load);
+		_deck_size++;
+	}
+	/*
+	sout("</");
+	sout(_hand_load);
+	sout(_deck_load);
+	sout("/>");	
+	*/
 	// create player
 	var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
-		character_load : _character_load,
+		character_load : _save_data[0].character,
 		deck_load : _deck_load,
-		discard_load : []
+		//hand : _save_data[0].hand,
+		//hand : _save_data[0].hand,
+		//hand_size : array_length(_save_data[0].hand),
+		discard_load : _save_data[0].discard,
+		shuffled : _save_data[0].shuffled
 	});
 	// generate encounter from drawn encounter card // WoL
 	var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {

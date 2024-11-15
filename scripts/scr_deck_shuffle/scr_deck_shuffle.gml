@@ -27,6 +27,7 @@ function scr_deck_shuffle (_deck, _cards, _states = false, _shuffles = 100){
 				}
 			}
 		}
+		sout("shuffled a deck"); // log action
 		return _deck;
 	}
 }

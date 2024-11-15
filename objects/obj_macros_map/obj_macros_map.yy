@@ -8,8 +8,8 @@
   "name":"obj_macros_map",
   "overriddenProperties":[],
   "parent":{
-    "name":"Map",
-    "path":"folders/Save System/Map.yy",
+    "name":"Macros",
+    "path":"folders/Objects/Macros.yy",
   },
   "parentObjectId":null,
   "persistent":false,

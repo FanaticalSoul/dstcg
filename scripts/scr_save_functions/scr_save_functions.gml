@@ -13,8 +13,8 @@ function save_game_delete (file_name) {
 	if (file_exists(file_name)) file_delete(file_name);
 }
 
-function save_game (player_id, file_name = file_encounter) { // do single player saves for now // WoL
-	sout("saving game");
+function save_game_encounter (player_id, file_name = file_encounter) { // do single player saves for now // WoL
+	sout("save_game_encounter");
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
 	var _struct;
@@ -169,7 +169,8 @@ function save_game (player_id, file_name = file_encounter) { // do single player
 			hand : [],
 			act_equip_use : act_equip_use,
 			act_cycle : act_cycle,
-			act_attack : act_attack
+			act_attack : act_attack,
+			shuffled : deck.shuffled
 		};
 		// set hand cards
 		for (var i = 0; i < hand_size; i++) {
@@ -227,7 +228,7 @@ function save_game (player_id, file_name = file_encounter) { // do single player
 }
 
 function load_game_encounter (file_name = file_encounter) {
-	sout("loading game");
+	sout("load_game_encounter");
 	if (file_exists(file_name)) {
 		var _save_r = file_text_open_read(file_name);
 		var _save_data_str = file_text_read_string(_save_r);

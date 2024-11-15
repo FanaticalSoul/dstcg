@@ -31,14 +31,14 @@ if (instance_exists(player)) {
 							sout("phase 2 - mulligans");
 							// save game // TF
 							with (player) {
-								if (associated_instances_exist()) save_game(id);
+								if (associated_instances_exist()) save_game_encounter(id);
 							}
 						}
 						else if (e_deck.deck_size == 0 && get_enemy_count() > 0) {
 							// start character activation phase
 							global.phase_c_act = true;
 							sout("phase 5 - character activation");
-							save_game(player);
+							save_game_encounter(player);
 						}
 						// if there are no enemies left ( game won )
 						else if (e_deck.deck_size == 0 && get_enemy_count() == 0 && alarm[7] == -1) {
@@ -52,7 +52,7 @@ if (instance_exists(player)) {
 					if (e_deck.deck_size > 0 && get_enemy_count() == 0) {
 						//sout("test save")
 						// end placement phase
-						save_game(player);
+						save_game_encounter(player);
 						inital_save = true;
 						with (obj_encounter_system) if (alarm[0]==-1) alarm[0] = ani_delay_ripple;
 					}
