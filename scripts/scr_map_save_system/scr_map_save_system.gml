@@ -1,5 +1,5 @@
 //function start_new_game_test (save_system_id = id, deck_file = file_deck) {
-function start_new_game_test (deck_file = file_deck) {
+function start_new_game_test () {//(deck_file = file_deck) {
 	sout("starting game (from map)");
 	var _encounter_card;
 	//with (save_system_id) {
@@ -204,11 +204,20 @@ if (i == board_m_size-1) {
 
 
 
-function start_new_encounter(e_deck_load = [], deck_file = file_deck) {
+function start_new_encounter(e_deck_load = [], file_name = file_deck) {
 	sout("starting a new encounter");
 	// load deck information
+	var _save_r = file_text_open_read(file_name);
+	var _save_data_str = file_text_read_string(_save_r);
+	var _save_data = json_parse(_save_data_str);
+	sout(_save_data);
+	var _deck_load = _save_data[0].deck;
+	var _character_load = _save_data[0].character;
+
+	
+	
+	/*
 	ini_open(deck_file);
-	var _deck_load = [];
 	var _deck_size = ini_read_string("deck_size", string(0), string(deck_min));
 	var _character_load = ini_read_string("character", string(0), string("herald"));
 	for (var i = 0; i < _deck_size; i++) {
@@ -216,6 +225,7 @@ function start_new_encounter(e_deck_load = [], deck_file = file_deck) {
 		array_push(_deck_load, [_start_card, false]);
 	}
 	ini_close();
+	*/
 	// create player
 	var _player_id = instance_create_layer(start_player_cords[0], start_player_cords[1], "Instances", obj_player, {
 		character_load : _character_load,

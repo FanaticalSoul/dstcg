@@ -28,6 +28,7 @@ else {
 	// default for now to drawing 6
 	sout("phase 6 - WoL");
 	with (player.deck) if (alarm[0] == -1) alarm[0] = 1;
+	//return_to_map();
 	// TF
 	//global.destroy_everything_test = true;
 	// toggle off phases // this is true at this point

@@ -5,12 +5,13 @@ function start_card_draw (deck_id = id) {
 		// milled out // WoL
 		if (deck_size - 1 < 0) {
 			// end the encounter as a loss // WoL
-			show_debug_message("play you died animation ( WoL )");
+			//show_debug_message("play you died animation ( WoL )");
+			sout("you died");
 		}
 		// if max hand size was reached or surpassed
-		else if (player.hand_size >= hand_max) {
-			sout("max hand size was reached or surpassed ( WoL )");
-		}
+		//else if (player.hand_size >= hand_max) {
+		//	sout("max hand size was reached or surpassed ( WoL )");
+		//}
 		else {
 			// reset offset
 			player.hand_offset = 0;

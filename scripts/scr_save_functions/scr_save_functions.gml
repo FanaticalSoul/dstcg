@@ -9,12 +9,12 @@ global.game_data = {
 /// @param {string} file_name	save file name
 /// @description				delete save data
 
-function save_game_delete (file_name = file_data) {
-	if (file_exists(file_name)) {
-		file_delete(file_name);
-	}
+function save_game_delete (file_name) {
+	if (file_exists(file_name)) file_delete(file_name);
 }
 
+
+/*
 /// @function					start_new_game();
 /// @description				load the created deck and character, phases ect...
 ///								this will later be used to load the player into the map ( WoL )
@@ -55,22 +55,9 @@ function start_new_game(save_system_id = id, deck_file = file_deck) {
 		//player_save_id = _player_id;
 	}
 }
+*/
 
-/// @function					save_start_deck(start_deck, start_character, [deck_size], [deck_file]);
-/// @description				save the deck made for a new game
-
-function save_start_deck (start_deck, start_character, deck_size = deck_min, deck_file = file_deck) {
-	ini_open(deck_file);
-	for (var i = 0; i < deck_size; i++) {
-		ini_write_string("deck",string(i),start_deck[i]);
-	}
-	ini_write_string("character", string(0), start_character);
-	ini_write_string("deck_size", string(0), deck_size);
-	ini_close();
-}
-
-
-function save_game (player_id, file_name = file_data) { // do single player saves for now // WoL
+function save_game (player_id, file_name = file_encounter) { // do single player saves for now // WoL
 	sout("saving game");
 	// for now, save room will only be called at the start of each major phase // WoL
 	var _save_data = [];
@@ -283,7 +270,7 @@ function save_game (player_id, file_name = file_data) { // do single player save
 	file_text_close(_save_w);
 }
 
-function load_game (file_name = file_data) {
+function load_game (file_name = file_encounter) {
 	sout("loading game");
 	if (file_exists(file_name)) {
 		var _save_r = file_text_open_read(file_name);

@@ -14,16 +14,11 @@ if (mouse_check_button_released(mb_left)) {
 		room_goto(1);
 	}
 	//else if (step == 2 && file_exists(file_data)) {
-	else if (step == 2 && file_exists(file_map)) {
-		ini_open(file_deck);
+	else if (step == 2 && file_exists(file_map) && file_exists(file_deck)) {
 		// only load game if a saved deck exists
-		if (ini_section_exists("deck")) {
-			ini_close();
-			//room_goto(3);
-			if (file_exists(file_map) && file_exists(file_data)) global.room_index = 3;
-			else if (file_exists(file_map) && !file_exists(file_data)) global.room_index = 2;
-			room_goto(global.room_index);
-		}
-		else ini_close();
+		if (file_exists(file_encounter)) global.room_index = 3;
+		else global.room_index = 2;
+		room_goto(global.room_index);
+		//else ini_close();
 	}
 }

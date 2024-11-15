@@ -45,6 +45,8 @@
     {"$GMObjectProperty":"v1","%Name":"i_random_seed","filters":[],"listItems":[],"multiselect":false,"name":"i_random_seed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"i_board_c_card","filters":[],"listItems":[],"multiselect":false,"name":"i_board_c_card","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"i_board_e_card","filters":[],"listItems":[],"multiselect":false,"name":"i_board_e_card","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"encounter_rewards","filters":[],"listItems":[],"multiselect":false,"name":"encounter_rewards","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"encounter_rewards_souls","filters":[],"listItems":[],"multiselect":false,"name":"encounter_rewards_souls","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

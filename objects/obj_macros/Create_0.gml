@@ -29,8 +29,9 @@ for (var i = 0; i < array_length(start_card_stats); i++) {
 // enemy deck set
 #macro e_deck_max 20
 // set files
-#macro file_deck "start_deck.ini"
-#macro file_data "save_data.txt"
+//#macro file_deck "start_deck.ini"
+#macro file_deck "start_data_deck.txt"
+#macro file_encounter "save_data_encounter.txt"
 #macro file_map "save_data_map.txt"
 
 
