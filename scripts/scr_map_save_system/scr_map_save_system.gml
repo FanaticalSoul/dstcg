@@ -108,8 +108,7 @@ function save_game_test (file_name = file_map) {
 			x : x,
 			y : y,
 			i_board_m_cards : _i_board_m_cards, // WoL // put names here to load later
-			i_board_m_cords : global.board_m_cords,
-			i_random_seed   : global.random_seed
+			i_random_seed   : random_get_seed()
 		};
 	}
 	array_push(_save_data, _struct);

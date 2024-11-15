@@ -4,10 +4,9 @@
 card_placement = 0;
 // set random seed
 if (i_random_seed == -1) {
-	randomize();
-	global.random_seed = random_get_seed(); // use for replicating issues
+	randomize(); // use for replicating issues
 }
-else global.random_seed = i_random_seed;
+else random_set_seed(i_random_seed);
 // set global phases
 global.phase_c_place  = i_phase_c_place;  // character placement
 global.phase_mulligan = i_phase_mulligan; // muligan // sub phase
@@ -72,3 +71,4 @@ if (i_phase_c_place) sout("phase 1 - character placement");
 
 // test varible
 last_fps_update = -1;
+inital_save = false;

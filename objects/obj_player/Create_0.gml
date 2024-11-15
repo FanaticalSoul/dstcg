@@ -40,3 +40,8 @@ function associated_instances_exist (player_id = id) {
 		else return true;
 	}
 }
+function encounter_instances_exist (player_id = id) {
+	if (!associated_instances_exist(player_id)) return false;
+	if (!instance_exists(obj_enemy_deck)) return false;
+	return true;
+}

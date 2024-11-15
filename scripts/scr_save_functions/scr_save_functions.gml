@@ -91,7 +91,7 @@ function save_game (player_id, file_name = file_data) { // do single player save
 			i_phase_react : global.phase_react,
 			i_board_c_card : [],
 			i_board_e_card : [],
-			i_random_seed : global.random_seed
+			i_random_seed : random_get_seed()
 		};
 		for (var i = 0; i < board_size; i++) {
 			// set character cards on board
@@ -219,9 +219,9 @@ function save_game (player_id, file_name = file_data) { // do single player save
 			depth : depth,
 			x : x,
 			y : y,
-			deck_load : player_id.deck_load,
-			character_load : player_id.character_load,
-			discard_load : player_id.discard_load,
+			deck_load : deck_load,
+			character_load : character_load,
+			discard_load : discard_load,
 			hand_size : hand_size,
 			hand : [],
 			act_equip_use : act_equip_use,
@@ -404,6 +404,8 @@ function encounter_system_create (struct_id, c_board, e_board) {
 
 
 function player_create_struct (struct_id_1, struct_id_2, character_ids) {
+	sout(struct_id_1);
+	sout(character_ids);
 	var _x = struct_id_1.x;
 	var _y = struct_id_1.y;
 	var _layer_id = layer_get_id(struct_id_1.layer);

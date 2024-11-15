@@ -21,8 +21,8 @@ if (instance_exists(player)) { // TF // only step if player exists
 					if (global.phase_c_place) {
 						// do particle magic
 						instance_create_depth(_tmp_x, _tmp_y, temp_depth+1, obj_particle_card_ripple);
-						// end placement phase
-						with (obj_encounter_system) if (alarm[0]==-1) alarm[0] = 1;
+						// toggle off phase
+						global.phase_c_place = false;
 					}
 					break;
 				}
