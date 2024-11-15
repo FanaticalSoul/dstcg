@@ -1,6 +1,6 @@
 /// @description trigger encounter
 
-sout("test");
+sout("test alarm");
 // save room state
 save_game_test();
 global.tmp_e_cards = ["test"];

@@ -46,7 +46,7 @@ if (instance_exists(player)) {
 				else if (player.hand_size == 0 && !inital_save) {
 					// if no cards have been drawn from the enemy deck
 					if (e_deck.deck_size > 0 && get_enemy_count() == 0) {
-						sout("test save")
+						//sout("test save")
 						// end placement phase
 						save_game(player);
 						inital_save = true;
