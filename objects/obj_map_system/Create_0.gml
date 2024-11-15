@@ -13,12 +13,11 @@ if (array_length(i_board_m_cards)==0) {
 		global.board_m_card[i] = noone;
 	}
 }
-
-if (i_random_seed == -1) {
-	sout("set random seed");
-	randomize();
-	//global.random_seed = random_get_seed();
-	//global.random_seed = random_get_seed();
+// set random seed // use for replicating issues
+if (random_get_seed() == 0) {
+	if (i_random_seed == 0) randomize(); 
+	else random_set_seed(i_random_seed);
 }
 
 sout("created map system");
+sout("random seed: "+string(random_get_seed()));

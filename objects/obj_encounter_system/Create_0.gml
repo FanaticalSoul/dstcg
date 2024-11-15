@@ -2,11 +2,11 @@
 
 // initalize varibles
 card_placement = 0;
-// set random seed
-if (i_random_seed == -1) {
-	randomize(); // use for replicating issues
+// set random seed // use for replicating issues
+if (random_get_seed() == 0) {
+	if (i_random_seed == 0) randomize(); 
+	else random_set_seed(i_random_seed);
 }
-else random_set_seed(i_random_seed);
 // set global phases
 global.phase_c_place  = i_phase_c_place;  // character placement
 global.phase_mulligan = i_phase_mulligan; // muligan // sub phase
@@ -68,7 +68,7 @@ sout("created encounter system");
 // log phase start
 if (i_phase_c_place) sout("phase 1 - character placement");
 //sout(global.board_c_card);
-
+sout("random seed: "+string(random_get_seed()));
 // test varible
 last_fps_update = -1;
 inital_save = false;

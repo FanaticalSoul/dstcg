@@ -34,7 +34,7 @@
   "properties":[
     {"$GMObjectProperty":"v1","%Name":"i_board_m_cards","filters":[],"listItems":[],"multiselect":false,"name":"i_board_m_cards","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"i_board_m_cords","filters":[],"listItems":[],"multiselect":false,"name":"i_board_m_cords","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
-    {"$GMObjectProperty":"v1","%Name":"i_random_seed","filters":[],"listItems":[],"multiselect":false,"name":"i_random_seed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"i_random_seed","filters":[],"listItems":[],"multiselect":false,"name":"i_random_seed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
