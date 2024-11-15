@@ -276,6 +276,10 @@ function c_attack_ranged (act_num, card_id = id) {
 
 
 function c_attack (act_num, target_enemy, card_id = id) {
+	sout(target_enemy.card_stats);
+	sout(card_id.card_stats[act_num]);
+	
+	
 	with (card_id) {
 		// set varibles
 		var _stamina = card_stats[act_num].stamina;

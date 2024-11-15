@@ -58,12 +58,12 @@ function get_start_card_stats () {
 			standard_action : true,
 			damage : 2,
 			stamina : [0,0,0,1,0],
-			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
+			play_script : function (card_id = id) {scr_basic_attack(2, card_id);}
 		}, {
 			standard_action : true,
 			damage : 3,
 			stamina : [0,0,1,1,2],
-			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
+			play_script : function (card_id = id) {scr_basic_attack(3, card_id);}
 		}],[{
 			name : "kite shield",
 			type : "equipment",
