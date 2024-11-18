@@ -2,9 +2,7 @@
 
 card_hq = obj_visual_spoiler;
 
-card_stats = card_get_stats(encounter_card_stats, card_name);
-
-sprite_index = card_stats.image;
+sprite_index = card_get_stats(encounter_card_stats, card_name).image;
 
 flip_scale_x = 1;
 

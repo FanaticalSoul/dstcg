@@ -1,6 +1,6 @@
 /// @description Insert description here
 
-if (is_mouse_over_card() && card_stats != {}) {
+if (is_mouse_over_card() && card_get_stats(encounter_card_stats, card_name) != {}) {
 	// hold [ mouse left ] // flip encounter
 	if (mouse_check_button_pressed(mb_left)) {
 		var _flag = false;
@@ -33,7 +33,7 @@ if (is_mouse_over_card() && card_stats != {}) {
 	}
 	// hold [ mouse right ] // visual spoiler
 	if (mouse_check_button(mb_right) && ani_fin_flip) {
-		card_hq.sprite_index = card_stats.image_hq;
+		card_hq.sprite_index = card_get_stats(encounter_card_stats, card_name).image_hq;
 		card_hq.visible = true;
 	}
 }

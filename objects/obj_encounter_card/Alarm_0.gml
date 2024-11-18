@@ -1,7 +1,7 @@
 /// @description trigger encounter
 
 
-sout("test alarm");
+//sout("test alarm");
 // save room state
 save_game_map();
 // get random cards from decks // WoL
@@ -15,21 +15,19 @@ _e_decks[1] = scr_deck_shuffle(_e_decks[1], array_length(_e_decks[1]));
 _e_decks[2] = scr_deck_shuffle(_e_decks[2], array_length(_e_decks[2]));
 // get level 1 encounter information
 var _level = 1;
-var _encounter = card_stats.encounter[_level-1][0];
-var _treasures = card_stats.encounter[_level-1][1];
+//sout("stats");
+//sout(card_get_stats(encounter_card_stats, card_name));
+var _encounter = card_get_stats(encounter_card_stats, card_name).encounter[_level-1][0];
+var _treasures = card_get_stats(encounter_card_stats, card_name).encounter[_level-1][1];
 // add cards to deck
-var _e_deck = [];
+global.tmp_e_cards = [];
 for (var i = 0; i < 3; i++) {
 	for (var j = 0; j < _encounter[i]; j++) {
-		array_push(_e_deck, _e_decks[i][j]);
+		array_push(global.tmp_e_cards, _e_decks[i][j]);
 	}
 }
-sout(_e_deck);
-
-
-
-
-global.tmp_e_cards = ["test"];
+sout(global.tmp_e_cards);
+// change room
 global.room_index = 3;
 room_goto(global.room_index);
 // load encounter with random enemies based off stats
