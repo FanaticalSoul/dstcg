@@ -245,7 +245,8 @@ function start_new_encounter (e_deck_load = [], file_name = file_deck) {
 		//hand : _save_data[0].hand,
 		//hand_size : array_length(_save_data[0].hand),
 		discard_load : _save_data[0].discard,
-		shuffled : _save_data[0].shuffled
+		shuffled : _save_data[0].shuffled,
+		ability_used : _save_data[0].act_ability
 	});
 	// generate encounter from drawn encounter card // WoL
 	var _e_deck_id = instance_create_layer(e_deck_cords[0], e_deck_cords[1], "Instances", obj_enemy_deck, {

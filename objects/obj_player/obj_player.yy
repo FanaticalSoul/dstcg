@@ -46,6 +46,7 @@
     {"$GMObjectProperty":"v1","%Name":"character_load","filters":[],"listItems":[],"multiselect":false,"name":"character_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":2,},
     {"$GMObjectProperty":"v1","%Name":"discard_load","filters":[],"listItems":[],"multiselect":false,"name":"discard_load","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":6,},
     {"$GMObjectProperty":"v1","%Name":"shuffled","filters":[],"listItems":[],"multiselect":false,"name":"shuffled","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"ability_used","filters":[],"listItems":[],"multiselect":false,"name":"ability_used","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

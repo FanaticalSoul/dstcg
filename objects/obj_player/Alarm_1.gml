@@ -15,5 +15,6 @@ character = instance_create_depth(_character_cords[0], _character_cords[1], _dep
 	character : character_load,
 	player : id,
 	inital_x : _character_cords[0],
-	inital_y : _character_cords[1]
+	inital_y : _character_cords[1],
+	act_ability : ability_used
 });
