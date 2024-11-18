@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"cc835ab1-5503-4757-ac06-112e2fcff292","name":"cc835ab1-5503-4757-ac06-112e2fcff292","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"916ac610-e283-4c77-87be-b9e71aedd4e1","name":"916ac610-e283-4c77-87be-b9e71aedd4e1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":296,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"5f4b5b3d-c023-46f9-95e3-854cc951b7a0","blendMode":0,"displayName":"default","isLocked":false,"name":"5f4b5b3d-c023-46f9-95e3-854cc951b7a0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"7be727f8-3887-4483-a9b7-2257175f0a66","blendMode":0,"displayName":"default","isLocked":false,"name":"7be727f8-3887-4483-a9b7-2257175f0a66","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_start_card_hq_knight_shield",
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Knight Cards",
-    "path":"folders/Sprites/Start Cards/High Quality Cards/Knight Cards.yy",
+    "name":"Start Cards",
+    "path":"folders/Sprites/Start Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -50,7 +50,7 @@
     "eventStubScript":null,
     "eventToFunction":{},
     "length":1.0,
-    "lockOrigin":true,
+    "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
       "Keyframes":[],
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"cc835ab1-5503-4757-ac06-112e2fcff292","path":"sprites/spr_start_card_hq_knight_shield/spr_start_card_hq_knight_shield.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"5d63d450-c24c-438f-b378-f77016eaa472","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"916ac610-e283-4c77-87be-b9e71aedd4e1","path":"sprites/spr_start_card_hq_knight_shield/spr_start_card_hq_knight_shield.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"bc0e96f8-49b6-4435-b0ef-2d049f529820","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
