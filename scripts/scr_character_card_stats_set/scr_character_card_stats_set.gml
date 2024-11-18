@@ -51,8 +51,8 @@ function get_character_card_stats() {
 	];
 	var _default_stats = {
 		name : "undefined",
-		image_sm_front : spr_start_card_sm_template,
-		image_sm_back  : spr_start_card_sm_template,
+		image_sm_front : spr_card_sm,
+		image_sm_back  : spr_card_sm,
 		image_hq_front : spr_card_hq,
 		image_hq_back  : spr_card_hq,
 		taunt_value : 1,

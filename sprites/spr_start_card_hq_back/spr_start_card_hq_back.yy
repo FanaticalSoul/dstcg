@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"High Quality Cards",
-    "path":"folders/Sprites/Start Cards/High Quality Cards.yy",
+    "name":"Start Cards",
+    "path":"folders/Sprites/Start Cards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

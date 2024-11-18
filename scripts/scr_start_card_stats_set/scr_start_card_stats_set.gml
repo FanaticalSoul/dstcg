@@ -23,7 +23,7 @@ function get_start_card_stats () {
 			name : "herald armour",
 			type : "equipment",
 			image : spr_start_card_sm_herald_armour,
-			image_hq : spr_start_card_hq_herald_armour,
+			image_hq : spr_start_card_hq_herald_armour
 		},{
 			block : 3,
 			stamina : [0,0,0,1,0],
@@ -67,9 +67,9 @@ function get_start_card_stats () {
 		}],[{
 			name : "kite shield",
 			type : "equipment",
-			attack : "heavy",
 			image : spr_start_card_sm_kite_shield,
 			image_hq : spr_start_card_hq_kite_shield,
+			attack : "heavy"
 		},{
 			block  : 3,
 			stamina : [0,0,1,1,0],
@@ -99,7 +99,9 @@ function get_start_card_stats () {
 		// Knight Class
 		[{ // knight armour
 			name : "knight armour",
-			type : "equipment"
+			type : "equipment",
+			image : spr_start_card_sm_knight_armour,
+			image_hq : spr_start_card_hq_knight_armour
 		},{
 			block  : 3, reaction : true,
 			stamina : [0,0,1,0,0],
