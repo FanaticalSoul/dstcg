@@ -1,6 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//loading = 0;
+
+load_bar_xscale  = 1;
+load_bar_1_spr_x = 2;
+load_bar_2_spr_x = 64;
+load_bar_1_spr_y = 2;
+
 
 var _card_stats = [
 	character_card_stats, // image_hq_front // image_hq_back
