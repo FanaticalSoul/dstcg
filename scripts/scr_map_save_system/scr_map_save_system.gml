@@ -219,14 +219,10 @@ function start_new_encounter (e_deck_load = [], file_name = file_deck) {
 	var _deck_size = _save_data[0].deck_size;
 	var _deck_load = _save_data[0].deck;
 	var _hand_load = _save_data[0].hand;
+	/*
 	sout("</");
 	sout(_save_data[0]);
 	sout("/>");	
-	/*
-	sout("</");
-	sout(_hand_load);
-	sout(_deck_load);
-	sout("/>");
 	*/
 	// add cards to top of deck
 	while (array_length(_hand_load)>0) {

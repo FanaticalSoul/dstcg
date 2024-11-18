@@ -4,7 +4,7 @@
 /// @return						{array<struct>}
 
 function get_enemy_card_stats() {
-	card_stats = [{
+	card_stats = [/*{
 			name : "test",
 			image : spr_enemy_card_sm_ghru_leaper,
 			image_hq : spr_enemy_card_hq_ghru_leaper,
@@ -22,7 +22,8 @@ function get_enemy_card_stats() {
 				}
 			],
 			spawn_location : 5
-		},{ name : "hollow manservant",
+		},*/{
+			name : "hollow manservant",
 			image : spr_enemy_card_sm_hollow_manservant,
 			image_hq : spr_enemy_card_hq_hollow_manservant,
 			enemy_level : 1,

@@ -11,11 +11,9 @@ function save_data_deck (player = noone, file_name = file_deck) {
 		with (player) {
 			var _hand_str = [];
 			for (var i = 0; i < array_length(hand); i++) _hand_str[i] = hand[i].card_name;
-			
 			_struct = {
 				deck : deck.deck,
 				hand : _hand_str,
-				//hand : hand,
 				discard : discard.discard,
 				character : character.character,
 				act_ability : character.act_ability,

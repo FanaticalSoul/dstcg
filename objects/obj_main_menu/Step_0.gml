@@ -9,7 +9,7 @@ for (var i = 0; i < 3; i++) {
 	}
 }
 // release [ mouse left ] // go to corrisponding room
-if (mouse_check_button_released(mb_left)) {
+if (mouse_check_button_released(mb_left) && !obj_test_sprite_loader.visible) {
 	if (step == 1) {
 		room_goto(1);
 	}

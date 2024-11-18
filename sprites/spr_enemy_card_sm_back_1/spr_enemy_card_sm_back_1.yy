@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Enemy Cards",
-    "path":"folders/Sprites/Enemy Cards.yy",
+    "name":"Level 1",
+    "path":"folders/Sprites/Enemy Cards/Level 1.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

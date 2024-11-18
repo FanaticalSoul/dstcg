@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Small Images",
-    "path":"folders/Sprites/Enemy Cards/Small Images.yy",
+    "path":"folders/Sprites/Enemy Cards/Level 1/Small Images.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
