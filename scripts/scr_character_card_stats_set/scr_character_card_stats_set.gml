@@ -13,6 +13,8 @@ function get_character_card_stats() {
 			name : "assassin",
 			image_sm_front : spr_character_card_sm_assassin_front,
 			image_sm_back  : spr_character_card_sm_assassin_back ,
+			image_hq_front : spr_character_card_hq_assassin_front,
+			image_hq_back  : spr_character_card_hq_assassin_back ,
 			taunt_value : 8,
 			target : true
 		},
@@ -31,6 +33,8 @@ function get_character_card_stats() {
 			name : "knight",
 			image_sm_front : spr_character_card_sm_knight_front,
 			image_sm_back  : spr_character_card_sm_knight_back ,
+			image_hq_front : spr_character_card_hq_knight_front,
+			image_hq_back  : spr_character_card_hq_knight_back ,
 			taunt_value : 10,
 			reaction : true,
 			play_script : function (character_id = id) {scr_character_ability_knight(character_id);}
@@ -39,6 +43,8 @@ function get_character_card_stats() {
 			name : "sorcerer",
 			image_sm_front : spr_character_hero_sm_sorcerer_front,
 			image_sm_back  : spr_character_card_sm_sorcerer_back ,
+			image_hq_front : spr_character_card_hq_sorcerer_front,
+			image_hq_back  : spr_character_card_hq_sorcerer_back ,
 			taunt_value : 5,
 			target : true
 		}

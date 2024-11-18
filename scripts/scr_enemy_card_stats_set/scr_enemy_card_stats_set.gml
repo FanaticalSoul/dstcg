@@ -245,7 +245,7 @@ function get_enemy_card_stats() {
 			attack : [{attack_location : 5}],
 			spawn_location : 5
 		},{ name : "pontiff knight great scythe",
-			image : spr_enemy_card_sm_pontiff_knight_great_scythe,
+			image : spr_enemy_card_hq_pontiff_knight_great_scythe_1,
 			image_hq : spr_enemy_card_hq_pontiff_knight_great_scythe,
 			enemy_level : 2,
 			souls : 6,
