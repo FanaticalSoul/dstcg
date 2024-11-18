@@ -115,6 +115,8 @@ function get_start_card_stats () {
 		[{ // knight shield
 			name : "knight shield",
 			type : "equipment",
+			image : spr_start_card_sm_knight_shield,
+			image_hq : spr_start_card_hq_knight_shield,
 			attack : "heavy"
 		},{
 			damage : 3,
@@ -128,6 +130,8 @@ function get_start_card_stats () {
 		// long sword
 		],[{name : "long sword",
 			type : "equipment",
+			image : spr_start_card_sm_long_sword,
+			image_hq : spr_start_card_hq_long_sword,
 			attack : "heavy"
 		},{
 			damage : 2,
@@ -147,6 +151,8 @@ function get_start_card_stats () {
 		// short sword
 		],[{name : "short sword",
 			type : "equipment",
+			image : spr_start_card_sm_short_sword,
+			image_hq : spr_start_card_hq_short_sword,
 			attack : "skilled"
 		},{
 			damage : 1,
@@ -179,7 +185,7 @@ function get_start_card_stats () {
 			image : spr_start_card_sm_stamina_fth,
 			image_hq : spr_start_card_hq_stamina_fth
 		}, {stamina : [0,0,0,1]}
-		],[{name : "int+fth stamina",
+		],/*[{name : "int+fth stamina",
 			type : "stamina"
 		}, {stamina : [0,1,0,1]}
 		],[{name : "dex+int stamina",
@@ -206,7 +212,7 @@ function get_start_card_stats () {
 			type : "stamina"
 		}, {stamina : [1,0,0,0]}, {stamina : [0,0,1,0]}
 		// remant of humanity
-		],[{name : "remant of humanity",
+		],*/[{name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
 			image_hq : spr_start_card_hq_remant_of_humanity
