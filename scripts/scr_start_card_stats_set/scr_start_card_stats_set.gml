@@ -18,7 +18,7 @@ function get_start_card_stats () {
 	// WoL */
 
 	// set actions for cards
-	card_stats = [
+	var _card_stats = [
 		 [{
 			name : "herald armour",
 			type : "equipment",
@@ -220,8 +220,16 @@ function get_start_card_stats () {
 			scr_equipment_remant_of_humanity_1 (id);
 		}}]
 	];
+	// set defaults
+	_card_stats = set_start_card_stats_defaults(_card_stats);
+
+	return _card_stats;
+}
+
+
+function set_start_card_stats_defaults (card_stats, test = false) {
 	// set default action
-	default_action = {
+	var _default_action = {
 		name : undefined,
 		standard_action : false, // discard on use
 		block  : 0,
@@ -245,8 +253,7 @@ function get_start_card_stats () {
 		reaction : false // can be used in response to an enemy attack
 	};
 	// add default values // add name of item to all item actions //
-	var _test = false;
-	for (i = 0; i < array_length(card_stats); i++) {
+	for (var i = 0; i < array_length(card_stats); i++) {
 		var _tmp_card = card_stats[i][0];
 		// set undefined varibles
 		if (struct_get(_tmp_card,"image") == undefined) struct_set(card_stats[i][0],"image",spr_start_card_sm_front);
@@ -254,13 +261,14 @@ function get_start_card_stats () {
 		if (struct_get(_tmp_card,"name") == undefined) struct_set(card_stats[i][0],"name","undefined");
 		if (struct_get(_tmp_card,"attack") == undefined) struct_set(card_stats[i][0],"attack","none");
 		// copy varibles across the array // this is a fix for the attack method
-		default_action.name = card_stats[i][0].name;
-		default_action.attack = card_stats[i][0].attack;
+		_default_action.name = card_stats[i][0].name;
+		_default_action.attack = card_stats[i][0].attack;
 		// go through default array and update missing information in the attack action structure
-		if (_test) show_debug_message("item : "+string(struct_get(card_stats[i][0],"name")));
-		for (j = 0; j < array_length(card_stats[i]); j++) {
+		if (test) show_debug_message("item : "+string(struct_get(card_stats[i][0],"name")));
+		for (var j = 0; j < array_length(card_stats[i]); j++) {
 			if (struct_get(card_stats[i][0],"type") == "equipment"
 			 || struct_get(card_stats[i][0],"type") == "weapon") {
+				/*
 				struct_foreach (default_action, function(name, value) {
 					if (struct_get(card_stats[i][j],string(name)) == undefined) {
 						struct_set(card_stats[i][j],string(name),value);
@@ -277,9 +285,37 @@ function get_start_card_stats () {
 						}
 					}
 				});
+				*/
+				//sout("test");
+				var _names = struct_get_names(_default_action);
+				for (var k = 0; k < array_length(_names); k++) {
+					var _name = string(_names[k]);
+					var _card_value = struct_get(card_stats[i][j], _name);
+					var _default_value = struct_get(_default_action, _name);
+					if (_card_value == undefined) {
+						struct_set(card_stats[i][j], _name, _default_value);
+					}
+					// set each effect in area_of_effect
+					if (_name == "area_of_effect") {
+						var _aoe = card_stats[i][j].area_of_effect;
+						if (array_length(_aoe)>0) {
+							for (var l = 0; l < array_length(_aoe); l++) {
+								if (struct_get(_aoe[l], "inflict") == undefined) {
+									struct_set(_aoe[l], "inflict", []);
+								}
+							}
+						}
+					}
+				}
 			}
-			if (_test) show_debug_message(string(card_stats[i][j]));
+			if (test) show_debug_message(string(card_stats[i][j]));
 		}
 	}
 	return card_stats;
 }
+
+
+
+
+
+

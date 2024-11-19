@@ -104,18 +104,15 @@ function save_game_encounter (player_id, file_name = file_encounter) { // do sin
 		}
 		array_push(_save_data, _struct);
 	}
-	// get players ( and their assossated stuff )
-	// WoL
+	// get players ( and their assossated stuff ) // WoL
 	// save assossiated deck
 	with (player_id.deck) {
 		_struct = {
-			//id : id,
 			object : object_get_name(object_index),
 			layer : layer_get_name(player_id.layer),
 			depth : depth,
 			x : x,
 			y : y,
-			//player : player_id,
 			shuffled : shuffled,
 			deck_load : deck,
 			deck_size : deck_size
@@ -142,16 +139,13 @@ function save_game_encounter (player_id, file_name = file_encounter) { // do sin
 	// save assossiated gauges
 	with (player_id.gauges) {
 		_struct = {
-			//id : id,
 			object : object_get_name(object_index),
 			layer : layer_get_name(player_id.layer),
 			depth : depth,
 			x : x,
 			y : y,
-			//player : player_id,
 			ending_sprite_width : ending_sprite_width
 		};
-		//array_push(_associated_ids, _struct);
 		array_push(_save_data, _struct);
 	}
 	// save players ( should be the last thing save and load )
