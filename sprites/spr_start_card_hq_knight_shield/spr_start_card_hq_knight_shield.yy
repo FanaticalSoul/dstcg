@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Knight Cards",
-    "path":"folders/Sprites/Start Cards/High Quality Cards/Knight Cards.yy",
+    "name":"Knight",
+    "path":"folders/Sprites/Start Cards/High Quality Cards/Knight.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

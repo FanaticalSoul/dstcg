@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Herald Cards",
-    "path":"folders/Sprites/Start Cards/High Quality Cards/Herald Cards.yy",
+    "name":"Herald",
+    "path":"folders/Sprites/Start Cards/High Quality Cards/Herald.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
