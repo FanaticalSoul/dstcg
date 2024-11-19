@@ -222,7 +222,16 @@ function get_start_card_stats () {
 	];
 	// set defaults
 	_card_stats = set_start_card_stats_defaults(_card_stats);
-
+	// add treasures
+	var _treasures = get_treasure_stats();
+	for (var i = 0; i < array_length(_treasures); i++) {
+		array_push(_card_stats, _treasures[i]);
+	}
+	/*
+	for (var i = 0; i < array_length(_card_stats); i++) {
+		sout(_card_stats[i][0].name);
+	}
+	*/
 	return _card_stats;
 }
 
@@ -268,25 +277,6 @@ function set_start_card_stats_defaults (card_stats, test = false) {
 		for (var j = 0; j < array_length(card_stats[i]); j++) {
 			if (struct_get(card_stats[i][0],"type") == "equipment"
 			 || struct_get(card_stats[i][0],"type") == "weapon") {
-				/*
-				struct_foreach (default_action, function(name, value) {
-					if (struct_get(card_stats[i][j],string(name)) == undefined) {
-						struct_set(card_stats[i][j],string(name),value);
-					}
-					// set each effect in area_of_effect
-					if (string(name) == "area_of_effect") {
-						var _aoe = card_stats[i][j].area_of_effect;
-						if (array_length(_aoe)>0) {
-							for (var k = 0; k < array_length(_aoe); k++) {
-								if (struct_get(_aoe[k],"inflict") == undefined) {
-									struct_set(_aoe[k],"inflict",[]);
-								}
-							}
-						}
-					}
-				});
-				*/
-				//sout("test");
 				var _names = struct_get_names(_default_action);
 				for (var k = 0; k < array_length(_names); k++) {
 					var _name = string(_names[k]);
@@ -315,6 +305,28 @@ function set_start_card_stats_defaults (card_stats, test = false) {
 }
 
 
+function get_treasure_stats () {
+	var _card_stats = [
+		[{  name : "morning star",
+			type : "equipment",
+			image : spr_start_card_sm_morning_star,
+			image_hq : spr_start_card_hq_morning_star,
+			attack : "heavy"
+		},{
+			damage : 2,
+			stamina : [0,0,1,1,0],
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 4,
+			stamina : [0,0,1,2,0],
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		}]
+	];
+	// set defaults
+	_card_stats = set_start_card_stats_defaults(_card_stats);
+	return _card_stats;
+}
 
 
 
