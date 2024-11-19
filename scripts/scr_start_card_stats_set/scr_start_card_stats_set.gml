@@ -235,6 +235,7 @@ function get_start_card_stats () {
 	return _card_stats;
 }
 
+/// @return						{array<array<struct>>}
 
 function set_start_card_stats_defaults (card_stats, test = false) {
 	// set default action
@@ -305,6 +306,8 @@ function set_start_card_stats_defaults (card_stats, test = false) {
 }
 
 
+/// @return						{array<array<struct>>}
+
 function get_treasure_stats () {
 	var _card_stats = [
 		[{  name : "morning star",
@@ -344,6 +347,93 @@ function get_treasure_stats () {
 			damage : 3,
 			stamina : [0,2,0,0,2],
 			play_script :  function (card_id = id) {scr_basic_attack(3, card_id);}
+		}],
+		[{  name : "mace",
+			type : "equipment",
+			image : spr_start_card_sm_mace,
+			image_hq : spr_start_card_hq_mace,
+			attack : "heavy"
+		},{
+			damage : 2,
+			stamina : [0,0,1,1,1],
+			inflict : ["stagger"],
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 2,
+			stamina : [0,0,1,1,0],
+			inflict : ["stagger"],
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		},{
+			standard_action : true,
+			inflict : ["stagger"],
+			play_script :  function (card_id = id) {scr_basic_attack(3, card_id);}
+		}],
+		[{  name : "morion blade",
+			type : "equipment",
+			image : spr_start_card_sm_morion_blade,
+			image_hq : spr_start_card_hq_morion_blade,
+			attack : "skilled"
+		},{
+			damage : 1,
+			stamina : [1,0,0,0,1],
+			inflict : ["bleed"],
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 2,
+			stamina : [0,0,1,1,0],
+			inflict : ["bleed"],
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		}],
+		[{  name : "onislayer greatbow",
+			type : "equipment",
+			image : spr_start_card_sm_onislayer_greatbow,
+			image_hq : spr_start_card_hq_onislayer_greatbow,
+			attack : "skilled"
+		},{
+			damage : 3,
+			stamina : [2,0,1,0,0],
+			ranged : true,
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 4,
+			stamina : [1,0,2,0,0],
+			ranged : true,
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		}],
+		[{  name : "partizan",
+			type : "equipment",
+			image : spr_start_card_sm_partizan,
+			image_hq : spr_start_card_hq_partizan,
+			attack : "heavy"
+		},{
+			damage : 3,
+			stamina : [0,0,1,2,0],
+			ranged : true,
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 3,
+			stamina : [0,0,1,1,0],
+			ranged : true,
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		}],
+		[{  name : "rapier",
+			type : "equipment",
+			image : spr_start_card_sm_rapier,
+			image_hq : spr_start_card_hq_rapier,
+			attack : "skilled"
+		},{
+			damage : 2,
+			stamina : [1,0,1,0,0],
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 3,
+			stamina : [1,0,0,0,0],
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
 		}]
 	];
 	// set defaults
