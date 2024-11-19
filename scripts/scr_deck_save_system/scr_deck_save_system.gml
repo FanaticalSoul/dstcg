@@ -107,6 +107,24 @@ function get_data_rewards (file_name = file_deck) {
 	file_text_close(_save_r);
 	return _save_data[1].rewards;
 }
+function get_data_inventory (file_name = file_deck) {
+	var _save_data_str;
+	// read information
+	var _save_r = file_text_open_read(file_name);
+	_save_data_str = file_text_read_string(_save_r);
+	var _save_data = json_parse(_save_data_str);
+	file_text_close(_save_r);
+	return _save_data[1].inventory;
+}
+function get_data_loot (file_name = file_deck) {
+	var _save_data_str;
+	// read information
+	var _save_r = file_text_open_read(file_name);
+	_save_data_str = file_text_read_string(_save_r);
+	var _save_data = json_parse(_save_data_str);
+	file_text_close(_save_r);
+	return _save_data[1].loot;
+}
 
 
 function save_data_loot (won_encounter = true, file_name = file_deck) {

@@ -29,7 +29,31 @@ for (var i = 0; i < array_length(_treasure_stats); i++) {
 var _treasures = [];
 for (var i = 0; i < _treasure_count; i++) {
 	_t_deck = scr_deck_shuffle(_t_deck,array_length(_t_deck)); // shuffle deck
-	array_push(_treasures, _t_deck[0]); // add top card
+	var _flag = false;
+	var j = i;
+	while (!_flag && j < _treasure_count) {
+		// try to validate card
+		var _t_card = _t_deck[j];
+		var _t_card_count = 0;
+		var _rewards = get_data_rewards();
+		var _loot = get_data_loot();
+		var _inventory = get_data_inventory();
+		//
+		for (var k = 0; k < array_length(_rewards); k++) {
+			if (_rewards[k] == _t_card) _t_card_count++;
+		}
+		for (var k = 0; k < array_length(_loot); k++) {
+			if (_loot[k] == _t_card) _t_card_count++;
+		}
+		for (var k = 0; k < array_length(_inventory); k++) {
+			if (_inventory[k] == _t_card) _t_card_count++;
+		}
+		if (_t_card_count < 4) _flag = true;
+		//
+		if (!_flag) j++;
+	}
+	if (_flag) array_push(_treasures, _t_deck[j]); // add top card
+	else sout("unable to add card");
 }
 //sout("treasures");
 //sout(_treasures);
