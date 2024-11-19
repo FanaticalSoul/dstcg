@@ -24,8 +24,16 @@ function save_data_deck (player = noone, file_name = file_deck) {
 		}
 	}
 	array_push(_save_data, _struct);
-	//
-	//_struct = noone;
+	// add rewards and other such things // CiD
+	////////////////////////////////////////////////////////
+	/*
+	_struct = {
+		rewards : [],
+		loot : [],
+		inventory : [deck, 0] // [ [ equipment and stamina ] , souls ]
+	};
+	array_push(_save_data, _struct);
+	*/
 	// save data
 	var _save_w = file_text_open_write(file_name);
 	var _save_data_str = json_stringify(_save_data);
@@ -60,8 +68,8 @@ function save_data_deck_start (deck, character, file_name = file_deck) {
 	array_push(_save_data, _struct);
 	//
 	_struct = {
-		rewards : deck,
-		loot : [],
+		rewards : [[], 0],
+		loot : [[], 0],
 		inventory : [deck, 0] // [ [ equipment and stamina ] , souls ]
 	};
 	array_push(_save_data, _struct);
@@ -71,3 +79,53 @@ function save_data_deck_start (deck, character, file_name = file_deck) {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
+
+
+
+//function save_data_inventory (rewards, loot, won_encounter = true, player = noone, file_name = file_deck) {
+function save_data_rewards (rewards, file_name = file_deck) {
+	var _save_data_str;
+	// read information
+	var _save_r = file_text_open_read(file_name);
+	_save_data_str = file_text_read_string(_save_r);
+	var _save_data = json_parse(_save_data_str);
+	file_text_close(_save_r);
+	// update rewards
+	_save_data[1].rewards = rewards;
+	// write to file
+	var _save_w = file_text_open_write(file_name);
+	_save_data_str = json_stringify(_save_data);
+	file_text_write_string(_save_w, _save_data_str);
+	file_text_close(_save_w);
+}
+
+
+function save_data_loot (won_encounter = true, file_name = file_deck) {
+	var _save_data_str;
+	// read information
+	var _save_r = file_text_open_read(file_name);
+	_save_data_str = file_text_read_string(_save_r);
+	var _save_data = json_parse(_save_data_str);
+	file_text_close(_save_r);
+	// update rewards
+	if (won_encounter) {
+		// update inventory
+		var _loot_treasure = _save_data[1].loot[0];
+		for (var i = 0; i < array_length(_loot_treasure); i++) {
+			array_push(_save_data[1].inventory[0], _loot_treasure[i]);
+		}
+		var _loot_souls = int64(_save_data[1].loot[1]);
+		_save_data[1].inventory[1] = int64(_save_data[1].inventory[1]) + _loot_souls;
+		// update loot
+		_save_data[1].loot = [_save_data[1].rewards[0], _save_data[1].rewards[1]];
+	}
+	else _save_data[1].loot = [[], 0];
+	_save_data[1].rewards = [[], 0];
+	// write to file
+	var _save_w = file_text_open_write(file_name);
+	_save_data_str = json_stringify(_save_data);
+	file_text_write_string(_save_w, _save_data_str);
+	file_text_close(_save_w);
+}
+
+

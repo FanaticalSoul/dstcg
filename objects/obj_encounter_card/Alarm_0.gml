@@ -43,10 +43,11 @@ for (var i = 0; i < 3; i++) {
 		_souls += int64(card_get_stats(enemy_card_stats, _e_decks[i][j]).souls);
 	}
 }
-sout(global.tmp_e_cards);
+//sout(global.tmp_e_cards);
 // add souls to rewards
 //sout("souls");
 //sout(_souls);
+save_data_rewards([_treasures, _souls]);
 
 // change room
 global.room_index = 3;
