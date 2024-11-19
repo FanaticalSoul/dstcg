@@ -321,6 +321,29 @@ function get_treasure_stats () {
 			damage : 4,
 			stamina : [0,0,1,2,0],
 			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		}],
+		[{  name : "soul arrow",
+			type : "equipment",
+			image : spr_start_card_sm_soul_arrow,
+			image_hq : spr_start_card_hq_soul_arrow,
+			attack : "magical"
+		},{
+			damage : 1,
+			ranged : true,
+			stamina : [0,1,0,1,0],
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			ranged : true,
+			damage : 2,
+			stamina : [0,1,0,1,0],
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		},{
+			standard_action : true,
+			ranged : true,
+			damage : 3,
+			stamina : [0,2,0,0,2],
+			play_script :  function (card_id = id) {scr_basic_attack(3, card_id);}
 		}]
 	];
 	// set defaults

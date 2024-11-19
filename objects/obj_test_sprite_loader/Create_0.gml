@@ -21,7 +21,7 @@ i = 0;
 for (i = 0; i < array_length(_card_stats); i++) {
 	for (var j = 0; j < array_length(_card_stats[i]); j++) {
 		var _card = _card_stats[i][j];
-		sout(_card);
+		//sout(_card);
 		if (i+1 == 1){
 			array_push(sprites, _card.image_hq_front);
 			array_push(sprites, _card.image_hq_back );
