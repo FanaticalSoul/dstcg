@@ -47,7 +47,8 @@ for (var i = 0; i < 3; i++) {
 // add souls to rewards
 //sout("souls");
 //sout(_souls);
-save_data_rewards([_treasures, _souls]);
+set_data_rewards([_treasures, _souls]);
+//global.tmp_rewards = [_treasures, _souls];
 
 // change room
 global.room_index = 3;

@@ -26,7 +26,8 @@ if (get_enemy_count() > 0) {
 else {
 	// give player a choice to rest at a bonfire or draw back to 6 // WoL
 	// default for now to drawing 6
-	sout("phase 6 - WoL");
+	sout("phase 6 - return to map");
+	//save_data_loot();
 	with (player.deck) if (alarm[0] == -1) alarm[0] = 1;
 	//return_to_map();
 	// TF

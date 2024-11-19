@@ -40,3 +40,4 @@ global.room_index = -1;
 
 // test varibles
 global.tmp_e_cards = [];
+//global.tmp_rewards = [[], 0];
