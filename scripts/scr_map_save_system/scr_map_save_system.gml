@@ -124,33 +124,8 @@ function load_game_map (file_name = file_map) {
 		var _save_r = file_text_open_read(file_name);
 		var _save_data_str = file_text_read_string(_save_r);
 		var _save_data = json_parse(_save_data_str);
-		sout("encounter info");
-		sout(_save_data[0]);
-		/*
-		for (var i = 0; i < board_m_size; i++) {
-			var _sub_struct = {};
-			if (instance_exists(global.board_m_card[i])) {
-				with (global.board_m_card[i]) {
-					_sub_struct = {
-						object : object_get_name(object_index),
-						layer : "Encounters",
-						depth : depth,
-						x : x,
-						y : y,
-						card_name : card_name,
-						ani_act_flip : ani_act_flip,
-						ani_fin_flip : ani_fin_flip,
-						flip_speed : flip_speed,
-						sprite_index_back : sprite_index_back,
-						encounter_paths : [], // WoL
-						cleared : cleared,
-						active : active
-					};
-					array_push(_i_board_m_cards, card_name);
-				}
-			}
-		else array_push(_i_board_m_cards, "");
-		*/
+		//sout("encounter info");
+		//sout(_save_data[0]);
 		var _struct = _save_data[0];
 		global.board_m_card = [];
 		for (var i = 0; i < board_m_size; i++) {

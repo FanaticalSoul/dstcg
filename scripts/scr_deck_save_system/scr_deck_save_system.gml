@@ -58,7 +58,8 @@ function save_data_deck_start (deck, character, file_name = file_deck) {
 		discard : [],
 		character : character,
 		act_ability : false,
-		shuffled : false
+		shuffled : false,
+		discard_size : 0
 	};
 	array_push(_save_data, _struct);
 	//
@@ -156,4 +157,18 @@ function save_data_loot (won_encounter = true, file_name = file_deck) {
 	file_text_close(_save_w);
 }
 
-
+/*
+function get_data_inventory_size (subtract_deck_size = true, file_name = file_deck) {
+	var _save_r = file_text_open_read(file_name);
+	var _save_data_str = file_text_read_string(_save_r);
+	var save_data = json_parse(_save_data_str);
+	var _inventory_size = array_length(save_data[1].inventory[0]);
+	if (subtract_deck_size) {
+		_inventory_size -= array_length(save_data[0].hand);
+		_inventory_size -= save_data[0].deck_size;
+		_inventory_size -= save_data[0].discard_size;
+	}
+	file_text_close(_save_r);
+	return subtract_deck_size;
+}
+*/
