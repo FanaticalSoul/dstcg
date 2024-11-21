@@ -1,6 +1,6 @@
 {
   "$GMSprite":"",
-  "%Name":"spr_exploration_board_1_front_1",
+  "%Name":"spr_exploration_board_1_front_2",
   "bboxMode":0,
   "bbox_bottom":119,
   "bbox_left":0,
@@ -25,7 +25,7 @@
     {"$GMImageLayer":"","%Name":"720e8b64-f90f-475b-80ec-12ef45794b02","blendMode":0,"displayName":"paths","isLocked":false,"name":"720e8b64-f90f-475b-80ec-12ef45794b02","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"306d401a-887f-410a-81df-8ba1671c1e35","blendMode":0,"displayName":"default","isLocked":false,"name":"306d401a-887f-410a-81df-8ba1671c1e35","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"spr_exploration_board_1_front_1",
+  "name":"spr_exploration_board_1_front_2",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -73,7 +73,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"11562333-7604-495b-b805-6c5cda0b44f8","path":"sprites/spr_exploration_board_1_front_1/spr_exploration_board_1_front_1.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"11562333-7604-495b-b805-6c5cda0b44f8","path":"sprites/spr_exploration_board_1_front_2/spr_exploration_board_1_front_2.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"04668086-9d78-4ab1-80ee-1f101f8622a0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

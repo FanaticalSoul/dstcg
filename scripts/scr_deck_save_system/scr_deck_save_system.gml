@@ -23,17 +23,14 @@ function save_data_deck (player = noone, file_name = file_deck) {
 	}
 	// add rewards and other such things // CiD
 	
-	var _save_data_str;
+	//var _save_data_str;
 	// add information about inventory, loot, and rewards
 	var _save_r = file_text_open_read(file_name);
-	_save_data_str = file_text_read_string(_save_r);
-	var save_data = [_deck_data, json_parse(_save_data_str)[1]];
+	var _save_data_str = file_text_read_string(_save_r);
+	var _save_data = [_deck_data, json_parse(_save_data_str)[1], json_parse(_save_data_str)[2]];
 	file_text_close(_save_r);
 	// save data
-	var _save_w = file_text_open_write(file_name);
-	_save_data_str = json_stringify(save_data);
-	file_text_write_string(_save_w, _save_data_str);
-	file_text_close(_save_w);
+	set_data_file(_save_data, file_name);
 }
 
 function save_data_deck_start (deck, character, file_name = file_deck) {
@@ -62,7 +59,7 @@ function save_data_deck_start (deck, character, file_name = file_deck) {
 		discard_size : 0
 	};
 	array_push(_save_data, _struct);
-	//
+	// set rewards ect...
 	var _deck_cards = [];
 	for (var i = 0; i < array_length(deck); i++) {
 		if (deck[i] != "") array_push(_deck_cards, deck[i]);
@@ -73,69 +70,33 @@ function save_data_deck_start (deck, character, file_name = file_deck) {
 		inventory : [_deck_cards, 0] // [ [ equipment and stamina ] , souls ]
 	};
 	array_push(_save_data, _struct);
+	// set bonfire level ( to 1 )
+	array_push(_save_data, 1);
 	// save data
-	var _save_w = file_text_open_write(file_name);
-	var _save_data_str = json_stringify(_save_data);
-	file_text_write_string(_save_w, _save_data_str);
-	file_text_close(_save_w);
+	set_data_file(_save_data, file_name);
 }
 
-
-
-//function save_data_inventory (rewards, loot, won_encounter = true, player = noone, file_name = file_deck) {
 function set_data_rewards (rewards, file_name = file_deck) {
-	var _save_data_str;
-	// read information
-	var _save_r = file_text_open_read(file_name);
-	_save_data_str = file_text_read_string(_save_r);
-	var _save_data = json_parse(_save_data_str);
-	file_text_close(_save_r);
-	// update rewards
-	_save_data[1].rewards = rewards;
-	// write to file
-	var _save_w = file_text_open_write(file_name);
-	_save_data_str = json_stringify(_save_data);
-	file_text_write_string(_save_w, _save_data_str);
-	file_text_close(_save_w);
+	var _save_data = get_data_file(file_name); // read information
+	_save_data[1].rewards = rewards; // update rewards
+	set_data_file(_save_data, file_name); // write to file
 }
 
 function get_data_rewards (file_name = file_deck) {
-	var _save_data_str;
-	// read information
-	var _save_r = file_text_open_read(file_name);
-	_save_data_str = file_text_read_string(_save_r);
-	var _save_data = json_parse(_save_data_str);
-	file_text_close(_save_r);
-	return _save_data[1].rewards;
+	return get_data_file(file_name)[1].rewards;
 }
 function get_data_inventory (file_name = file_deck) {
-	var _save_data_str;
-	// read information
-	var _save_r = file_text_open_read(file_name);
-	_save_data_str = file_text_read_string(_save_r);
-	var _save_data = json_parse(_save_data_str);
-	file_text_close(_save_r);
-	return _save_data[1].inventory;
+	return get_data_file(file_name)[1].inventory;
 }
 function get_data_loot (file_name = file_deck) {
-	var _save_data_str;
-	// read information
-	var _save_r = file_text_open_read(file_name);
-	_save_data_str = file_text_read_string(_save_r);
-	var _save_data = json_parse(_save_data_str);
-	file_text_close(_save_r);
-	return _save_data[1].loot;
+	return get_data_file(file_name)[1].loot;
 }
 
 
 function save_data_loot (won_encounter = true, file_name = file_deck) {
 	sout("save_data_loot");
-	var _save_data_str;
 	// read information
-	var _save_r = file_text_open_read(file_name);
-	_save_data_str = file_text_read_string(_save_r);
-	var _save_data = json_parse(_save_data_str);
-	file_text_close(_save_r);
+	var _save_data = get_data_file(file_name);
 	// update rewards
 	if (won_encounter) {
 		// update inventory
@@ -151,24 +112,20 @@ function save_data_loot (won_encounter = true, file_name = file_deck) {
 	else _save_data[1].loot = [[], 0];
 	_save_data[1].rewards = [[], 0];
 	// write to file
+	set_data_file(_save_data, file_name);
+}
+
+function get_data_file (file_name) {
+	var _save_r = file_text_open_read(file_name);
+	var _save_data_str = file_text_read_string(_save_r);
+	var _save_data = json_parse(_save_data_str);
+	file_text_close(_save_r);
+	return _save_data;
+}
+
+function set_data_file (save_data, file_name) {
 	var _save_w = file_text_open_write(file_name);
-	_save_data_str = json_stringify(_save_data);
+	var _save_data_str = json_stringify(save_data);
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
-
-/*
-function get_data_inventory_size (subtract_deck_size = true, file_name = file_deck) {
-	var _save_r = file_text_open_read(file_name);
-	var _save_data_str = file_text_read_string(_save_r);
-	var save_data = json_parse(_save_data_str);
-	var _inventory_size = array_length(save_data[1].inventory[0]);
-	if (subtract_deck_size) {
-		_inventory_size -= array_length(save_data[0].hand);
-		_inventory_size -= save_data[0].deck_size;
-		_inventory_size -= save_data[0].discard_size;
-	}
-	file_text_close(_save_r);
-	return subtract_deck_size;
-}
-*/

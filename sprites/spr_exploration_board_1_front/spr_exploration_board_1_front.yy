@@ -30,7 +30,7 @@
   "origin":4,
   "parent":{
     "name":"Exploration Boards",
-    "path":"folders/Sprites/Archive/Exploration Boards.yy",
+    "path":"folders/Sprites/Exploration Boards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
