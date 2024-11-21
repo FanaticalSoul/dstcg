@@ -275,7 +275,6 @@ function get_enemy_card_stats() {
 			hit_points : 2,
 			attack_value : 3,
 			weakness : "heavy",
-			abilities : ["double strike"],
 			attack : [{
 				attack_location : 4,
 				conditions : ["stagger"]
