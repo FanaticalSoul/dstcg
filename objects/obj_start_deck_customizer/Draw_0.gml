@@ -80,7 +80,6 @@ for (var i = 0; i < deck_size; i++) {
 			var _card_stats = card_get_stats(start_card_stats, deck[i]);
 			if (_card_stats != {}) _sprite = _card_stats[0].image;
 		}
-		//draw_sprite(_sprite,-1,_tmp_x,_tmp_y);
 		draw_sprite(_sprite,-1,_tmp_x,_tmp_y);
 	}
 }

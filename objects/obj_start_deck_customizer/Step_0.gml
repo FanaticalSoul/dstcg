@@ -25,7 +25,7 @@ mouse_x >= x && mouse_x <= sprite_width) {
 				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
-				scr_handle_deck_edit (_over_card, _over_card_stats);
+				handle_deck_adjustment (_over_card, _over_card_stats);
 			}
 			break;
 		}
@@ -51,7 +51,7 @@ else if (is_mouse_over_display_deck()) {
 				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
-				scr_handle_deck_edit (_over_card, _over_card_stats);
+				handle_deck_adjustment (_over_card, _over_card_stats);
 			}
 			break;
 		}
