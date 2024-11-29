@@ -237,15 +237,28 @@ function get_selection_size () {
 
 function get_visible_selection () {
 	var _visible_selection = [];
-	if (selection_filter == "") {
-		for (var i = 0; i < selection_size; i++) {
-			if (selection[i] != "") {
-				if (get_card_selection_count(selection[i]) > 0) {
-					array_push(_visible_selection, selection[i]);
+	//if (selection_filter == "") {
+	for (var i = 0; i < selection_size; i++) {
+		if (selection[i] != "") {
+			if (get_card_selection_count(selection[i]) > 0) {
+				if (selection_filter == "") array_push(_visible_selection, selection[i]);
+				else {
+					var _card_stats = card_get_stats(start_card_stats, selection[i]);
+					//sout(card_get_stats(start_card_stats, selection[i]));
+					if (is_array(_card_stats)) {
+						if (_card_stats[0].type == "equipment") {
+							// this is an equipment or weapon
+							if (selection_filter == "equipment" || (selection_filter == "weapons" && 
+							_card_stats[0].attack != "none")) array_push(_visible_selection, selection[i]);
+						}
+						// this is stamina
+						else if (_card_stats[0].type == "stamina" && selection_filter == "stamina") {
+							array_push(_visible_selection, selection[i]);
+						}
+					}
 				}
 			}
 		}
 	}
-	//sout(_visible_selection);
 	return _visible_selection;
 }
