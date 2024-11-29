@@ -5,10 +5,11 @@ if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 &&
 mouse_x >= x && mouse_x <= sprite_width) {
 	// on [ mouse scroll ] // hand view navigation
 	var _visible_selection = get_visible_selection();
-	var _cards_visible = min(cards_visable, array_length(_visible_selection));
-	if (selection_filter = "" && array_length(_visible_selection) > _cards_visible) {
+	var _selection_size = array_length(_visible_selection);
+	var _cards_visible = min(cards_visable, _selection_size);
+	if (selection_filter = "" && _selection_size > _cards_visible) {
 		if (mouse_wheel_up() && selection_offset < 0) selection_offset += 1; // increment hand view
-		if (mouse_wheel_down() && selection_offset > -(array_length(_visible_selection)-_cards_visible)) selection_offset -= 1; // decrement hand view
+		if (mouse_wheel_down() && selection_offset > -(_selection_size-_cards_visible)) selection_offset -= 1; // decrement hand view
 	}
 	// on mouse hover // display card in visual spoiler
 	for (var i = 0; i <_cards_visible; i++) {
@@ -32,15 +33,18 @@ else if (is_mouse_over_display_deck()) {
 	// sort deck
 	array_sort(deck,false);
 	// on [ mouse scroll ] // hand view navigation
-	if (deck_size > cards_visable) {
+	var _visible_deck = get_visible_deck();
+	var _selection_size = array_length(_visible_deck);
+	var _cards_visible = min(cards_visable, _selection_size);
+	if (_selection_size > _cards_visible) {
 		if (mouse_wheel_up() && deck_offset < 0) deck_offset += 1; // increment hand view
-		if (mouse_wheel_down() && deck_offset > -(deck_size-cards_visable)) deck_offset -= 1; // decrement hand view
+		if (mouse_wheel_down() && deck_offset > -(_selection_size-_cards_visible)) deck_offset -= 1; // decrement hand view
 	}
 	// on mouse hover // display card in visual spoiler
-	for (var i = 0; i < cards_visable; i++) {
+	for (var i = 0; i < _cards_visible; i++) {
 		if (is_mouse_over_display_card(i, 0, sprite_height+view_spacing)) {
 			// get the stats of the card being hovered over
-			var _over_card = deck[abs(deck_offset)+i];
+			var _over_card = _visible_deck[abs(deck_offset)+i];
 			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
 			if (is_array(_over_card_stats)) {
 				// set the visual spoiler to show the card being hovered over

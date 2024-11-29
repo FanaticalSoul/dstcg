@@ -204,13 +204,12 @@ function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true) {
 	draw_sprite(spr_digit_backing, -1, _cord_x, _cord_y);
 	_cord_x += 2;
 	_cord_y -= 2;
-	if (selection) {
-		var _count = get_card_selection_count(card_name);
-		// do not draw the sprite if count is set to zero
-		if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
-		_cord_x += _digit_width+1;
-		draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
-	}
+	var _count = 0;
+	if (selection) _count = get_card_selection_count(card_name);
+	else _count = get_card_deck_count(card_name);
+	if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
+	_cord_x += _digit_width+1;
+	draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
 }
 
 
@@ -261,4 +260,38 @@ function get_visible_selection () {
 		}
 	}
 	return _visible_selection;
+}
+
+
+function get_visible_deck () {
+	var _visible_deck = [];
+	for (var i = 0; i < deck_size; i++) {
+		if (deck[i] != "") {
+			if (get_card_deck_count(deck[i]) > 0 && !array_contains(_visible_deck, deck[i])) array_push(_visible_deck, deck[i]);
+		}
+	}
+	return _visible_deck;
+}
+function get_card_deck_count (card_name) {
+	var _card_deck_count = 0;
+	for (var i = 0; i < deck_size; i++) {
+		if (deck[i] == card_name) _card_deck_count++;
+	}
+	return _card_deck_count;
+}
+
+
+
+function draw_customizer_card (card_name, x_cord = x, y_cord = y, selection = true, x_cord_min = 0, x_cord_max = sprite_width) {
+	if (x_cord_min < x_cord && x_cord < x_cord_max) {
+		var _sprite = spr_start_card_sm_back;
+		var _card_stats = card_get_stats(start_card_stats, card_name);
+		if (_card_stats != {}) {
+			_sprite = _card_stats[0].image;
+			draw_sprite(_sprite, -1, x_cord, y_cord);
+			// show count
+			draw_card_count(_card_stats[0].name, x_cord, y_cord, selection);
+		}
+		else draw_sprite(_sprite, -1, x_cord, y_cord);
+	}
 }
