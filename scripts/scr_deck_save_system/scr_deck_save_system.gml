@@ -129,3 +129,43 @@ function set_data_file (save_data, file_name) {
 	file_text_write_string(_save_w, _save_data_str);
 	file_text_close(_save_w);
 }
+
+
+
+
+
+function save_data_deck_adjustment (deck, file_name = file_deck) {
+	// save to assossiated player // WoL
+	sout("save_data_deck_adjustment");
+	
+	var _start_deck;
+	for (var i = 0; i < array_length(deck); i++) {
+		_start_deck[i][0] = "";
+		_start_deck[i][1] = false;
+	}
+	for (var i = 0; i < array_length(deck); i++) {
+		_start_deck[i][0] = deck[i];
+	}
+	
+	
+	var _deck_data = {
+		deck : _start_deck,
+		hand : [],
+		discard : [],
+		character : get_data_file(file_name)[0].character,
+		act_ability : false, // reset at bonfire
+		deck_size : array_length(deck),
+		discard_size : 0,
+		shuffled : false
+	};
+	// add rewards and other such things // CiD
+	
+	//var _save_data_str;
+	// add information about inventory, loot, and rewards
+	var _save_r = file_text_open_read(file_name);
+	var _save_data_str = file_text_read_string(_save_r);
+	var _save_data = [_deck_data, json_parse(_save_data_str)[1], json_parse(_save_data_str)[2]];
+	file_text_close(_save_r);
+	// save data
+	set_data_file(_save_data, file_name);
+}
