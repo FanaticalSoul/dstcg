@@ -2,7 +2,15 @@
 // You can write your code in this editor
 
 sout("go to bonfire");
+
+// update loot // CiD
+
+
+
 // level up bonfire
+
+
+
 
 // go to bonfire
 global.room_index = 4;

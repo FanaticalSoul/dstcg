@@ -119,7 +119,7 @@ function get_start_card_stats () {
 			image_hq : spr_start_card_hq_knight_shield,
 			attack : "heavy"
 		},{
-			damage : 3,
+			damage : 1,
 			stamina : [0,0,1,0,1],
 			play_script : function (card_id = id) {scr_basic_attack(1, card_id);}
 		},{

@@ -1,12 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_icon_bonfire",
+  "%Name":"obj_start_deck_creator_play_1",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_icon_bonfire",
+  "name":"obj_start_deck_creator_play_1",
   "overriddenProperties":[],
   "parent":{
     "name":"Bonfire",
@@ -31,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_icon_bonfire",
-    "path":"sprites/spr_icon_bonfire/spr_icon_bonfire.yy",
+    "name":"spr_menu_start_play",
+    "path":"sprites/spr_menu_start_play/spr_menu_start_play.yy",
   },
   "spriteMaskId":null,
   "visible":true,

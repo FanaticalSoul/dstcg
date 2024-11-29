@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_start_deck_customizer_filter",
+  "%Name":"obj_start_deck_editor_filter",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_start_deck_customizer_filter",
+  "name":"obj_start_deck_editor_filter",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bonfire",
-    "path":"folders/Objects/Bonfire.yy",
+    "name":"Deck Construction",
+    "path":"folders/Objects/Deck Construction.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,9 +30,10 @@
     {"$GMObjectProperty":"v1","%Name":"filter","filters":[],"listItems":[
         "\"\"",
         "\"equipment\"",
-        "\"weapons\"",
         "\"stamina\"",
+        "\"weapons\"",
       ],"multiselect":false,"name":"filter","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"\"","varType":6,},
+    {"$GMObjectProperty":"v1","%Name":"deck_editor","filters":[],"listItems":[],"multiselect":false,"name":"deck_editor","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_start_deck_creator","path":"objects/obj_start_deck_creator/obj_start_deck_creator.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_start_deck_creator","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

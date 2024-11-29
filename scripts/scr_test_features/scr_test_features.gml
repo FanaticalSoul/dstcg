@@ -88,6 +88,13 @@ function get_enemy_count () {
 
 
 
+function is_mouse_over_sprite (object_id = id) {
+	with (object_id) {
+		if (mouse_x >= x-sprite_width/2 && mouse_x <= x+sprite_width/2 &&
+		mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) return true;
+		else return false;
+	}
+}
 
 function is_mouse_over_reveal (deck_reveal_x, deck_reveal_y) {
 	if (mouse_y <= deck_reveal_y+card_height/2 && 

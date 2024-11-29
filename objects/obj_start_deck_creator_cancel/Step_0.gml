@@ -1,7 +1,6 @@
 /// @description update icon and handle keybinds
 // mouse over icon
-if 	(mouse_x >= x-sprite_width/2 && mouse_x <= x+sprite_width/2 &&
-mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
+if 	(is_mouse_over_sprite()) {
 	if (mouse_wheel_up()) {
 		step += 1;
 		if (step >= array_length(characters)) step = -1;
@@ -21,8 +20,7 @@ if (step > -1) {
 }
 else sprite_index = spr_menu_start_cancel;
 // mouse over icon
-if 	(mouse_x >= x-sprite_width/2 && mouse_x <= x+sprite_width/2 &&
-mouse_y >= y-sprite_height/2 && mouse_y <= y+sprite_height/2) {
+if 	(is_mouse_over_sprite()) {
 	if (mouse_check_button_pressed(mb_left)) {
 		if (step > -1) {
 			if (characters[step] == "herald") {
