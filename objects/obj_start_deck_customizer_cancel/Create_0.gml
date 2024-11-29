@@ -1,3 +1,3 @@
 /// @description set varibles
 
-step = -1;
+step = 0;

@@ -3,10 +3,16 @@
 
 //sout(get_data_file(file_deck)[2])
 
+save_data_loot(); // can techincally be exploited
 
+/*
 sout(get_data_file(file_deck)[1].rewards[0]);
 sout(get_data_file(file_deck)[1].loot[0]);
 sout(get_data_file(file_deck)[1].inventory[0]);
+*/
+
+
+
 
 /*
 function increment_bonfire_level () {

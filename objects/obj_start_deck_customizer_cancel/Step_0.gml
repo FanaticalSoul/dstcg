@@ -32,18 +32,14 @@ if 	(is_mouse_over_sprite()) {
 	}
 }
 // update icon
-if (step == 0) {
-	
-}
-else if (step == 1) {
-
-}
-else sprite_index = spr_menu_start_cancel;
+if (step == 0) sprite_index = spr_menu_start_cancel;
+else if (step == 1) sprite_index = spr_menu_start_reset;
 // mouse over icon
 if 	(is_mouse_over_sprite()) {
 	if (mouse_check_button_pressed(mb_left)) {
 		if (step == 0) {
 			// cancel button
+			/*
 			if (obj_start_deck_customizer.deck_size > 0) {
 				with (obj_start_deck_customizer) {
 					for (var i = 0; i < deck_size; i++) deck[i] = "";
@@ -51,9 +47,19 @@ if 	(is_mouse_over_sprite()) {
 					deck_offset = 0;
 				}
 			}
+			*/
+			with (obj_start_deck_customizer) set_deck();
 		}
 		else if (step == 1) {
-
+			// reset deck
+			if (obj_start_deck_customizer.deck_size > 0) {
+				with (obj_start_deck_customizer) {
+					deck = [];
+					//for (var i = 0; i < deck_size; i++) deck[i] = "";
+					deck_size = 0;
+					deck_offset = 0;
+				}
+			}
 		}
 	}
 }

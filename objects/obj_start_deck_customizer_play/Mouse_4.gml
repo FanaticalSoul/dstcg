@@ -1,5 +1,8 @@
 /// @description delete old save and enter room
 
+
+
+/*
 with (obj_start_deck_creator) {
 	if (deck_size == deck_min && obj_sdc_selection_character.selected != "") {
 		// delete previous save
@@ -13,3 +16,4 @@ with (obj_start_deck_creator) {
 		room_goto(global.room_index);
 	}
 }
+*/

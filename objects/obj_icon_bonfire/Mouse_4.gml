@@ -3,8 +3,8 @@
 
 sout("go to bonfire");
 
-// update loot // CiD
-
+// update loot // CiD // only do this after saving the start of deck customization
+save_data_loot();
 
 
 // level up bonfire

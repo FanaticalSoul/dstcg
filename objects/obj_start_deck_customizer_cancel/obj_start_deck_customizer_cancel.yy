@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_start_deck_creator_cancel_1",
+  "%Name":"obj_start_deck_customizer_cancel",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_start_deck_creator_cancel_1",
+  "name":"obj_start_deck_customizer_cancel",
   "overriddenProperties":[],
   "parent":{
     "name":"Bonfire",

@@ -1,5 +1,40 @@
 /// @description Insert description here
 
+
+function set_deck () {
+	var i;
+	var _file_hand = get_data_file(file_deck)[0].hand;
+	var _file_deck = get_data_file(file_deck)[0].deck;
+	var _file_discard = get_data_file(file_deck)[0].discard;
+	var _deck = [];
+	for (i = 0; i < array_length(_file_hand); i++) {
+		if (_file_hand[i] != "") array_push(_deck, _file_hand[i]);
+	}
+	for (i = 0; i < array_length(_file_deck); i++) {
+		if (_file_deck[i][0] != "") array_push(_deck, _file_deck[i][0]);
+	}
+	//sout(_file_discard);
+	for (i = 0; i < array_length(_file_discard); i++) {
+		if (_file_discard[i] != "") array_push(_deck, _file_discard[i]);
+	}
+	// fill out deck
+	var _tmp_int = array_length(_deck);
+	for (i = _tmp_int; i < get_deck_size(); i++) {
+		array_push(_deck, "remant of humanity");
+	}
+	// set actual deck
+	deck_size = 0;
+	deck = _deck;
+	deck_size = array_length(_deck);
+	for (i = deck_size; i < deck_max; i++) {
+		array_push(_deck, "");
+	}
+	array_sort(deck,false);
+	deck_offset = 0;
+}
+
+
+
 function get_deck_size () {
 	var _bonfire_level = get_data_file(file_deck)[2];
 	return int64(deck_min+(_bonfire_level-1)*3);
@@ -62,36 +97,11 @@ selection_size = j;
 
 
 // new features
-var _file_hand = get_data_file(file_deck)[0].hand;
-var _file_deck = get_data_file(file_deck)[0].deck;
-var _file_discard = get_data_file(file_deck)[0].discard;
-var _deck = [];
-for (i = 0; i < array_length(_file_hand); i++) {
-	if (_file_hand[i] != "") array_push(_deck, _file_hand[i]);
-}
-for (i = 0; i < array_length(_file_deck); i++) {
-	if (_file_deck[i][0] != "") array_push(_deck, _file_deck[i][0]);
-}
-//sout(_file_discard);
-for (i = 0; i < array_length(_file_discard); i++) {
-	if (_file_discard[i] != "") array_push(_deck, _file_discard[i]);
-}
-// fill out deck
-var _tmp_int = array_length(_deck);
-for (i = _tmp_int; i < get_deck_size(); i++) {
-	array_push(_deck, "remant of humanity");
-}
 
+
+
+set_deck();
 // set actual deck
-deck_size = 0;
-deck = _deck;
-deck_size = array_length(_deck);
-for (i = deck_size; i < deck_max; i++) {
-	array_push(_deck, "");
-}
-
-array_sort(deck,false);
-deck_offset = 0;
 
 
 function handle_deck_adjustment (_over_card, _over_card_stats) {
