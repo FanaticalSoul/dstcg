@@ -143,6 +143,8 @@
     {"id":{"name":"obj_start_deck_creator_play","path":"objects/obj_start_deck_creator_play/obj_start_deck_creator_play.yy",},},
     {"id":{"name":"obj_start_deck_creator_spoiler","path":"objects/obj_start_deck_creator_spoiler/obj_start_deck_creator_spoiler.yy",},},
     {"id":{"name":"obj_start_deck_creator","path":"objects/obj_start_deck_creator/obj_start_deck_creator.yy",},},
+    {"id":{"name":"obj_start_deck_customizer_1","path":"objects/obj_start_deck_customizer_1/obj_start_deck_customizer_1.yy",},},
+    {"id":{"name":"obj_start_deck_customizer","path":"objects/obj_start_deck_customizer/obj_start_deck_customizer.yy",},},
     {"id":{"name":"obj_start_deck","path":"objects/obj_start_deck/obj_start_deck.yy",},},
     {"id":{"name":"obj_start_discard","path":"objects/obj_start_discard/obj_start_discard.yy",},},
     {"id":{"name":"obj_test_sprite_loader","path":"objects/obj_test_sprite_loader/obj_test_sprite_loader.yy",},},
