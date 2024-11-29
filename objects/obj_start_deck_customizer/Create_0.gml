@@ -76,6 +76,7 @@ for (i = 0; i < array_length(_selection); i++) {
 	}
 }
 selection_size = j;
+visible_selection = selection;
 //selected = false;
 //card_stats = start_card_stats;
 //selection_size = 9; // humanity, stamina, 4 equipments
@@ -193,3 +194,58 @@ function get_card_copy_count_max (card_name) {
 	return _count;
 }
 
+
+function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true) {
+	var _backing_offset = -1;
+	var _backing_width = 11;
+	var _digit_width = 3;
+	var _cord_x = cord_x + card_width/2-_backing_width+_backing_offset;
+	var _cord_y = cord_y + card_height/2+_backing_offset;
+	draw_sprite(spr_digit_backing, -1, _cord_x, _cord_y);
+	_cord_x += 2;
+	_cord_y -= 2;
+	if (selection) {
+		var _count = get_card_selection_count(card_name);
+		// do not draw the sprite if count is set to zero
+		if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
+		_cord_x += _digit_width+1;
+		draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
+	}
+}
+
+
+function get_card_selection_count (card_name) {
+	if (card_name == "remant of humanity") return 99;
+	else {
+		var _count = get_card_copy_count_max(card_name);
+		for (var i = 0; i < array_length(deck); i++) {
+			if (deck[i] == card_name) _count--;
+		}
+		return _count;
+	}
+}
+
+function get_selection_size () {
+	var j = 0;
+	for (var i = 0; i < array_length(selection); i++) {
+		if (get_card_selection_count(selection[i]) == 0) j++;
+	}
+	return array_length(selection)-j;
+}
+
+
+
+function get_visible_selection () {
+	var _visible_selection = [];
+	if (selection_filter == "") {
+		for (var i = 0; i < selection_size; i++) {
+			if (selection[i] != "") {
+				if (get_card_selection_count(selection[i]) > 0) {
+					array_push(_visible_selection, selection[i]);
+				}
+			}
+		}
+	}
+	//sout(_visible_selection);
+	return _visible_selection;
+}

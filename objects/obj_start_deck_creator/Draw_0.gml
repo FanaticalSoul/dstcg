@@ -71,7 +71,7 @@ else {
 
 
 
-// draw cards at the top of screen ( infinite supply of stamina, max of 4 of each equipment )
+// draw cards at the bottom of screen
 for (var i = 0; i < deck_size; i++) {
 	var _sprite = spr_start_card_sm_back;
 	var _tmp_x = card_spacing+card_width/2+x+(i+deck_offset)*(card_spacing+card_width);
