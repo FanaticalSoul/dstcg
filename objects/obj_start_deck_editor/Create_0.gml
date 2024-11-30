@@ -1,6 +1,26 @@
 /// @description Insert description here
 
 
+// on creation resolve bonfire trigger
+var _bonfire_level = get_data_file(file_deck)[2];
+sout(_bonfire_level);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function set_deck () {
 	var i;
 	var _file_hand = get_data_file(file_deck)[0].hand;

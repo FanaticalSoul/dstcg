@@ -72,5 +72,3 @@ sout("random seed: "+string(random_get_seed()));
 // test varible
 last_fps_update = -1;
 inital_save = false;
-// encounter reward tracking
-//encounter_rewards = [];

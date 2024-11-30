@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_bonfire",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_bonfire",
+  "parent":{
+    "name":"Bonfire",
+    "path":"folders/Objects/Bonfire.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
