@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_start_deck_customizer_play",
+  "%Name":"obj_start_deck_editor_play",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":4,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_start_deck_customizer_play",
+  "name":"obj_start_deck_editor_play",
   "overriddenProperties":[],
   "parent":{
     "name":"Bonfire",

@@ -1,7 +1,7 @@
 /// @description delete old save and enter room
 
 
-with (obj_start_deck_customizer) {
+with (obj_start_deck_editor) {
 	if (deck_size == get_deck_size()) {
 		// delete previous save
 		///////save_game_delete(file_deck);

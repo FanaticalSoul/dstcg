@@ -3,8 +3,6 @@
 
 sout("go to bonfire");
 
-// update loot // CiD // only do this after saving the start of deck customization
-save_data_loot();
 
 
 // level up bonfire
@@ -14,4 +12,6 @@ save_data_loot();
 
 // go to bonfire
 global.room_index = 4;
+// update loot // CiD // only do this after saving the start of deck customization
+save_data_loot();
 room_goto(global.room_index);

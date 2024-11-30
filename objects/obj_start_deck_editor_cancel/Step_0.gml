@@ -4,8 +4,8 @@
 if 	(is_mouse_over_sprite()) {
 	if (mouse_check_button_pressed(mb_left)) {
 		// cancel button
-		if (obj_start_deck_customizer.deck_size > 0) {
-			with (obj_start_deck_customizer) {
+		if (obj_start_deck_editor.deck_size > 0) {
+			with (obj_start_deck_editor) {
 				for (var i = 0; i < deck_size; i++) deck[i] = "";
 				deck_size = 0;
 				deck_offset = 0;
@@ -48,12 +48,12 @@ if 	(is_mouse_over_sprite()) {
 				}
 			}
 			*/
-			with (obj_start_deck_customizer) set_deck();
+			with (obj_start_deck_editor) set_deck();
 		}
 		else if (step == 1) {
 			// reset deck
-			if (obj_start_deck_customizer.deck_size > 0) {
-				with (obj_start_deck_customizer) {
+			if (obj_start_deck_editor.deck_size > 0) {
+				with (obj_start_deck_editor) {
 					deck = [];
 					//for (var i = 0; i < deck_size; i++) deck[i] = "";
 					deck_size = 0;
