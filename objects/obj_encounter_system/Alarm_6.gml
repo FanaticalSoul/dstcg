@@ -39,7 +39,7 @@ else {
 	with (player.discard) {
 		if (is_mouse_over_sprite()) {
 			if (mouse_check_button_pressed(mb_left)) {
-				bonfire_rest(); // save loot
+				bonfire_rest(); // save loot // do not update deck file
 				//sout("go to bonfire");
 			}
 		}

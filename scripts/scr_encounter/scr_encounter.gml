@@ -51,7 +51,7 @@ function update_encounter_status (toggle_bonfire = true) {
 	if (toggle_bonfire) _save_data[1].bonfire = true;
 	set_data_file(_save_data, _file_map);
 	//  update deck file
-	save_data_deck(obj_player);
+	if (!toggle_bonfire) save_data_deck(obj_player);
 	// delete encounter file
 	save_game_delete(file_encounter);
 }

@@ -8,6 +8,7 @@ function save_data_deck (player = noone, file_name = file_deck) {
 	if (instance_exists(player)) {
 		with (player) {
 			var _hand_str = [];
+			/////////////////////////////
 			for (var i = 0; i < array_length(hand); i++) _hand_str[i] = hand[i].card_name;
 			_deck_data = {
 				deck : deck.deck,
