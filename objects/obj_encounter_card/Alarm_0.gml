@@ -1,7 +1,8 @@
 /// @description trigger encounter
 
 sout("trigger encounter");
-
+// randomize seed
+random_set_seed(randomize());
 //sout("test alarm");
 // save room state
 save_game_map();

@@ -26,7 +26,6 @@ if (get_enemy_count() > 0) {
 else {
 	// give player a choice to rest at a bonfire or draw back to 6 // WoL
 	// default for now to drawing 6
-	//sout("phase 6 - return to map");
 	with (player.deck) {
 		if (is_mouse_over_sprite()) {
 			if (mouse_check_button_pressed(mb_left)) {
@@ -45,10 +44,4 @@ else {
 		}
 	}
 	if (alarm[6] == 0 && player.deck.alarm[0] == -1) alarm[6] = 1;
-	//save_data_loot();
-	//TR//
-	//return_to_map();
-	// TF
-	//global.destroy_everything_test = true;
-	// toggle off phases // this is true at this point
 }
