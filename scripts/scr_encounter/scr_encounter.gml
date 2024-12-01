@@ -34,34 +34,26 @@ function game_won () {
 }
 
 
-function update_encounter_status (toggle_bonfire = true, file_name = file_map) {
-	// update encounter status
-	if (file_exists(file_name)) {
-		var _save_data = get_data_file(file_name);
-		// update encounter status
-		for (var i = 0; i < board_m_size; i++) {
-			if (struct_exists(_save_data[0][i], "active")) {
-				if (_save_data[0][i].active && !_save_data[0][i].cleared) {
-					_save_data[0][i].active = false;
-					_save_data[0][i].cleared = true;
-					break;
-				}
+function update_encounter_status (toggle_bonfire = true) {
+	// update map file
+	var _file_map = file_map;
+	var _save_data = get_data_file(_file_map);
+	for (var i = 0; i < board_m_size; i++) {
+		if (struct_exists(_save_data[0][i], "active")) {
+			if (_save_data[0][i].active && !_save_data[0][i].cleared) {
+				_save_data[0][i].active = false;
+				_save_data[0][i].cleared = true;
+				_save_data[0][i].reveal = true;
+				break;
 			}
 		}
-		// toggle bonfire on
-		if (toggle_bonfire) _save_data[1].bonfire = true;
-		// override file
-		set_data_file(_save_data, file_name);
 	}
-	// delete encounter information
+	if (toggle_bonfire) _save_data[1].bonfire = true;
+	set_data_file(_save_data, _file_map);
+	//  update deck file
+	save_data_deck(obj_player);
+	// delete encounter file
 	save_game_delete(file_encounter);
-	// clear active status from encounter
-	/*
-	for (var i = 0; i < array_length(_save_data[0]); i++) {
-		_save_data[0][i].active = false;
-		_save_data[0][i].cleared = false;
-	}
-	*/
 }
 
 

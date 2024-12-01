@@ -28,7 +28,7 @@ if (is_mouse_over_card() && card_get_stats(encounter_card_stats, card_name) != {
 		}
 		// flip card
 		if (_flag) {
-			if (reveal && alarm[0] == -1) {
+			if (reveal && alarm[0] == -1 && !cleared) {
 				id.active = true;
 				alarm[0] = 1;
 			}
