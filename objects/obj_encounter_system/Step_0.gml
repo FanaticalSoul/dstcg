@@ -41,9 +41,7 @@ if (instance_exists(player)) {
 							save_game_encounter(player);
 						}
 						// if there are no enemies left ( game won )
-						else if (e_deck.deck_size == 0 && get_enemy_count() == 0 && alarm[7] == -1) {
-							alarm[7] = 1;
-						}
+						else if (e_deck.deck_size == 0 && get_enemy_count() == 0) game_won();
 					}
 				}
 				// if no cards in hand

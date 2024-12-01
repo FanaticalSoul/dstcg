@@ -1,18 +1,37 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
-
-
+function game_death () {
+	sout("game_death");
+	// lose loot
+	save_data_loot(false);
+	// play you died animation // WoL
+	
+	// go to bonfire
+	bonfire_rest();
+}
 
 function game_over () {
-	sout("trigger game over");
-	// for now just delete the save data and reset the game
+	sout("game_over");
+	// for now just delete the save data and reset the game // WoL
 }
 
 
-
-
-
+function game_won () {
+	sout("game_won");
+	// update loot
+	save_data_loot();
+	//save_data_deck(player);
+	update_encounter_status(false);
+	global.room_index = 2;
+	room_goto(global.room_index);
+	//game_restart();
+	/*
+	
+	/*
+	// update file
+	// update encounter status
+	// exit encounter
+	*/
+}
 
 
 function update_encounter_status (toggle_bonfire = true, file_name = file_map) {
@@ -37,7 +56,6 @@ function update_encounter_status (toggle_bonfire = true, file_name = file_map) {
 	// delete encounter information
 	save_game_delete(file_encounter);
 }
-
 
 
 

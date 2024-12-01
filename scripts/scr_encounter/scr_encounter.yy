@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_bonfire",
+  "%Name":"scr_encounter",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_bonfire",
+  "name":"scr_encounter",
   "parent":{
     "name":"Bonfire",
     "path":"folders/Objects/Bonfire.yy",

@@ -2,20 +2,9 @@
 
 function start_card_draw (deck_id = id) {
 	with (deck_id) {
-		// milled out // WoL
-		if (deck_size - 1 < 0) {
-			// end the encounter as a loss // WoL
-			//show_debug_message("play you died animation ( WoL )");
-			sout("you died");
-			// lose loot
-			save_data_loot(false);
-			// go to bonfire
-			bonfire_rest();
-		}
-		// if max hand size was reached or surpassed
-		//else if (player.hand_size >= hand_max) {
-		//	sout("max hand size was reached or surpassed ( WoL )");
-		//}
+		// milled out
+		if (deck_size - 1 < 0) game_death();
+		// if not milled out
 		else {
 			// reset offset
 			player.hand_offset = 0;
