@@ -4,7 +4,10 @@
 
 
 
-
+function game_over () {
+	sout("trigger game over");
+	// for now just delete the save data and reset the game
+}
 
 
 
@@ -60,21 +63,13 @@ function bonfire_rest (file_name = file_deck) {
 	// reset rewards and loot
 	_save_data[1].loot = [[], 0];
 	_save_data[1].rewards = [[], 0];
-	// level up bonfire // CiD //////////////////////////////////////
-	//sout(_save_data[2]);
-	_save_data[2] = int64(_save_data[2])+1;
-	if (_save_data[2]+1 > 5) {
-		//////////////////////////////////////
-		sout("trigger game over");
-		_save_data[2] = 5; // TF
-	}
-	else _save_data[2] = min(int64(_save_data[2])+1,5);
-	// write to file ////////////////////////////////////////////////
+	// level up bonfire //
+	var _bonfire_level = int64(_save_data[2])+1;
+	if (_bonfire_level > 5) game_over();
+	else _save_data[2] = min(_bonfire_level, 5);
+	// write to file and update encounter status
 	set_data_file(_save_data, file_name);
-	// update encounter status
 	update_encounter_status();
-	//save_game_delete(file_encounter);
-	// move to bonfire room
 	room_goto_bonfire();
 }
 

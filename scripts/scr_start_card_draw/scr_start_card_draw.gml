@@ -10,6 +10,7 @@ function start_card_draw (deck_id = id) {
 			// lose loot
 			save_data_loot(false);
 			// go to bonfire
+			bonfire_rest();
 		}
 		// if max hand size was reached or surpassed
 		//else if (player.hand_size >= hand_max) {

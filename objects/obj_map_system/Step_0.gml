@@ -9,7 +9,5 @@ for (var i = 0; i < board_m_size; i++) {
 		}
 	}
 }
-// if an encounter is not active, check if the bonfire is active
-var _bonfire = get_data_file(file_map)[1].bonfire;
-// move to bonfire room
-if (_bonfire) room_goto_bonfire();
+// if an encounter is not active, move to bonfire room ( if the bonfire is active )
+if (get_data_file(file_map)[1].bonfire) room_goto_bonfire();

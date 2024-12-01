@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Small Images",
-    "path":"folders/Sprites/Encounter Cards/Small Images.yy",
+    "name":"Level 3",
+    "path":"folders/Sprites/Encounter Cards/Small Images/Level 3.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
