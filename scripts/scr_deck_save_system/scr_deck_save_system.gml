@@ -95,6 +95,7 @@ function get_data_loot (file_name = file_deck) {
 
 function save_data_loot (won_encounter = true, file_name = file_deck) {
 	sout("save_data_loot");
+	sout(object_get_name(id.object_index));
 	// read information
 	var _save_data = get_data_file(file_name);
 	// update rewards

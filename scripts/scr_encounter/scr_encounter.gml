@@ -55,6 +55,13 @@ function update_encounter_status (toggle_bonfire = true, file_name = file_map) {
 	}
 	// delete encounter information
 	save_game_delete(file_encounter);
+	// clear active status from encounter
+	/*
+	for (var i = 0; i < array_length(_save_data[0]); i++) {
+		_save_data[0][i].active = false;
+		_save_data[0][i].cleared = false;
+	}
+	*/
 }
 
 

@@ -57,7 +57,6 @@ function set_deck () {
 
 function get_deck_size () {	
 	var _bonfire_level = get_data_file(file_deck)[2];
-	_bonfire_level += 1; //TF
 	return int64(deck_min+(_bonfire_level-1)*3);
 }
 

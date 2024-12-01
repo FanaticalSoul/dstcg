@@ -89,7 +89,8 @@ function save_game_map (file_name = file_map) {
 					sprite_index_back : sprite_index_back,
 					encounter_paths : [], // WoL
 					cleared : cleared,
-					active : active
+					active : active,
+					reveal : reveal
 				};
 				array_push(_i_board_m_cards, card_name);
 			}

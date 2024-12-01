@@ -1,5 +1,6 @@
 /// @description trigger encounter
 
+sout("trigger encounter");
 
 //sout("test alarm");
 // save room state
