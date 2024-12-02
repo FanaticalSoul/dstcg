@@ -1,6 +1,5 @@
 /// @description update deck and leave editor
 
-
 with (obj_start_deck_editor) {
 	if (deck_size == get_deck_size()) {
 		// update deck
