@@ -116,6 +116,13 @@ if (instance_exists(player)) { // TF // only step if player exists
 		}
 	}
 	//sout(player.character_load);
+	
+	
+	
+	//* TF //
+	// if player has no cards in hand, no cards in deck, and this character has damage, you lose
+	if (player.deck.deck_size == 0 && player.hand_size == 0 && damage_taken > 0) game_death(); 
+	// TF /*/
 }
 
 // check for target on left click
@@ -150,3 +157,6 @@ if ((keyboard_check_pressed(32) || end_c_act_phase) && global.phase_c_act && obj
 	}
 	else end_c_act_phase = true;
 }
+
+
+

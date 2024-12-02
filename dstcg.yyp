@@ -377,6 +377,7 @@
     {"id":{"name":"spr_icons_attack_10","path":"sprites/spr_icons_attack_10/spr_icons_attack_10.yy",},},
     {"id":{"name":"spr_icons_attack_16","path":"sprites/spr_icons_attack_16/spr_icons_attack_16.yy",},},
     {"id":{"name":"spr_loot_board","path":"sprites/spr_loot_board/spr_loot_board.yy",},},
+    {"id":{"name":"spr_menu_main_1","path":"sprites/spr_menu_main_1/spr_menu_main_1.yy",},},
     {"id":{"name":"spr_menu_main_arrow","path":"sprites/spr_menu_main_arrow/spr_menu_main_arrow.yy",},},
     {"id":{"name":"spr_menu_main","path":"sprites/spr_menu_main/spr_menu_main.yy",},},
     {"id":{"name":"spr_menu_start_cancel","path":"sprites/spr_menu_start_cancel/spr_menu_start_cancel.yy",},},

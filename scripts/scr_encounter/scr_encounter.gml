@@ -6,12 +6,15 @@ function game_death () {
 	// play you died animation // WoL
 	
 	// go to bonfire
-	bonfire_rest();
+	var _bonfire_level = int64(get_data_file(file_deck)[2]);
+	if (_bonfire_level+1 > 5) game_over();
+	else bonfire_rest();
 }
 
 function game_victory () {
 	sout("game_victory");
 	// for now just delete the save data and reset the game // WoL
+	if (file_exists(file_encounter)) file_delete(file_encounter);
 	if (file_exists(file_deck)) file_delete(file_deck);
 	if (file_exists(file_map)) file_delete(file_map);
 	game_restart();
@@ -20,6 +23,7 @@ function game_victory () {
 function game_over () {
 	sout("game_over");
 	// for now just delete the save data and reset the game // WoL
+	if (file_exists(file_encounter)) file_delete(file_encounter);
 	if (file_exists(file_deck)) file_delete(file_deck);
 	if (file_exists(file_map)) file_delete(file_map);
 	game_restart();

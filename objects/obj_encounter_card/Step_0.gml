@@ -36,9 +36,18 @@ if (is_mouse_over_card() && card_get_stats(encounter_card_stats, card_name) != {
 		}
 	}
 	// hold [ mouse right ] // visual spoiler
-	if (mouse_check_button(mb_right) && (ani_fin_flip || reveal)) {
-		card_hq.sprite_index = card_get_stats(encounter_card_stats, card_name).image_hq;
-		card_hq.visible = true;
+	if (mouse_check_button(mb_right)) {
+		if (ani_fin_flip || reveal) {
+			card_hq.sprite_index = card_get_stats(encounter_card_stats, card_name).image_hq;
+			card_hq.visible = true;
+		}
+		else if (!ani_fin_flip) {
+			var _encounter_level = card_get_stats(encounter_card_stats, card_name).encounter_level;
+			if (_encounter_level == 1) card_hq.sprite_index = spr_encounter_card_hq_back_1;
+			else if (_encounter_level == 2) card_hq.sprite_index = spr_encounter_card_hq_back_2;
+			else if (_encounter_level == 3) card_hq.sprite_index = spr_encounter_card_hq_back_3;
+			card_hq.visible = true;
+		}
 	}
 }
 
