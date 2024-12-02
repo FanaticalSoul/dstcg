@@ -38,6 +38,8 @@ if (instance_exists(player)) { // TF // only step if player exists
 		deck_reveal_offset = 0;
 		deck_reveal = !deck_reveal; // toggle reveal state
 	}
+	/*
 	// press [ alt ] // reveal all cards in deck // (TF)
 	if (keyboard_check_pressed(164) || keyboard_check_pressed(165)) deck_reveal_full = !deck_reveal_full;
+	*/
 }
