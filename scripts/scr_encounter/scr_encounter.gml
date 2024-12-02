@@ -9,9 +9,20 @@ function game_death () {
 	bonfire_rest();
 }
 
+function game_victory () {
+	sout("game_victory");
+	// for now just delete the save data and reset the game // WoL
+	if (file_exists(file_deck)) file_delete(file_deck);
+	if (file_exists(file_map)) file_delete(file_map);
+	game_restart();
+}
+
 function game_over () {
 	sout("game_over");
 	// for now just delete the save data and reset the game // WoL
+	if (file_exists(file_deck)) file_delete(file_deck);
+	if (file_exists(file_map)) file_delete(file_map);
+	game_restart();
 }
 
 
