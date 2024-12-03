@@ -126,8 +126,8 @@ visible_selection = selection;
 
 
 // new stamina market features
-market_selection = [];
-market_dept = 0;
+//market_selection = [];
+//market_dept = 0;
 
 
 set_deck();
@@ -350,6 +350,19 @@ function get_market_card_name (card_name) {
 	return _card_name;
 }
 
+function get_market_card_cost (card_name) {
+	var _cost = 0;
+	with (market) {
+		for (var i = 0; i < array_length(card_selection); i++) {
+			if (card_name == "market "+card_selection[i][0]) {
+				_cost = card_selection[i][1];
+				break;
+			}
+		}
+	}
+	return _cost;
+}
+
 
 function draw_market_card (card_name, x_cord = x, y_cord = y) {
 	var _card_name = get_market_card_name(card_name);
@@ -368,31 +381,52 @@ function draw_market_card (card_name, x_cord = x, y_cord = y) {
 
 
 
-function draw_market_dept (card_name, cord_x = x, cord_y = y) {
-	var _backing_offset_x = -1;
-	var _backing_offset_y = 1;
+function draw_market_dept (card_name = "false", cord_x = x, cord_y = y) {
+	var _backing_offset_x = (card_name == "false") ? 0 : -1;
+	var _backing_offset_y = (card_name == "false") ? 0 :  1;
 	var _backing_width = 11;
 	var _backing_height = 9;
 	var _digit_width = 3;
-	var _cord_x = cord_x + card_width/2-_backing_width+_backing_offset_x;
-	var _cord_y = cord_y - card_height/2+_backing_height+_backing_offset_y;
+	var _cord_x = cord_x;
+	var _cord_y = cord_y;
+	if (card_name == "false") {
+		_cord_x = cord_x+_backing_width/2;
+		_cord_y = cord_y-_backing_height/2;
+	}
+	else {
+		_cord_x = cord_x+card_width /2-_backing_width +_backing_offset_x;
+		_cord_y = cord_y-card_height/2+_backing_height+_backing_offset_y;
+	}
 	draw_sprite(spr_digit_backing, -1, _cord_x, _cord_y);
 	_cord_x += 2;
 	_cord_y -= 2;
-	var _count = get_card_deck_count(card_name);
-	// cost per copy
-	var _cost = 0;
-	with (market) {
-		for (var i = 0; i < array_length(card_selection); i++) {
-			if (card_name == "market "+card_selection[i][0]) {
-				_cost = card_selection[i][1];
-				break;
-			}
-		}
+	var _count = 0;
+	if (card_name == "false") _count = get_market_dept();
+	else {
+		// cost per copy
+		_count = get_card_deck_count(card_name);
+		_count *= get_market_card_cost(card_name)
 	}
-	_count *= _cost
 	if (_count > 99) _count = 99;
 	if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
 	_cord_x += _digit_width+1;
 	draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
+}
+
+
+
+
+
+
+
+function get_market_dept () {
+	var _dept = 0;
+	for (var i = 0; i < deck_size; i++) {
+		if (is_market_card(deck[i])) {
+			var _count = get_card_deck_count(deck[i]);
+			var _cost = get_market_card_cost(deck[i]);
+			_dept += _count*_cost;
+		}
+	}
+	return int64(_dept);
 }

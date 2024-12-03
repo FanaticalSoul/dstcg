@@ -109,3 +109,21 @@ function room_goto_bonfire (room_index = 4) {
 	global.room_index = room_index;
 	room_goto(global.room_index);
 }
+
+
+
+function spoil_bonfire (visual_spoiler) {
+	with (visual_spoiler) {
+		var _sprite = undefined;
+		var _bonfire_level = get_data_file(file_deck)[2];
+		if (_bonfire_level == 1) _sprite = spr_bonfire_card_hq_1;
+		else if (_bonfire_level == 2) _sprite = spr_bonfire_card_hq_2;
+		else if (_bonfire_level == 3) _sprite = spr_bonfire_card_hq_3;
+		else if (_bonfire_level == 4) _sprite = spr_bonfire_card_hq_4;
+		else if (_bonfire_level == 5) _sprite = spr_bonfire_card_hq_5;
+		if (!is_undefined(_sprite)) {
+			sprite_index = _sprite;
+			if (!visible) visible = true;
+		}
+	}
+}

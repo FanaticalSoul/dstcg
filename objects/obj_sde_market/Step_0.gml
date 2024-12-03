@@ -27,7 +27,7 @@ x-card_width/2 <= mouse_x && mouse_x <= x+card_width/2) {
 					with (deck_editor) {
 						if (deck_size < get_deck_size()) {
 							//array_push(market_selection, _card_name);
-							market_dept += _card[1];
+							//market_dept += _card[1];
 							// add to deck
 							deck[deck_size] = "market "+_card_name;
 							deck_size += 1;
@@ -40,7 +40,7 @@ x-card_width/2 <= mouse_x && mouse_x <= x+card_width/2) {
 						if (array_contains(deck, "market "+_card_name)) {
 							for (var j = 0; j < array_length(deck); j++) {
 								if (deck[j]=="market "+_card_name) {
-									market_dept -= _card[1];
+									//market_dept -= _card[1];
 									// remove from deck
 									array_delete(deck, j, 1);
 									array_push(deck, "");
