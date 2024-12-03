@@ -42,7 +42,7 @@ function get_deck_size () {
 view_spacing = card_height; // space between views
 
 visual_spoiler = instance_create_depth(0,0,depth-1,obj_start_deck_creator_spoiler, {deck_creator : id});
-stamina_market = instance_create_depth(21, 168, depth, obj_sde_market, {visual_spoiler : visual_spoiler});
+stamina_market = instance_create_depth(21, 168, depth, obj_sde_market, {visual_spoiler : visual_spoiler, deck_editor : id});
 //image_xscale = 2;
 deck_size = 0; // cards in deck
 deck_offset = 0;
@@ -125,8 +125,9 @@ sout(selection);
 
 
 
-// new features
-
+// new stamina market features
+market_selection = [];
+market_dept = 0;
 
 
 set_deck();
@@ -137,7 +138,6 @@ function handle_deck_adjustment (_over_card, _over_card_stats) {
 	// on [ mouse left  click ] // add card to deck
 	if (mouse_check_button_pressed(mb_left)) {
 		// check card type and assossiated limits
-		//if (_over_card_stats[0].type == "equipment" && _over_card != "remant of humanity") {
 		if (_over_card != "remant of humanity") {
 			var _card_copy_count = 0;
 			//var j = 0;
@@ -312,14 +312,56 @@ function get_card_deck_count (card_name) {
 
 function draw_customizer_card (card_name, x_cord = x, y_cord = y, selection = true, x_cord_min = 0, x_cord_max = sprite_width) {
 	if (x_cord_min < x_cord && x_cord < x_cord_max) {
-		var _sprite = spr_start_card_sm_back;
-		var _card_stats = card_get_stats(start_card_stats, card_name);
-		if (_card_stats != {}) {
-			_sprite = _card_stats[0].image;
-			draw_sprite(_sprite, -1, x_cord, y_cord);
-			// show count
-			draw_card_count(_card_stats[0].name, x_cord, y_cord, selection);
+		// resolve market cards
+		if (is_market_card(card_name)) draw_market_card(card_name, x_cord, y_cord);
+		// resolve all other cards
+		else {
+			var _sprite = spr_start_card_sm_back;
+			var _card_stats = card_get_stats(start_card_stats, card_name);
+			if (array_length(_card_stats) != 0) {
+				_sprite = _card_stats[0].image;
+				draw_sprite(_sprite, -1, x_cord, y_cord);
+				// show count
+				draw_card_count(_card_stats[0].name, x_cord, y_cord, selection);
+			}
+			else draw_sprite(_sprite, -1, x_cord, y_cord);
 		}
-		else draw_sprite(_sprite, -1, x_cord, y_cord);
 	}
 }
+
+
+function is_market_card (card_name) {
+	var _flag = false;
+	var _str_split = string_split(card_name, " ", true);
+	if (array_length(_str_split)>0) {
+		if (_str_split[0]=="market") _flag = true;
+	}
+	return _flag;
+}
+
+function get_market_card_name (card_name) {
+	var _card_name = "";
+	var _str_split = string_split(card_name, " ", true);
+	for (var i = 1; i < array_length(_str_split); i++) {
+		_card_name += _str_split[i];
+		if (i+1 < array_length(_str_split)) _card_name += " ";
+	}
+	return _card_name;
+}
+
+
+function draw_market_card (card_name, x_cord = x, y_cord = y) {
+	var _card_name = get_market_card_name(card_name);
+	var _sprite = spr_start_card_sm_back;
+	var _card_stats = card_get_stats(start_card_stats, _card_name);
+	if (array_length(_card_stats) != 0) {
+		_sprite = _card_stats[0].image;
+		draw_sprite(_sprite, -1, x_cord, y_cord);
+		// show count
+		draw_card_count(card_name, x_cord, y_cord, false);
+	}
+	else draw_sprite(_sprite, -1, x_cord, y_cord);
+}
+
+
+

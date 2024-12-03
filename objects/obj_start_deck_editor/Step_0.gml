@@ -16,13 +16,13 @@ mouse_x >= x && mouse_x <= sprite_width) {
 		if (is_mouse_over_display_card(i)) {
 			// get the stats of the card being hovered over
 			var _over_card = _visible_selection[abs(selection_offset)+i];
-			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
-			if (is_array(_over_card_stats)) {
+			var _card_stats = card_get_stats(start_card_stats, _over_card);
+			if (array_length(_card_stats)!=0) {
 				// set the visual spoiler to show the card being hovered over
-				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
+				visual_spoiler.sprite_index = _card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
-				handle_deck_adjustment (_over_card, _over_card_stats);
+				handle_deck_adjustment (_over_card, _card_stats);
 			}
 			break;
 		}
@@ -45,23 +45,19 @@ else if (is_mouse_over_display_deck()) {
 		if (is_mouse_over_display_card(i, 0, sprite_height+view_spacing)) {
 			// get the stats of the card being hovered over
 			var _over_card = _visible_deck[abs(deck_offset)+i];
-			var _over_card_stats = card_get_stats(start_card_stats, _over_card);
-			if (is_array(_over_card_stats)) {
+			var _card_name = "";
+			if (is_market_card(_over_card)) _card_name = get_market_card_name(_over_card);
+			else _card_name = _over_card;
+			sout(_card_name);
+			var _card_stats = card_get_stats(start_card_stats, _card_name);
+			if (array_length(_card_stats)!=0) {
 				// set the visual spoiler to show the card being hovered over
-				visual_spoiler.sprite_index = _over_card_stats[0].image_hq;
+				visual_spoiler.sprite_index = _card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
-				handle_deck_adjustment (_over_card, _over_card_stats);
+				handle_deck_adjustment (_over_card, _card_stats);
 			}
 			break;
 		}
 	}
 }
-// hide visual spoiler if not in deck customizer areas
-else if (visual_spoiler.visible) {
-	with (obj_sdc_selection_character) {
-		if (!(y+card_spacing <= mouse_y && mouse_y <= y+sprite_height-card_spacing &&
-		x-card_width/2 <= mouse_x && mouse_x <= x+card_width/2)) visual_spoiler.visible = false;
-	}
-}
-// limit equipment cards allowed in a deck to 4 per card
