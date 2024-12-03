@@ -138,7 +138,7 @@ function handle_deck_adjustment (_over_card, _over_card_stats) {
 	// on [ mouse left  click ] // add card to deck
 	if (mouse_check_button_pressed(mb_left)) {
 		// check card type and assossiated limits
-		if (_over_card != "remant of humanity") {
+		if (_over_card != "remant of humanity" && !is_market_card(_over_card)) {
 			var _card_copy_count = 0;
 			//var j = 0;
 			for (var j = 0; j < deck_size; j++) {
@@ -423,9 +423,7 @@ function get_market_dept () {
 	var _dept = 0;
 	for (var i = 0; i < deck_size; i++) {
 		if (is_market_card(deck[i])) {
-			var _count = get_card_deck_count(deck[i]);
-			var _cost = get_market_card_cost(deck[i]);
-			_dept += _count*_cost;
+			_dept += get_market_card_cost(deck[i]);
 		}
 	}
 	return int64(_dept);

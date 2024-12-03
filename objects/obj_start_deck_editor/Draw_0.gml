@@ -41,11 +41,13 @@ draw_market_dept("false", _tmp_x-card_width/2, _tmp_y);
 var _souls = int64(get_data_file(file_deck)[1].inventory[1]);
 draw_text (_tmp_x+card_width/2,_tmp_y,string(_souls));
 */
+
+/*
 var _tmp_x = x+sprite_width/2;
 _tmp_y = y+sprite_height/2+view_spacing/2;
 //draw_text (_tmp_x,_tmp_y,string(deck_size));
 //draw_sprite(spr_sde_display_backing, -1, _tmp_x, _tmp_y);
-
+*/
 
 
 
