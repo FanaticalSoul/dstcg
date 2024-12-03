@@ -143,6 +143,7 @@
     {"id":{"name":"obj_reward_display","path":"objects/obj_reward_display/obj_reward_display.yy",},},
     {"id":{"name":"obj_save_system","path":"objects/obj_save_system/obj_save_system.yy",},},
     {"id":{"name":"obj_sdc_selection_character","path":"objects/obj_sdc_selection_character/obj_sdc_selection_character.yy",},},
+    {"id":{"name":"obj_sde_market","path":"objects/obj_sde_market/obj_sde_market.yy",},},
     {"id":{"name":"obj_start_card","path":"objects/obj_start_card/obj_start_card.yy",},},
     {"id":{"name":"obj_start_deck_creator_cancel","path":"objects/obj_start_deck_creator_cancel/obj_start_deck_creator_cancel.yy",},},
     {"id":{"name":"obj_start_deck_creator_play","path":"objects/obj_start_deck_creator_play/obj_start_deck_creator_play.yy",},},

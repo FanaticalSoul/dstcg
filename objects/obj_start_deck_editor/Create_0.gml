@@ -1,26 +1,5 @@
 /// @description Insert description here
 
-
-// on creation resolve bonfire trigger
-var _bonfire_level = get_data_file(file_deck)[2];
-sout(_bonfire_level);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function set_deck () {
 	var i;
 	var _file_hand = get_data_file(file_deck)[0].hand;
@@ -53,8 +32,6 @@ function set_deck () {
 	deck_offset = 0;
 }
 
-
-
 function get_deck_size () {	
 	var _bonfire_level = get_data_file(file_deck)[2];
 	return int64(deck_min+(_bonfire_level-1)*3);
@@ -65,6 +42,7 @@ function get_deck_size () {
 view_spacing = card_height; // space between views
 
 visual_spoiler = instance_create_depth(0,0,depth-1,obj_start_deck_creator_spoiler, {deck_creator : id});
+stamina_market = instance_create_depth(21, 168, depth, obj_sde_market, {visual_spoiler : visual_spoiler});
 //image_xscale = 2;
 deck_size = 0; // cards in deck
 deck_offset = 0;
@@ -89,14 +67,44 @@ var i = 0;
 var j = 0;
 
 var _selection = get_data_file(file_deck)[1].inventory[0];
+//selection[j++] = "dex stamina";
 selection[j++] = "remant of humanity";
+
+//selection[j++] = "int+fth stamina";
+/*
+selection[j++] = "market int+fth stamina";
+selection[j++] = "market dex+int stamina";
+selection[j++] = "market str+fth stamina";
+selection[j++] = "market str+dex stamina";
+selection[j++] = "market int/fth stamina";
+selection[j++] = "market dex/int stamina";
+selection[j++] = "market str/fth stamina";
+selection[j++] = "market str/dex stamina";
+*/
+/*
+selection[j++] = "int+fth stamina";
+selection[j++] = "dex+int stamina";
+selection[j++] = "str+fth stamina";
+selection[j++] = "str+dex stamina";
+selection[j++] = "int/fth stamina";
+selection[j++] = "dex/int stamina";
+selection[j++] = "str/fth stamina";
+selection[j++] = "str/dex stamina";
+*/
 for (i = 0; i < array_length(_selection); i++) {
-	if (!array_contains(selection, _selection[i])) {
-		selection[j++] = _selection[i];
+	/*
+	var _str_split = string_split(_selection[i]," ",2);
+	if (array_length(_str_split)>=2) {
+		if (_str_split[0]=="market" && _str_split[2]=="stamina") {
+			selection[j++] = _selection[i];
+		}
+		else if (!array_contains(selection, _selection[i])) selection[j++] = _selection[i];
 	}
+	else */if (!array_contains(selection, _selection[i])) selection[j++] = _selection[i];
 }
 selection_size = j;
 visible_selection = selection;
+sout(selection);
 //selected = false;
 //card_stats = start_card_stats;
 //selection_size = 9; // humanity, stamina, 4 equipments

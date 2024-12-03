@@ -185,34 +185,58 @@ function get_start_card_stats () {
 			image : spr_start_card_sm_stamina_fth,
 			image_hq : spr_start_card_hq_stamina_fth
 		}, {stamina : [0,0,0,1]}
-		],/*[{name : "int+fth stamina",
-			type : "stamina"
+		],
+		//* market test feature //
+
+		[{name : "int+fth stamina",
+			type : "stamina",
+			image : spr_start_card_sm_stamina_int_and_fth,
+			image_hq : spr_start_card_hq_stamina_int_and_fth
 		}, {stamina : [0,1,0,1]}
 		],[{name : "dex+int stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_dex_and_int,
+			image_hq : spr_start_card_hq_stamina_dex_and_int
+
 		}, {stamina : [1,1,0,0]}
 		],[{name : "str+fth stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_str_and_fth,
+			image_hq : spr_start_card_hq_stamina_str_and_fth
+
 		}, {stamina : [0,0,1,1]}
 		],[{name : "str+dex stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_str_and_dex,
+			image_hq : spr_start_card_hq_stamina_str_and_dex
+
 		}, {stamina : [1,0,1,0]}
 		],[{name : "int/fth stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_int_or_fth,
+			image_hq : spr_start_card_hq_stamina_int_or_fth
+
 		}, {stamina : [0,1,0,0]}, {stamina : [0,0,0,1]}
 		],[{name : "dex/int stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_dex_or_int,
+			image_hq : spr_start_card_hq_stamina_dex_or_int
 		}, {stamina : [1,0,0,0]}, {stamina : [0,1,0,0]}
 		// str/fth stamina
 		],[{name : "str/fth stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_str_or_fth,
+			image_hq : spr_start_card_hq_stamina_str_or_fth
 		}, {stamina : [0,0,1,0]}, {stamina : [0,0,0,1]}
 		// str/dex stamina
 		],[{name : "str/dex stamina",
-			type : "stamina"
+			type : "stamina",
+			image : spr_start_card_sm_stamina_str_or_dex,
+			image_hq : spr_start_card_hq_stamina_str_or_dex
 		}, {stamina : [1,0,0,0]}, {stamina : [0,0,1,0]}
-		// remant of humanity
-		],*/[{name : "remant of humanity",
+		],
+		// market test feature //*/
+		[{name : "remant of humanity",
 			type : "equipment",
 			image : spr_start_card_sm_remant_of_humanity,
 			image_hq : spr_start_card_hq_remant_of_humanity
