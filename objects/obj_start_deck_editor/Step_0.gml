@@ -48,7 +48,7 @@ else if (is_mouse_over_display_deck()) {
 			var _card_name = "";
 			if (is_market_card(_over_card)) _card_name = get_market_card_name(_over_card);
 			else _card_name = _over_card;
-			sout(_card_name);
+			//sout(_card_name);
 			var _card_stats = card_get_stats(start_card_stats, _card_name);
 			if (array_length(_card_stats)!=0) {
 				// set the visual spoiler to show the card being hovered over

@@ -42,7 +42,7 @@ function get_deck_size () {
 view_spacing = card_height; // space between views
 
 visual_spoiler = instance_create_depth(0,0,depth-1,obj_start_deck_creator_spoiler, {deck_creator : id});
-stamina_market = instance_create_depth(21, 168, depth, obj_sde_market, {visual_spoiler : visual_spoiler, deck_editor : id});
+market = instance_create_depth(21, 168, depth, obj_sde_market, {visual_spoiler : visual_spoiler, deck_editor : id});
 //image_xscale = 2;
 deck_size = 0; // cards in deck
 deck_offset = 0;
@@ -104,7 +104,7 @@ for (i = 0; i < array_length(_selection); i++) {
 }
 selection_size = j;
 visible_selection = selection;
-sout(selection);
+//sout(selection);
 //selected = false;
 //card_stats = start_card_stats;
 //selection_size = 9; // humanity, stamina, 4 equipments
@@ -235,6 +235,7 @@ function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true) {
 	var _count = 0;
 	if (selection) _count = get_card_selection_count(card_name);
 	else _count = get_card_deck_count(card_name);
+	if (_count > 99) _count = 99;
 	if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
 	_cord_x += _digit_width+1;
 	draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
@@ -359,9 +360,39 @@ function draw_market_card (card_name, x_cord = x, y_cord = y) {
 		draw_sprite(_sprite, -1, x_cord, y_cord);
 		// show count
 		draw_card_count(card_name, x_cord, y_cord, false);
+		draw_market_dept(card_name, x_cord, y_cord);
 	}
 	else draw_sprite(_sprite, -1, x_cord, y_cord);
 }
 
 
 
+
+function draw_market_dept (card_name, cord_x = x, cord_y = y) {
+	var _backing_offset_x = -1;
+	var _backing_offset_y = 1;
+	var _backing_width = 11;
+	var _backing_height = 9;
+	var _digit_width = 3;
+	var _cord_x = cord_x + card_width/2-_backing_width+_backing_offset_x;
+	var _cord_y = cord_y - card_height/2+_backing_height+_backing_offset_y;
+	draw_sprite(spr_digit_backing, -1, _cord_x, _cord_y);
+	_cord_x += 2;
+	_cord_y -= 2;
+	var _count = get_card_deck_count(card_name);
+	// cost per copy
+	var _cost = 0;
+	with (market) {
+		for (var i = 0; i < array_length(card_selection); i++) {
+			if (card_name == "market "+card_selection[i][0]) {
+				_cost = card_selection[i][1];
+				break;
+			}
+		}
+	}
+	_count *= _cost
+	if (_count > 99) _count = 99;
+	if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
+	_cord_x += _digit_width+1;
+	draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
+}
