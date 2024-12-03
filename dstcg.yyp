@@ -244,6 +244,7 @@
     {"id":{"name":"spr_counter_sm_wound_3","path":"sprites/spr_counter_sm_wound_3/spr_counter_sm_wound_3.yy",},},
     {"id":{"name":"spr_digit_backing_1","path":"sprites/spr_digit_backing_1/spr_digit_backing_1.yy",},},
     {"id":{"name":"spr_digit_backing","path":"sprites/spr_digit_backing/spr_digit_backing.yy",},},
+    {"id":{"name":"spr_digit_negative","path":"sprites/spr_digit_negative/spr_digit_negative.yy",},},
     {"id":{"name":"spr_digit","path":"sprites/spr_digit/spr_digit.yy",},},
     {"id":{"name":"spr_encounter_card_hq_ash_gardens","path":"sprites/spr_encounter_card_hq_ash_gardens/spr_encounter_card_hq_ash_gardens.yy",},},
     {"id":{"name":"spr_encounter_card_hq_ashen_hollow","path":"sprites/spr_encounter_card_hq_ashen_hollow/spr_encounter_card_hq_ashen_hollow.yy",},},

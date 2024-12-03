@@ -16,7 +16,7 @@ function draw_digits (number, digits = 2, x_cord = x, y_cord = y, offset_x = 0) 
 		// prevents zeros from being drawn everywhere
 		var _tmp_x = x_cord+2*(i+1)+offset_x*i;
 		var _tmp_num = abs(i-(array_length(_num_arr)-1));
-		if (_number >= power(10,_tmp_num) || i == array_length(_num_arr)) {
+		if (_number >= power(10,_tmp_num) || i+1 == array_length(_num_arr)) {
 			draw_sprite(spr_digit, _num_arr[i], _tmp_x, y_cord);
 		}
 	}
