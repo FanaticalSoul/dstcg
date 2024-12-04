@@ -308,7 +308,10 @@ function scr_resolve_attack (act_num, card_id) {
 
 
 function scr_stamina_cost (_selection_stamina, _stamina_cost) {
-	get_stamina_options(_selection_stamina, _stamina_cost);
+	var _tmp_stamina_cost = [];
+	for (var i = 0; i < array_length(_stamina_cost); i++) array_push(_tmp_stamina_cost, _stamina_cost[i]);
+	
+	get_stamina_options(_selection_stamina, _tmp_stamina_cost);
 
 	
 	////////////////// DO NOT REMOVE //////////////////////////
@@ -341,8 +344,12 @@ function scr_stamina_cost (_selection_stamina, _stamina_cost) {
 		i++;
 	}
 	*/
-	
-	return get_csc(_stamina_cost); // get remaining stamina cost
+	var _stamina_cost_remaining = 0;
+	for (var i = 0; i < array_length(_stamina_cost); i++) {
+		_stamina_cost_remaining += _stamina_cost[i];
+	}
+	return _stamina_cost_remaining; // get remaining stamina cost
+	//return get_csc(_stamina_cost); // get remaining stamina cost
 }
 
 //* CiD //
@@ -412,22 +419,42 @@ function get_stamina_options (selection_stamina, stamina_cost) {
 				//var _stamina_options = [];
 				sout("options");
 				// set new payment options
+				/*
 				var _new_payment_options = [];
-				for (var k = 0; k < array_length(_payment_options); k++) {
-					array_push(_new_payment_options, _payment_options[k]);
+				for (var j = 0; j < array_length(_payment_options); j++) {
+					array_push(_new_payment_options, _payment_options[j]);
 				}
+				*/
+				var _new_payment_options = clone_array(_payment_options);
 				// go through choices
 				for (var j = 1; j < array_length(_card_stats); j++) {
 					var _stamina_option = _card_stats[j].stamina;
+					
+					
+					
+					
+					
+					
+					sout(["option: ",_stamina_option]);
 					var _stamina_types = array_length(_stamina_option);					
 					for (var k = 0; k < _stamina_types; k++) {
 						if (_stamina_option[k]>0) {
 							for (var l = 0; l < array_length(_payment_options); l++) {
-								var _payment_option = _payment_options[l];
-								if (_payment_option[k] > 0) _payment_option[k] -= _stamina_option[k];
-								else _payment_option[_stamina_types] -= _stamina_option[k];
-								for (var m = 0; m < array_length(_payment_option); m++) _payment_option[m] = max(_payment_option[m], 0);
-								array_push(_new_payment_options, _payment_option);
+								//var _payment_option = _payment_options[l];
+								var _payment_option = clone_array(_payment_options[l]);
+								var _flag = false;
+								if (_payment_option[k] > 0) {
+									_payment_option[k] -= _stamina_option[k];
+									_flag = true;
+								}
+								else if (_payment_option[_stamina_types] > 0) {
+									_payment_option[_stamina_types] -= _stamina_option[k];
+									_flag = true;
+								}
+								if (_flag) {
+									for (var m = 0; m < array_length(_payment_option); m++) _payment_option[m] = max(_payment_option[m], 0);
+									array_push(_new_payment_options, _payment_option);
+								}
 							}
 							/*
 							if (k==0) sout(["dex", _stamina_option[k]]);
@@ -461,7 +488,15 @@ function get_stamina_options (selection_stamina, stamina_cost) {
 				// override old payment options
 				_payment_options = _new_payment_options;
 			}
-			//if (get_csc(stamina_cost) <= 0) break; // end loop
+			// end loop
+			var _flag = false;
+			for (var j = 0; j < array_length(_payment_options); j++) {
+				if (get_csc(_payment_options[j])) {
+					_flag = true;
+					break;
+				}
+			}
+			if (_flag) break;
 		}
 	}
 	sout(_payment_options);
@@ -486,6 +521,14 @@ function get_stamina_options (selection_stamina, stamina_cost) {
 		}
 	}
 	*/
+}
+
+function clone_array (array) {
+	var _clone_array = [];
+	for (var i = 0; i < array_length(array); i++) {
+		array_push(_clone_array, array[i]);
+	}
+	return _clone_array;
 }
 
 function is_stamina_standard (card_stats, size = 1) {
