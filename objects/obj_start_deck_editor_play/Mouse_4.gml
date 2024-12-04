@@ -1,7 +1,7 @@
 /// @description update deck and leave editor
 
 with (obj_start_deck_editor) {
-	if (deck_size == get_deck_size()) {
+	if (deck_size == get_sde_deck_size()) {
 		// pay cost
 		var _souls = int64(get_data_file(file_deck)[1].inventory[1]);
 		var _remaining_souls = _souls-get_market_dept();

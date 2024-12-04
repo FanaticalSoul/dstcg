@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_sde_functions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_sde_functions",
+  "parent":{
+    "name":"Bonfire",
+    "path":"folders/Objects/Bonfire.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

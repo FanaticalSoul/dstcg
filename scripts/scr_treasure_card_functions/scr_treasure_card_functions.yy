@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_treasure_card_functions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_treasure_card_functions",
+  "parent":{
+    "name":"Bonfire",
+    "path":"folders/Objects/Bonfire.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

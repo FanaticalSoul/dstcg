@@ -4,7 +4,7 @@ event_inherited();
 var _tmp_x, _tmp_y;
 // get values
 var _souls = int64(get_data_file(file_deck)[1].inventory[1]);
-var _cost = obj_start_deck_editor.get_market_dept();
+var _cost = get_market_dept(deck_editor);
 var _dept = _souls-_cost;
 // show number of souls
 _tmp_x = x-spr_x+1;

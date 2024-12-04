@@ -25,7 +25,7 @@ x-card_width/2 <= mouse_x && mouse_x <= x+card_width/2) {
 			if (instance_exists(deck_editor)) {
 				if (mouse_check_button_pressed(mb_left)) {
 					with (deck_editor) {
-						if (deck_size < get_deck_size()) {
+						if (deck_size < get_sde_deck_size()) {
 							//array_push(market_selection, _card_name);
 							//market_dept += _card[1];
 							// add to deck
