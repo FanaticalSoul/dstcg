@@ -64,11 +64,11 @@ function card_get_stats (card_stats, card_name) {
 /// @return						{real}
 
 function get_csc (stamina_cost) {
-	var _converted_stamina_cost = 0;
+	var _csc = 0;
 	for (var i = 0; i < array_length(stamina_cost); i++) {
-		_converted_stamina_cost += stamina_cost[i];
+		_csc += stamina_cost[i];
 	}
-	return int64(_converted_stamina_cost);
+	return int64(_csc);
 }
 
 

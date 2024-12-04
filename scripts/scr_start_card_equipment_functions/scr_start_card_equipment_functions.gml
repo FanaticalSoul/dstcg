@@ -308,6 +308,11 @@ function scr_resolve_attack (act_num, card_id) {
 
 
 function scr_stamina_cost (_selection_stamina, _stamina_cost) {
+	get_stamina_options(_selection_stamina, _stamina_cost);
+
+	
+	////////////////// DO NOT REMOVE //////////////////////////
+	/*
 	var _total_stamina = [0,0,0,0];
 	for (var i = 0; i < array_length(_selection_stamina); i++) {
 		var _card_stats = _selection_stamina[i].card_stats;
@@ -335,12 +340,193 @@ function scr_stamina_cost (_selection_stamina, _stamina_cost) {
 		}
 		i++;
 	}
-	var _stamina_cost_remaining = 0;
-	for (i = 0; i < array_length(_stamina_cost); i++) {
-		_stamina_cost_remaining += _stamina_cost[i];
-	}
-	return _stamina_cost_remaining;
+	*/
+	
+	return get_csc(_stamina_cost); // get remaining stamina cost
 }
+
+//* CiD //
+
+// always room for improvement of this algorithim
+// this algrothim will begin quite inefficent // WoL
+function get_stamina_options (selection_stamina, stamina_cost) {
+	// set cost
+	var _cost = [];
+	for (var i = 0; i < array_length(stamina_cost); i++) array_push(_cost, stamina_cost[i]);
+	// check large stamina contributions first
+	var _stamina_used = [];
+	if (get_csc(stamina_cost)>0) {
+		for (var i = 0; i < array_length(selection_stamina); i++) {
+			// if large stamina
+			var _card_stats = selection_stamina[i].card_stats;
+			if (is_stamina_standard(_card_stats, 2)) {
+				var _stamina_types = array_length(_card_stats[1].stamina);
+				for (var j = 0; j < _stamina_types; j++) {
+					 if (_cost[j] > 0) _cost[j] -= _card_stats[1].stamina[j];
+					 else _cost[_stamina_types] -= _card_stats[1].stamina[j];
+				}
+				for (var j = 0; j < array_length(_cost); j++) _cost[j] = max(_cost[j], 0);
+				// if this stamina reduced the cost
+				if (get_csc(_cost)<get_csc(stamina_cost)) {
+					stamina_cost = _cost; // adjust cost
+					array_push(_stamina_used, selection_stamina[i]);
+				}
+			}
+			if (get_csc(stamina_cost) <= 0) break; // end loop
+		}
+	}
+	// check normal stamina contributions second
+	if (get_csc(stamina_cost)>0) {
+		for (var i = 0; i < array_length(selection_stamina); i++) {
+			// if standard stamina
+			var _card_stats = selection_stamina[i].card_stats;
+			if (is_stamina_standard(_card_stats)) {
+				var _stamina_types = array_length(_card_stats[1].stamina);
+				for (var j = 0; j < _stamina_types; j++) {
+					 if (_cost[j] > 0) _cost[j] -= _card_stats[1].stamina[j];
+					 else _cost[_stamina_types] -= _card_stats[1].stamina[j];
+				}
+				for (var j = 0; j < array_length(_cost); j++) _cost[j] = max(_cost[j], 0);
+				// if this stamina reduced the cost
+				if (get_csc(_cost)<get_csc(stamina_cost)) {
+					stamina_cost = _cost; // adjust cost
+					array_push(_stamina_used, selection_stamina[i]);
+				}
+			}
+			if (get_csc(stamina_cost) <= 0) break; // end loop
+		}
+	}
+	//sout(_stamina_used);
+	// this is the complex bit
+	//var _payment_options = [stamina_cost];
+	//var _payment_options = [stamina_cost];
+	sout("stamina cost "+string(stamina_cost));
+	var _payment_options = [stamina_cost];
+	
+	
+	if (get_csc(stamina_cost)>0) {
+		for (var i = 0; i < array_length(selection_stamina); i++) {
+			// if optional stamina
+			var _card_stats = selection_stamina[i].card_stats;
+			if (is_stamina_split(_card_stats)) {
+				//var _stamina_options = [];
+				sout("options");
+				// set new payment options
+				var _new_payment_options = [];
+				for (var k = 0; k < array_length(_payment_options); k++) {
+					array_push(_new_payment_options, _payment_options[k]);
+				}
+				// go through choices
+				for (var j = 1; j < array_length(_card_stats); j++) {
+					var _stamina_option = _card_stats[j].stamina;
+					var _stamina_types = array_length(_stamina_option);					
+					for (var k = 0; k < _stamina_types; k++) {
+						if (_stamina_option[k]>0) {
+							for (var l = 0; l < array_length(_payment_options); l++) {
+								var _payment_option = _payment_options[l];
+								if (_payment_option[k] > 0) _payment_option[k] -= _stamina_option[k];
+								else _payment_option[_stamina_types] -= _stamina_option[k];
+								for (var m = 0; m < array_length(_payment_option); m++) _payment_option[m] = max(_payment_option[m], 0);
+								array_push(_new_payment_options, _payment_option);
+							}
+							/*
+							if (k==0) sout(["dex", _stamina_option[k]]);
+							if (k==1) sout(["int", _stamina_option[k]]);
+							if (k==2) sout(["str", _stamina_option[k]]);
+							if (k==3) sout(["fth", _stamina_option[k]]);
+							*/
+						}
+					}
+					
+					
+					/*
+					
+					for (var k = 0; k < _stamina_types; k++) {
+						 if (_cost[k] > 0) _cost[k] -= _stamina_option[k];
+						 else _cost[_stamina_types] -= _stamina_option[k];
+					}
+					for (var k = 0; k < array_length(_cost); k++) _cost[k] = max(_cost[k], 0);
+					// if this stamina reduced the cost
+					if (get_csc(_cost)<get_csc(stamina_cost)) {
+						// CiD
+					
+					
+						//stamina_cost = _cost; // adjust cost
+					
+						///////////////array_push(_stamina_used, selection_stamina[i]);
+					}
+					*/
+					
+				}
+				// override old payment options
+				_payment_options = _new_payment_options;
+			}
+			//if (get_csc(stamina_cost) <= 0) break; // end loop
+		}
+	}
+	sout(_payment_options);
+	
+	
+	
+	
+	
+	/*
+	//
+	var _stamina_options = [];
+	
+	// also unselect stamina
+	
+	
+	
+	for (var i = 0; i < array_length(selection_stamina); i++) {
+		var _card_stats = selection_stamina[i].card_stats;
+		//sout(_card_stats);
+		for (var j = 1; j < array_length(_card_stats); j++) {
+			sout(_card_stats[j].stamina);
+		}
+	}
+	*/
+}
+
+function is_stamina_standard (card_stats, size = 1) {
+	if (array_length(card_stats)-1==1) {
+		var _stamina_size = 0;
+		for (var j = 0; j < array_length(card_stats[1].stamina); j++) {
+			_stamina_size += card_stats[1].stamina[j];
+		}
+		if (_stamina_size == size) return true;
+	}
+	return false;
+}
+function is_stamina_split (card_stats) {
+	if (array_length(card_stats)-1==2) return true;
+	return false;
+}
+
+
+//* CiD //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function c_attack_post (act_num, card_id = id) {
 	with (card_id) {
