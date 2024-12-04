@@ -1,20 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_sde_display_2",
+  "%Name":"obj_sde_display",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_sde_display_2",
+  "name":"obj_sde_display",
   "overriddenProperties":[],
   "parent":{
     "name":"Bonfire",
     "path":"folders/Objects/Bonfire.yy",
   },
-  "parentObjectId":{
-    "name":"obj_sde_display",
-    "path":"objects/obj_sde_display/obj_sde_display.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_sde_display_2_backing",
-    "path":"sprites/spr_sde_display_2_backing/spr_sde_display_2_backing.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

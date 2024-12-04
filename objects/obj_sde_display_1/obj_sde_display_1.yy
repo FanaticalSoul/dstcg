@@ -3,8 +3,6 @@
   "%Name":"obj_sde_display_1",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_sde_display_1",
@@ -13,7 +11,10 @@
     "name":"Bonfire",
     "path":"folders/Objects/Bonfire.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_sde_display",
+    "path":"objects/obj_sde_display/obj_sde_display.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,9 +28,7 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"deck_editor","filters":[],"listItems":[],"multiselect":false,"name":"deck_editor","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_start_deck_editor","path":"objects/obj_start_deck_editor/obj_start_deck_editor.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_start_deck_editor","varType":5,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

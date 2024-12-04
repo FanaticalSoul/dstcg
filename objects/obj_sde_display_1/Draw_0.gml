@@ -3,8 +3,8 @@
 draw_self();
 var _tmp_x = x;
 var _tmp_y = y;
-var _spr_x = int64(sprite_width/2);
 var _digits = 2;
+var _spr_x = int64(sprite_width/2);
 /*
 if (_spr_x%1>0) _spr_x = int64(_spr_x)+1;
 else _spr_x = int64(_spr_x);
