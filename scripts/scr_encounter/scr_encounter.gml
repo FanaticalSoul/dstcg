@@ -115,16 +115,10 @@ function room_goto_bonfire (room_index = 4) {
 
 
 
-function spoil_bonfire (visual_spoiler) {
+function spoil_bonfire (visual_spoiler, modifier = 0) {
 	with (visual_spoiler) {
-		var _sprite = undefined;
-		var _bonfire_level = get_data_file(file_deck)[2];
-		if (_bonfire_level == 1) _sprite = spr_bonfire_card_hq_1;
-		else if (_bonfire_level == 2) _sprite = spr_bonfire_card_hq_2;
-		else if (_bonfire_level == 3) _sprite = spr_bonfire_card_hq_3;
-		else if (_bonfire_level == 4) _sprite = spr_bonfire_card_hq_4;
-		else if (_bonfire_level == 5) _sprite = spr_bonfire_card_hq_5;
-		if (!is_undefined(_sprite)) {
+		var _sprite = get_bonfire_sprite(get_bonfire_level()+modifier);
+		if (_sprite != spr_card_hq) {
 			sprite_index = _sprite;
 			if (!visible) visible = true;
 		}
@@ -132,7 +126,14 @@ function spoil_bonfire (visual_spoiler) {
 }
 
 
-
+function get_bonfire_sprite (bonfire_level = get_bonfire_level()) {
+	if (bonfire_level == 1) return spr_bonfire_card_hq_1;
+	else if (bonfire_level == 2) return spr_bonfire_card_hq_2;
+	else if (bonfire_level == 3) return spr_bonfire_card_hq_3;
+	else if (bonfire_level == 4) return spr_bonfire_card_hq_4;
+	else if (bonfire_level == 5) return spr_bonfire_card_hq_5;
+	return spr_card_hq;
+}
 
 /* CiD
 function resolved_bonfire_triggers () {
