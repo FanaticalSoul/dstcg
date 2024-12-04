@@ -80,14 +80,18 @@ function draw_market_dept (card_name = "false", cord_x = x, cord_y = y) {
 }
 
 
-function get_market_dept () {
-	with (obj_start_deck_editor) {
+function get_market_dept (deck_editor = obj_start_deck_editor) {
+	with (deck_editor) {
 		var _dept = 0;
 		for (var i = 0; i < deck_size; i++) {
 			if (is_market_card(deck[i])) {
 				_dept += get_market_card_cost(deck[i]);
 			}
 		}
+		// resolve bonfire triggers
+		if (get_bonfire_level()==3) _dept -= 2;
+		else if (get_bonfire_level()==4) _dept -= 5;
+		// return dept
 		return int64(_dept);
 	}
 }

@@ -1,7 +1,17 @@
 /// @description update deck and leave editor
 
 with (obj_start_deck_editor) {
-	if (deck_size == get_sde_deck_size()) {
+	// check bonfire triggers
+	var _resolved_triggers = true;
+	var _bonfire_level = get_bonfire_level();
+	if (_bonfire_level==3 && !deck_contains_x_soul_stamina(2, id)) {
+		_resolved_triggers = false;
+	}
+	else if (_bonfire_level==4 && !deck_contains_x_soul_stamina(5, id)) {
+		_resolved_triggers = false;
+	}
+	// check deck size
+	if (deck_size == get_sde_deck_size() && _resolved_triggers) {
 		// pay cost
 		var _souls = int64(get_data_file(file_deck)[1].inventory[1]);
 		var _remaining_souls = _souls-get_market_dept();

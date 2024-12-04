@@ -134,16 +134,34 @@ function spoil_bonfire (visual_spoiler) {
 
 
 
+/* CiD
+function resolved_bonfire_triggers () {
+	var _bonfire_level = int64(get_data_file(file_deck)[2]);
+	if (_bonfire_level == 3) {
+		//
+	}
+	else if (_bonfire_level == 4) {
+		//
+	}
+}
+*/
+
+function get_bonfire_level (file_name = file_deck) {
+	return int64(get_data_file(file_name)[2]);
+}
 
 
-
-
-
-
-
-
-
-
+function deck_contains_x_soul_stamina (souls, deck_editor) {
+	with (deck_editor) {
+		for (var j = 0; j < deck_size; j++) {
+			if (is_market_card(deck[j])) {
+				var _stamina_card = get_market_card_name(deck[j]);
+				with (market) if (is_x_soul_stamina(_stamina_card, souls)) return true;
+			}
+		}
+	}
+	return false;
+}
 
 
 

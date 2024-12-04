@@ -1,5 +1,7 @@
 /// @description handle keybinds
 
+// sort deck
+array_sort(deck,false); // don't know if this will slow things down
 // if mouse is within selection boundaries
 if (is_mouse_over_sde_selection()) {
 	// on [ mouse scroll ] // hand view navigation
@@ -29,8 +31,6 @@ if (is_mouse_over_sde_selection()) {
 }
 // if mouse is within deck boundaries
 else if (is_mouse_over_display_deck()) {
-	// sort deck
-	array_sort(deck,false);
 	// on [ mouse scroll ] // hand view navigation
 	var _visible_deck = get_visible_deck();
 	var _selection_size = array_length(_visible_deck);
