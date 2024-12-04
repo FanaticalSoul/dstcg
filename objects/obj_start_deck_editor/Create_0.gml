@@ -1,5 +1,29 @@
 /// @description Insert description here
 
+
+
+
+
+
+
+sout(get_treasures(100));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function set_deck () {
 	var i;
 	var _file_hand = get_data_file(file_deck)[0].hand;

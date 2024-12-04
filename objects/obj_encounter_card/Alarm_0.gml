@@ -21,45 +21,8 @@ var _level = 1;
 //sout(card_get_stats(encounter_card_stats, card_name));
 var _encounter = card_get_stats(encounter_card_stats, card_name).encounter[_level-1][0];
 var _treasure_count = card_get_stats(encounter_card_stats, card_name).encounter[_level-1][1];
-// set treasure deck
-var _treasure_stats = get_treasure_stats();
-var _t_deck = [];
-for (var i = 0; i < array_length(_treasure_stats); i++) {
-	array_push(_t_deck, _treasure_stats[i][0].name);
-}
 // add treasures to rewards ( allow duplicates )
-var _treasures = [];
-for (var i = 0; i < _treasure_count; i++) {
-	_t_deck = scr_deck_shuffle(_t_deck,array_length(_t_deck)); // shuffle deck
-	var _flag = false;
-	var j = i;
-	while (!_flag && j < _treasure_count) {
-		// try to validate card
-		var _t_card = _t_deck[j];
-		var _t_card_count = 0;
-		var _rewards = get_data_rewards();
-		var _loot = get_data_loot();
-		var _inventory = get_data_inventory();
-		//
-		for (var k = 0; k < array_length(_rewards); k++) {
-			if (_rewards[k] == _t_card) _t_card_count++;
-		}
-		for (var k = 0; k < array_length(_loot); k++) {
-			if (_loot[k] == _t_card) _t_card_count++;
-		}
-		for (var k = 0; k < array_length(_inventory); k++) {
-			if (_inventory[k] == _t_card) _t_card_count++;
-		}
-		if (_t_card_count < 4) _flag = true;
-		//
-		if (!_flag) j++;
-	}
-	if (_flag) array_push(_treasures, _t_deck[j]); // add top card
-	else sout("unable to add card");
-}
-//sout("treasures");
-//sout(_treasures);
-
+var _treasures = get_treasures(_treasure_count);
 // add cards to deck
 var _souls = 0;
 global.tmp_e_cards = [];

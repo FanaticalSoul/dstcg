@@ -2,6 +2,15 @@
 // You can write your code in this editor
 
 
+digits  = 2;
+digit_x = 3;
+digit_y = 5;
+spr_x = int64(sprite_width/2);
+spr_y = int64(sprite_height/2);
+if (sprite_width /2 > spr_x) spr_x++;
+if (sprite_height/2 > spr_y) spr_y++;
+offset_x = int64(digit_x/2);
+if (digit_x/2 > offset_x) offset_x++;
 
 function draw_digits (number, digits = 2, x_cord = x, y_cord = y, offset_x = 0) {
 	var _number = number;
