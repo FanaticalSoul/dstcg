@@ -251,11 +251,11 @@ function get_start_card_stats () {
 	for (var i = 0; i < array_length(_treasures); i++) {
 		array_push(_card_stats, _treasures[i]);
 	}
-	/*
-	for (var i = 0; i < array_length(_card_stats); i++) {
-		sout(_card_stats[i][0].name);
+	// add transposed treasures
+	_treasures = get_transposed_treasure_stats();
+	for (var i = 0; i < array_length(_treasures); i++) {
+		array_push(_card_stats, _treasures[i]);
 	}
-	*/
 	return _card_stats;
 }
 
@@ -468,3 +468,24 @@ function get_treasure_stats () {
 
 
 
+function get_transposed_treasure_stats () {
+	var _card_stats = [
+		[{  name : "wolf knights greatsword",
+			type : "equipment",
+			image : spr_start_card_sm_wolf_knights_greatsword,
+			image_hq : spr_start_card_hq_wolf_knights_greatsword,
+			attack : "skilled"
+		},{
+			damage : 3,
+			stamina : [0,0,1,0,1],
+			play_script :  function (card_id = id) {scr_basic_attack(1, card_id);}
+		},{
+			standard_action : true,
+			damage : 3,
+			play_script :  function (card_id = id) {scr_basic_attack(2, card_id);}
+		}]
+	];
+	// set defaults
+	_card_stats = set_start_card_stats_defaults(_card_stats);
+	return _card_stats;
+}

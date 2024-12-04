@@ -1,8 +1,7 @@
 /// @description handle keybinds
 
 // if mouse is within selection boundaries
-if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2 &&
-mouse_x >= x && mouse_x <= sprite_width) {
+if (is_mouse_over_sde_selection()) {
 	// on [ mouse scroll ] // hand view navigation
 	var _visible_selection = get_visible_selection();
 	var _selection_size = array_length(_visible_selection);
@@ -55,7 +54,7 @@ else if (is_mouse_over_display_deck()) {
 				visual_spoiler.sprite_index = _card_stats[0].image_hq;
 				if (!visual_spoiler.visible) visual_spoiler.visible = true;
 				// handle various keybinds
-				handle_deck_adjustment (_over_card, _card_stats);
+				handle_deck_adjustment(_over_card, _card_stats);
 			}
 			break;
 		}

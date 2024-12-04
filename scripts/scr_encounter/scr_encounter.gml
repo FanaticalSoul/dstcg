@@ -1,4 +1,4 @@
-
+// change name to game over
 function game_death () {
 	sout("game_death");
 	// lose loot
@@ -10,7 +10,7 @@ function game_death () {
 	if (_bonfire_level+1 > 5) game_over();
 	else bonfire_rest();
 }
-
+// change name to game cleared or won
 function game_victory () {
 	sout("game_victory");
 	// for now just delete the save data and reset the game // WoL
@@ -19,7 +19,7 @@ function game_victory () {
 	if (file_exists(file_map)) file_delete(file_map);
 	game_restart();
 }
-
+// change name to encounter loss
 function game_over () {
 	sout("game_over");
 	// for now just delete the save data and reset the game // WoL
@@ -28,8 +28,7 @@ function game_over () {
 	if (file_exists(file_map)) file_delete(file_map);
 	game_restart();
 }
-
-
+// change name to encounter win
 function game_won () {
 	sout("game_won");
 	// update loot
@@ -38,14 +37,6 @@ function game_won () {
 	update_encounter_status(false);
 	global.room_index = 2;
 	room_goto(global.room_index);
-	//game_restart();
-	/*
-	
-	/*
-	// update file
-	// update encounter status
-	// exit encounter
-	*/
 }
 
 
@@ -99,10 +90,22 @@ function bonfire_rest (file_name = file_deck) {
 	var _bonfire_level = int64(_save_data[2])+1;
 	if (_bonfire_level > 5) game_over();
 	else _save_data[2] = min(_bonfire_level, 5);
+	// bonfire level 2 trigger
+	if (_bonfire_level == 2) {
+		var _treasure = get_treasures()[0];
+		array_push(_save_data[1].inventory[0], _treasure);
+	}
+	// bonfire level 5 trigger
+	else if (_bonfire_level == 5) {
+		var _transposed_treasure = get_treasures(1, get_transposed_treasure_stats())[0];
+		sout(_transposed_treasure);
+		array_push(_save_data[1].inventory[0], _transposed_treasure);
+	}
 	// write to file and update encounter status
 	set_data_file(_save_data, file_name);
 	update_encounter_status();
-	room_goto_bonfire();
+	// change rooms
+	//TF//room_goto_bonfire();
 }
 
 function room_goto_bonfire (room_index = 4) {

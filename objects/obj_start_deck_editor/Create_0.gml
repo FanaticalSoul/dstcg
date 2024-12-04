@@ -1,10 +1,5 @@
 /// @description Insert description here
 
-
-var _bonfire_level = get_data_file(file_deck)[2];
-if (_bonfire_level == 2) {
-	sout(get_treasures()[0]);
-}
 // set deck varibles
 view_spacing = card_height; // space between views
 visual_spoiler = instance_create_depth(0,0,depth-1,obj_start_deck_creator_spoiler, {deck_creator : id});

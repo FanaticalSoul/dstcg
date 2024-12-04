@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Transmuted",
-    "path":"folders/Sprites/Start Cards/Small Cards/Treasure/Transmuted.yy",
+    "name":"Transposed",
+    "path":"folders/Sprites/Start Cards/Small Cards/Treasure/Transposed.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

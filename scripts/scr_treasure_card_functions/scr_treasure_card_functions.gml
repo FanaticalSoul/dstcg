@@ -1,7 +1,7 @@
 
 
-function get_treasures (treasure_count = 1) {
-	var _t_deck = get_treasure_deck();
+function get_treasures (treasure_count = 1, treasure_stats = get_treasure_stats()) {
+	var _t_deck = get_treasure_deck(treasure_stats);
 	// add treasures to rewards ( allow duplicates )
 	var _treasures = [];
 	for (var i = 0; i < treasure_count; i++) {
@@ -41,12 +41,10 @@ function get_card_copy_count (card_name, deck) {
 }
 
 
-
-function get_treasure_deck () {
-	var _treasure_stats = get_treasure_stats();
+function get_treasure_deck (treasure_stats) {
 	var _t_deck = [];
-	for (var i = 0; i < array_length(_treasure_stats); i++) {
-		array_push(_t_deck, _treasure_stats[i][0].name);
+	for (var i = 0; i < array_length(treasure_stats); i++) {
+		array_push(_t_deck, treasure_stats[i][0].name);
 	}
 	return _t_deck;
 }

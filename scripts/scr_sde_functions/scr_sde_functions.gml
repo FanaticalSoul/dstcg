@@ -234,3 +234,13 @@ function draw_customizer_card (card_name, x_cord = x, y_cord = y, selection = tr
 	}
 }
 
+
+
+
+
+function is_mouse_over_sde_selection () {
+	if (mouse_y <= y+card_height/2  && mouse_y >= y-card_height/2) {
+		if (mouse_x >= x && mouse_x <= sprite_width) return true;
+	}
+	return false;
+}

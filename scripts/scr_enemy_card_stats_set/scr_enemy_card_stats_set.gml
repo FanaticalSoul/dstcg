@@ -332,7 +332,7 @@ function get_enemy_card_stats() {
 			weakness : "heavy",
 			attack : [{attack_location : 2}],
 			spawn_location : 5
-		},{ name : "sage\'s devout",
+		},{ name : "sages devout",
 			enemy_level : 1,
 			souls : 3,
 			defense_value : 1,
