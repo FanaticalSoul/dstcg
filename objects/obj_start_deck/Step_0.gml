@@ -33,10 +33,10 @@ if (instance_exists(player)) { // TF // only step if player exists
 		deck_reveal = false; // toggle off reveal state
 	}
 	// press [ Q ] // toggle deck reveal area
-	else if (keyboard_check_pressed(81) && (deck_reveal || deck_size > 0) && 
-	 !player.discard.discard_reveal && !player.character.selected) {
+	else if (keyboard_check_pressed(81) && (deck_reveal || deck_size > 0) && !player.character.selected) {
+		with (player.discard) if (discard_reveal) discard_reveal = false;
 		deck_reveal_offset = 0;
-		deck_reveal = !deck_reveal; // toggle reveal state
+		deck_reveal = !deck_reveal;
 	}
 	/*
 	// press [ alt ] // reveal all cards in deck // (TF)

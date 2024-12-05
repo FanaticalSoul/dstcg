@@ -39,7 +39,8 @@ if (instance_exists(player)) { // TF // only step if player exists
 		discard_reveal = false; // toggle off reveal state
 	}
 	// press [ E ] // toggle discard reveal area
-	else if (keyboard_check_pressed(69) && (discard_reveal || discard_size > 0) && !player.deck.deck_reveal) {
+	else if (keyboard_check_pressed(69) && (discard_reveal || discard_size > 0) && !player.character.selected) {
+		with (player.deck) if (deck_reveal) deck_reveal = false;
 		discard_reveal_offset = 0;
 		discard_reveal = !discard_reveal; // toggle reveal state
 	}
