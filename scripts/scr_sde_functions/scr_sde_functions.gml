@@ -1,66 +1,44 @@
 
 
-function set_sde_deck () {
-	var i;
-	var _file_hand = get_data_file(file_deck)[0].hand;
-	var _file_deck = get_data_file(file_deck)[0].deck;
-	var _file_discard = get_data_file(file_deck)[0].discard;
-	var _deck = [];
-	for (i = 0; i < array_length(_file_hand); i++) {
-		if (_file_hand[i] != "") array_push(_deck, _file_hand[i]);
-	}
-	for (i = 0; i < array_length(_file_deck); i++) {
-		if (_file_deck[i][0] != "") array_push(_deck, _file_deck[i][0]);
-	}
-	//sout(_file_discard);
-	for (i = 0; i < array_length(_file_discard); i++) {
-		if (_file_discard[i] != "") array_push(_deck, _file_discard[i]);
-	}
-	// fill out deck
-	var _tmp_int = array_length(_deck);
-	for (i = _tmp_int; i < get_sde_deck_size(); i++) {
-		array_push(_deck, "remant of humanity");
-	}
-	// set actual deck
-	deck_size = 0;
-	deck = _deck;
-	deck_size = array_length(_deck);
-	for (i = deck_size; i < deck_max; i++) {
-		array_push(_deck, "");
-	}
-	array_sort(deck,false);
-	deck_offset = 0;
+function get_sde_deck_size (deck_exists = true) {
+	if (deck_exists) return int64(deck_min+(get_bonfire_level()-1)*3);
+	return deck_min;
 }
 
-
-
-function get_sde_deck_size () {	
-	var _bonfire_level = get_data_file(file_deck)[2];
-	return int64(deck_min+(_bonfire_level-1)*3);
-}
-function handle_deck_adjustment (_over_card, _over_card_stats) {
+function handle_deck_adjustment (_over_card, _over_card_stats, deck_exists = true) {
 	// on [ mouse left  click ] // add card to deck
 	if (mouse_check_button_pressed(mb_left)) {
-		// check card type and assossiated limits
-		if (_over_card != "remant of humanity" && !is_market_card(_over_card)) {
-			var _card_copy_count = 0;
-			//var j = 0;
-			for (var j = 0; j < deck_size; j++) {
-				if (deck[j] == _over_card) _card_copy_count ++;
+		if (deck_exists) {
+			// check card type and assossiated limits
+			if (_over_card != "remnant of humanity" && !is_market_card(_over_card)) {
+				var _card_copy_count = 0;
+				//var j = 0;
+				for (var j = 0; j < deck_size; j++) {
+					if (deck[j] == _over_card) _card_copy_count ++;
+				}
+				// get max
+				var _card_copy_count_max = get_card_copy_count_max(_over_card);
+				// add card to deck
+				if (_card_copy_count < _card_copy_count_max && deck_size < get_sde_deck_size(deck_exists)) {
+					deck[deck_size] = _over_card;
+					deck_size++;
+				}
 			}
-			// get max
-			var _card_copy_count_max = get_card_copy_count_max(_over_card);
-			// add card to deck
-			if (_card_copy_count < _card_copy_count_max && deck_size < get_sde_deck_size()) {
+			// no limit
+			else if (deck_size < get_sde_deck_size(deck_exists)) {
+				// add card to deck
 				deck[deck_size] = _over_card;
 				deck_size++;
 			}
 		}
-		// no limit
-		else if (deck_size < get_sde_deck_size()) {
-			// add card to deck
-			deck[deck_size] = _over_card;
-			deck_size++;
+		// if deck doesn't exist
+		else if (_over_card == "remnant of humanity" || is_stamina(_over_card) ||
+		get_card_selection_count(_over_card, false) > 0) {
+			if (deck_size < deck_min) {
+				// add card to deck
+				deck[deck_size] = _over_card;
+				deck_size++;
+			}
 		}
 	}
 	// on [ mouse right click ] // remove card from deck
@@ -117,6 +95,7 @@ function is_mouse_over_display_deck (display_deck_id = id) {
 
 
 
+//function get_card_copy_count_max (card_name, deck_exists = true) {
 function get_card_copy_count_max (card_name) {
 	var _count = 0;
 	var _inventory = get_data_file(file_deck)[1].inventory[0];
@@ -127,7 +106,7 @@ function get_card_copy_count_max (card_name) {
 }
 
 
-function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true) {
+function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true, deck_exists = true) {
 	var _backing_offset = -1;
 	var _backing_width = 11;
 	var _digit_width = 3;
@@ -137,7 +116,7 @@ function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true) {
 	_cord_x += 2;
 	_cord_y -= 2;
 	var _count = 0;
-	if (selection) _count = get_card_selection_count(card_name);
+	if (selection) _count = get_card_selection_count(card_name, deck_exists);
 	else _count = get_card_deck_count(card_name);
 	if (_count > 99) _count = 99;
 	if (int64(_count/10)>0) draw_sprite(spr_digit, int64(_count/10), _cord_x, _cord_y);
@@ -145,11 +124,13 @@ function draw_card_count (card_name, cord_x = x, cord_y = y, selection = true) {
 	draw_sprite(spr_digit, _count%10, _cord_x, _cord_y);
 }
 
-
-function get_card_selection_count (card_name) {
-	if (card_name == "remant of humanity") return 99;
+// important function
+function get_card_selection_count (card_name, deck_exists) {
+	if (card_name == "remnant of humanity") return 99;
+	else if (is_stamina(card_name) && !deck_exists) return 99;
 	else {
-		var _count = get_card_copy_count_max(card_name);
+		var _count = 4;
+		if (deck_exists) _count = get_card_copy_count_max(card_name);
 		for (var i = 0; i < array_length(deck); i++) {
 			if (deck[i] == card_name) _count--;
 		}
@@ -157,26 +138,112 @@ function get_card_selection_count (card_name) {
 	}
 }
 
-function get_selection_size () {
+/*
+function get_selection_size (deck_exists) {
 	var j = 0;
 	for (var i = 0; i < array_length(selection); i++) {
-		if (get_card_selection_count(selection[i]) == 0) j++;
+		if (get_card_selection_count(selection[i], deck_exists) == 0) j++;
 	}
 	return array_length(selection)-j;
 }
 
+*/
 
 
-function get_visible_selection () {
+
+
+function get_card_deck_count (card_name) {
+	var _card_deck_count = 0;
+	for (var i = 0; i < deck_size; i++) {
+		if (deck[i] == card_name) _card_deck_count++;
+	}
+	return _card_deck_count;
+}
+
+
+
+function draw_sde_card (card_name, deck_exists = true, x_cord = x, y_cord = y, selection = true, x_min = 0, x_max = sprite_width) {
+	if (x_min < x_cord && x_cord < x_max) {
+		// resolve market cards
+		if (is_market_card(card_name)) draw_market_card(card_name, x_cord, y_cord);
+		// resolve all other cards
+		else {
+			var _sprite = spr_start_card_sm_back;
+			var _card_stats = card_get_stats(start_card_stats, card_name);
+			if (array_length(_card_stats) != 0) {
+				_sprite = _card_stats[0].image;
+				draw_sprite(_sprite, -1, x_cord, y_cord);
+				// show count
+				draw_card_count(_card_stats[0].name, x_cord, y_cord, selection, deck_exists);
+			}
+			else draw_sprite(_sprite, -1, x_cord, y_cord);
+		}
+	}
+}
+
+
+
+function set_sde_deck (deck_exists = true) {
+	// set actual deck
+	deck = [];
+	deck_size = 0;
+	if (deck_exists) {
+		deck = get_deck_from_file();
+		deck_size = array_length(deck);
+	}
+	for (var i = deck_size; i < deck_max; i++) array_push(deck, "");
+	array_sort(deck, false);
+}
+
+
+function get_deck_from_file (file = file_deck) {
+	if (file_exists(file)) {
+		var i;
+		var _file_hand = get_data_file(file)[0].hand;
+		var _file_deck = get_data_file(file)[0].deck;
+		var _file_discard = get_data_file(file)[0].discard;
+		var _deck = [];
+		for (i = 0; i < array_length(_file_hand); i++) {
+			if (_file_hand[i] != "") array_push(_deck, _file_hand[i]);
+		}
+		for (i = 0; i < array_length(_file_deck); i++) {
+			if (_file_deck[i][0] != "") array_push(_deck, _file_deck[i][0]);
+		}
+		//sout(_file_discard);
+		for (i = 0; i < array_length(_file_discard); i++) {
+			if (_file_discard[i] != "") array_push(_deck, _file_discard[i]);
+		}
+		// fill out deck
+		var _tmp_int = array_length(_deck);
+		for (i = _tmp_int; i < get_sde_deck_size(true); i++) {
+			array_push(_deck, "remnant of humanity");
+		}
+		return _deck;
+	}
+	else return [];
+}
+
+
+
+function get_visible_deck () {
+	var _visible_deck = [];
+	for (var i = 0; i < deck_size; i++) {
+		if (deck[i] != "") {
+			if (get_card_deck_count(deck[i]) > 0 && !array_contains(_visible_deck, deck[i])) array_push(_visible_deck, deck[i]);
+		}
+	}
+	return _visible_deck;
+}
+
+function get_visible_selection (deck_exists = true) {
 	var _visible_selection = [];
 	//if (selection_filter == "") {
 	for (var i = 0; i < selection_size; i++) {
 		if (selection[i] != "") {
-			if (get_card_selection_count(selection[i]) > 0) {
+			if (get_card_selection_count(selection[i], deck_exists) > 0) {
 				if (selection_filter == "") array_push(_visible_selection, selection[i]);
 				else {
 					var _card_stats = card_get_stats(start_card_stats, selection[i]);
-					//sout(card_get_stats(start_card_stats, selection[i]));
 					if (is_array(_card_stats)) {
 						if (_card_stats[0].type == "equipment") {
 							// this is an equipment or weapon
@@ -192,50 +259,9 @@ function get_visible_selection () {
 			}
 		}
 	}
+	sout(_visible_selection);
 	return _visible_selection;
 }
-
-
-function get_visible_deck () {
-	var _visible_deck = [];
-	for (var i = 0; i < deck_size; i++) {
-		if (deck[i] != "") {
-			if (get_card_deck_count(deck[i]) > 0 && !array_contains(_visible_deck, deck[i])) array_push(_visible_deck, deck[i]);
-		}
-	}
-	return _visible_deck;
-}
-function get_card_deck_count (card_name) {
-	var _card_deck_count = 0;
-	for (var i = 0; i < deck_size; i++) {
-		if (deck[i] == card_name) _card_deck_count++;
-	}
-	return _card_deck_count;
-}
-
-
-
-function draw_customizer_card (card_name, x_cord = x, y_cord = y, selection = true, x_cord_min = 0, x_cord_max = sprite_width) {
-	if (x_cord_min < x_cord && x_cord < x_cord_max) {
-		// resolve market cards
-		if (is_market_card(card_name)) draw_market_card(card_name, x_cord, y_cord);
-		// resolve all other cards
-		else {
-			var _sprite = spr_start_card_sm_back;
-			var _card_stats = card_get_stats(start_card_stats, card_name);
-			if (array_length(_card_stats) != 0) {
-				_sprite = _card_stats[0].image;
-				draw_sprite(_sprite, -1, x_cord, y_cord);
-				// show count
-				draw_card_count(_card_stats[0].name, x_cord, y_cord, selection);
-			}
-			else draw_sprite(_sprite, -1, x_cord, y_cord);
-		}
-	}
-}
-
-
-
 
 
 function is_mouse_over_sde_selection () {

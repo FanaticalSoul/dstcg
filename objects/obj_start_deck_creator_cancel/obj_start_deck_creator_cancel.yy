@@ -38,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_menu_start_cancel",
-    "path":"sprites/spr_menu_start_cancel/spr_menu_start_cancel.yy",
+    "name":"spr_icon_reset",
+    "path":"sprites/spr_icon_reset/spr_icon_reset.yy",
   },
   "spriteMaskId":null,
   "visible":true,

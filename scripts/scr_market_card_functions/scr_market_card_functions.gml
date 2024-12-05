@@ -95,3 +95,12 @@ function get_market_dept (deck_editor = obj_start_deck_editor) {
 		return int64(_dept);
 	}
 }
+
+
+function is_stamina (card_name) {
+	var _str_split = string_split(card_name, " ", true, 2);
+	if (array_length(_str_split)==2) {
+		if (_str_split[1]=="stamina") return true;
+	}
+	return false;
+}

@@ -13,7 +13,10 @@
     "name":"Deck Construction",
     "path":"folders/Objects/Deck Construction.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_sde_parent",
+    "path":"objects/obj_sde_parent/obj_sde_parent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

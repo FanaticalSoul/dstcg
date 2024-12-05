@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_menu_start_play",
-    "path":"sprites/spr_menu_start_play/spr_menu_start_play.yy",
+    "name":"spr_icon_play",
+    "path":"sprites/spr_icon_play/spr_icon_play.yy",
   },
   "spriteMaskId":null,
   "visible":true,

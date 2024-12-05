@@ -236,12 +236,12 @@ function get_start_card_stats () {
 		}, {stamina : [1,0,0,0]}, {stamina : [0,0,1,0]}
 		],
 		// market test feature //*/
-		[{name : "remant of humanity",
+		[{name : "remnant of humanity",
 			type : "equipment",
-			image : spr_start_card_sm_remant_of_humanity,
-			image_hq : spr_start_card_hq_remant_of_humanity
+			image : spr_start_card_sm_remnant_of_humanity,
+			image_hq : spr_start_card_hq_remnant_of_humanity
 		},{ play_script : function (id) {
-			scr_equipment_remant_of_humanity_1 (id);
+			scr_equipment_remnant_of_humanity_1 (id);
 		}}]
 	];
 	// set defaults

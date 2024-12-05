@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_start_deck_editor_cancel",
+  "%Name":"obj_sde_parent",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_start_deck_editor_cancel",
+  "name":"obj_sde_parent",
   "overriddenProperties":[],
   "parent":{
     "name":"Bonfire",
@@ -26,21 +26,11 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v1","%Name":"characters","filters":[],"listItems":[
-        "\"herald\"",
-        "\"assassin\"",
-        "\"knight\"",
-        "\"sorcerer\"",
-      ],"multiselect":true,"name":"characters","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"herald\", \"knight\"","varType":6,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_icon_cancel",
-    "path":"sprites/spr_icon_cancel/spr_icon_cancel.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

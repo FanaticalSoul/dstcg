@@ -27,8 +27,8 @@ if 	(is_mouse_over_sprite()) {
 	}
 }
 // update icon
-if (step == 0) sprite_index = spr_menu_start_cancel;
-else if (step == 1) sprite_index = spr_menu_start_reset;
+if (step == 0) sprite_index = spr_icon_cancel;
+else if (step == 1) sprite_index = spr_icon_reset;
 // mouse over icon
 if 	(is_mouse_over_sprite()) {
 	if (mouse_check_button_pressed(mb_left)) {

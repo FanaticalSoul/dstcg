@@ -1,4 +1,4 @@
-function scr_equipment_remant_of_humanity_1 (_id) {
+function scr_equipment_remnant_of_humanity_1 (_id) {
 	with (_id) {
 		if (global.phase_c_act) {
 			if (!player.act_equip_use) {

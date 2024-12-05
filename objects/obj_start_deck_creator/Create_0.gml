@@ -1,32 +1,10 @@
 /// @description Insert description here
 
-// set deck varibles
-//visual_spoiler = instance_create_depth(x-208/2,y+sprite_width/2,depth-1,obj_visual_spoiler);
-view_spacing = card_height; // space between views
-
-visual_spoiler = instance_create_depth(0,0,depth-1,obj_start_deck_creator_spoiler, {deck_creator : id});
-//image_xscale = 2;
-deck_size = 0; // cards in deck
-deck_offset = 0;
-// set selection varibles
-var selection_max = 0;
-selection_max += 16; // Class Cards
-selection_max +=  1; // Remnant of Humanity Cards
-selection_max += 40; // Common Treasure Cards
-selection_max += 10; // Transposed Treasure Cards
-selection_max +=  4; // Stamina Cards
-selection_max +=  8; // Market Cards
-for (var i = 0; i < selection_max; i++) selection[i] = "";
-// initalize varibles
-selection_offset = 0;
-selection_size = 0;
-// add filtered varibles
-filtered_selection = undefined;
-selection_filter = "";
-filtered_selection_size = 0;
-// set selection // TF // WoL
+// use parent
+event_inherited();
+// set selection
 var i = 0;
-selection[i++] = "remant of humanity";
+selection[i++] = "remnant of humanity";
 selection[i++] = "talisman";
 selection[i++] = "kite shield";
 selection[i++] = "spear";
@@ -40,23 +18,14 @@ selection[i++] = "str stamina";
 selection[i++] = "int stamina";
 selection[i++] = "fth stamina";
 selection_size = i;
-
-
-//selected = false;
-//card_stats = start_card_stats;
-//selection_size = 9; // humanity, stamina, 4 equipments
-
-for (i = 0; i < deck_max; i++) deck[i] = "";
-
-//y_view = 700;
-// have deck act as a psuedo-hand
-
-
+// set deck
+set_sde_deck(false);
+/*
 function scr_handle_deck_edit (_over_card,_over_card_stats) {
 	// on [ mouse left  click ] // add card to deck
 	if (mouse_check_button_pressed(mb_left)) {
 		// check card type and assossiated limits
-		if (_over_card_stats[0].type == "equipment" && _over_card != "remant of humanity") {
+		if (_over_card_stats[0].type == "equipment" && _over_card != "remnant of humanity") {
 			var _card_copy_count = 0;
 			for (var j = 0; j < deck_size; j++) {
 				if (deck[j] == _over_card) _card_copy_count ++;
@@ -92,6 +61,7 @@ function scr_handle_deck_edit (_over_card,_over_card_stats) {
 	// sort deck
 	array_sort(deck,false);
 }
+*/
 
 /// @function					is_mouse_over_display_card(card_num, [offset_x], [offset_y]);
 /// @param {real} card_num		displayed card number

@@ -18,7 +18,7 @@ if (step > -1) {
 	else if (characters[step] == "sorcerer") sprite_index = spr_icon_character_sorcerer;
 	//else sprite_index = spr_menu_start_cancel;
 }
-else sprite_index = spr_menu_start_cancel;
+else sprite_index = spr_icon_reset;
 // mouse over icon
 if 	(is_mouse_over_sprite()) {
 	if (mouse_check_button_pressed(mb_left)) {
@@ -97,7 +97,7 @@ if 	(is_mouse_over_sprite()) {
 			}
 		}
 		else {
-			// cancel button
+			// reset button
 			if (obj_start_deck_creator.deck_size > 0) {
 				with (obj_start_deck_creator) {
 					for (var i = 0; i < deck_size; i++) deck[i] = "";
@@ -105,6 +105,8 @@ if 	(is_mouse_over_sprite()) {
 					deck_offset = 0;
 				}
 			}
+			// unselect character
+			with (obj_sdc_selection_character) selected = "";
 		}
 	}
 }
