@@ -32,9 +32,9 @@ if (instance_exists(player)) {
 							// save game // TF
 							with (player) {
 								if (associated_instances_exist()) {
-									save_game_encounter(id);
+									if (mulligan_candidate(hand)) save_game_encounter(id);
 									// skip mulligan phase if mulligan phase is invalid
-									if (!mulligan_candidate(hand)) {
+									else {
 										// go to next phase of game
 										with (obj_encounter_system) {
 											if (alarm[1] == -1) alarm[1] = 1;
