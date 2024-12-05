@@ -3,12 +3,13 @@
   "%Name":"obj_start_deck_creator",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_start_deck_creator",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_sde_parent","path":"objects/obj_sde_parent/obj_sde_parent.yy",},"propertyId":{"name":"deck_exists","path":"objects/obj_sde_parent/obj_sde_parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"False",},
+  ],
   "parent":{
     "name":"Deck Construction",
     "path":"folders/Objects/Deck Construction.yy",
@@ -37,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_reveal_board",
-    "path":"sprites/spr_reveal_board/spr_reveal_board.yy",
+    "name":"spr_selection_board",
+    "path":"sprites/spr_selection_board/spr_selection_board.yy",
   },
   "spriteMaskId":null,
   "visible":true,

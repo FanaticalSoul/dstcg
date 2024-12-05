@@ -259,7 +259,6 @@ function get_visible_selection (deck_exists = true) {
 			}
 		}
 	}
-	sout(_visible_selection);
 	return _visible_selection;
 }
 

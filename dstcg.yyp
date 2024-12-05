@@ -407,6 +407,7 @@
     {"id":{"name":"spr_sde_display_1_backing","path":"sprites/spr_sde_display_1_backing/spr_sde_display_1_backing.yy",},},
     {"id":{"name":"spr_sde_display_2_backing","path":"sprites/spr_sde_display_2_backing/spr_sde_display_2_backing.yy",},},
     {"id":{"name":"spr_sde_display_3_backing","path":"sprites/spr_sde_display_3_backing/spr_sde_display_3_backing.yy",},},
+    {"id":{"name":"spr_selection_board","path":"sprites/spr_selection_board/spr_selection_board.yy",},},
     {"id":{"name":"spr_sheet_01","path":"sprites/spr_sheet_01/spr_sheet_01.yy",},},
     {"id":{"name":"spr_sheet_02","path":"sprites/spr_sheet_02/spr_sheet_02.yy",},},
     {"id":{"name":"spr_sheet_03","path":"sprites/spr_sheet_03/spr_sheet_03.yy",},},
