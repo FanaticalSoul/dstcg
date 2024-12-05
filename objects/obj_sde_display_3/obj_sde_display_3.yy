@@ -1,15 +1,17 @@
 {
   "$GMObject":"",
-  "%Name":"obj_sde_display_2",
+  "%Name":"obj_sde_display_3",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_sde_display_2",
-  "overriddenProperties":[],
+  "name":"obj_sde_display_3",
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_sde_display","path":"objects/obj_sde_display/obj_sde_display.yy",},"propertyId":{"name":"deck_editor","path":"objects/obj_sde_display/obj_sde_display.yy",},"resource":{"name":"obj_start_deck_creator","path":"objects/obj_start_deck_creator/obj_start_deck_creator.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_start_deck_creator",},
+  ],
   "parent":{
-    "name":"Bonfire",
-    "path":"folders/Objects/Bonfire.yy",
+    "name":"Deck Construction",
+    "path":"folders/Objects/Deck Construction.yy",
   },
   "parentObjectId":{
     "name":"obj_sde_display",
@@ -33,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_sde_display_2_backing",
-    "path":"sprites/spr_sde_display_2_backing/spr_sde_display_2_backing.yy",
+    "name":"spr_sde_display_3_backing",
+    "path":"sprites/spr_sde_display_3_backing/spr_sde_display_3_backing.yy",
   },
   "spriteMaskId":null,
   "visible":true,
