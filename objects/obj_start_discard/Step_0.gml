@@ -44,4 +44,10 @@ if (instance_exists(player)) { // TF // only step if player exists
 		discard_reveal_offset = 0;
 		discard_reveal = !discard_reveal; // toggle reveal state
 	}
+	//* visual spoiler // v0.1.3-alpha
+	if (phase_active() && discard_size > 0 && !discard_reveal && !player.deck.deck_reveal) {
+		var _card_stats = card_get_stats(start_card_stats, discard[discard_size-1]);
+		spoil_revealed_card(_card_stats[0].image_hq, x, y);
+	}
+	// visual spoiler /*/
 }

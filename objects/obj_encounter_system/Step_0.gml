@@ -10,8 +10,7 @@ if (instance_exists(player)) {
 			}
 		}
 		// check if no phase is currently active
-		else if (!global.phase_c_place && !global.phase_mulligan && !global.phase_e_place && 
-		!global.phase_e_act && !global.phase_react && !global.phase_c_act) {
+		else if (!phase_active()) {
 			// start mulligan phase ( 2 )
 			if (instance_exists(e_deck)) {
 				if (player.hand_size == hand_max) {

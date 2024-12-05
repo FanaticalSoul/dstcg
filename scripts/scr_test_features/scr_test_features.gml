@@ -260,3 +260,25 @@ function draw_card_conditions (card_id = id) {
 		}
 	}
 }
+
+
+
+
+
+function spoil_revealed_card (sprite, x_cord = x, y_cord = y) {
+	if (mouse_check_button(mb_right)) {
+		if (x_cord - card_width/2 <= mouse_x && mouse_x <= x_cord + card_width/2 &&
+		y_cord - card_height/2 <= mouse_y && mouse_y <= y_cord + card_height/2) {
+			with (obj_visual_spoiler) {
+				sprite_index = sprite;
+				visible = true;
+			}
+		}
+	}
+}
+
+function phase_active () {
+	if (!global.phase_c_place && !global.phase_mulligan && !global.phase_e_place && 
+	!global.phase_e_act && !global.phase_react && !global.phase_c_act) return false;
+	return true;
+}

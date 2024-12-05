@@ -32,9 +32,3 @@ if (!shuffled) {
 }
 // log creation
 sout("created start deck");
-
-
-
-
-	
-	

@@ -5,9 +5,12 @@ if (instance_exists(deck)) { // TF // only step if deck exists
 	if (is_mouse_over_card()) {
 		// hold [ mouse right ] // visual spoiler // take into account invisibility
 		if (mouse_check_button(mb_right) && card_stats != {}) {
-			if (!is_invisible()) {
-				card_hq.sprite_index = card_stats.image_hq;
-				card_hq.visible = true;
+			if (!is_invisible() && instance_exists(obj_player)) {
+				// if the player isn't revealing their deck or discard
+				if (!(obj_player.deck.deck_reveal || obj_player.discard.discard_reveal)) {
+					card_hq.sprite_index = card_stats.image_hq;
+					card_hq.visible = true;
+				}
 			}
 		}
 	}
