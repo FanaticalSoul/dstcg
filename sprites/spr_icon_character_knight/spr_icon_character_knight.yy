@@ -19,8 +19,8 @@
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"e05a953d-c7e6-44be-a0a9-6d12f1794823","blendMode":0,"displayName":"border","isLocked":false,"name":"e05a953d-c7e6-44be-a0a9-6d12f1794823","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"b3e1267c-25e5-441d-ac17-393fee5f2baa","blendMode":0,"displayName":"default","isLocked":false,"name":"b3e1267c-25e5-441d-ac17-393fee5f2baa","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"0d0e7a5e-4994-448d-8086-fa8f710fe23b","blendMode":0,"displayName":"default","isLocked":false,"name":"0d0e7a5e-4994-448d-8086-fa8f710fe23b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e05a953d-c7e6-44be-a0a9-6d12f1794823","blendMode":0,"displayName":"background","isLocked":false,"name":"e05a953d-c7e6-44be-a0a9-6d12f1794823","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_icon_character_knight",
   "nineSlice":null,
