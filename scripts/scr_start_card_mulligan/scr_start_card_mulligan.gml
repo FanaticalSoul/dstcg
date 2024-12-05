@@ -5,17 +5,7 @@
 
 function start_card_mulligan(player_id = id) {
 	with (player_id) {
-		var _flag = true; // valid mulligan
-		for (var i = 0; i < hand_size; i++) {
-			if (hand[i].card_stats[0].type == "equipment") {
-				// check if this is an invalid mulligan
-				if (hand[i].card_stats[0].attack != "none") {
-					_flag = false;
-					break;
-				}
-			}
-		}
-		if (_flag) {
+		if (mulligan_candidate(hand)) {
 			// take mulligan
 			while (hand_size > 0) {
 				//sout(hand_size);
@@ -28,5 +18,14 @@ function start_card_mulligan(player_id = id) {
 			}
 		}
 	}
-	//return;
+}
+
+function mulligan_candidate (hand) {
+	// check if this is an invalid mulligan
+	for (var i = 0; i < array_length(hand); i++) {
+		if (hand[i].card_stats[0].type == "equipment") {
+			if (hand[i].card_stats[0].attack != "none") return false;
+		}
+	}
+	return true;
 }
