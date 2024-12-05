@@ -318,64 +318,52 @@ function scr_stamina_cost (_selection_stamina, _stamina_cost) {
 // combine the three stamina types togeather to make the stamina payment user dependent // WoL
 function get_stamina_options (selection_stamina, stamina_cost) {
 	// set cost
+	var _stamina_cost = clone_array(stamina_cost);
 	var _cost = clone_array(stamina_cost);
 	// check large stamina contributions first
 	var _stamina_used = [];
-	if (get_csc(stamina_cost)>0) {
+	if (get_csc(_stamina_cost)>0) {
 		for (var i = 0; i < array_length(selection_stamina); i++) {
 			// if large stamina
 			var _card_stats = selection_stamina[i].card_stats;
 			if (is_stamina_standard(_card_stats, 2)) {
-				var _stamina_types = array_length(_card_stats[1].stamina);
-				for (var j = 0; j < _stamina_types; j++) {
-					 if (_cost[j] > 0) _cost[j] -= _card_stats[1].stamina[j];
-					 else _cost[_stamina_types] -= _card_stats[1].stamina[j];
-				}
-				for (var j = 0; j < array_length(_cost); j++) _cost[j] = max(_cost[j], 0);
+				_cost = update_stamina_cost(_cost, _card_stats[1].stamina);
 				// if this stamina reduced the cost
-				if (get_csc(_cost)<get_csc(stamina_cost)) {
-					stamina_cost = _cost; // adjust cost
+				if (get_csc(_cost)<get_csc(_stamina_cost)) {
+					_stamina_cost = _cost; // adjust cost
 					array_push(_stamina_used, selection_stamina[i]);
 				}
 			}
-			if (get_csc(stamina_cost) <= 0) break; // end loop
+			if (get_csc(_stamina_cost) <= 0) break; // end loop
 		}
 	}
+	//sout(["stamina used (+)",_stamina_used]);
 	// check normal stamina contributions second
-	if (get_csc(stamina_cost)>0) {
+	if (get_csc(_stamina_cost)>0) {
 		for (var i = 0; i < array_length(selection_stamina); i++) {
 			// if standard stamina
 			var _card_stats = selection_stamina[i].card_stats;
 			if (is_stamina_standard(_card_stats)) {
-				var _stamina_types = array_length(_card_stats[1].stamina);
-				for (var j = 0; j < _stamina_types; j++) {
-					 if (_cost[j] > 0) _cost[j] -= _card_stats[1].stamina[j];
-					 else _cost[_stamina_types] -= _card_stats[1].stamina[j];
-				}
-				for (var j = 0; j < array_length(_cost); j++) _cost[j] = max(_cost[j], 0);
+				_cost = update_stamina_cost(_cost, _card_stats[1].stamina);
 				// if this stamina reduced the cost
-				if (get_csc(_cost)<get_csc(stamina_cost)) {
-					stamina_cost = _cost; // adjust cost
+				if (get_csc(_cost)<get_csc(_stamina_cost)) {
+					_stamina_cost = _cost; // adjust cost
 					array_push(_stamina_used, selection_stamina[i]);
+					sout(selection_stamina[i]);					
 				}
 			}
-			if (get_csc(stamina_cost) <= 0) break; // end loop
+			if (get_csc(_stamina_cost) <= 0) break; // end loop
 		}
 	}
-	//sout(_stamina_used);
+	//sout(["stamina used ( )",_stamina_used]);
 	// this is the complex bit
 	//var _payment_options = [stamina_cost];
 	//var _payment_options = [stamina_cost];
 	//sout("stamina cost "+string(stamina_cost));
-	var _payment_options = [stamina_cost];
+	var _payment_options = [_stamina_cost];
 	var _payment_options_id = [_stamina_used];
-	/*
-	for (var i = 0; i < array_length(selection_stamina); i++) {
-		sout(selection_stamina[i].card_stats[0].name);
-	}
-	*/
 	
-	if (get_csc(stamina_cost)>0) {
+	if (get_csc(_stamina_cost)>0) {
 		for (var i = 0; i < array_length(selection_stamina); i++) {
 			// if optional stamina
 			var _card_stats = selection_stamina[i].card_stats;
@@ -472,7 +460,7 @@ function get_stamina_options (selection_stamina, stamina_cost) {
 	
 	
 	
-	if (_selected_option == -1) return get_csc(stamina_cost);
+	if (_selected_option == -1) return get_csc(_stamina_cost);
 	else return 0;
 	
 	/*
@@ -517,11 +505,21 @@ function is_stamina_split (card_stats) {
 }
 
 
+
+
+function update_stamina_cost (cost, stamina) {
+	var _cost = clone_array(cost);
+	var _stamina_types = array_length(stamina);
+	for (var i = 0; i < _stamina_types; i++) {
+		if (_cost[i] > 0) _cost[i] -= stamina[i];
+		else if (_cost[_stamina_types] > 0) _cost[_stamina_types] -= stamina[i];
+	}
+	for (var i = 0; i < array_length(_cost); i++) _cost[i] = max(_cost[i], 0);
+	sout([cost, _cost]);
+	return _cost;
+}
+
 //* CiD //
-
-
-
-
 
 
 
