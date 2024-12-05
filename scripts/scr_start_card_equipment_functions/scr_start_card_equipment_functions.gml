@@ -308,58 +308,17 @@ function scr_resolve_attack (act_num, card_id) {
 
 
 function scr_stamina_cost (_selection_stamina, _stamina_cost) {
-	var _tmp_stamina_cost = [];
-	for (var i = 0; i < array_length(_stamina_cost); i++) array_push(_tmp_stamina_cost, _stamina_cost[i]);
-	
-	get_stamina_options(_selection_stamina, _tmp_stamina_cost);
-
-	
-	////////////////// DO NOT REMOVE //////////////////////////
-	/*
-	var _total_stamina = [0,0,0,0];
-	for (var i = 0; i < array_length(_selection_stamina); i++) {
-		var _card_stats = _selection_stamina[i].card_stats;
-		for (var j = 0; j < array_length(_total_stamina); j++) {
-			_total_stamina[j] += _card_stats[1].stamina[j];
-			if (array_length(_card_stats) == 3) _total_stamina[j] += _card_stats[2].stamina[j];
-		}
-	}
-	// pay cost
-	var i = 0;
-	while (i < array_length(_total_stamina) && (_stamina_cost[0] > 0 || 
-	_stamina_cost[1] > 0 || _stamina_cost[2] > 0 || _stamina_cost[3] > 0 ||
-	_stamina_cost[4] > 0)) {
-		if (_total_stamina[i] > 0) {
-			while (_total_stamina[i] > 0 && _stamina_cost[i] > 0) {
-				// pay normal cost
-				_total_stamina[i] --;
-				_stamina_cost[i] --;
-			}
-			while (_total_stamina[i] > 0 && _stamina_cost[4] > 0) {
-				// pay generic cost
-				_total_stamina[i] --;
-				_stamina_cost[4] --;
-			}
-		}
-		i++;
-	}
-	*/
-	var _stamina_cost_remaining = 0;
-	for (var i = 0; i < array_length(_stamina_cost); i++) {
-		_stamina_cost_remaining += _stamina_cost[i];
-	}
-	return _stamina_cost_remaining; // get remaining stamina cost
-	//return get_csc(_stamina_cost); // get remaining stamina cost
+	return get_stamina_options(_selection_stamina, clone_array(_stamina_cost));
 }
 
 //* CiD //
 
 // always room for improvement of this algorithim
 // this algrothim will begin quite inefficent // WoL
+// combine the three stamina types togeather to make the stamina payment user dependent // WoL
 function get_stamina_options (selection_stamina, stamina_cost) {
 	// set cost
-	var _cost = [];
-	for (var i = 0; i < array_length(stamina_cost); i++) array_push(_cost, stamina_cost[i]);
+	var _cost = clone_array(stamina_cost);
 	// check large stamina contributions first
 	var _stamina_used = [];
 	if (get_csc(stamina_cost)>0) {
@@ -407,41 +366,33 @@ function get_stamina_options (selection_stamina, stamina_cost) {
 	// this is the complex bit
 	//var _payment_options = [stamina_cost];
 	//var _payment_options = [stamina_cost];
-	sout("stamina cost "+string(stamina_cost));
+	//sout("stamina cost "+string(stamina_cost));
 	var _payment_options = [stamina_cost];
-	
+	var _payment_options_id = [_stamina_used];
+	/*
+	for (var i = 0; i < array_length(selection_stamina); i++) {
+		sout(selection_stamina[i].card_stats[0].name);
+	}
+	*/
 	
 	if (get_csc(stamina_cost)>0) {
 		for (var i = 0; i < array_length(selection_stamina); i++) {
 			// if optional stamina
 			var _card_stats = selection_stamina[i].card_stats;
 			if (is_stamina_split(_card_stats)) {
-				//var _stamina_options = [];
-				sout("options");
-				// set new payment options
-				/*
-				var _new_payment_options = [];
-				for (var j = 0; j < array_length(_payment_options); j++) {
-					array_push(_new_payment_options, _payment_options[j]);
-				}
-				*/
 				var _new_payment_options = clone_array(_payment_options);
+				var _new_payment_options_id = clone_array(_payment_options_id);
 				// go through choices
 				for (var j = 1; j < array_length(_card_stats); j++) {
 					var _stamina_option = _card_stats[j].stamina;
-					
-					
-					
-					
-					
-					
-					sout(["option: ",_stamina_option]);
 					var _stamina_types = array_length(_stamina_option);					
 					for (var k = 0; k < _stamina_types; k++) {
 						if (_stamina_option[k]>0) {
 							for (var l = 0; l < array_length(_payment_options); l++) {
 								//var _payment_option = _payment_options[l];
 								var _payment_option = clone_array(_payment_options[l]);
+								var _payment_option_id = clone_array(_payment_options_id[l]);
+								array_push(_payment_option_id, selection_stamina[i]);
 								var _flag = false;
 								if (_payment_option[k] > 0) {
 									_payment_option[k] -= _stamina_option[k];
@@ -454,56 +405,75 @@ function get_stamina_options (selection_stamina, stamina_cost) {
 								if (_flag) {
 									for (var m = 0; m < array_length(_payment_option); m++) _payment_option[m] = max(_payment_option[m], 0);
 									array_push(_new_payment_options, _payment_option);
+									sout(_new_payment_options_id);
+									array_push(_new_payment_options_id, _payment_option_id);
+									sout(_new_payment_options_id);
+									//if (get_csc(_payment_option) == 0) break;
 								}
 							}
-							/*
-							if (k==0) sout(["dex", _stamina_option[k]]);
-							if (k==1) sout(["int", _stamina_option[k]]);
-							if (k==2) sout(["str", _stamina_option[k]]);
-							if (k==3) sout(["fth", _stamina_option[k]]);
-							*/
 						}
 					}
-					
-					
-					/*
-					
-					for (var k = 0; k < _stamina_types; k++) {
-						 if (_cost[k] > 0) _cost[k] -= _stamina_option[k];
-						 else _cost[_stamina_types] -= _stamina_option[k];
-					}
-					for (var k = 0; k < array_length(_cost); k++) _cost[k] = max(_cost[k], 0);
-					// if this stamina reduced the cost
-					if (get_csc(_cost)<get_csc(stamina_cost)) {
-						// CiD
-					
-					
-						//stamina_cost = _cost; // adjust cost
-					
-						///////////////array_push(_stamina_used, selection_stamina[i]);
-					}
-					*/
-					
 				}
 				// override old payment options
-				_payment_options = _new_payment_options;
+				_payment_options = clone_array(_new_payment_options);
+				_payment_options_id = clone_array(_new_payment_options_id);
 			}
 			// end loop
 			var _flag = false;
 			for (var j = 0; j < array_length(_payment_options); j++) {
-				if (get_csc(_payment_options[j])) {
+				if (get_csc(_payment_options[j])==0) {
 					_flag = true;
 					break;
 				}
 			}
 			if (_flag) break;
 		}
+		
+		
+		
+		
+		
+	
+		
+		//var _stamina_se
+	
 	}
+	// unselect unused stamina
 	sout(_payment_options);
+	sout(_payment_options_id);
+	
+	var _selected_option = -1;
+	for (var i = 0; i < array_length(_payment_options); i++) {
+		if (get_csc(_payment_options[i])==0) {
+			_selected_option = i;
+			break;
+		}
+	}
+	if (_selected_option != -1) {
+		var _payment_option_selected = clone_array(_payment_options_id[_selected_option]);
+		for (var i = 0; i < array_length(selection_stamina); i++) {
+			var _flag = true; // unselect
+			for (var j = 0; j < array_length(_payment_option_selected); j++) {
+				//sout(["trigger",selection_stamina[i],_payment_option_selected[j]]);
+				if (selection_stamina[i] == _payment_option_selected[j]) {
+					//sout("trigger");
+					_flag = false;
+					break;
+				}
+			}
+			// unselect stamina
+			if (_flag) {
+				//sout(["unselect",selection_stamina[i],selection_stamina]);
+				start_card_stamina_unselect(selection_stamina[i]);
+				i--;
+			}
+		}
+	}
 	
 	
 	
-	
+	if (_selected_option == -1) return get_csc(stamina_cost);
+	else return 0;
 	
 	/*
 	//

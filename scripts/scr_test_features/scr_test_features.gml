@@ -66,7 +66,7 @@ function card_get_stats (card_stats, card_name) {
 function get_csc (stamina_cost) {
 	var _csc = 0;
 	for (var i = 0; i < array_length(stamina_cost); i++) {
-		_csc += stamina_cost[i];
+		_csc += max(stamina_cost[i],0);
 	}
 	return int64(_csc);
 }
