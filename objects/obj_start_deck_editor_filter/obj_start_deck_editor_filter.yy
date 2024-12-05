@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_menu_start_null",
-    "path":"sprites/spr_menu_start_null/spr_menu_start_null.yy",
+    "name":"spr_menu_start_filter",
+    "path":"sprites/spr_menu_start_filter/spr_menu_start_filter.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -397,6 +397,7 @@
     {"id":{"name":"spr_menu_main_arrow","path":"sprites/spr_menu_main_arrow/spr_menu_main_arrow.yy",},},
     {"id":{"name":"spr_menu_main","path":"sprites/spr_menu_main/spr_menu_main.yy",},},
     {"id":{"name":"spr_menu_start_equipment","path":"sprites/spr_menu_start_equipment/spr_menu_start_equipment.yy",},},
+    {"id":{"name":"spr_menu_start_filter","path":"sprites/spr_menu_start_filter/spr_menu_start_filter.yy",},},
     {"id":{"name":"spr_menu_start_null","path":"sprites/spr_menu_start_null/spr_menu_start_null.yy",},},
     {"id":{"name":"spr_menu_start_stamina","path":"sprites/spr_menu_start_stamina/spr_menu_start_stamina.yy",},},
     {"id":{"name":"spr_menu_start_weapons","path":"sprites/spr_menu_start_weapons/spr_menu_start_weapons.yy",},},
