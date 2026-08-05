@@ -285,7 +285,7 @@
 ## Absolutely Vital Sources
 <ol>
 	<li><a href="https://boardgamer.ru/forum/index.php?topic=18806.msg183162#msg183162">Dark Souls: The Card Game Scan Request Reply ( TheGent )</a> for card scans</li>
-	<li><a href="https://youtube.com/playlist?list=PLRezuJB81E7SzoGWpvP1M9kWJSVie0gK5&si=snVl_FhaiOmIfy84">Pokemon Card Game Tutorial ( ByeTodd )</a></li>
+	<li><a href="https://youtube.com/playlist?list=PLRezuJB81E7SzoGWpvP1M9kWJSVie0gK5&si=snVl_FhaiOmIfy84">Pokemon Card Game Tutorial ( ByeTodd )</a> as a general tutorial for card game design in Game Maker Studio</li>
 	<li><a href="https://www.piskelapp.com/">Piskel</a> as a sprite editing tool</li>
 	<li><a href="https://cdn.1j1ju.com/medias/d3/6f/a4-dark-souls-the-card-game-rulebook.pdf">Dark Souls: The Card Game Rulebook</a> for game rules</li>
 </ol>
@@ -318,6 +318,7 @@
 		<h4><a href="https://youtu.be/i6aEyrRIzTY">How to Make a Save and Load System in GameMaker ( GameMaker )</a></h4>
 	</details></li>
 </ol>
+<h4>sprites</h4>
 <ol>
 	<li><a href="https://www.piskelapp.com/">Piskel</a> as a sprite editing tool</li>
 	<li><a href="https://boardgamer.ru/forum/index.php?topic=18806.msg183162#msg183162">Dark Souls: The Card Game Scan Request Reply ( TheGent )</a> for card scans</li>
@@ -340,7 +341,7 @@
 </details>
 
 <details>
-<summary>bugs in ```v0.1.3-alpha```</summary>
+<summary>bugs in v0.1.3-alpha</summary>
 <ul>
 	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/51">talisman healing large causes FPS drop</a> (resolved in capstone/itch.io)</li>
 	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/45">conditional FPS drop (vague)</a> (resolved in capstone/itch.io)</li>
