@@ -338,6 +338,19 @@
 	<li>Inventory ( not shown )</li>
 </ul>
 </details>
+
+<details>
+<summary>bugs in ```v0.1.3-alpha```</summary>
+<ul>
+	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/51">talisman healing large causes FPS drop</a> (resolved in capstone/itch.io)</li>
+	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/45">conditional FPS drop (vague)</a> (resolved in capstone/itch.io)</li>
+	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/30">horizontal push bug</a> (resolved in capstone/itch.io)</li>
+	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/27">deck editor reset button bug</a> (resolved in capstone/itch.io)</li>
+	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/26">standard ranged attack action sequencing bug</a></li>
+	<li><a href="https://github.com/FanaticalSoul/dstcg/issues/22">condition alignment</a> (graphical) (resolved in capstone/itch.io)</li>
+</ul>
+</details>
+
 <details>
 <summary>Login Information</summary>
 <p>you can ask me to make you an account for the hosted game on itch or use one bellow ( "tester" will probably break if multiple people use it at once )</p>
